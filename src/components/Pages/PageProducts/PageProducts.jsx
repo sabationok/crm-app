@@ -9,14 +9,14 @@ const PageProducts = () => {
     <PageProvider>
       <div className={s.pageFlex}>
         <section className={s.sectionTopFlex}>
-          <Block blockFilter title="Список товарів" iconId="list" />
+          <Block blockFilter title="Список товарів" iconId="list" type="filtered"/>
         </section>
         <section className={s.sectionBottomFlex}>
           <div className={s.sectionInnerLeft}>
-            <Block title="Деталі" iconId="info" />
+            <Block title="Деталі" iconId="info"type="primary" />
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="Склад" iconId="storage" />
+            <Block title="Склад" iconId="storage" type="primary"/>
           </div>
         </section>
       </div>

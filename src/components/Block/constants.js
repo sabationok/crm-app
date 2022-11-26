@@ -1,4 +1,4 @@
-export const actionsBlockList = [
+export const actionsBlockLarge = [
   'search',
   'filter',
   'link',

@@ -41,19 +41,21 @@ const PageOrders = () => {
     <PageProvider>
       <div className={s.pageFlex}>
         <section className={s.sectionTopFlex}>
-          <Block blockFilter title="Список замовлень" iconId="list" tableTitles={ordersTableTitles}>
+          <Block blockFilter title="Замовлення" iconId="list" tableTitles={ordersTableTitles} type="filtered">
             <TableList />
           </Block>
         </section>
 
         <section className={s.sectionBottomFlex}>
           <div className={s.sectionInnerLeft}>
-            <Block title="Деталі" iconId="info">
-              
+            <Block title="Деталі" iconId="info" type="primary">
+              <span>Order form</span>
             </Block>
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="ТТН" iconId="ttn" />
+            <Block title="ТТН" iconId="ttn" type="primary">
+              <span>Stock table form</span>
+            </Block>
           </div>
         </section>
       </div>

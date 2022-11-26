@@ -12,15 +12,15 @@ const PageSettings = props => {
     <PageProvider>
       <div className={s.pageFlex}>
         <section className={s.sectionTopFlex}>
-          <Block blockFilter title="Налаштування" iconId="list" />
+          <Block blockFilter title="Налаштування" iconId="list" type="filtered"/>
         </section>
 
         <section className={s.sectionBottomFlex}>
           <div className={s.sectionInnerLeft}>
-            <Block title="Налаштування" iconId="settings" />
+            <Block title="Налаштування" iconId="person"type="primary" />
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="Налаштування" iconId="settings" />
+            <Block title="Налаштування" iconId="settings" type="primary"/>
           </div>
         </section>
       </div>
