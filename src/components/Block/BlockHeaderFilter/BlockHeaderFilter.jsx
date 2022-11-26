@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import BlockFounder from './BlockFounder/BlockFounder';
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import BlockActions from '../BlockActions/BlockActions';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 
