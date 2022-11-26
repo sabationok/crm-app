@@ -1,7 +1,7 @@
 import React from 'react';
 import TableHeadRow from './TableRows/TableHeadRow';
 
-import s from './BlockTable.module.scss';
+import s from './TableList.module.scss';
 
 const TableHead = () => {
   return (

@@ -6,23 +6,23 @@ import TableContext from './TableContext';
 import TableHead from './TableHead';
 import TableBody from './TableBody';
 
-import scss from './BlockTable.module.scss';
+import s from './TableList.module.scss';
 
-const BlockTable = ({ titlesArr, tableParams }) => {
+const TableList = props => {
   return (
     <TableContext
       value={{
-        tableParams: tableParams,
+        ...props,
       }}
     >
-      <div className={[scss.table, scss.orders]}>
-        <TableHead/>
-        <TableBody/>
+      <div className={[s.table, s.orders]}>
+        <TableHead />
+        <TableBody />
       </div>
     </TableContext>
   );
 };
 
-BlockTable.propTypes = {};
+TableList.propTypes = {};
 
-export default BlockTable;
+export default TableList;

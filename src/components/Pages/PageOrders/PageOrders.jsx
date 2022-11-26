@@ -1,6 +1,5 @@
 // import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import BlockWithList from 'components/BlockWithList/BlockWithList';
 import Block from 'components/Block/Block';
 import { PageProvider } from 'contexts/PageContext';
 // import { useDispatch, useSelector } from 'react-redux';
@@ -10,8 +9,9 @@ import { PageProvider } from 'contexts/PageContext';
 //   actionChangeSearchQuery,
 //   actionChangeSearchParam,
 // } from 'redux/orders/ordersActions';
+import TableList from 'components/TableList/BlockTable';
 
-// import { ordersTableTitles } from 'data/ordersTableTitles';
+import { ordersTableTitles } from 'data/ordersTableTitles';
 
 import s from './PageOrders.module.scss';
 
@@ -41,19 +41,16 @@ const PageOrders = () => {
     <PageProvider>
       <div className={s.pageFlex}>
         <section className={s.sectionTopFlex}>
-          {/* <BlockWithList
-            settings={{
-              blockParams: blockParams,
-              blockTableParams: blockTableParams,
-              blockFilterParams: blockFilterParams,
-            }}
-          /> */}
-          <Block blockFilter title="Список замовлень" iconId="list" />
+          <Block blockFilter title="Список замовлень" iconId="list" tableTitles={ordersTableTitles}>
+            <TableList />
+          </Block>
         </section>
 
         <section className={s.sectionBottomFlex}>
           <div className={s.sectionInnerLeft}>
-            <Block title="Деталі" iconId="info" />
+            <Block title="Деталі" iconId="info">
+              
+            </Block>
           </div>
           <div className={s.sectionInnerRight}>
             <Block title="ТТН" iconId="ttn" />
@@ -65,10 +62,7 @@ const PageOrders = () => {
 };
 
 PageOrders.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 };
 
 export default PageOrders;

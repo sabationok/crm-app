@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 
 import scss from './BlockFounder.module.scss';
 
-const BlockFounder = ({ blockFilterParams }) => {
+const BlockFounder = props => {
   const { tableTitles = [] } = useBlock();
 
   const [searchQuery, setSearchQuery] = useState('');
@@ -57,14 +57,14 @@ const BlockFounder = ({ blockFilterParams }) => {
   }, [searchParam, tableTitles]);
 
   useEffect(() => {
-    if (searchQuery === '') {
+    if (!searchQuery === '') {
       // dispatch(searchQueryAction(''));
       console.log(searchQuery);
     }
   }, [searchQuery]);
 
   useEffect(() => {
-    if (searchParam.name === '') {
+    if (!searchParam.name === '') {
       console.log(searchParam.name);
       // dispatch(searchParamAction(''));
     }
