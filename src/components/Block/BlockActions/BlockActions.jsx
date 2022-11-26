@@ -1,9 +1,10 @@
-import React from 'react';
-import SvgIcon from 'components/SvgIcon/SvgIcon';
+import React, { useState } from 'react';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
-import ButtonLink from 'components/ButtonLink/ButtonLink';
+import BlockPortal from '../BlockPortal';
+import { useBlock } from '../BlockContext';
 
 import s from './BlockActions.module.scss';
+
 const BlockActions = ({
   link = true,
   copy = true,
@@ -18,28 +19,90 @@ const BlockActions = ({
   exportDoc = true,
   importDoc = true,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const block = useBlock();
+  function handleOpenActions(evt) {
+    setIsOpen(!isOpen);
+  }
   return (
-    <div className={s.actionsContainer}>
-      <ButtonIcon iconId="actions-h" size="100%" />
-      <div className={s.actionsList}>
-        {link && (
-          <ButtonLink to="#" size="100%" className={s.hover}>
-            <SvgIcon iconId="link" size="100%" />
-          </ButtonLink>
-        )}
-        {copy && <ButtonIcon iconId="search" size="100%" className={s.hover} />}
-        {share && <ButtonIcon iconId="filter-on" size="100%" className={s.hover} />}
-        {refresh && <ButtonIcon iconId="copy" size="100%" className={s.hover} />}
-        {filter && <ButtonIcon iconId="share" size="100%" className={s.hover} />}
-        {search && <ButtonIcon iconId="refresh" size="100%" className={s.hover} />}
-        {editItem && <ButtonIcon iconId="edit" size="100%" className={s.hover} />}
-        {deleteItem && <ButtonIcon iconId="delete" size="100%" className={s.hover} />}
-        {createItem && <ButtonIcon iconId="plus" size="100%" className={s.hover} />}
-        {printDoc && <ButtonIcon iconId="print-on" size="100%" className={s.hover} />}
-        {exportDoc && <ButtonIcon iconId="upload" size="100%" className={s.hover} />}
-        {importDoc && <ButtonIcon iconId="download" size="100%" className={s.hover} />}
+    <>
+      <div className={s.actionsContainer}>
+        <ButtonIcon iconId={isOpen ? 'close' : 'actions-h'} size="100%" onClick={handleOpenActions} />
       </div>
-    </div>
+      <BlockPortal id={block.iconId}>
+        <div className={isOpen ? s.actionsBackdropOpen : s.actionsBackdrop} onClick={handleOpenActions}>
+          {isOpen && (
+            <ul className={s.actionsList}>
+              {copy && (
+                <li className={s.listItem}>
+                  <ButtonIcon iconId="link" size="100%" className={s.hover} />
+                </li>
+              )}
+              {copy && (
+                <li className={s.listItem}>
+                  <ButtonIcon iconId="search" size="100%" className={s.hover} />
+                </li>
+              )}
+              {share && (
+                <li className={s.listItem}>
+                  <ButtonIcon iconId="filter-on" size="100%" className={s.hover} />
+                </li>
+              )}
+              {refresh && (
+                <li className={s.listItem}>
+                  <ButtonIcon iconId="copy" size="100%" className={s.hover} />
+                </li>
+              )}
+              {filter && (
+                <li className={s.listItem}>
+                  <ButtonIcon iconId="share" size="100%" className={s.hover} />
+                </li>
+              )}
+              {search && (
+                <li className={s.listItem}>
+                  <ButtonIcon iconId="refresh" size="100%" className={s.hover} />
+                </li>
+              )}
+              {editItem && (
+                <li className={s.listItem}>
+                  {' '}
+                  <ButtonIcon iconId="edit" size="100%" className={s.hover} />
+                </li>
+              )}
+              {deleteItem && (
+                <li className={s.listItem}>
+                  <ButtonIcon iconId="delete" size="100%" className={s.hover} />
+                </li>
+              )}
+              {createItem && (
+                <li className={s.listItem}>
+                  {' '}
+                  <ButtonIcon iconId="plus" size="100%" className={s.hover} />
+                </li>
+              )}
+              {printDoc && (
+                <li className={s.listItem}>
+                  {' '}
+                  <ButtonIcon iconId="print-on" size="100%" className={s.hover} />
+                </li>
+              )}
+              {exportDoc && (
+                <li className={s.listItem}>
+                  {' '}
+                  <ButtonIcon iconId="upload" size="100%" className={s.hover} />
+                </li>
+              )}
+              {importDoc && (
+                <li className={s.listItem}>
+                  {' '}
+                  <ButtonIcon iconId="download" size="100%" className={s.hover} />
+                </li>
+              )}
+            </ul>
+          )}
+        </div>
+      </BlockPortal>
+    </>
   );
 };
 

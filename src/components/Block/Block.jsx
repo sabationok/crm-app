@@ -6,20 +6,18 @@ import BlockHeaderFilter from './BlockHeaderFilter/BlockHeaderFilter';
 import BlockHeaderLink from './BlockHeaderLink/BlockHeaderLink';
 import s from './Block.module.scss';
 
-const Block = ({
-  children,
-  title = 'Block',
-  iconId='info',
-  footer = true,
-  header = true,
-  style = {},
-  className = '',
-  inWork = false,
-
-  blockFilter = false,
-  blockFilterParams,
-  id,
-}) => {
+const Block = props => {
+  let {
+    children,
+    title = 'Block',
+    iconId = 'info',
+    footer = true,
+    header = true,
+    style = {},
+    className = '',
+    blockFilter = false,
+    blockFilterParams,
+  } = props;
   useEffect(() => {
     console.log(`small block '${title}'render`);
   }, [title]);
@@ -27,8 +25,8 @@ const Block = ({
   console.log('small block initialize');
   return (
     <>
-      <BlockContext>
-        <div className={blockClassName} style={style} id={id}>
+      <BlockContext {...props}>
+        <div className={blockClassName} style={style} >
           {header && blockFilter && (
             <BlockHeaderFilter
               blockFilter={blockFilter}
@@ -37,14 +35,16 @@ const Block = ({
               iconId={iconId}
             />
           )}
-          {header && !blockFilter && (
-            <BlockHeaderLink title={title} iconId={iconId} />
-          )}
-          <div className={s.content}>
+          {header && !blockFilter && <BlockHeaderLink title={title} iconId={iconId} />}
+          <div className={s.content} id={iconId}>
             <div className={s.overflow}>
               {children}
 
-              {inWork && <span className={s.inWork}>In work ...</span>}
+              {!children && (
+                <div className={s.inWork}>
+                  <span>In work ...</span>
+                </div>
+              )}
             </div>
           </div>
           {footer && <div className={s.footer}></div>}
@@ -52,13 +52,6 @@ const Block = ({
         {/* <BlockPortal >
         </BlockPortal> */}
       </BlockContext>
-      {/* <div className={s.block}>
-        <div className={s.header}>{selectedItemId}</div>
-        <div className={s.content}>
-          <div className={s.overflow} id={id}></div>
-        </div>
-        <div className={s.footer}></div>
-      </div> */}
     </>
   );
 };

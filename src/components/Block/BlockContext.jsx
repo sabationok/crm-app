@@ -1,13 +1,10 @@
 import { useContext, createContext } from 'react';
 
-export const BlockCNTXT = createContext();
-export const useBlock = () => useContext(BlockCNTXT);
+export const BlockProvider = createContext();
+export const useBlock = () => useContext(BlockProvider);
 
-const BlockContext = ({ children }) => {
-  const blockName = 'blockName';
-  return (
-    <BlockCNTXT.Provider value={{ blockName }}>{children}</BlockCNTXT.Provider>
-  );
+const BlockContext = props => {
+  return <BlockProvider.Provider value={{ ...props }}>{props.children}</BlockProvider.Provider>;
 };
 
 export default BlockContext;
