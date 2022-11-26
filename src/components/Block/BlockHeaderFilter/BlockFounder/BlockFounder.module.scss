@@ -4,7 +4,13 @@
 
   min-width: 100px;
   width: 100%;
-  max-width: 300px;
+  max-width: 200px;
+  @media screen and (min-width: 480px) {
+    max-width: 250px;
+  }
+  @media screen and (min-width: 768px) {
+    max-width: 350px;
+  }
 }
 .filterForm {
   display: grid;

@@ -104,7 +104,7 @@ const BlockFounder = ({ blockFilterParams }) => {
         </div>
 
         <button className={scss.button} type="submit">
-          <SvgIcon iconId="serch" size="24px" />
+          <SvgIcon iconId="search" size="24px" />
         </button>
       </form>
     </div>

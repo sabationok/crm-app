@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 import s from './Header.module.scss';
 const Header = () => {
   const pageLinks = [
-    { title: 'Головна', path: 'main', iconId: 'assignment-ok' },
-    { title: 'Товари', path: 'products', iconId: 'storage' },
-    { title: 'Замовлення', path: 'orders', iconId: 'list' },
+    { title: 'Головна', path: 'main', iconId: 'home' },
+    { title: 'Замовлення', path: 'orders', iconId: 'addtoCart' },
     { title: 'Повернення', path: 'returns', iconId: 'return' },
+    { title: 'Товари', path: 'products', iconId: 'storage' },
     { title: 'Статистика', path: 'statistics', iconId: 'statistics' },
     { title: 'Контрагенти', path: 'counterParty', iconId: 'persons' },
     { title: 'Налаштування', path: 'settings', iconId: 'settings' },
