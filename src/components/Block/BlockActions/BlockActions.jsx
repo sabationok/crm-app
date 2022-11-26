@@ -10,7 +10,7 @@ const BlockActions = () => {
   const [isOpen, setIsOpen] = useState(false);
   const block = useBlock();
   const memoizedActionsArr = useMemo(() => {
-    switch (block.iconId) {
+    switch (block.type) {
       case 'primary':
         return block.actionsBlockSmall;
 
@@ -20,7 +20,7 @@ const BlockActions = () => {
       default:
         return [];
     }
-  }, [block.actionsBlockLarge, block.actionsBlockSmall, block.iconId]);
+  }, [block.actionsBlockLarge, block.actionsBlockSmall, block.type]);
 
   // const actionsMap = {
   //   link: <ButtonIcon iconId="link" size="100%" className={s.hover} />,
