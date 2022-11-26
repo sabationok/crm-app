@@ -16,7 +16,6 @@ const Block = props => {
     className = '',
     blockFilter = false,
     blockFilterParams,
-    tableTitles = [],
   } = props;
   useEffect(() => {
     console.log(`small block '${title}'render`);
