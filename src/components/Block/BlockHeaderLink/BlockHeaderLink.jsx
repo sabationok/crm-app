@@ -1,11 +1,13 @@
 import React from 'react';
+import { lazy } from 'react';
 
 import SvgIcon from 'components/SvgIcon/SvgIcon';
-import BlockActions from '../BlockActions/BlockActions';
+import { useBlock } from '../BlockContext';
 
 import s from './BlockHeaderLink.module.scss';
-
-const BlockHeaderLink = ({ title = 'Title', subTitle = 'link', iconId = 'info' }) => {
+const BlockActions = lazy(() => import('../BlockActions/BlockActions'));
+const BlockHeaderLink = () => {
+  const { title = 'Title', subTitle = 'link', iconId = 'info' } = useBlock();
   return (
     <div className={s.header}>
       <SvgIcon iconId={iconId} size={'24px'} />

@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 // import PropTypes from 'prop-types';
-// import BlockPortal from './BlockPortal';
 import BlockContext from './BlockContext';
 import BlockHeaderFilter from './BlockHeaderFilter/BlockHeaderFilter';
 import BlockHeaderLink from './BlockHeaderLink/BlockHeaderLink';
@@ -17,6 +16,7 @@ const Block = props => {
     className = '',
     blockFilter = false,
     blockFilterParams,
+    tableTitles = [],
   } = props;
   useEffect(() => {
     console.log(`small block '${title}'render`);
@@ -26,7 +26,7 @@ const Block = props => {
   return (
     <>
       <BlockContext {...props}>
-        <div className={blockClassName} style={style} >
+        <div className={blockClassName} style={style}>
           {header && blockFilter && (
             <BlockHeaderFilter
               blockFilter={blockFilter}
@@ -49,8 +49,6 @@ const Block = props => {
           </div>
           {footer && <div className={s.footer}></div>}
         </div>
-        {/* <BlockPortal >
-        </BlockPortal> */}
       </BlockContext>
     </>
   );

@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 // import { useDispatch } from 'react-redux';
-// import { applyFounder } from '../../BlockUtils/founder';
+import { applyFounder } from '../../BlockUtils/founder';
+import { useBlock } from 'components/Block/BlockContext';
+import { toast } from 'react-toastify';
 
 import scss from './BlockFounder.module.scss';
 
 const BlockFounder = ({ blockFilterParams }) => {
-  // const {
-  //   tableTitles = [],
-  //   searchQueryAction,
-  //   searchParamAction,
-  // } = blockFilterParams;
+  const { tableTitles = [] } = useBlock();
+
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchParam, setSearchParam] = useState({ name: '' }); //!
-  const [isSelectOpen, seIsSelectOpen] = useState(false); //!
-  const [foundedData, ] = useState([]); //!
+  const [searchParam, setSearchParam] = useState({ name: '' });
+  const [isSelectOpen, seIsSelectOpen] = useState(false);
+  const [foundedData, setFoundedData] = useState([]);
   // const dispatch = useDispatch();
 
   const classOpen = [scss.customSelect, isSelectOpen && scss.isOpen].join(' ');
@@ -25,6 +24,11 @@ const BlockFounder = ({ blockFilterParams }) => {
   }
   function handleFormSubmit(evt) {
     evt.preventDefault();
+    if (searchQuery && searchParam.name) {
+      toast.info(`Ви шукали: '${searchQuery}' серед '${searchParam.name}'`);
+      return;
+    }
+    toast.error(`Не введено усіх параметрів пошуку`);
     // dispatch(searchQueryAction(searchQuery.trim()));
     // dispatch(searchParamAction(searchParam));
   }
@@ -39,25 +43,32 @@ const BlockFounder = ({ blockFilterParams }) => {
     let { target } = evt;
     setSearchParam({ ...searchParam, name: target.value });
   }
-  // useEffect(() => {
-  //   setFoundedData(
-  //     applyFounder({
-  //       searchParam: 'name',
-  //       searchQuery: searchParam.name,
-  //       data: tableTitles.filter(el => el?.filter && el?.visible),
-  //     })
-  //   );
-  // }, [searchParam, tableTitles]);
-  // useEffect(() => {
-  //   if (searchQuery === '') {
-  //     dispatch(searchQueryAction(''));
-  //   }
-  // }, [dispatch, searchQuery, searchQueryAction]);
-  // useEffect(() => {
-  //   if (searchParam.name === '') {
-  //     dispatch(searchParamAction(''));
-  //   }
-  // }, [dispatch, searchParam, searchParamAction]);
+  useEffect(() => {
+    if (tableTitles.length === 0) {
+      return;
+    }
+    setFoundedData(
+      applyFounder({
+        searchParam: 'name',
+        searchQuery: searchParam.name,
+        data: tableTitles.filter(el => el?.filter && el?.visible),
+      })
+    );
+  }, [searchParam, tableTitles]);
+
+  useEffect(() => {
+    if (searchQuery === '') {
+      // dispatch(searchQueryAction(''));
+      console.log(searchQuery);
+    }
+  }, [searchQuery]);
+
+  useEffect(() => {
+    if (searchParam.name === '') {
+      console.log(searchParam.name);
+      // dispatch(searchParamAction(''));
+    }
+  }, [searchParam]);
   return (
     <div className={scss.filterContainer}>
       <form
