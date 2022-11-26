@@ -13,13 +13,13 @@ import './index.scss';
 import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
+  <React.StrictMode>
   <Provider store={store}>
     <PersistGate persistor={persistor}>
-      <BrowserRouter basename="/crm_test-react-">
+      <BrowserRouter basename="/crm-app">
         <App />
       </BrowserRouter>
     </PersistGate>
   </Provider>
-  // </React.StrictMode>
+ </React.StrictMode>
 );
