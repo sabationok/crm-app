@@ -24,7 +24,7 @@ const Block = props => {
   console.log('small block initialize');
   return (
     <>
-      <BlockContext {...props}>
+      <BlockContext {...props} blockTitle={title}>
         <div className={blockClassName} style={style}>
           {header && blockFilter && (
             <BlockHeaderFilter

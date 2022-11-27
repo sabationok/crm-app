@@ -9,7 +9,6 @@ import scss from './BlockFounder.module.scss';
 
 const BlockFounder = props => {
   const { tableTitles = [] } = useBlock();
-
   const [searchQuery, setSearchQuery] = useState('');
   const [searchParam, setSearchParam] = useState({ name: '' });
   const [isSelectOpen, seIsSelectOpen] = useState(false);

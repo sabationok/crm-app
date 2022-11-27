@@ -4,7 +4,7 @@ import { useTable } from '../TableContext';
 import s from './TableRow.module.scss';
 const TableHeadRow = () => {
   const { tableTitles = [], rowGrid = {} } = useTable();
-  console.log(tableTitles);
+
   const styles = {
     ...rowGrid,
   };

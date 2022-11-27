@@ -1,7 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import BlockPortal from '../BlockPortal';
-import { actionsMap } from './ActionsMap';
+import BlockActionsList from './BlockActionsList';
 import { useBlock } from '../BlockContext';
 
 import s from './BlockActions.module.scss';
@@ -22,24 +22,27 @@ const BlockActions = () => {
     }
   }, [block.actionsBlockLarge, block.actionsBlockSmall, block.type]);
 
-  // const actionsMap = {
-  //   link: <ButtonIcon iconId="link" size="100%" className={s.hover} />,
-  //   search: <ButtonIcon iconId="search" size="100%" className={s.hover} />,
-  //   filter: <ButtonIcon iconId="filter-on" size="100%" className={s.hover} />,
-  //   copy: <ButtonIcon iconId="copy" size="100%" className={s.hover} />,
-  //   share: <ButtonIcon iconId="share" size="100%" className={s.hover} />,
-  //   refresh: <ButtonIcon iconId="refresh" size="100%" className={s.hover} />,
-  //   edit: <ButtonIcon iconId="edit" size="100%" className={s.hover} />,
-  //   delete: <ButtonIcon iconId="delete" size="100%" className={s.hover} />,
-  //   create: <ButtonIcon iconId="plus" size="100%" className={s.hover} />,
-  //   print: <ButtonIcon iconId="print-on" size="100%" className={s.hover} />,
-  //   upload: <ButtonIcon iconId="upload" size="100%" className={s.hover} />,
-  //   download: <ButtonIcon iconId="download" size="100%" className={s.hover} />,
-  // };
   function handleOpenActions(evt) {
     setIsOpen(!isOpen);
   }
-
+  function handleOpenActionsByEscape(ev) {
+    let { code } = ev;
+    if (code === 'Escape') {
+      console.log(ev);
+      setIsOpen(false);
+      return;
+    }
+    return;
+  }
+  useEffect(() => {
+    if (!isOpen) {
+      window.removeEventListener('keydown', handleOpenActionsByEscape);
+      return;
+    } else if (isOpen) {
+      window.addEventListener('keydown', handleOpenActionsByEscape);
+      return;
+    }
+  }, [isOpen]);
   return (
     <>
       <ButtonIcon iconId={isOpen ? 'close' : 'actions-h'} size="100%" onClick={handleOpenActions} />
@@ -47,15 +50,7 @@ const BlockActions = () => {
         <div className={isOpen ? s.actionsBackdropOpen : s.actionsBackdrop} onClick={handleOpenActions}>
           <div className={s.actionsContainer}>
             <span>Додатково</span>
-            {isOpen && memoizedActionsArr.length > 0 && (
-              <ul className={s.actionsList}>
-                {memoizedActionsArr.map(item => (
-                  <li className={s.listItem} key={item}>
-                    {actionsMap[item]}
-                  </li>
-                ))}
-              </ul>
-            )}
+            {isOpen && memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
           </div>
         </div>
       </BlockPortal>

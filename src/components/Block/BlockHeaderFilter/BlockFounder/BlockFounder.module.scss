@@ -48,6 +48,7 @@
   min-width: 50px;
   &.isOpen {
     & .selectList {
+      z-index: 10;
       max-height: 150px;
     }
   }
@@ -78,6 +79,7 @@
   max-height: 0;
   overflow: auto;
 
+  color: #010101;
   background-color: #fff;
 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);

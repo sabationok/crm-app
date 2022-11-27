@@ -11,10 +11,10 @@
   padding: 4px;
 
   border-style: none;
-  border-radius: 50%;
   overflow: hidden;
   border: 1px solid transparent;
 
+  cursor: pointer;
   transition: all var(--timing-function__main);
   &:disabled {
     pointer-events: none;
