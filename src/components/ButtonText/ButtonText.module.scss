@@ -8,12 +8,12 @@
   font-size: 14px;
   font-weight: 700;
 
-  padding: 4px 29px;
+  padding: 8px 16px;
 
   background-color: transparent;
 
   border-style: none;
-  border-radius: 16px;
+  border-radius: 4px;
   border: 2px solid transparent;
 
   transition: all var(--timing-function__main);
@@ -57,5 +57,27 @@
     border-color: var(--brand_clr__1-active);
     color: var(--brand_clr__1-active);
     fill: var(--brand_clr__1-active);
+  }
+}
+
+.AcceptBtn {
+  border-style: none;
+  border-bottom: 4px solid transparent;
+  &:hover {
+    border-color: rgb(118, 255, 108);
+  }
+}
+.DeclineBtn {
+  border-style: none;
+  border-bottom: 4px solid transparent;
+  &:hover {
+    border-color: rgb(255, 59, 59);
+  }
+}
+.ResetBtn {
+  border-style: none;
+  border-bottom: 4px solid transparent;
+  &:hover {
+    border-color: rgb(255, 255, 82);
   }
 }

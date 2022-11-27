@@ -2,6 +2,7 @@
 import PropTypes from 'prop-types';
 import Block from 'components/Block/Block';
 import { PageProvider } from 'contexts/PageContext';
+import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { fetchAllOrders } from 'redux/orders/ordersThunks';
 // import { selectOrders } from 'redux/selectors';
@@ -41,19 +42,26 @@ const PageOrders = () => {
     <PageProvider>
       <div className={s.pageFlex}>
         <section className={s.sectionTopFlex}>
-          <Block blockFilter title="Замовлення" iconId="list" tableTitles={ordersTableTitles} type="filtered">
+          <Block
+            blockFilter
+            title="Замовлення"
+            iconId="list"
+            tableTitles={ordersTableTitles}
+            actions="withFilter"
+            filter
+          >
             <TableList />
           </Block>
         </section>
 
         <section className={s.sectionBottomFlex}>
           <div className={s.sectionInnerLeft}>
-            <Block title="Деталі" iconId="info" type="primary">
-              <span>Order form</span>
+            <Block title="Деталі" iconId="info" actions="primary">
+              <FormProductInfo formTitle='Form Order Info'/>
             </Block>
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="ТТН" iconId="ttn" type="primary">
+            <Block title="ТТН" iconId="ttn" actions="primary">
               <span>Stock table form</span>
             </Block>
           </div>

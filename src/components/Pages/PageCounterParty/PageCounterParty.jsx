@@ -10,15 +10,15 @@ const PageCounterParty = props => {
     <PageProvider>
       <div className={s.pageFlex}>
         <section className={s.sectionTopFlex}>
-          <Block blockFilter title="Контрагенти" iconId="list" type="filtered" />
+          <Block blockFilter title="Контрагенти" iconId="list" actions="withFilter" filter/>
         </section>
 
         <section className={s.sectionBottomFlex}>
           <div className={s.sectionInnerLeft}>
-            <Block title="Інформація" iconId="person" type="primary" />
+            <Block title="Інформація" iconId="person" actions="primary" />
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="Налаштування" iconId="settings" type="primary" />
+            <Block title="Налаштування" iconId="settings" actions="primary" />
           </div>
         </section>
       </div>

@@ -1,7 +1,8 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
 import { toast } from 'react-toastify';
-import { useBlock } from '../BlockContext';
+import { useBlock } from '../../../BlockContext';
+
 const ActionCopy = ({ action }) => {
   const { blockTitle } = useBlock();
   function handleCopyBtnClick() {

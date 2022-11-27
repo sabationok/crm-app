@@ -1,6 +1,6 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
-import { useBlock } from '../BlockContext';
+import { useBlock } from '../../../BlockContext';
 
 const ActionSearch = ({ action }) => {
   const { handleBlockSearch } = useBlock();

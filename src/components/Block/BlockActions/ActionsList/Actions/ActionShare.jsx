@@ -1,8 +1,8 @@
 import React from 'react';
+import ActionPrimary from './ActionPrimary';
 
 import { toast } from 'react-toastify';
-import { useBlock } from '../BlockContext';
-import ActionPrimary from './ActionPrimary';
+import { useBlock } from '../../../BlockContext';
 
 const ActionShare = ({ action }) => {
   const { title } = useBlock();

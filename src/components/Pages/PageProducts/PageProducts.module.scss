@@ -35,10 +35,12 @@
   }
 }
 .sectionInnerLeft {
+  max-height: 100%;
   flex-grow: 5;
   flex-basis: 320px;
 }
 .sectionInnerRight {
+  max-height: 100%;
   flex-grow: 3;
   flex-basis: 320px;
 }

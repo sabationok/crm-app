@@ -10,14 +10,14 @@ const PageAdmin = props => {
     <PageProvider>
       <div className={s.pageFlex}>
         <section className={s.sectionTopFlex}>
-          <Block blockFilter title="Завдання" iconId="list" type="filtered" />
+          <Block blockFilter title="Завдання" iconId="list" actions="withFilter" filter/>
         </section>
         <section className={s.sectionBottomFlex}>
           <div className={s.sectionInnerRight}>
-            <Block title="Адмін" iconId="admin" type="primary" />
+            <Block title="Адмін" iconId="admin" actions="primary" />
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="Адмін" iconId="settings" type="primary" />
+            <Block title="Адмін" iconId="settings" actions="primary" />
           </div>
         </section>
       </div>

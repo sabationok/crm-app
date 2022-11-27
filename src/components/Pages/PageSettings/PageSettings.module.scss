@@ -34,11 +34,11 @@
     max-height: calc((100% - 4px) / 2);
   }
 }
-.sectionInnerLeft {
+.sectionInnerLeft {  max-height: 100%;
   flex-grow: 5;
   flex-basis: 320px;
 }
-.sectionInnerRight {
+.sectionInnerRight {  max-height: 100%;
   flex-grow: 3;
   flex-basis: 320px;
 }

@@ -10,15 +10,15 @@ const PageStatistics = props => {
     <PageProvider>
       <div className={s.pageFlex}>
         <section className={s.sectionTopFlex}>
-          <Block blockFilter title="Звіти" iconId="list" type="filtered"/>
+          <Block blockFilter title="Звіти" iconId="list" actions="withFilter" filter />
         </section>
 
         <section className={s.sectionBottomFlex}>
           <div className={s.sectionInnerLeft}>
-            <Block title="Звіт" iconId="assignment-ok"type="primary" />
+            <Block title="Звіт" iconId="assignment-ok" actions="primary" />
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="Статистика" iconId="statistics"type="primary" />
+            <Block title="Статистика" iconId="statistics" actions="primary" />
           </div>
         </section>
       </div>

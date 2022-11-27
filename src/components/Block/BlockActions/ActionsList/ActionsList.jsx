@@ -1,19 +1,20 @@
 import React from 'react';
 
-import s from './BlockActions.module.scss';
-import ActionCopy from './ActionCopy';
-import ActionShare from './ActionShare';
-import ActionPrint from './ActionPrint';
-import ActionExport from './ActionExport';
-import ActionImport from './ActionImport';
-import ActionFilter from './ActionFilter';
-import ActionLink from './ActionLink';
-import ActionSearch from './ActionSearch';
-import ActionEdit from './ActionEdit';
-import ActionCreate from './ActionCreate';
-import ActionDelete from './ActionDelete';
-import ActionRefresh from './ActionRefresh';
-import ActionPrimary from './ActionPrimary';
+import ActionCopy from './Actions/ActionCopy';
+import ActionShare from './Actions/ActionShare';
+import ActionPrint from './Actions/ActionPrint';
+import ActionExport from './Actions/ActionExport';
+import ActionImport from './Actions/ActionImport';
+import ActionFilter from './Actions/ActionFilter';
+import ActionLink from './Actions/ActionLink';
+import ActionSearch from './Actions/ActionSearch';
+import ActionEdit from './Actions/ActionEdit';
+import ActionCreate from './Actions/ActionCreate';
+import ActionDelete from './Actions/ActionDelete';
+import ActionRefresh from './Actions/ActionRefresh';
+import ActionPrimary from './Actions/ActionPrimary';
+
+import s from './ActionsList.module.scss';
 
 const BlockActionsList = ({ arr = [] }) => {
   const actionsMap = {

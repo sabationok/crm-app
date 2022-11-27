@@ -1,7 +1,8 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import BlockPortal from '../BlockPortal';
-import BlockActionsList from './BlockActionsList';
+import BlockActionsList from './ActionsList/ActionsList';
+
 import { useBlock } from '../BlockContext';
 
 import s from './BlockActions.module.scss';
@@ -9,48 +10,51 @@ import s from './BlockActions.module.scss';
 const BlockActions = () => {
   const [isOpen, setIsOpen] = useState(false);
   const block = useBlock();
-  const memoizedActionsArr = useMemo(() => {
-    switch (block.type) {
-      case 'primary':
-        return block.actionsBlockSmall;
 
-      case 'filtered':
-        return block.actionsBlockLarge;
+  const memoizedActionsArr = useMemo(() => {
+    switch (block.actions) {
+      case 'primary':
+        return block.actionsPrimary;
+
+      case 'withFilter':
+        return block.actionsWithFilter;
 
       default:
         return [];
     }
-  }, [block.actionsBlockLarge, block.actionsBlockSmall, block.type]);
+  }, [block.actions, block.actionsPrimary, block.actionsWithFilter]);
 
   function handleOpenActions(evt) {
     setIsOpen(!isOpen);
   }
-  function handleOpenActionsByEscape(ev) {
-    let { code } = ev;
-    if (code === 'Escape') {
-      console.log(ev);
-      setIsOpen(false);
+
+  useEffect(() => {
+    function handleCloseActionsByEscape(ev) {
+      let { code } = ev;
+      if (code === 'Escape') {
+        setIsOpen(false);
+        window.removeEventListener('keydown', handleCloseActionsByEscape);
+        return;
+      }
       return;
     }
-    return;
-  }
-  useEffect(() => {
     if (!isOpen) {
-      window.removeEventListener('keydown', handleOpenActionsByEscape);
+      window.removeEventListener('keydown', handleCloseActionsByEscape);
       return;
     } else if (isOpen) {
-      window.addEventListener('keydown', handleOpenActionsByEscape);
+      window.addEventListener('keydown', handleCloseActionsByEscape);
       return;
     }
   }, [isOpen]);
+
   return (
     <>
       <ButtonIcon iconId={isOpen ? 'close' : 'actions-h'} size="100%" onClick={handleOpenActions} />
       <BlockPortal id={block.iconId}>
         <div className={isOpen ? s.actionsBackdropOpen : s.actionsBackdrop} onClick={handleOpenActions}>
           <div className={s.actionsContainer}>
-            <span>Додатково</span>
-            {isOpen && memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
+            <span className={s.actionsTitle}>{`Додаткові дії блоку "${block.title}"`}</span>
+            {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
           </div>
         </div>
       </BlockPortal>

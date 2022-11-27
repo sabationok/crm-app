@@ -1,7 +1,7 @@
 import React from 'react';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
-import s from './BlockActions.module.scss';
+import s from './Action.module.scss';
 
 const ActionPrimary = ({ name, status = false, iconId = 'close', title = 'title', onClick }) => {
   const actionClass = status ? s.actionActive : s.actionNotActive;

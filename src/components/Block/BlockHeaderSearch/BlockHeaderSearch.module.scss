@@ -1,6 +1,7 @@
-.header {
+.header,
+.headerWithSearch {
   display: grid;
-  grid-template-columns: 30px max-content 1fr 30px;
+
   grid-template-rows: 30px;
   gap: 8px;
   align-items: center;
@@ -20,6 +21,12 @@
 
   background-color: var(--brand_clr__2);
 }
+.header {
+  grid-template-columns: 30px 1fr 30px;
+}
+.headerWithSearch {
+  grid-template-columns: 30px max-content 1fr 30px;
+}
 .blockLink {
   white-space: nowrap;
 
@@ -35,7 +42,7 @@
 }
 .title {
   padding: 4px;
-  
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

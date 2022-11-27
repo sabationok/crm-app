@@ -9,15 +9,15 @@ const PageMain = () => {
     <PageProvider>
       <div className={s.pageFlex}>
         <section className={s.sectionTopFlex}>
-          <Block blockFilter title="Список завдань" iconId="list" type="filtered"/>
+          <Block blockFilter title="Список завдань" iconId="list" actions="withFilter" filter />
         </section>
 
         <section className={s.sectionBottomFlex}>
           <div className={s.sectionInnerLeft}>
-            <Block title="Деталі завдання" iconId="info" type="primary"/>
+            <Block title="Деталі завдання" iconId="info" actions="primary" />
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="Сповіщення" iconId="chat" type="primary"/>
+            <Block title="Сповіщення" iconId="chat" actions="primary" />
           </div>
         </section>
       </div>
@@ -26,10 +26,7 @@ const PageMain = () => {
 };
 
 PageMain.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 };
 
 export default PageMain;
