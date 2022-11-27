@@ -1,16 +1,9 @@
 import React from 'react';
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+import ActionPrimary from './ActionPrimary';
 
-import s from './BlockActions.module.scss';
+const ActionFilter = ({ action }) => {
 
-const ActionFilter = ({ status, iconId, title }) => {
-  const actionClass = status ? s.actionActive : s.actionNotActive;
-
-  return (
-    <ButtonIcon iconId={iconId || 'close'} size="100%" className={actionClass}>
-      <span className={s.actionTitle}>{title}</span>
-    </ButtonIcon>
-  );
+  return <ActionPrimary {...action} />;
 };
 
 export default ActionFilter;

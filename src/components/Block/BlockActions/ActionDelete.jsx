@@ -1,8 +1,9 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
 
-const ActionImport = ({ action }) => {
+const ActionDelete = ({ action }) => {
+
   return <ActionPrimary {...action} />;
 };
 
-export default ActionImport;
+export default ActionDelete;

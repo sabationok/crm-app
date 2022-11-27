@@ -1,8 +1,9 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
 
-const ActionImport = ({ action }) => {
+const ActionRefresh = ({ action }) => {
+
   return <ActionPrimary {...action} />;
 };
 
-export default ActionImport;
+export default ActionRefresh;

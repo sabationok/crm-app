@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BlockFounder from './BlockFounder/BlockFounder';
+import BlockSearch from './BlockSearch/BlockSearch';
 import BlockActions from '../BlockActions/BlockActions';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 import { useBlock } from '../BlockContext';
@@ -13,7 +13,7 @@ const BlockHeaderFilter = () => {
     <div className={s.header}>
       <SvgIcon iconId={iconId} size={'24px'} />
 
-      <BlockFounder blockFilterParams={blockFilterParams} />
+      <BlockSearch blockFilterParams={blockFilterParams} />
 
       {title && (
         <span className={s.title}>

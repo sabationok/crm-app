@@ -1,16 +1,10 @@
 import React from 'react';
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+import ActionPrimary from './ActionPrimary';
+import { useBlock } from '../BlockContext';
 
-import s from './BlockActions.module.scss';
-
-const ActionFilter = ({ status, iconId, title }) => {
-  const actionClass = status ? s.actionActive : s.actionNotActive;
-
-  return (
-    <ButtonIcon iconId={iconId || 'close'} size="100%" className={actionClass}>
-      <span className={s.actionTitle}>{title}</span>
-    </ButtonIcon>
-  );
+const ActionSearch = ({ action }) => {
+  const { handleBlockSearch } = useBlock();
+  return <ActionPrimary {...action} onClick={handleBlockSearch} />;
 };
 
-export default ActionFilter;
+export default ActionSearch;

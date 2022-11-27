@@ -30,7 +30,7 @@
   left: 50%;
 
   text-align: center;
-  padding: 8px;
+  padding: 16px;
   max-height: 80%;
   width: 95%;
 
@@ -47,11 +47,20 @@
   justify-content: center;
   gap: 8px;
 
-  overflow: auto;
+  overflow: visible;
 }
 .listItem {
+  position: relative;
+
   width: 36px;
   height: 36px;
+  &:hover {
+    & .actionTitle {
+      opacity: 1;
+      pointer-events: all;
+      visibility: visible;
+    }
+  }
 }
 
 .actionActive,
@@ -76,11 +85,6 @@
     background-color: rgba(122, 122, 122, 0.3);
     fill: var(--brand_clr__1);
     color: var(--brand_clr__1);
-    & .actionTitle{
-      opacity: 1;
-      pointer-events: all;
-      visibility: visible;
-    }
   }
 }
 .actionNotActive {

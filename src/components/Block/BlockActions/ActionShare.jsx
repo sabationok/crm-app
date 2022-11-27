@@ -1,33 +1,28 @@
 import React from 'react';
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+
 import { toast } from 'react-toastify';
 import { useBlock } from '../BlockContext';
+import ActionPrimary from './ActionPrimary';
 
-import s from './BlockActions.module.scss';
-
-const ActionShare = ({ status, iconId, title }) => {
-  const { blockTitle } = useBlock();
-  const actionClass = status ? s.actionActive : s.actionNotActive;
-  let LINK = `${window.location.origin}/${title}`;
+const ActionShare = ({ action }) => {
+  const { title } = useBlock();
+  let LINK = `${window.location}/${title}`;
 
   async function handleShareBtnClick() {
     const shareData = {
-      title: 'Поділитись назвою блоку',
-      text: 'Поділитись назвою блоку',
+      title: `Поділитись назвою блоку ${title}`,
+      text: `Поділитись назвою блоку ${title}`,
       url: LINK,
     };
     try {
       navigator.share(shareData);
-      toast.success(`Назва блоку для надсилання ${blockTitle}`);
+      toast.success(`Назва блоку для надсилання ${title}`);
     } catch (err) {
       toast.error(`Error: ${err}`);
     }
   }
-  return (
-    <ButtonIcon iconId={iconId} size="100%" className={actionClass} onClick={handleShareBtnClick}>
-      <span className={s.actionTitle}>{title}</span>
-    </ButtonIcon>
-  );
+
+  return <ActionPrimary {...action} onClick={handleShareBtnClick} />;
 };
 
 export default ActionShare;

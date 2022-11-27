@@ -5,9 +5,9 @@ import { applyFounder } from '../../BlockUtils/founder';
 import { useBlock } from 'components/Block/BlockContext';
 import { toast } from 'react-toastify';
 
-import scss from './BlockFounder.module.scss';
+import scss from './BlockSearch.module.scss';
 
-const BlockFounder = props => {
+const BlockSearch = props => {
   const { tableTitles = [] } = useBlock();
   const [searchQuery, setSearchQuery] = useState('');
   const [searchParam, setSearchParam] = useState({ name: '' });
@@ -121,6 +121,6 @@ const BlockFounder = props => {
   );
 };
 
-BlockFounder.propTypes = {};
+BlockSearch.propTypes = {};
 
-export default BlockFounder;
+export default BlockSearch;

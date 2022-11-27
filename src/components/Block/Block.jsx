@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // import PropTypes from 'prop-types';
 import BlockContext from './BlockContext';
 import BlockHeaderFilter from './BlockHeaderFilter/BlockHeaderFilter';
@@ -17,16 +17,26 @@ const Block = props => {
     blockFilter = false,
     blockFilterParams,
   } = props;
+  const blockClassName = [s.block, className].join(' ');
+  const [isSearch, setIsSearch] = useState(false);
+
+  function handleBlockSearch() {
+    setIsSearch(!isSearch);
+  }
+
+  console.log('small block initialize');
   useEffect(() => {
     console.log(`small block '${title}'render`);
   }, [title]);
-  const blockClassName = [s.block, className].join(' ');
-  console.log('small block initialize');
+
+  const blockHandlers = {
+    handleBlockSearch,
+  };
   return (
     <>
-      <BlockContext {...props} blockTitle={title}>
+      <BlockContext {...props} {...blockHandlers}>
         <div className={blockClassName} style={style}>
-          {header && blockFilter && (
+          {header && isSearch && (
             <BlockHeaderFilter
               blockFilter={blockFilter}
               blockFilterParams={blockFilterParams}
@@ -34,7 +44,8 @@ const Block = props => {
               iconId={iconId}
             />
           )}
-          {header && !blockFilter && <BlockHeaderLink title={title} iconId={iconId} />}
+          {header && !isSearch && <BlockHeaderLink title={title} iconId={iconId} />}
+
           <div className={s.content} id={iconId}>
             <div className={s.overflow}>
               {children}
@@ -46,6 +57,7 @@ const Block = props => {
               )}
             </div>
           </div>
+
           {footer && <div className={s.footer}></div>}
         </div>
       </BlockContext>

@@ -9,15 +9,15 @@ const PageMain = () => {
     <PageProvider>
       <div className={s.pageFlex}>
         <section className={s.sectionTopFlex}>
-          <Block blockFilter title="Список завдань" iconId="list" />
+          <Block blockFilter title="Список завдань" iconId="list" type="filtered"/>
         </section>
 
         <section className={s.sectionBottomFlex}>
           <div className={s.sectionInnerLeft}>
-            <Block title="Деталі завдання" iconId="info" />
+            <Block title="Деталі завдання" iconId="info" type="primary"/>
           </div>
           <div className={s.sectionInnerRight}>
-            <Block title="Сповіщення" iconId="chat" />
+            <Block title="Сповіщення" iconId="chat" type="primary"/>
           </div>
         </section>
       </div>
