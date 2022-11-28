@@ -2,7 +2,6 @@
 import PropTypes from 'prop-types';
 import Block from 'components/Block/Block';
 
-import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { fetchAllOrders } from 'redux/orders/ordersThunks';
 // import { selectOrders } from 'redux/selectors';
@@ -10,6 +9,7 @@ import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormP
 //   actionChangeSearchQuery,
 //   actionChangeSearchParam,
 // } from 'redux/orders/ordersActions';
+import FormPrimary from 'components/Forms/FormPrimary/FormPrimary';
 import TableList from 'components/TableList/BlockTable';
 
 import { ordersTableTitles } from 'data/ordersTableTitles';
@@ -49,12 +49,13 @@ const PageOrders = () => {
       <section className={s.sectionBottomFlex}>
         <div className={s.sectionInnerLeft}>
           <Block title="Деталі" iconId="info" actions="primary">
-            <FormProductInfo formTitle="Form Order Info" />
+            <FormPrimary formTitle="Деталі замовлення" />
           </Block>
         </div>
         <div className={s.sectionInnerRight}>
           <Block title="ТТН" iconId="ttn" actions="primary">
-            <span>Stock table form</span>
+          <FormPrimary formTitle="ТТН до замовлення" />
+          <FormPrimary formTitle="Рахунок до замовлення" />
           </Block>
         </div>
       </section>

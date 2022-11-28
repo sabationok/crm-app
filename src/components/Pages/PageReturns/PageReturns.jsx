@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Block from 'components/Block/Block';
-import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
+import FormPrimary from 'components/Forms/FormPrimary/FormPrimary';
 
 import s from './PageReturns.module.scss';
 
@@ -14,12 +14,12 @@ const PageReturns = () => {
       <section className={s.sectionBottomFlex}>
         <div className={s.sectionInnerLeft}>
           <Block title="Деталі" iconId="return" actions="primary">
-            <FormProductInfo formTitle="Form Return Info" />
+            <FormPrimary formTitle="Деталі повернення" />
           </Block>
         </div>
         <div className={s.sectionInnerRight}>
           <Block title="Інспекція" iconId="inspect" actions="primary">
-            <FormProductInfo formTitle="Form Inspection" />
+            <FormPrimary formTitle="Інспекція повернення" />
           </Block>
         </div>
       </section>

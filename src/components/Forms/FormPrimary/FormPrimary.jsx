@@ -12,14 +12,34 @@ const FormPrimary = ({ children, onSubmit, onReset, formTitle = 'Form title' }) 
           <span>{formTitle}</span>
         </div>
         {children ?? <div className={s.inputs}></div>}
+        <span>Далі буде ...</span>
         <div className={s.buttons}>
-          <ButtonIcon iconId='doneAll' styleType="AcceptBtn" type="submit" styles={{width:'fit-content',minHeight:'fit-content'}} iconSize='26px'>
+          <ButtonIcon
+            iconId="doneAll"
+            styleType="AcceptBtn"
+            type="submit"
+            styles={{ width: 'fit-content', minHeight: 'fit-content' }}
+            iconSize="26px"
+          >
             <span className={s.btnName}>Прийняти</span>
           </ButtonIcon>
-          <ButtonIcon iconId='clear' styleType="ResetBtn" type="reset" styles={{width:'fit-content',minHeight:'fit-content'}} iconSize='26px'>
+          <ButtonIcon
+            iconId="clear"
+            styleType="ResetBtn"
+            type="reset"
+            styles={{ width: 'fit-content', minHeight: 'fit-content' }}
+            iconSize="26px"
+          >
             <span className={s.btnName}>Очистити</span>
           </ButtonIcon>
-          <ButtonIcon iconId='removeDone' styleType="DeclineBtn" styles={{width:'fit-content',minHeight:'fit-content'}} iconSize='26px'><span className={s.btnName}>Відхилити</span></ButtonIcon>
+          <ButtonIcon
+            iconId="removeDone"
+            styleType="DeclineBtn"
+            styles={{ width: 'fit-content', minHeight: 'fit-content' }}
+            iconSize="26px"
+          >
+            <span className={s.btnName}>Відхилити</span>
+          </ButtonIcon>
         </div>
       </form>
     </div>
