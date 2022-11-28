@@ -38,17 +38,9 @@ const BlockActionsList = ({ arr = [] }) => {
         if (action.name) {
           Action = actionsMap[action.name];
 
-          return (
-            <li key={action.name} className={s.listItem}>
-              <Action action={action} {...action} />
-            </li>
-          );
+          return <Action key={action.name} action={action} {...action} />;
         }
-        return (
-          <li key={action.name} className={s.listItem}>
-            <ActionPrimary {...action} />
-          </li>
-        );
+        return <ActionPrimary key={action.name} {...action} />;
       })}
     </ul>
   );

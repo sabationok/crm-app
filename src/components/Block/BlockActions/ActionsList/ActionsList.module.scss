@@ -7,16 +7,4 @@
 
   overflow: visible;
 }
-.listItem {
-  position: relative;
 
-  width: 36px;
-  height: 36px;
-  &:hover {
-    & .actionTitle {
-      opacity: 1;
-      pointer-events: all;
-      visibility: visible;
-    }
-  }
-}

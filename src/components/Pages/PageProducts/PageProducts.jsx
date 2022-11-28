@@ -15,7 +15,7 @@ const PageProducts = () => {
       <section className={s.sectionBottomFlex}>
         <div className={s.sectionInnerLeft}>
           <Block title="Деталі" iconId="info" actions="primary">
-            <FormProductInfo formTitle="Form Product Info" />
+            <FormProductInfo />
             <FormProductImgs />
           </Block>
         </div>
