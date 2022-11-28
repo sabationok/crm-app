@@ -49,17 +49,15 @@ const BlockActions = () => {
 
   return (
     <>
-      <ButtonIcon iconId={isOpen ? 'close' : 'actions-h'} size="100%" onClick={handleOpenActions} />
+      <ButtonIcon iconId={isOpen ? 'close' : 'actions-h'} size="100%" iconSize="24px" onClick={handleOpenActions} />
       <BlockPortal id={block.iconId}>
         <div className={isOpen ? s.actionsBackdropOpen : s.actionsBackdrop} onClick={handleOpenActions}>
-          <div className={s.actionsContainer}>
-            {isOpen && (
-              <>
-                <span className={s.actionsTitle}>{`Додаткові дії блоку "${block.title}"`}</span>
-                {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
-              </>
-            )}
-          </div>
+          {isOpen && (
+            <div className={s.actionsContainer}>
+              <span className={s.actionsTitle}>{`Додаткові дії блоку "${block.title}"`}</span>
+              {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
+            </div>
+          )}
         </div>
       </BlockPortal>
     </>

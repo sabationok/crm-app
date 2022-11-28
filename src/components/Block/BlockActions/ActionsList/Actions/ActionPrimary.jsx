@@ -9,10 +9,16 @@ const ActionPrimary = ({ name, status = false, iconId = 'close', title = 'title'
   return (
     <>
       <li className={s.listItem}>
-        <ButtonIcon iconId={iconId} size="100%" className={actionClass} onClick={onClick} />
+        <ButtonIcon
+          iconId={iconId}
+          size="100%"
+          iconSize="28px"
+          className={actionClass}
+          onClick={onClick}
+          disabled={!status}
+        />
         <span className={s.actionTitle}>{title}</span>
       </li>
-      {/* <span className={s.actionTitle}>{title}</span> */}
     </>
   );
 };
