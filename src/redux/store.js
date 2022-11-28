@@ -3,28 +3,25 @@ import { combineReducers } from '@reduxjs/toolkit';
 import { filterReducer } from './slices/sliceFilter';
 import { userReducer } from './slices/authSlice';
 import { postsReducer } from './posts/slicePosts';
-import { deviceReduser } from './slices/deviceSlice';
 import { ordersReducer } from './orders/ordersSlice';
 // import { postsBlockReducer } from './slices/slicePostsBlock';
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from 'redux-persist';
+import { appSettingsReducer } from './appSettings/appSettingsSlice';
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-const persistConfig = {
+const persistUserConfig = {
   key: 'token',
   storage,
   whitelist: ['token'],
 };
+const persistedUserReducer = persistReducer(persistUserConfig, userReducer);
 
-const persistedUserReducer = persistReducer(persistConfig, userReducer);
+const persistAppSettingsConfig = {
+  key: 'appSettings',
+  storage,
+  whitelist: ['isDarkTheme'],
+};
+const persistedAppSettingsReducer = persistReducer(persistAppSettingsConfig, appSettingsReducer);
 
 const rootReducer = combineReducers({
   // postsBlock: postsBlockReducer,
@@ -32,7 +29,8 @@ const rootReducer = combineReducers({
   orders: ordersReducer,
   filter: filterReducer,
   auth: persistedUserReducer,
-  device: deviceReduser,
+
+  appSettings: persistedAppSettingsReducer,
 });
 
 export const store = configureStore({

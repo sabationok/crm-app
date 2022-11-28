@@ -1,8 +1,13 @@
-.app {
+.app,
+.appDark {
   width: 100%;
   color: #010101;
   min-height: 100vh;
   @media screen and (min-width: 1000px) {
     height: 100vh;
   }
+}
+.appDark {
+  color: #fff;
+  background-color: #242424;
 }

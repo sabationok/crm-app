@@ -20,6 +20,7 @@ const FormPrimary = ({ children, onSubmit, onReset, formTitle = 'Form title' }) 
             type="submit"
             styles={{ width: 'fit-content', minHeight: 'fit-content' }}
             iconSize="26px"
+            disabled={isFormDisabled}
           >
             <span className={s.btnName}>Прийняти</span>
           </ButtonIcon>
@@ -29,6 +30,7 @@ const FormPrimary = ({ children, onSubmit, onReset, formTitle = 'Form title' }) 
             type="reset"
             styles={{ width: 'fit-content', minHeight: 'fit-content' }}
             iconSize="26px"
+            disabled={isFormDisabled}
           >
             <span className={s.btnName}>Очистити</span>
           </ButtonIcon>
@@ -37,6 +39,7 @@ const FormPrimary = ({ children, onSubmit, onReset, formTitle = 'Form title' }) 
             styleType="DeclineBtn"
             styles={{ width: 'fit-content', minHeight: 'fit-content' }}
             iconSize="26px"
+            disabled={isFormDisabled}
           >
             <span className={s.btnName}>Відхилити</span>
           </ButtonIcon>

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 import BlockContext from './BlockContext';
-
 import BlockHeaderSearch from './BlockHeaderSearch/BlockHeaderSearch';
 import BlockHeader from './BlockHeader/BlockHeader';
+
+import { useSelector } from 'react-redux';
+import { getAppSettings } from 'redux/selectors';
+
 import s from './Block.module.scss';
 
 const Block = props => {
@@ -17,7 +20,8 @@ const Block = props => {
     className = '',
     filter = false,
   } = props;
-  const blockClassName = [s.block, className].join(' ');
+  const { isDarkTheme } = useSelector(getAppSettings);
+  const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');
   const [isSearch, setIsSearch] = useState(false);
   const [isFormDisabled, setIsFormDisabled] = useState(true);
 

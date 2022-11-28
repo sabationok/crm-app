@@ -1,4 +1,5 @@
-.inputImg {
+.inputImg,
+.inputImgNotActive {
   position: relative;
 
   overflow: hidden;
@@ -9,8 +10,11 @@
   outline: 2px solid gray;
 
   transition: all var(--timing-function__main);
-
-  &:hover {
+}
+.inputImg {
+  &:hover,
+  &:focus,
+  &:focus-within {
     outline-color: var(--brand_clr__1);
     fill: var(--brand_clr__1);
     transform: scale(1.25);
@@ -19,7 +23,6 @@
       border-color: var(--brand_clr__1);
     }
   }
-
 }
 .inputLabel {
   display: flex;
@@ -30,12 +33,13 @@
   max-height: 120px;
   min-width: 70px;
   max-width: 120px;
+  color: inherit;
 
-  background-color: #fff;
+  background-color: inherit;
+
   transition: all var(--timing-function__main);
 }
-.inputLabelFilled{
-  
+.inputLabelFilled {
 }
 .labelInner {
   display: flex;
@@ -44,7 +48,6 @@
 
   // width: 80%;
   // height: 80%;
-
 
   border-radius: 50%;
   border: 2px solid gray;

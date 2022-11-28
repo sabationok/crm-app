@@ -1,29 +1,15 @@
 import React from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { NavLink } from 'react-router-dom';
 
 import s from './NavMenu.module.scss';
 
 const NavMenu = ({ pageLinks = [], onClick }) => {
-  // const [isOpen, setIsOpen] = useState();
-  // const menuBoxRef = useRef();
-  // function nadleToggleNavMenu(ev) {
-  //   let { currentTarget, target } = ev;
-  //   // console.log(currentTarget);
-  //   currentTarget.classList.toggle([s.isOpen]);
-  //   menuBoxRef.current = currentTarget;
-  // }
-  // function nadleCloseNavMenu(ev) {
-  //   let { currentTarget, target } = ev;
-  //   // console.log(currentTarget);
-
-  //   menuBoxRef.current && menuBoxRef.current.classList.remove([s.isOpen]);
-  // }
   return (
     <div className={s.menuBox}>
-      <div className={s.hover}>
-        <SvgIcon iconId="actions-v" size="32px" />
-      </div>
+      <ButtonIcon iconId="actions-v" size="32px" className={s.button} />
+
       <ul className={s.navList}>
         {pageLinks.map(item => (
           <li key={item.path}>

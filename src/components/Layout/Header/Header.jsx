@@ -2,10 +2,14 @@ import React from 'react';
 
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 import NavMenu from '../NavMenu/NavMenu';
+import UserMenu from '../UserMenu/UserMenu';
 import { Link } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 import s from './Header.module.scss';
 const Header = () => {
+  // const location = useLocation();
+
   const pageLinks = [
     { title: 'Головна', path: 'main', iconId: 'home' },
     { title: 'Замовлення', path: 'orders', iconId: 'addtoCart' },
@@ -17,6 +21,12 @@ const Header = () => {
     { title: 'Адмін панель', path: 'admin', iconId: 'admin' },
     { title: 'Вихід', path: 'logOut', iconId: 'logout' },
   ];
+  // function findMe() {
+  //   const clearPathName = location.pathname.replace('/', '');
+  //   console.log(clearPathName);
+  //   const foundedPageObj = pageLinks.find(item => item.path === clearPathName);
+  //   return foundedPageObj.title;
+  // }
 
   return (
     <header className={s.header}>
@@ -26,18 +36,11 @@ const Header = () => {
         <span className={s.logoText}>LOGO</span>
       </Link>
 
-      <div></div>
+      <div>{/* <span>{findMe()}</span> */}</div>
 
       <SvgIcon iconId="chat" size={'32px'} />
 
-      <div className={s.menuBox}>
-        <SvgIcon iconId="person" size={'32px'} />
-        <ul className={s.profileInfoList}>
-          <li>
-            <button className={s.navLink}>Вихід</button>
-          </li>
-        </ul>
-      </div>
+      <UserMenu />
     </header>
   );
 };

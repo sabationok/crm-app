@@ -1,4 +1,5 @@
-.block {
+.block,
+.blockDark {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -8,7 +9,13 @@
   min-height: 200px;
   width: 100%;
   max-height: 100%;
-
+}
+.block {
+  background-color: #fff;
+  box-shadow: var(--block-shadow);
+}
+.blockDark {
+  background-color: #2b2b2b;
   box-shadow: var(--block-shadow);
 }
 .title {

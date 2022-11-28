@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
+import { useBlock } from 'components/Block/BlockContext';
 
 import s from './InputImg.module.scss';
-import { useEffect } from 'react';
 
-const InputImg = ({ name, id, onChange, selectedFile = null, multiple = false, disabled = false }) => {
+const InputImg = ({ name, id, onChange, selectedFile = null, multiple = false }) => {
   const [preview, setPreview] = useState();
+  const { isFormDisabled } = useBlock();
 
   useEffect(() => {
     let fileReader,
@@ -31,14 +32,14 @@ const InputImg = ({ name, id, onChange, selectedFile = null, multiple = false, d
 
   return (
     <>
-      <div className={s.inputImg}>
+      <div className={isFormDisabled ? s.inputImgNotActive : s.inputImg}>
         <input
           className="visually-hidden"
           name={name}
           type="file"
           id={id}
           accept=".png, .jpg, .jpeg, .webp"
-          disabled={selectedFile || disabled}
+          disabled={isFormDisabled || selectedFile}
           multiple={multiple}
           onChange={onChange}
         />
@@ -48,7 +49,7 @@ const InputImg = ({ name, id, onChange, selectedFile = null, multiple = false, d
               <SvgIcon iconId="plus" size="30px" />
             </span>
           )}
-          <ModalOpenLink modalContent={<img  src={preview} alt={selectedFile?.name} />}>
+          <ModalOpenLink modalContent={<img src={preview} alt={selectedFile?.name} />}>
             {preview && <img className={s.labelInnerImg} src={preview} alt={selectedFile?.name} />}
           </ModalOpenLink>
         </label>

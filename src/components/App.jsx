@@ -5,6 +5,8 @@ import Layout from './Layout/Layout';
 
 import AppLoader from './AppLoader/AppLoader';
 import { ToastContainer } from 'react-toastify';
+import { useSelector } from 'react-redux';
+import { getAppSettings } from 'redux/selectors';
 
 import DeviceTypeInformer from './DeviceTypeInformer/DeviceTypeInformer';
 
@@ -20,9 +22,12 @@ const PageCounterParty = lazy(() => import('./Pages/PageCounterParty/PageCounter
 const PageSettings = lazy(() => import('./Pages/PageSettings/PageSettings'));
 const PageStatistics = lazy(() => import('./Pages/PageStatistics/PageStatistics'));
 const PageAdmin = lazy(() => import('./Pages/PageAdmin/PageAdmin'));
+
 export const App = () => {
+  const { isDarkTheme } = useSelector(getAppSettings);
+
   return (
-    <div className={s.app}>
+    <div className={isDarkTheme ? s.appDark : s.app}>
       <Layout>
         <Suspense fallback={<AppLoader isLoading={true} />}>
           <Routes>

@@ -13,6 +13,8 @@
 
   border: 2px solid gray;
   border-radius: 4px;
+}
+.form {
   &:focus-visible,
   &:focus,
   &:focus-within,
@@ -39,7 +41,6 @@
   line-height: 1.2;
   text-align: center;
   padding: 2px;
-  background-color: #fff;
   transition: color var(--timing-function__main);
 }
 .buttons {
