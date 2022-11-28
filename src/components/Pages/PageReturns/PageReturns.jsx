@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Block from 'components/Block/Block';
-import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo';
+import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
 import { PageProvider } from 'contexts/PageContext';
 
 import s from './PageReturns.module.scss';

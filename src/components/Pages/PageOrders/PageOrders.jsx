@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import Block from 'components/Block/Block';
 import { PageProvider } from 'contexts/PageContext';
-import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo';
+import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { fetchAllOrders } from 'redux/orders/ordersThunks';
 // import { selectOrders } from 'redux/selectors';

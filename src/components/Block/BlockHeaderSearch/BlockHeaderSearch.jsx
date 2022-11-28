@@ -7,15 +7,15 @@ import { useBlock } from '../BlockContext';
 
 import s from './BlockHeaderSearch.module.scss';
 
-const BlockHeaderSearch = ({ search }) => {
-  const { title = 'Title', iconId = 'info' } = useBlock();
-  const headerClassName = !search ? s.header : s.headerWithSearch;
+const BlockHeaderSearch = () => {
+  const { title = 'Title', iconId = 'info', isSearch } = useBlock();
+  const headerClassName = !isSearch ? s.header : s.headerWithSearch;
 
   return (
     <div className={headerClassName}>
       <SvgIcon iconId={iconId} size={'24px'} />
 
-      {search && <BlockSearch />}
+      {isSearch && <BlockSearch />}
 
       {title && (
         <span className={s.title}>

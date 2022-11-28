@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import Block from 'components/Block/Block';
-import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo';
-import FormProductImgs from 'components/Forms/ProductForms/FormProductImgs';
-import FormProductStock from 'components/Forms/ProductForms/FormProductStock';
+import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
+import FormProductImgs from 'components/Forms/ProductForms/FormProductImgs/FormProductImgs';
+import FormProductStock from 'components/Forms/ProductForms/FormProductStock/FormProductStock';
 
 import { PageProvider } from 'contexts/PageContext';
 

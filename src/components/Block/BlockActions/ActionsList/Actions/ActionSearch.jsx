@@ -1,10 +1,10 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
-import { useBlock } from '../../../BlockContext';
+import { useBlock } from 'components/Block/BlockContext';
 
 const ActionSearch = ({ action }) => {
-  const { handleBlockSearch } = useBlock();
-  return <ActionPrimary {...action} onClick={handleBlockSearch} />;
+  const { handleToggleBlockSearch } = useBlock();
+  return <ActionPrimary {...action} onClick={handleToggleBlockSearch} />;
 };
 
 export default ActionSearch;

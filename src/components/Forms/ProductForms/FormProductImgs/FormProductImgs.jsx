@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import InputImg from '../Inputs/InputImg/InputImg';
-import ButtonText from 'components/ButtonText/ButtonText';
+import InputImg from '../../Inputs/InputImg/InputImg';
+import FormPrimary from '../../FormPrimary/FormPrimary';
 import { toast } from 'react-toastify';
 
 import s from './FormProductImgs.module.scss';
+
 const imageMimeType = /image\/(png|jpg|jpeg|webp)/i;
+
 const FormProductImgs = ({ formTitle = 'Form title' }) => {
   const initialState = [];
   const [formData, setFormData] = useState(initialState);
@@ -33,7 +35,7 @@ const FormProductImgs = ({ formTitle = 'Form title' }) => {
     setSelectedFiles([...selectedFiles, ...checkedFiles]);
 
     console.log(filesCount);
-    const newFilesCount = (filesCount - formData.length);
+    const newFilesCount = filesCount - formData.length;
     setFilesCount(newFilesCount);
   }
 
@@ -60,42 +62,26 @@ const FormProductImgs = ({ formTitle = 'Form title' }) => {
     }
   }, [selectedFiles, selectedFiles.length]);
 
-
-
   return (
-    <div className={s.formContainer}>
-      <form className={s.form} onSubmit={handleFormSubmit} onReset={handleFormReset}>
-        <div className={s.formTitle}>
-          <span>{formTitle}</span>
-        </div>
-        <div className={s.inputs}>
-          {formData.length > 0 &&
-            formData.map((file, idx) => (
-              <InputImg
-                key={idx}
-                name={file.name}
-                idx={idx}
-                id={file.name}
-                selectedFile={file}
-                onChange={handleChangeInput}
-                onDelete={onDelete}
-                onEdit={onEdit}
-                multiple
-              />
-            ))}
-          {formData.length <= 4 && <InputImg name="img" id="img1" onChange={handleChangeInput} multiple />}
-        </div>
-        <div className={s.buttons}>
-          <ButtonText styleType="AcceptBtn" type="submit">
-            Прийняти
-          </ButtonText>
-          <ButtonText styleType="ResetBtn" type="reset">
-            Очистити
-          </ButtonText>
-          <ButtonText styleType="DeclineBtn">Відхилити</ButtonText>
-        </div>
-      </form>
-    </div>
+    <FormPrimary formTitle='Фото товару' onSubmit={handleFormSubmit} onReset={handleFormReset}>
+      <div className={s.inputs}>
+        {formData.length > 0 &&
+          formData.map((file, idx) => (
+            <InputImg
+              key={idx}
+              name={file.name}
+              idx={idx}
+              id={file.name}
+              selectedFile={file}
+              onChange={handleChangeInput}
+              onDelete={onDelete}
+              onEdit={onEdit}
+              multiple
+            />
+          ))}
+        {formData.length <= 4 && <InputImg name="img" id="img1" onChange={handleChangeInput} multiple />}
+      </div>
+    </FormPrimary>
   );
 };
 

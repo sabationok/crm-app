@@ -26,7 +26,7 @@ export const App = () => {
       <Layout>
         <Suspense fallback={<AppLoader isLoading={true} />}>
           <Routes>
-            <Route index element={<PageMain />} />
+            <Route index element={<PageProducts />} />
             <Route path="main" element={<PageMain />} />
             <Route path="products" element={<PageProducts />} />
             <Route path="orders" element={<PageOrders />} />
@@ -43,7 +43,7 @@ export const App = () => {
       <DeviceTypeInformer />
       <ToastContainer
         position="bottom-left"
-        autoClose={3000}
+        autoClose={2000}
         limit={3}
         hideProgressBar={false}
         newestOnTop={false}

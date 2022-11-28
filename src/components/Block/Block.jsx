@@ -9,7 +9,7 @@ import s from './Block.module.scss';
 const Block = props => {
   let {
     children,
-    title = 'Block',
+    title = 'Title',
     iconId = 'info',
     footer = true,
     header = true,
@@ -19,24 +19,33 @@ const Block = props => {
   } = props;
   const blockClassName = [s.block, className].join(' ');
   const [isSearch, setIsSearch] = useState(false);
+  const [isFormDisabled, setIsFormDisabled] = useState(true);
 
-  function handleBlockSearch() {
+  function handleToggleBlockSearch() {
     setIsSearch(!isSearch);
   }
+  function handleToggleEditForm() {
+    setIsFormDisabled(!isFormDisabled);
+  }
 
-  const blockHandlers = {
-    handleBlockSearch,
+  const state = {
+    isSearch,
+    isFormDisabled,
+  };
+  const stateHandlers = {
+    handleToggleBlockSearch,
+    handleToggleEditForm,
   };
 
   console.log(`block '${title}'inicialize`);
 
   return (
     <>
-      <BlockContext {...props} {...blockHandlers}>
+      <BlockContext {...props} {...stateHandlers} {...state}>
         <div className={blockClassName} style={style}>
           {header && (
             <>
-              {filter && <BlockHeaderSearch search={isSearch} />}
+              {filter && <BlockHeaderSearch />}
               {!filter && <BlockHeaderLink />}
             </>
           )}

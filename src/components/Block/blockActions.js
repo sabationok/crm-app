@@ -3,7 +3,7 @@ const actionsPrimary = [
   { name: 'copy', title: 'Копіювати', iconId: 'copy', status: false },
   { name: 'share', title: 'Поділитись', iconId: 'share', status: true },
   { name: 'refresh', title: 'Оновити', iconId: 'refresh', status: false },
-  { name: 'edit', title: 'Редагувати', iconId: 'edit', status: false },
+  { name: 'edit', title: 'Редагувати', iconId: 'edit', status: true },
   { name: 'delete', title: 'Видалити', iconId: 'delete', status: false },
   { name: 'create', title: 'Створити', iconId: 'plus', status: false },
   { name: 'print', title: 'Друк', iconId: 'print', status: false },

@@ -1,7 +1,7 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
 import { toast } from 'react-toastify';
-import { useBlock } from '../../../BlockContext';
+import { useBlock } from 'components/Block/BlockContext';
 
 const ActionLink = ({ action }) => {
   const { title } = useBlock();
