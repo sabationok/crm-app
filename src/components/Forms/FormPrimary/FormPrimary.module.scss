@@ -56,18 +56,20 @@
 .iconClassName {
 }
 .btnName {
+  display: none;
   @media screen and (max-width: 480px) {
     display: none;
   }
   @media screen and (max-width: 767px) {
-    // display: none;
-    font-size: 8px;
+    display: none;
+    // font-size: 8px;
   }
   @media screen and (min-width: 768px) and (max-width: 999px) {
-    font-size: 11px;
+    // font-size: 11px;
+    display: none;
   }
   @media screen and (min-width: 1000px) {
-
-    font-size: 14px;
+    display: none;
+    // font-size: 14px;
   }
 }

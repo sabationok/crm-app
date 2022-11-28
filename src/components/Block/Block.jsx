@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import BlockContext from './BlockContext';
 
 import BlockHeaderSearch from './BlockHeaderSearch/BlockHeaderSearch';
-import BlockHeaderLink from './BlockHeaderLink/BlockHeaderLink';
+import BlockHeader from './BlockHeader/BlockHeader';
 import s from './Block.module.scss';
 
 const Block = props => {
@@ -46,7 +46,7 @@ const Block = props => {
           {header && (
             <>
               {filter && <BlockHeaderSearch />}
-              {!filter && <BlockHeaderLink />}
+              {!filter && <BlockHeader />}
             </>
           )}
 

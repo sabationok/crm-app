@@ -15,11 +15,11 @@
   flex-wrap: wrap;
   gap: 8px;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 480px) {
     height: 100vh;
     max-height: 90vh;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 480px) {
     flex-grow: 1;
     flex-basis: 200px;
   }
@@ -31,11 +31,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  @media screen and (max-width: 768px) {
 
+  @media screen and (max-width: 768px) {
     max-height: fit-content;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 480px) {
     flex-grow: 5;
     flex-basis: 200px;
   }
@@ -47,15 +47,31 @@
 .sectionInnerRight {
   height: 100vh;
   max-height: 90vh;
-  @media screen and (min-width: 768px) {
-    max-height: 100%;
+  @media screen and (max-width: 480px) {
+    flex-basis: 250px;
+    flex-grow: 1;
   }
+
 }
 .sectionInnerLeft {
-  flex-grow: 1;
-  flex-basis: 200px;
+  @media screen and (min-width: 480px) and (max-width: 768px) {
+    flex-basis: 100px;
+    flex-grow: 1;
+  }
+    @media screen and (min-width: 768px) {
+    max-height: 100%;
+    flex-basis: 200px;
+    flex-grow: 2;
+  }
 }
 .sectionInnerRight {
-  flex-grow: 3;
-  flex-basis: 200px;
+  @media screen and (min-width: 480px) and (max-width: 768px) {
+    flex-basis: 100px;
+    flex-grow: 2;
+  }
+    @media screen and (min-width: 768px) {
+    max-height: 100%;
+    flex-basis: 200px;
+    flex-grow: 4;
+  }
 }
