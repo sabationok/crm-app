@@ -10,20 +10,16 @@ const ButtonIcon = ({
   styles = {},
   iconStyles = {},
   size = '',
-  iconSize = '100%',
   className = '',
+  iconSize = '',
+  iconClassName = '',
   title = '',
   styleType = 'PrimaryBtn',
   onClick = null,
 }) => {
   const classNames = [s.Button, s[styleType], className].join(' ');
-  // function handleBtnClick() {
-  //   if (onClick) {
-  //     onClick();
-  //     return;
-  //   }
-  //   return;
-  // }
+  const iconClassNames=[s.iconSvg, iconClassName].join(' ');
+
   let style = {
     width: size,
     height: size,
@@ -41,9 +37,9 @@ const ButtonIcon = ({
       disabled={disabled}
       style={style}
       title={title && title}
-      onClick={onClick && onClick}
+      onClick={onClick}
     >
-      <svg className={s.iconSvg} style={iconStyle}>
+      <svg className={iconClassNames} style={iconStyle}>
         <use href={`${sprite}#icon-${iconId}`}></use>
       </svg>
       {children}

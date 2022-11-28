@@ -37,7 +37,7 @@
 .formTitle {
   font-size: 14px;
   line-height: 1.2;
-text-align: center;
+  text-align: center;
   padding: 2px;
   background-color: #fff;
   transition: color var(--timing-function__main);
@@ -53,14 +53,21 @@ text-align: center;
   border-radius: 0;
   border-style: none;
 }
+.iconClassName {
+}
 .btnName {
   @media screen and (max-width: 480px) {
     display: none;
   }
-  @media screen and (max-width: 768px) {
-    font-size: 10px;
+  @media screen and (max-width: 767px) {
+    // display: none;
+    font-size: 8px;
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (min-width: 768px) and (max-width: 999px) {
+    font-size: 11px;
+  }
+  @media screen and (min-width: 1000px) {
+
     font-size: 14px;
   }
 }

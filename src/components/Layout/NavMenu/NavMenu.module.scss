@@ -9,6 +9,17 @@
   &:hover {
     & .profileInfoList,
     & .navList {
+      overflow: auto;
+      opacity: 1;
+      transform: scaleX(1);
+      visibility: visible;
+      pointer-events: all;
+    }
+  }
+  &.isOpen {
+    & .profileInfoList,
+    & .navList {
+      overflow: auto;
       opacity: 1;
       transform: scaleX(1);
       visibility: visible;
@@ -23,6 +34,7 @@
     z-index: 101;
 
     min-width: 230px;
+    max-height: 70vh;
 
     padding: 9px 1px;
 
