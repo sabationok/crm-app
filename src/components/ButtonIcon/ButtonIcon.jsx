@@ -9,7 +9,7 @@ const ButtonIcon = ({
   iconId = '',
   styles = {},
   iconStyles = {},
-  size = '24px',
+  size = '',
   iconSize = '100%',
   className = '',
   title = '',
@@ -44,7 +44,7 @@ const ButtonIcon = ({
       onClick={onClick && onClick}
     >
       <svg className={s.iconSvg} style={iconStyle}>
-        <use href={`${sprite}#icon-${iconId.toLowerCase()}`}></use>
+        <use href={`${sprite}#icon-${iconId}`}></use>
       </svg>
       {children}
     </button>

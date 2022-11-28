@@ -35,17 +35,11 @@
   gap: 8px;
 }
 .formTitle {
-  // position: absolute;
-  // top: 0;
-  // left: 10px;
-  // z-index: 1;
-
   font-size: 14px;
   line-height: 1.2;
 
   padding: 2px;
   background-color: #fff;
-  // transform: translateY(-60%);
   transition: color var(--timing-function__main);
 }
 .buttons {
@@ -58,4 +52,15 @@
   width: 100%;
   border-radius: 0;
   border-style: none;
+}
+.btnName {
+  @media screen and (max-width: 480px) {
+    display: none;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 10px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
 }

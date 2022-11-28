@@ -1,6 +1,6 @@
 import React from 'react';
 import { useBlock } from 'components/Block/BlockContext';
-import ButtonText from 'components/ButtonText/ButtonText';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 import s from './FormPrimary.module.scss';
 const FormPrimary = ({ children, onSubmit, onReset, formTitle = 'Form title' }) => {
@@ -13,13 +13,13 @@ const FormPrimary = ({ children, onSubmit, onReset, formTitle = 'Form title' }) 
         </div>
         {children ?? <div className={s.inputs}></div>}
         <div className={s.buttons}>
-          <ButtonText styleType="AcceptBtn" type="submit">
-            Прийняти
-          </ButtonText>
-          <ButtonText styleType="ResetBtn" type="reset">
-            Очистити
-          </ButtonText>
-          <ButtonText styleType="DeclineBtn">Відхилити</ButtonText>
+          <ButtonIcon iconId='doneAll' styleType="AcceptBtn" type="submit" styles={{width:'fit-content',minHeight:'fit-content'}} iconSize='26px'>
+            <span className={s.btnName}>Прийняти</span>
+          </ButtonIcon>
+          <ButtonIcon iconId='clear' styleType="ResetBtn" type="reset" styles={{width:'fit-content',minHeight:'fit-content'}} iconSize='26px'>
+            <span className={s.btnName}>Очистити</span>
+          </ButtonIcon>
+          <ButtonIcon iconId='removeDone' styleType="DeclineBtn" styles={{width:'fit-content',minHeight:'fit-content'}} iconSize='26px'><span className={s.btnName}>Відхилити</span></ButtonIcon>
         </div>
       </form>
     </div>
