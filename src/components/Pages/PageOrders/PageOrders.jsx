@@ -1,7 +1,7 @@
 // import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Block from 'components/Block/Block';
-import { PageProvider } from 'contexts/PageContext';
+
 import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { fetchAllOrders } from 'redux/orders/ordersThunks';
@@ -39,35 +39,26 @@ const PageOrders = () => {
   //   dispatch(fetchAllOrders());
   // }, [dispatch]);
   return (
-    <PageProvider>
-      <div className={s.pageFlex}>
-        <section className={s.sectionTopFlex}>
-          <Block
-            blockFilter
-            title="Замовлення"
-            iconId="list"
-            tableTitles={ordersTableTitles}
-            actions="withFilter"
-            filter
-          >
-            <TableList />
-          </Block>
-        </section>
+    <div className={s.pageFlex}>
+      <section className={s.sectionTopFlex}>
+        <Block blockFilter title="Замовлення" iconId="list" tableTitles={ordersTableTitles} actions="withFilter" filter>
+          <TableList />
+        </Block>
+      </section>
 
-        <section className={s.sectionBottomFlex}>
-          <div className={s.sectionInnerLeft}>
-            <Block title="Деталі" iconId="info" actions="primary">
-              <FormProductInfo formTitle='Form Order Info'/>
-            </Block>
-          </div>
-          <div className={s.sectionInnerRight}>
-            <Block title="ТТН" iconId="ttn" actions="primary">
-              <span>Stock table form</span>
-            </Block>
-          </div>
-        </section>
-      </div>
-    </PageProvider>
+      <section className={s.sectionBottomFlex}>
+        <div className={s.sectionInnerLeft}>
+          <Block title="Деталі" iconId="info" actions="primary">
+            <FormProductInfo formTitle="Form Order Info" />
+          </Block>
+        </div>
+        <div className={s.sectionInnerRight}>
+          <Block title="ТТН" iconId="ttn" actions="primary">
+            <span>Stock table form</span>
+          </Block>
+        </div>
+      </section>
+    </div>
   );
 };
 
