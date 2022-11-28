@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/crm-app/static/css/main.6105bb6d.css",
+    "main.css": "/crm-app/static/css/main.456d0c25.css",
     "main.js": "/crm-app/static/js/main.af337c2f.js",
     "static/css/12.0930b8fa.chunk.css": "/crm-app/static/css/12.0930b8fa.chunk.css",
     "static/js/12.bac6aeed.chunk.js": "/crm-app/static/js/12.bac6aeed.chunk.js",
@@ -25,7 +25,7 @@
     "static/js/226.39c778e0.chunk.js": "/crm-app/static/js/226.39c778e0.chunk.js",
     "static/media/spriteSvg.svg": "/crm-app/static/media/spriteSvg.02bb9b15bd00b1cfb4dd7d06566393e9.svg",
     "index.html": "/crm-app/index.html",
-    "main.6105bb6d.css.map": "/crm-app/static/css/main.6105bb6d.css.map",
+    "main.456d0c25.css.map": "/crm-app/static/css/main.456d0c25.css.map",
     "main.af337c2f.js.map": "/crm-app/static/js/main.af337c2f.js.map",
     "12.0930b8fa.chunk.css.map": "/crm-app/static/css/12.0930b8fa.chunk.css.map",
     "12.bac6aeed.chunk.js.map": "/crm-app/static/js/12.bac6aeed.chunk.js.map",
@@ -50,7 +50,7 @@
     "226.39c778e0.chunk.js.map": "/crm-app/static/js/226.39c778e0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6105bb6d.css",
+    "static/css/main.456d0c25.css",
     "static/js/main.af337c2f.js"
   ]
 }
