@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PrimaryInput from '../Inputs/PrimaryInput';
+import PrimaryInput from '../Inputs/InputPrimary/PrimaryInput';
 import ButtonText from 'components/ButtonText/ButtonText';
 
 import s from './FormProductInfo.module.scss';
@@ -16,12 +16,12 @@ const FormProductInfo = ({ formTitle = 'Form title' }) => {
     ev.preventDefault();
     console.log(formData);
   }
-  function handleFormRest(ev) {
+  function handleFormReset(ev) {
     setFormData(initialState);
   }
   return (
     <div className={s.formContainer}>
-      <form className={s.form} onSubmit={handleFormSubmit} onReset={handleFormRest}>
+      <form className={s.form} onSubmit={handleFormSubmit} onReset={handleFormReset}>
         <div className={s.formTitle}>
           <span>{formTitle}</span>
         </div>
@@ -39,7 +39,7 @@ const FormProductInfo = ({ formTitle = 'Form title' }) => {
           <ButtonText styleType="ResetBtn" type="reset">
             Очистити
           </ButtonText>
-          <ButtonText styleType="DeclineBtn">Видалити</ButtonText>
+          <ButtonText styleType="DeclineBtn">Відхилити</ButtonText>
         </div>
       </form>
     </div>

@@ -1,0 +1,58 @@
+.inputImg {
+  position: relative;
+
+  overflow: hidden;
+
+  fill: gray;
+
+  border-radius: 4px;
+  outline: 2px solid gray;
+
+  transition: all var(--timing-function__main);
+
+  &:hover {
+    outline-color: var(--brand_clr__1);
+    fill: var(--brand_clr__1);
+    transform: scale(1.25);
+    z-index: 10;
+    & .labelInner {
+      border-color: var(--brand_clr__1);
+    }
+  }
+
+}
+.inputLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 70px;
+  max-height: 120px;
+  min-width: 70px;
+  max-width: 120px;
+
+  background-color: #fff;
+  transition: all var(--timing-function__main);
+}
+.inputLabelFilled{
+  
+}
+.labelInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // width: 80%;
+  // height: 80%;
+
+
+  border-radius: 50%;
+  border: 2px solid gray;
+}
+.labelInnerImg {
+  display: block;
+  // position: absolute;
+
+  min-height: 70px;
+  width: 70px;
+}

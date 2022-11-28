@@ -1,6 +1,6 @@
 import React from 'react';
 
-import s from './Inputs.module.scss';
+import s from './PrimaryInput.module.scss';
 const PrimaryInput = ({
   label,
   value,

@@ -149,8 +149,8 @@ button {
 /* ----------------- СКРИТІ ЕЛЕМЕНТИ */
 .visually-hidden {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  width: 0;
+  height: 0;
   margin: -1px;
   border: 0;
   padding: 0;
