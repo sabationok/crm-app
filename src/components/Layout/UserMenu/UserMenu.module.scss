@@ -1,4 +1,4 @@
-.menuBox {
+.box {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -7,8 +7,7 @@
 
   &:focus,
   &:hover {
-    & .profileInfoList,
-    & .navList {
+    & .list {
       overflow: auto;
       opacity: 1;
       transform: scaleX(1);
@@ -17,8 +16,7 @@
     }
   }
   &.isOpen {
-    & .profileInfoList,
-    & .navList {
+    & .list {
       overflow: auto;
       opacity: 1;
       transform: scaleX(1);
@@ -26,34 +24,7 @@
       pointer-events: all;
     }
   }
-  & .navList {
-    display: block;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 101;
-
-    min-width: 230px;
-    max-height: 70vh;
-
-    padding: 9px 1px;
-
-    transform-origin: left;
-    transform: scaleX(0);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-
-    overflow: hidden;
-    fill: #fff;
-
-    background-color: var(--brand_clr__2);
-    box-shadow: var(--header-shadow);
-
-    transition: all var(--timing-function__main);
-  }
-
-  & .profileInfoList {
+  & .list {
     display: block;
     position: absolute;
     top: 100%;
@@ -77,42 +48,16 @@
 
     transition: all var(--timing-function__main);
   }
-  & .actionItem {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    text-align: left;
-
-    font-size: 14px;
-    line-height: 1.2;
-    letter-spacing: 0.06em;
-
-    width: 100%;
-    color: #fff;
+  & .openButton {
     fill: #fff;
-
-    padding: 8px 16px;
-
-    background-color: inherit;
-    border-style: none;
-    border: 1px solid transparent;
-    transition: all var(--timing-function__main);
-
-    &:hover {
-      background-color: var(--brand_clr__1);
-    }
-  }
-
-  & .button {
-    fill: #fff;
+    padding: 0;
     &:hover {
       fill: var(--brand_clr__1);
     }
     &:focus {
       fill: var(--brand_clr__1);
-      & + .profileInfoList,
-      & + .navList {
+
+      & + .list {
         overflow: auto;
         opacity: 1;
         transform: scaleX(1);

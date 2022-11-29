@@ -4,5 +4,7 @@ export const selectFilter = state => state.filter;
 export const selectUserData = state => state.auth;
 export const selectPostsBlock = state => state.posts;
 export const getAppSettings = state => state.appSettings;
+export const getAppNotify = state => state.appNotify;
+
 
 

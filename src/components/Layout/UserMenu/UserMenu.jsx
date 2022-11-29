@@ -1,17 +1,18 @@
 import React from 'react';
 
-import SvgIcon from 'components/SvgIcon/SvgIcon';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import ActionToggleAppTheme from './UserMenuActions/ActionToggleAppTheme';
 import ActionAppExit from './UserMenuActions/ActionAppExit';
 
 import s from './UserMenu.module.scss';
 const UserMenu = () => {
   return (
-    <div className={s.menuBox}>
-      <SvgIcon iconId="person" size={'32px'} />
-      <ul className={s.profileInfoList}>
+    <div className={s.box}>
+      <ButtonIcon iconId="person" size="32px" iconSize="100%" className={s.openButton} />
+
+      <ul className={s.list}>
         <ActionToggleAppTheme />
-        <ActionAppExit/>
+        <ActionAppExit />
       </ul>
     </div>
   );

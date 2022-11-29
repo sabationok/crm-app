@@ -2,10 +2,12 @@
 .appDark {
   width: 100%;
   color: #010101;
+  width: 100%;
   min-height: 100vh;
 
   background-color: #fafafa;
   transition: background-color var(--timing-function__main);
+
   @media screen and (min-width: 1000px) {
     height: 100vh;
   }

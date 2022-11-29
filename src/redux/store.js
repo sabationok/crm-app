@@ -6,6 +6,7 @@ import { postsReducer } from './posts/slicePosts';
 import { ordersReducer } from './orders/ordersSlice';
 // import { postsBlockReducer } from './slices/slicePostsBlock';
 import { appSettingsReducer } from './appSettings/appSettingsSlice';
+import { appNotifyReducer } from './notifications/notificationsSlice';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -23,13 +24,20 @@ const persistAppSettingsConfig = {
 };
 const persistedAppSettingsReducer = persistReducer(persistAppSettingsConfig, appSettingsReducer);
 
+const persistAppNotifyConfig = {
+  key: 'appNotify',
+  storage,
+  whitelist: ['notifications'],
+};
+const persistedAppNotifyReducer = persistReducer(persistAppNotifyConfig, appNotifyReducer);
+
 const rootReducer = combineReducers({
   // postsBlock: postsBlockReducer,
   posts: postsReducer,
   orders: ordersReducer,
   filter: filterReducer,
   auth: persistedUserReducer,
-
+  appNotify: persistedAppNotifyReducer,
   appSettings: persistedAppSettingsReducer,
 });
 

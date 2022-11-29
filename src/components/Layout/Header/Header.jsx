@@ -1,8 +1,8 @@
 import React from 'react';
 
-import SvgIcon from 'components/SvgIcon/SvgIcon';
 import NavMenu from '../NavMenu/NavMenu';
 import UserMenu from '../UserMenu/UserMenu';
+import Notifications from '../Notifications/Notifications';
 import { Link } from 'react-router-dom';
 // import { useLocation } from 'react-router-dom';
 
@@ -38,7 +38,7 @@ const Header = () => {
 
       <div>{/* <span>{findMe()}</span> */}</div>
 
-      <SvgIcon iconId="chat" size={'32px'} />
+      <Notifications />
 
       <UserMenu />
     </header>

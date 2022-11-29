@@ -47,6 +47,15 @@
 
   --test-outline_d: 1px dashed tomato;
   --test-outline_s: 1px solid tomato;
+  //? notifications =========
+
+  --clr-light: #fff;
+  --clr-dark: #121212;
+  --clr-info: #3498db;
+  --clr-success: #07bc0c;
+  --clr-warning: #f1c40f;
+  --clr-error: #e74c3c;
+  --clr-primary: #cdcdcd;
 }
 
 body {
@@ -55,6 +64,9 @@ body {
     'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.NotScroll {
+  overflow: hidden;
 }
 
 code {

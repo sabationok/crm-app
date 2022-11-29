@@ -5,6 +5,7 @@ import { useBlock } from 'components/Block/BlockContext';
 
 const ActionCopy = ({ action }) => {
   const { blockTitle } = useBlock();
+
   function handleCopyBtnClick() {
     navigator.clipboard.writeText(blockTitle);
     toast.info(`Створено копію "${blockTitle}"`);
