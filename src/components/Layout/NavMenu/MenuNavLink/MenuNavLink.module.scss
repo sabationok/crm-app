@@ -26,3 +26,33 @@
 .navLinkActive {
   background-color: var(--brand_clr__1);
 }
+.navItem{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.subNavList {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: 0;
+  overflow: hidden;
+
+  transform: scaleY(0);
+
+  transition: all var(--timing-function__main);
+  &.isOpen { transform: scaleY(1);
+    height: fit-content;
+    & .btnArrow {
+      transform: rotate(0);
+    }
+  }
+}
+.btnTitle {
+  margin-right: auto;
+}
+.btnArrow {
+  transform: rotate(90deg);
+}
+.openBtn {
+  padding: 4px 8px;
+  border-bottom-color: rgba(122,122,122,0.8);
+}

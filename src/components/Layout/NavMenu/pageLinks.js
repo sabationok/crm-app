@@ -4,20 +4,19 @@ export const pageLinks = [
     path: 'main',
     iconId: 'home',
     mobilelinks: [
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
+      { title: 'Список завдань', path: 'mobile/tasks/list', iconId: 'list', actions: 'filtered' },
+      { title: 'Деталі завдання', path: 'mobile/tasks/task', iconId: 'info', actions: 'primary' },
+      { title: 'Сповіщення', path: 'mobile/tasks/notifications', iconId: 'notifications', actions: 'primary' },
     ],
   },
-  // { title: '', path: 'mobile/', iconId: '' },
   {
     title: 'Замовлення',
     path: 'orders',
     iconId: 'addtoCart',
     mobilelinks: [
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
+      { title: 'Замовлення', path: 'mobile/orders/list', iconId: 'list', actions: 'filtered' },
+      { title: 'Деталі замовлення', path: 'mobile/orders/order', iconId: 'info', actions: 'primary' },
+      { title: 'ТТН', path: 'mobile/orders/ttn', iconId: 'ttn', actions: 'primary' },
     ],
   },
   {
@@ -25,9 +24,9 @@ export const pageLinks = [
     path: 'returns',
     iconId: 'return',
     mobilelinks: [
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
+      { title: 'Список повернень', path: 'mobile/returns/list', iconId: 'list', actions: 'filtered' },
+      { title: 'Деталі повернення', path: 'mobile/returns/return', iconId: 'info', actions: 'primary' },
+      { title: 'Інспекція', path: 'mobile/returns/inspection', iconId: 'info', actions: 'primary' },
     ],
   },
   {
@@ -35,19 +34,19 @@ export const pageLinks = [
     path: 'products',
     iconId: 'storage',
     mobilelinks: [
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
+      { title: 'Товари', path: 'mobile/products/list', iconId: 'list', actions: 'filtered' },
+      { title: 'Деталі товару', path: 'mobile/products/product', iconId: 'info', actions: 'primary' },
+      { title: 'Залишки', path: 'mobile/products/stock', iconId: 'storage', actions: 'primary' },
     ],
   },
   {
-    title: 'Статистика',
-    path: 'statistics',
-    iconId: 'statistics',
+    title: 'Звіти',
+    path: 'raports',
+    iconId: 'assignment-ok',
     mobilelinks: [
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
+      { title: 'Звіти', path: 'mobile/raports/list', iconId: 'assignment-ok', actions: 'primary' },
+      { title: 'Статистика', path: 'mobile/raports/statistics', iconId: 'statistics', actions: 'primary' },
+      { title: 'Проблеми', path: 'mobile/raports/problems', iconId: 'warning', actions: 'primary' },
     ],
   },
   {
@@ -55,9 +54,9 @@ export const pageLinks = [
     path: 'counterParty',
     iconId: 'persons',
     mobilelinks: [
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
+      { title: 'Контрагенти', path: 'mobile/counterParty/list', iconId: 'persons', actions: 'primary' },
+      { title: 'Контрагент', path: 'mobile/counterParty/info', iconId: 'person', actions: 'primary' },
+      { title: 'Чат', path: 'mobile/counterParty/chat', iconId: 'chat', actions: 'primary' },
     ],
   },
   {
@@ -65,9 +64,9 @@ export const pageLinks = [
     path: 'settings',
     iconId: 'settings',
     mobilelinks: [
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
+      { title: 'Загальні', path: 'mobile/settings/app', iconId: 'settings', actions: 'primary' },
+      { title: 'Довідники', path: 'mobile/settings/global', iconId: 'settings', actions: 'primary' },
+      { title: 'Інше', path: 'mobile/settings/others', iconId: 'settings', actions: 'primary' },
     ],
   },
   {
@@ -75,19 +74,10 @@ export const pageLinks = [
     path: 'admin',
     iconId: 'admin',
     mobilelinks: [
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
-    ],
-  },
-  {
-    title: 'Вихід',
-    path: 'logOut',
-    iconId: 'logout',
-    mobilelinks: [
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
-      { title: '', path: 'mobile/', iconId: '' },
+      { title: 'Адмін', path: 'mobile/admin/main', iconId: 'admin', actions: 'primary' },
+      { title: 'Менеджери', path: 'mobile/admin/managers', iconId: 'persons', actions: 'primary' },
+      { title: 'Вендори', path: 'mobile/admin/vendors', iconId: 'persons', actions: 'primary' },
+      { title: 'Права доступу', path: 'mobile/admin', iconId: 'admin', actions: 'primary' },
     ],
   },
 ];

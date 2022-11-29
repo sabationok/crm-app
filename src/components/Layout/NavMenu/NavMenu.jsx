@@ -1,8 +1,8 @@
 import React from 'react';
-import SvgIcon from 'components/SvgIcon/SvgIcon';
+
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import MenuNavLink from './MenuNavLink/MenuNavLink';
-import { NavLink } from 'react-router-dom';
+
 import { pageLinks } from './pageLinks';
 
 import s from './NavMenu.module.scss';
@@ -15,7 +15,7 @@ const NavMenu = () => {
 
       <ul className={s.navList}>
         {pageLinksArr.map(link => (
-          <MenuNavLink item={link} />
+          <MenuNavLink key={link.path} item={link} />
         ))}
         {/* {pageLinksArr.map(item => (
           <li key={item.path}>

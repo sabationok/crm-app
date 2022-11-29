@@ -46,10 +46,11 @@ export const App = () => {
               <Route path="products" element={<PageProducts />} />
               <Route path="orders" element={<PageOrders />} />
               <Route path="returns" element={<PageReturns />} />
-              <Route path="statistics" element={<PageStatistics />} />
+              <Route path="raports" element={<PageStatistics />} />
               <Route path="counterParty" element={<PageCounterParty />} />
               <Route path="settings" element={<PageSettings />} />
               <Route path="admin" element={<PageAdmin />} />
+              <Route path="*" element={<PageNotFound />} />
             </Route>
             <Route path="logOut" element={<PageLogOut />} />
             <Route path="error" element={<PageError />} />
