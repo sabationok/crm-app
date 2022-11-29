@@ -7,7 +7,15 @@
 
   background-color: #fafafa;
   transition: background-color var(--timing-function__main);
-
+  @media screen and (max-width: 480px) {
+    // min-height: 100vh;
+  }
+  @media screen and (min-width: 768px) {
+    height: 150vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr;
+  }
   @media screen and (min-width: 1000px) {
     height: 100vh;
   }

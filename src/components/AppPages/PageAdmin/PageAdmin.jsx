@@ -1,24 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Block from 'components/Block/Block';
+import AppGridPage from '../AppGridPage/AppGridPage';
 
-import s from './PageAdmin.module.scss';
+// import s from './PageAdmin.module.scss';
 
-const PageAdmin = props => {
+const PageAdmin = () => {
   return (
-    <div className={s.pageFlex}>
-      <section className={s.sectionTopFlex}>
-        <Block blockFilter title="Завдання" iconId="list" actions="withFilter" filter />
-      </section>
-      <section className={s.sectionBottomFlex}>
-        <div className={s.sectionInnerRight}>
-          <Block title="Адмін" iconId="admin" actions="primary" />
-        </div>
-        <div className={s.sectionInnerRight}>
-          <Block title="Адмін" iconId="settings" actions="primary" />
-        </div>
-      </section>
-    </div>
+    <>
+      <AppGridPage
+        elementTop={<Block title="Завдання" iconId="list" actions="withFilter" filter />}
+        elementBottomLeft={<Block title="Адмін" iconId="admin" actions="primary" />}
+        elementBottomRight={<Block title="Адмін" iconId="settings" actions="primary" />}
+      />
+    </>
   );
 };
 

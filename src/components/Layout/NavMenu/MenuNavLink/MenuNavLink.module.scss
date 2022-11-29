@@ -1,0 +1,28 @@
+.navLink,
+.navLinkActive {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  text-align: left;
+
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+
+  width: 100%;
+  color: #fff;
+
+  padding: 8px 16px;
+
+  background-color: inherit;
+  border-style: none;
+  border: 1px solid transparent;
+  transition: all var(--timing-function__main);
+  &:hover {
+    background-color: var(--brand_clr__1);
+  }
+}
+.navLinkActive {
+  background-color: var(--brand_clr__1);
+}

@@ -1,25 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AppGridPage from '../AppGridPage/AppGridPage';
 import Block from 'components/Block/Block';
 
-import s from './PageSettings.module.scss';
+// import s from './PageSettings.module.scss';
 
 const PageSettings = props => {
   return (
-    <div className={s.pageFlex}>
-      <section className={s.sectionTopFlex}>
-        <Block blockFilter title="Налаштування" iconId="list" actions="withFilter" filter />
-      </section>
-
-      <section className={s.sectionBottomFlex}>
-        <div className={s.sectionInnerLeft}>
-          <Block title="Налаштування" iconId="person" actions="primary" />
-        </div>
-        <div className={s.sectionInnerRight}>
-          <Block title="Налаштування" iconId="settings" actions="primary" />
-        </div>
-      </section>
-    </div>
+    <>
+      <AppGridPage
+        pageGrid_5_5
+        elementTop={<Block title="Налаштування" iconId="list" actions="withFilter" filter />}
+        elementBottomLeft={<Block title="Налаштування" iconId="person" actions="primary" />}
+        elementBottomRight={<Block title="Налаштування" iconId="settings" actions="primary" />}
+      />
+    </>
   );
 };
 

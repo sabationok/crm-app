@@ -29,6 +29,10 @@ export const MaxToTabletXl = ({ children }) => {
   const isTabletXL = useMediaQuery({ maxWidth: 1000 });
   return isTabletXL ? children : null;
 };
+export const MinTabletXl = ({ children }) => {
+  const isTabletXL = useMediaQuery({ minWidth: 768 });
+  return isTabletXL ? children : null;
+};
 export const NotMobile = ({ children }) => {
   const isNotMobile = useMediaQuery({ minWidth: 768 });
   return isNotMobile ? children : null;
@@ -40,4 +44,12 @@ export const NotMobileRoute = ({ redirectTo }) => {
 export const MobileRoute = ({ redirectTo }) => {
   const isMobile = useMediaQuery({ maxWidth: 480 });
   return isMobile ? <Outlet /> : <Navigate to={redirectTo} />;
+};
+export const MaxTabletRoute = ({ redirectTo }) => {
+  const isTablet = useMediaQuery({ maxWidth: 768 });
+  return isTablet ? <Outlet /> : <Navigate to={redirectTo} />;
+};
+export const MinTabletXlRoute = ({ redirectTo }) => {
+  const isTabletXl = useMediaQuery({ minWidth: 768 });
+  return isTabletXl ? <Outlet /> : <Navigate to={redirectTo} />;
 };
