@@ -4,11 +4,12 @@
 
   overflow: hidden;
 
-  fill: gray;
+  fill: gray;  color: gray;
 
   border-radius: 4px;
   outline: 2px solid gray;
 
+  background-color: inherit;
   transition: all var(--timing-function__main);
 }
 .inputImg {
@@ -16,13 +17,17 @@
   &:focus,
   &:focus-within {
     outline-color: var(--brand_clr__1);
+    color: var(--brand_clr__1);
     fill: var(--brand_clr__1);
-    transform: scale(1.25);
+    // transform: scale(1.25);
     z-index: 10;
     & .labelInner {
       border-color: var(--brand_clr__1);
     }
   }
+}
+.inputImgPreview{
+
 }
 .inputLabel {
   display: flex;
@@ -39,8 +44,7 @@
 
   transition: all var(--timing-function__main);
 }
-.inputLabelFilled {
-}
+
 .labelInner {
   display: flex;
   align-items: center;

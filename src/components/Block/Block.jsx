@@ -23,7 +23,7 @@ const Block = props => {
   const { isDarkTheme } = useSelector(getAppSettings);
   const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');
   const [isSearch, setIsSearch] = useState(false);
-  const [isFormDisabled, setIsFormDisabled] = useState(true);
+  const [isFormDisabled, setIsFormDisabled] = useState(false);
 
   function handleToggleBlockSearch() {
     setIsSearch(!isSearch);

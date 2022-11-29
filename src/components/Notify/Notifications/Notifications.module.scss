@@ -5,14 +5,18 @@
 
   border-radius: 4px;
   overflow: hidden;
+
+  min-height: 300px;
+  min-width: 100%;
 }
 .headerGrid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 24px;
   grid-auto-rows: max-content;
   gap: 4px;
+  z-index: 5;
 
-  padding: 8px;
+  padding: 8px 50px 8px 8px;
 
   box-shadow: var(--header-shadow);
 }
@@ -46,4 +50,7 @@
 .Dark {
   background-color: var(--brand_clr__2);
   color: var(--clr-light);
+}
+.deleteBtnGrid{
+  fill: var(--clr-error);
 }

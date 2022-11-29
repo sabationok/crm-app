@@ -44,14 +44,12 @@ const InputImg = ({ name, id, onChange, selectedFile = null, multiple = false })
           onChange={onChange}
         />
         <label htmlFor={id} className={s.inputLabel}>
-          {!selectedFile && (
-            <span className={s.labelInner}>
-              <SvgIcon iconId="plus" size="30px" />
-            </span>
+          {!selectedFile && <SvgIcon iconId="plus" size="40px" />}
+          {preview && (
+            <ModalOpenLink modalContent={<img src={preview} alt={selectedFile?.name} />}>
+              <img className={s.labelInnerImg} src={preview} alt={selectedFile?.name} />
+            </ModalOpenLink>
           )}
-          <ModalOpenLink modalContent={<img src={preview} alt={selectedFile?.name} />}>
-            {preview && <img className={s.labelInnerImg} src={preview} alt={selectedFile?.name} />}
-          </ModalOpenLink>
         </label>
       </div>
     </>

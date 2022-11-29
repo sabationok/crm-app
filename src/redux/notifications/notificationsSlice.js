@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { actionAddNotify } from './notificationsActions';
+import { actionAddNotify, actionClearAllNotify, actionDeleteNotify } from './notificationsActions';
 
 const initialState = {
   notifications: [],
@@ -12,7 +12,12 @@ export const appNotifySlice = createSlice({
   extraReducers: {
     [actionAddNotify]: (state, action) => {
       state.notifications = [action.payload, ...state.notifications];
-      console.log(action);
+    },
+    [actionClearAllNotify]: (state, action) => {
+      state.notifications = [action.payload];
+    },
+    [actionDeleteNotify]: (state, action) => {
+      state.notifications = state.notifications.filter(item => item.id !== action.payload);
     },
   },
 });

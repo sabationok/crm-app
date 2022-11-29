@@ -8,7 +8,7 @@ import s from './NavMenu.module.scss';
 const NavMenu = ({ pageLinks = [], onClick }) => {
   return (
     <div className={s.menuBox}>
-      <ButtonIcon iconId="actions-v" size="32px" className={s.button} />
+      <ButtonIcon iconId="actions-v" size="32px" iconSize='100%' className={s.button} />
 
       <ul className={s.navList}>
         {pageLinks.map(item => (

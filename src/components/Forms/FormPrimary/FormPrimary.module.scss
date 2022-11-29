@@ -1,5 +1,7 @@
 .formContainer {
   padding: 8px;
+
+  background-color: inherit;
 }
 .form,
 .notActiveForm {
@@ -13,6 +15,8 @@
 
   border: 2px solid gray;
   border-radius: 4px;
+
+  background-color: inherit;
 }
 .form {
   &:focus-visible,
@@ -35,6 +39,8 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 8px;
+
+  background-color: inherit;
 }
 .formTitle {
   font-size: 14px;

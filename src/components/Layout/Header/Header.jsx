@@ -2,7 +2,7 @@ import React from 'react';
 
 import NavMenu from '../NavMenu/NavMenu';
 import UserMenu from '../UserMenu/UserMenu';
-import Notifications from '../Notifications/Notifications';
+import Notifications from 'components/Notify/Notifications/Notifications';
 import { Link } from 'react-router-dom';
 // import { useLocation } from 'react-router-dom';
 
