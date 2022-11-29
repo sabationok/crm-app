@@ -4,8 +4,6 @@ import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import s from './Action.module.scss';
 
 const ActionPrimary = ({ name, status = false, iconId = 'close', title = 'title', onClick }) => {
-  const actionClass = status ? s.actionActive : s.actionNotActive;
-
   return (
     <>
       <li className={s.listItem}>
@@ -13,7 +11,7 @@ const ActionPrimary = ({ name, status = false, iconId = 'close', title = 'title'
           iconId={iconId}
           size="100%"
           iconSize="28px"
-          className={actionClass}
+          className={s.actionBtn}
           onClick={onClick}
           disabled={!status}
         />

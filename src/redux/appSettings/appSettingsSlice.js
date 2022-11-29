@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { actionChangeTheme } from './appSettingsActions';
 
 const initialState = {
-  isDarkTheme: true,
+  isDarkTheme: false,
 };
 
 export const appSettingsSlice = createSlice({
