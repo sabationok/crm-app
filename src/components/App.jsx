@@ -12,16 +12,16 @@ import DeviceTypeInformer from './DeviceTypeInformer/DeviceTypeInformer';
 
 import s from './App.module.scss';
 
-const PageMain = lazy(() => import('./Pages/PageMain/PageMain'));
-const PageNotFound = lazy(() => import('./Pages/PageNotFound/PageNotFound'));
-const PageLogOut = lazy(() => import('./Pages/PageLogOut/PageLogOut'));
-const PageProducts = lazy(() => import('./Pages/PageProducts/PageProducts'));
-const PageOrders = lazy(() => import('./Pages/PageOrders/PageOrders'));
-const PageReturns = lazy(() => import('./Pages/PageReturns/PageReturns'));
-const PageCounterParty = lazy(() => import('./Pages/PageCounterParty/PageCounterParty'));
-const PageSettings = lazy(() => import('./Pages/PageSettings/PageSettings'));
-const PageStatistics = lazy(() => import('./Pages/PageStatistics/PageStatistics'));
-const PageAdmin = lazy(() => import('./Pages/PageAdmin/PageAdmin'));
+const PageMain = lazy(() => import('./AppPages/PageMain/PageMain'));
+const PageNotFound = lazy(() => import('./AppPages/PageNotFound/PageNotFound'));
+const PageLogOut = lazy(() => import('./AppPages/PageLogOut/PageLogOut'));
+const PageProducts = lazy(() => import('./AppPages/PageProducts/PageProducts'));
+const PageOrders = lazy(() => import('./AppPages/PageOrders/PageOrders'));
+const PageReturns = lazy(() => import('./AppPages/PageReturns/PageReturns'));
+const PageCounterParty = lazy(() => import('./AppPages/PageCounterParty/PageCounterParty'));
+const PageSettings = lazy(() => import('./AppPages/PageSettings/PageSettings'));
+const PageStatistics = lazy(() => import('./AppPages/PageStatistics/PageStatistics'));
+const PageAdmin = lazy(() => import('./AppPages/PageAdmin/PageAdmin'));
 
 export const App = () => {
   const { isDarkTheme } = useSelector(getAppSettings);
