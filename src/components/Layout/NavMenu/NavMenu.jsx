@@ -3,21 +3,21 @@ import React from 'react';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import MenuNavLink from './MenuNavLink/MenuNavLink';
 
-import { pageLinks } from '../pageLinks';
+import { pagesRoutes } from 'components/pagesRoutes';
 
 import s from './NavMenu.module.scss';
 
 const NavMenu = () => {
-  const pageLinksArr = pageLinks.length > 0 ? pageLinks : [];
+  const pagesRoutesArr = pagesRoutes.length > 0 ? pagesRoutes : [];
   return (
     <div className={s.menuBox}>
       <ButtonIcon iconId="actions-v" size="32px" iconSize="100%" className={s.button} />
 
       <ul className={s.navList}>
-        {pageLinksArr.map(link => (
+        {pagesRoutesArr.map(link => (
           <MenuNavLink key={link.path} item={link} />
         ))}
-        {/* {pageLinksArr.map(item => (
+        {/* {pagesRoutesArr.map(item => (
           <li key={item.path}>
             <NavLink to={item.path} className={({ isActive }) => (isActive ? s.navLinkActive : s.navLink)}>
               {item.iconId && <SvgIcon iconId={item.iconId} size="18px" />}

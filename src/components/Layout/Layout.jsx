@@ -14,9 +14,9 @@ const Layout = ({ children }) => {
 
       {children}
 
-      <MaxToTablet>
+      {/* <MaxToTablet>
         <MobileFooter />
-      </MaxToTablet>
+      </MaxToTablet> */}
       
       <MinTabletXl>
         <DesktopFooter />

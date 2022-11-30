@@ -9,6 +9,7 @@ const PageAdmin = () => {
   return (
     <>
       <AppGridPage
+        pageGrid_5_5
         elementTop={<Block title="Завдання" iconId="list" actions="withFilter" filter />}
         elementBottomLeft={<Block title="Адмін" iconId="admin" actions="primary" />}
         elementBottomRight={<Block title="Адмін" iconId="settings" actions="primary" />}

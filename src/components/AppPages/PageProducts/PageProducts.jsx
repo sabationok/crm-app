@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { Outlet } from 'react-router-dom';
 
 import AppGridPage from '../AppGridPage/AppGridPage';
 
@@ -7,12 +8,8 @@ import { BlockProductsList, BlockProductInfo, BlockProductStock } from 'componen
 const PageProducts = () => {
   return (
     <>
-      <AppGridPage
-        pageGrid_5_5
-        elementTop={<BlockProductsList />}
-        elementBottomLeft={<BlockProductInfo />}
-        elementBottomRight={<BlockProductStock />}
-      />
+      <AppGridPage pageGrid_5_5 elementTop={<BlockProductsList />} elementBottomLeft={<BlockProductInfo />} elementBottomRight={<BlockProductStock />} />
+      <Outlet />
     </>
   );
 };
