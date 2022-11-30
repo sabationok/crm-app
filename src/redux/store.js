@@ -4,6 +4,7 @@ import { filterReducer } from './slices/sliceFilter';
 import { userReducer } from './slices/authSlice';
 import { postsReducer } from './posts/slicePosts';
 import { ordersReducer } from './orders/ordersSlice';
+import { appPageReducer } from './page/pageSlice';
 // import { postsBlockReducer } from './slices/slicePostsBlock';
 import { appSettingsReducer } from './appSettings/appSettingsSlice';
 import { appNotifyReducer } from './notifications/notificationsSlice';
@@ -39,6 +40,7 @@ const rootReducer = combineReducers({
   auth: persistedUserReducer,
   appNotify: persistedAppNotifyReducer,
   appSettings: persistedAppSettingsReducer,
+  appPage: appPageReducer,
 });
 
 export const store = configureStore({

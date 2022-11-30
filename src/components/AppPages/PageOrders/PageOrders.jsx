@@ -1,9 +1,7 @@
 // import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Block from 'components/Block/Block';
 import AppGridPage from '../AppGridPage/AppGridPage';
-import FormPrimary from 'components/Forms/FormPrimary/FormPrimary';
-import TableList from 'components/TableList/BlockTable';
+import { BlockOrdersList, BlockOrderInfo, BlockOrderTTN } from 'components/Blocks/OrderBlocks';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { fetchAllOrders } from 'redux/orders/ordersThunks';
 // import { selectOrders } from 'redux/selectors';
@@ -27,22 +25,10 @@ const PageOrders = () => {
     <>
       <AppGridPage
         pageGrid_5_5
-        elementTop={
-          <Block title="Замовлення" iconId="list" tableTitles={ordersTableTitles} actions="withFilter" filter>
-            <TableList />
-          </Block>
-        }
-        elementBottomLeft={
-          <Block title="Деталі" iconId="info" actions="primary">
-            <FormPrimary formTitle="Деталі замовлення" />
-          </Block>
-        }
-        elementBottomRight={
-          <Block title="ТТН" iconId="ttn" actions="primary">
-            <FormPrimary formTitle="ТТН до замовлення" />
-            <FormPrimary formTitle="Рахунок до замовлення" />
-          </Block>
-        }
+        bigerSideLeft
+        elementTop={<BlockOrdersList tableTitles={ordersTableTitles} />}
+        elementBottomLeft={<BlockOrderInfo />}
+        elementBottomRight={<BlockOrderTTN />}
       />
     </>
   );

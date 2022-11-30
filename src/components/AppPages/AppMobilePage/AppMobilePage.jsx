@@ -1,14 +1,14 @@
 import React from 'react';
-import { MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
-
-const AppMobilePage = ({ children }) => {
+import { Outlet } from 'react-router-dom';
+import s from './AppMobilePage.module.scss';
+const AppMobilePage = ({ children, page }) => {
   return (
-    <MaxToTablet>
-      <div>
+    <>
+      <div className={s.Page}>
         {children}
-        <span>Mobile page main</span>
+        <Outlet />
       </div>
-    </MaxToTablet>
+    </>
   );
 };
 

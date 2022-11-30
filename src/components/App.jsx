@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Layout from './Layout/Layout';
 
@@ -13,9 +13,21 @@ import DeviceTypeInformer from './DeviceTypeInformer/DeviceTypeInformer';
 
 import s from './App.module.scss';
 
-import AppMobilePage from './AppPages/AppMobilePage/AppMobilePage';
+import { BlockProductsList, BlockProductInfo, BlockProductStock } from 'components/Blocks/ProductBlocks';
+import { BlockOrdersList, BlockOrderInfo, BlockOrderTTN } from 'components/Blocks/OrderBlocks';
+import { BlockReturnsList, BlockReturnInfo, BlockReturnInspection } from 'components/Blocks/ReturnBlocks';
+import { BlockRaportsList, BlockRaportInfo, BlockStatistics, BlockProblems } from 'components/Blocks/RaportBlocks';
+import {
+  BlockCounterPartysList,
+  BlockCounterPartyInfo,
+  BlockCounterPartyChat,
+} from 'components/Blocks/CounterPartyBlocks';
+import { BlockMainTasks, BlockMainTask, BlockMainNotify } from 'components/Blocks/MainBlocks';
+import { BlockAdmin, BlockAdminRules } from 'components/Blocks/AdminBlocks';
+import BlockSettings from './Blocks/SettingsBlocks';
 
 const PageMain = lazy(() => import('./AppPages/PageMain/PageMain'));
+const AppMobilePage = lazy(() => import('./AppPages/AppMobilePage/AppMobilePage'));
 const PageNotFound = lazy(() => import('./AppPages/PageNotFound/PageNotFound'));
 const PageError = lazy(() => import('./AppPages/PageError/PageError'));
 const PageLogOut = lazy(() => import('./AppPages/PageLogOut/PageLogOut'));
@@ -35,23 +47,87 @@ export const App = () => {
       <Layout>
         <Suspense fallback={<AppLoader isLoading={true} />}>
           <Routes>
-            <Route path="mobile/*" element={<MaxTabletRoute redirectTo="/main" />}>
-              <Route index element={<AppMobilePage />}></Route>
-              <Route path="main" element={<AppMobilePage />} />
+            <Route index element={<AppMobilePage />} />
+            <Route path="/*" element={<AppMobilePage />}>
+              <Route path="main/*">
+                
+                <Route index element={<Navigate to="/main/tasks" />} />
+                <Route path="tasks" element={<BlockMainTasks />} />
+                <Route path="task" element={<BlockMainTask />} />
+                <Route path="notifications" element={<BlockMainNotify />} />
+                <Route path="*" element={<PageNotFound />} />
+              </Route>
+              <Route path="products/*">
+                <Route index element={<Navigate to="/products/list" />} />
+                <Route path="list" element={<BlockProductsList />} />
+                <Route path="product" element={<BlockProductInfo />} />
+                <Route path="stock" element={<BlockProductStock />} />
+                <Route path="*" element={<PageNotFound />} />
+              </Route>
+              <Route path="returns/*">
+                <Route index element={<Navigate to="/returns/list" />} />
+                <Route path="list" element={<BlockReturnsList />} />
+                <Route path="return" element={<BlockReturnInfo />} />
+                <Route path="inspection" element={<BlockReturnInspection />} />
+                <Route path="*" element={<PageNotFound />} />
+              </Route>
+              <Route path="orders/*">
+                <Route index element={<Navigate to="/orders/list" />} />
+                <Route path="list" element={<BlockOrdersList />} />
+                <Route path="order" element={<BlockOrderInfo />} />
+                <Route path="ttn" element={<BlockOrderTTN />} />
+                <Route path="*" element={<PageNotFound />} />
+              </Route>
+              <Route path="orders/*">
+                <Route index element={<Navigate to="/orders/list" />} />
+                <Route path="list" element={<BlockOrdersList />} />
+                <Route path="order" element={<BlockOrderInfo />} />
+                <Route path="ttn" element={<BlockOrderTTN />} />
+                <Route path="*" element={<PageNotFound />} />
+              </Route>
+              <Route path="raports/*">
+                <Route index element={<Navigate to="/raports/list" />} />
+                <Route path="list" element={<BlockRaportsList />} />
+                <Route path="raport" element={<BlockRaportInfo />} />
+                <Route path="problems" element={<BlockProblems />} />
+                <Route path="statistics" element={<BlockStatistics />} />
+                <Route path="*" element={<PageNotFound />} />
+              </Route>
+              <Route path="counterParty/*">
+                <Route index element={<Navigate to="/counterParty/list" />} />
+                <Route path="list" element={<BlockCounterPartysList />} />
+                <Route path="info" element={<BlockCounterPartyInfo />} />
+                <Route path="chat" element={<BlockCounterPartyChat />} />
+                <Route path="*" element={<PageNotFound />} />
+              </Route>
+              <Route path="admin/*">
+                <Route index element={<Navigate to="/admin/main" />} />
+                <Route path="main" element={<BlockAdmin />} />
+                <Route path="roles" element={<BlockAdminRules />} />
+
+                <Route path="*" element={<PageNotFound />} />
+              </Route>
+              <Route path="settings/*">
+                <Route index element={<Navigate to="/settings/app" />} />
+                <Route path="app" element={<BlockSettings />} />
+                <Route path="*" element={<PageNotFound />} />
+              </Route>
+              <Route path="*" element={<PageNotFound />} />
+              {/* <Route path="/*" element={<MaxTabletRoute redirectTo="/main" />}></Route> */}
+
               <Route path="*" element={<PageNotFound />} />
             </Route>
-            <Route path="/*" element={<MinTabletXlRoute redirectTo="mobile/main" />}>
-              <Route index element={<PageProducts />} />
-              <Route path="main" element={<PageMain />} />
-              <Route path="products" element={<PageProducts />} />
-              <Route path="orders" element={<PageOrders />} />
-              <Route path="returns" element={<PageReturns />} />
-              <Route path="raports" element={<PageStatistics />} />
-              <Route path="counterParty" element={<PageCounterParty />} />
-              <Route path="settings" element={<PageSettings />} />
-              <Route path="admin" element={<PageAdmin />} />
-              <Route path="*" element={<PageNotFound />} />
-            </Route>
+            <Route index element={<Navigate to="/main" />} />
+            <Route path="main" element={<PageMain />} />
+            <Route path="products" element={<PageProducts />} />
+            <Route path="orders" element={<PageOrders />} />
+            <Route path="returns" element={<PageReturns />} />
+            <Route path="raports" element={<PageStatistics />} />
+            <Route path="counterParty" element={<PageCounterParty />} />
+            <Route path="settings" element={<PageSettings />} />
+            <Route path="admin" element={<PageAdmin />} />
+            <Route path="*" element={<PageNotFound />} />
+            {/* <Route path="/*" element={<MinTabletXlRoute redirectTo="/main/tasks" />}></Route> */}
             <Route path="logOut" element={<PageLogOut />} />
             <Route path="error" element={<PageError />} />
             <Route path="*" element={<PageNotFound />} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { MinTabletXl } from 'components/DeviceTypeInformer/DeviceTypeController';
-// import 
+// import
 
 import s from './AppGridPage.module.scss';
 
@@ -13,12 +13,10 @@ const AppGridPage = ({
   elementBottomRight = <></>,
   bigerSideLeft = false,
 }) => {
-  const pageGridClassNames = [pageGrid_5_5 ? s.pageGrid_5_5 : '', pageGrid_6_5 ? s.pageGrid_6_5 : ''].join(' ').trim();
-  console.log(pageGridClassNames);
-  const bottomLeftClassNames = [s.BottomLeft, bigerSideLeft ? s.big : s.small].join(' ').trim();
-  const bottomRightClassNames = [s.BottomRight, bigerSideLeft ? s.small : s.big].join(' ').trim();
+  const pageGridClassNames = [pageGrid_5_5 ? s.pageGrid_5_5 : '', pageGrid_6_5 ? s.pageGrid_6_5 : ''].join(' ');
+  const bottomLeftClassNames = [s.BottomLeft, bigerSideLeft ? s.big : s.small].join(' ');
+  const bottomRightClassNames = [s.BottomRight, bigerSideLeft ? s.small : s.big].join(' ');
   return (
-
     <MinTabletXl>
       <div className={pageGridClassNames}>
         <div className={s.Top}>{elementTop}</div>

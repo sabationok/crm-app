@@ -1,5 +1,8 @@
 .app,
 .appDark {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr min-content;
   width: 100%;
   color: #010101;
   width: 100%;
