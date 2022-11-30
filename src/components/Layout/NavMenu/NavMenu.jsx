@@ -16,8 +16,8 @@ const NavMenu = () => {
   }
 
   return (
-    <div className={isOpen ? s.menuOpen : s.menu}>
-      <ButtonIcon iconId={isOpen ? 'close' : 'actions-v'} size="32px" iconSize="100%" className={s.button} onClick={handleToggleMenu} />
+    <div className={isOpen ? s.menuOpen : s.menu} onClick={handleToggleMenu}>
+      <ButtonIcon iconId={isOpen ? 'close' : 'actions-v'} size="40px" iconSize="100%" className={s.button}  />
 
       <ul className={s.navList}>
         {pagesRoutesArr.map(link => (

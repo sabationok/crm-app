@@ -1,8 +1,8 @@
 import React from 'react';
 
-import MobileNavMenu from './MobileNavMenu/MobileNavMenu';
 import { MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 import NavMenu from '../NavMenu/NavMenu';
+import SlickMobileNavMenu from './MobileNavMenu/SlickMobileNavMenu';
 
 import { mobilePageRoutes } from 'components/pagesRoutes';
 
@@ -14,10 +14,11 @@ const MobileFooter = props => {
   return (
     <div className={s.MobileFooter}>
       <div className={s.gridLeft}></div>
-      
+
       <div className={s.gridCenter}>
         <MaxToTablet>
-          <MobileNavMenu navLinkArr={filteredNavLinks} />
+          {/* <MobileNavMenu navLinkArr={filteredNavLinks} /> */}
+          <SlickMobileNavMenu navLinkArr={filteredNavLinks} />
         </MaxToTablet>
       </div>
 

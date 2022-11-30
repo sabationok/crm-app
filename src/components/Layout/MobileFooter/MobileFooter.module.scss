@@ -1,6 +1,7 @@
 .MobileFooter {
   display: grid;
   grid-template-columns: 40px repeat(4, 1fr) 40px;
+  grid-template-rows: 40px;
   align-items: center;
   justify-items: center;
 
@@ -12,17 +13,29 @@
   color: #fff;
 
   width: 100%;
-  min-height: 40px;
   height: fit-content;
 
   background-color: var(--brand_clr__2);
+}
+.gridLeft,
+.gridCenter,
+.gridRight {
+  height: 100%;
+  width: 100%;
 }
 .gridLeft {
   grid-column: 1/2;
 }
 .gridCenter {
+  padding: 0 30px;
   grid-column: 2/6;
 }
 .gridRight {
   grid-column: 6/7;
+}
+.gridLeft,
+.gridRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

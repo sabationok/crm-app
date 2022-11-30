@@ -11,6 +11,8 @@ import './index.scss';
 import './index.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './iconFonts/iconFonts.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
