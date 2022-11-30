@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkcrm_app=self.webpackChunkcrm_app||[]).push([[902],{5902:function(r,e,n){n.r(e),n.d(e,{default:function(){return a}});n(2791);var c="PageError_PageLogOut__DW29w",u=n(184),a=function(r){return(0,u.jsx)("div",{className:c,children:(0,u.jsx)("p",{children:"Error!"})})}}}]);
+//# sourceMappingURL=902.0f472818.chunk.js.map
