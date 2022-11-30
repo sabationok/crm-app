@@ -1,18 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { actionSetPage } from './pageActions';
+import { actionSetPage, actionSetDevice } from './pageActions';
 
 const initialState = {
   page: {
     title: '',
+    parentPath: '',
     path: '',
     iconId: '',
-    mobilelinks: [
-      { title: 'Список завдань', path: 'tasks/list', iconId: 'list', actions: 'filtered' },
-      { title: 'Деталі завдання', path: 'tasks/task', iconId: 'info', actions: 'primary' },
-      { title: 'Сповіщення', path: 'tasks/notifications', iconId: 'notifications', actions: 'primary' },
-    ],
   },
+  device: '',
 };
 
 export const appPageSlice = createSlice({
@@ -21,6 +18,9 @@ export const appPageSlice = createSlice({
   extraReducers: {
     [actionSetPage]: (state, action) => {
       state.page = action.payload;
+    },
+    [actionSetDevice]: (state, action) => {
+      state.device = action.payload;
     },
   },
 });

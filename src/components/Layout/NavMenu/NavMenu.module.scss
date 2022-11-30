@@ -1,48 +1,26 @@
-.menuBox {
+.menu,
+.menuOpen {
   display: flex;
   align-items: center;
   gap: 16px;
 
+  width: fit-content;
+  height: fit-content;
   position: relative;
 
-  &:focus,
-  &:hover {
-    & .profileInfoList,
-    & .navList {
-      overflow: auto;
-      opacity: 1;
-      transform: scaleX(1);
-      visibility: visible;
-      pointer-events: all;
-    }
-  }
-  &.isOpen {
-    & .profileInfoList,
-    & .navList {
-      overflow: auto;
-      opacity: 1;
-      transform: scaleX(1);
-      visibility: visible;
-      pointer-events: all;
-    }
-  }
   & .navList {
     display: block;
     position: absolute;
-    top: 100%;
-    left: 0;
+    bottom: 100%;
+    right: 0;
     z-index: 105;
 
     min-width: 230px;
-    max-height: 70vh;
 
-    padding: 9px 1px;
+    max-height: 0;
 
-    transform-origin: left;
-    transform: scaleX(0);
-    opacity: 0;
-    visibility: hidden;
     pointer-events: none;
+    visibility: hidden;
 
     overflow: hidden;
     fill: #fff;
@@ -84,17 +62,20 @@
     fill: #fff;
     &:hover {
       fill: var(--brand_clr__1);
+      background-color: rgba(254,254,254,0.2);
     }
-    &:focus {
+    &:active {
       fill: var(--brand_clr__1);
-      & + .profileInfoList,
-      & + .navList {
-        overflow: auto;
-        opacity: 1;
-        transform: scaleX(1);
-        visibility: visible;
-        pointer-events: all;
-      }
+      background-color: rgba(254,254,254,0.1);
     }
+  }
+}
+.menuOpen {
+  & .navList {
+    overflow: auto;
+    opacity: 1;
+    max-height: 70vh;
+    visibility: visible;
+    pointer-events: all;
   }
 }

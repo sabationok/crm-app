@@ -1,6 +1,8 @@
 import React from 'react';
-import SvgIcon from 'components/SvgIcon/SvgIcon';
-import { NavLink } from 'react-router-dom';
+
+import MobileNavMenu from './MobileNavMenu/MobileNavMenu';
+import { MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
+import NavMenu from '../NavMenu/NavMenu';
 
 import { mobilePageRoutes } from 'components/pagesRoutes';
 
@@ -11,13 +13,17 @@ const MobileFooter = props => {
 
   return (
     <div className={s.MobileFooter}>
-      {filteredNavLinks.length > 0 &&
-        filteredNavLinks.map(link => (
-          <NavLink key={link?.path} to={link?.path} className={({ isActive }) => (isActive ? s.navLinkActive : s.navLink)}>
-            <SvgIcon iconId={link?.iconId} size="20px" />
-            <span className={s.linkTitle}>{link?.title}</span>
-          </NavLink>
-        ))}
+      <div className={s.gridLeft}></div>
+      
+      <div className={s.gridCenter}>
+        <MaxToTablet>
+          <MobileNavMenu navLinkArr={filteredNavLinks} />
+        </MaxToTablet>
+      </div>
+
+      <div className={s.gridRight}>
+        <NavMenu />
+      </div>
     </div>
   );
 };

@@ -8,12 +8,13 @@
   width: 100%;
   min-height: 100vh;
 
+  // overflow: hidden;
   background-color: #fafafa;
   transition: background-color var(--timing-function__main);
   @media screen and (max-width: 480px) {
     min-height: 100vh;
   }
-  @media screen and (orientation: landscape) {
+  @media screen and (max-width: 768px) and (orientation: landscape) {
     min-height: 320px;
     height: 100vh;
   }

@@ -76,8 +76,8 @@ export const mobilePageRoutes = [
   { title: 'Статистика', device: 'mobile', parentPath: 'raports', path: 'statistics', iconId: 'statistics' },
   { title: 'Проблеми', device: 'mobile', parentPath: 'raports', path: 'problems', iconId: 'warning' },
 
-  { title: 'Контрагенти', device: 'mobile', parentPath: 'counterParty', path: 'allCounterParties', iconId: 'persons' },
-  { title: 'Контрагент', device: 'mobile', parentPath: 'counterParty', path: 'counterParty', iconId: 'person' },
+  { title: 'Контрагенти', device: 'mobile', parentPath: 'counterParty', path: 'counterPartiesList', iconId: 'persons' },
+  { title: 'Контрагент', device: 'mobile', parentPath: 'counterParty', path: 'counterAgent', iconId: 'person' },
   { title: 'Чат', device: 'mobile', parentPath: 'counterParty', path: 'chat', iconId: 'chat' },
 
   { title: 'Загальні', device: 'mobile', parentPath: 'settings', path: 'app', iconId: 'settings' },

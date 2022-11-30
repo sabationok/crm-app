@@ -16,13 +16,13 @@ const MenuNavLink = ({ item }) => {
     <>
       <li>
         <MaxToTablet>
-          <NavLink to={`mobile/${item.path}`} className={({ isActive }) => (isActive ? s.navLinkActive : s.navLink)}>
+          <NavLink to={`/mobile/${item.path}`} className={({ isActive }) => (isActive ? s.navLinkActive : s.navLink)}>
             {item.iconId && <SvgIcon iconId={item.iconId} size="18px" />}
             <span>{item.title}</span>
           </NavLink>
         </MaxToTablet>
         <MinTabletXl>
-          <NavLink to={`desktop/${item.path}`} className={({ isActive }) => (isActive ? s.navLinkActive : s.navLink)}>
+          <NavLink to={`/desktop/${item.path}`} className={({ isActive }) => (isActive ? s.navLinkActive : s.navLink)}>
             {item.iconId && <SvgIcon iconId={item.iconId} size="18px" />}
             <span>{item.title}</span>
           </NavLink>

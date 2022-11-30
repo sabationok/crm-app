@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import MenuNavLink from './MenuNavLink/MenuNavLink';
@@ -8,10 +8,16 @@ import { pagesRoutes } from 'components/pagesRoutes';
 import s from './NavMenu.module.scss';
 
 const NavMenu = () => {
+  const [isOpen, setIsOpen] = useState();
   const pagesRoutesArr = pagesRoutes.length > 0 ? pagesRoutes : [];
+
+  function handleToggleMenu() {
+    setIsOpen(!isOpen);
+  }
+
   return (
-    <div className={s.menuBox}>
-      <ButtonIcon iconId="actions-v" size="32px" iconSize="100%" className={s.button} />
+    <div className={isOpen ? s.menuOpen : s.menu}>
+      <ButtonIcon iconId={isOpen ? 'close' : 'actions-v'} size="32px" iconSize="100%" className={s.button} onClick={handleToggleMenu} />
 
       <ul className={s.navList}>
         {pagesRoutesArr.map(link => (

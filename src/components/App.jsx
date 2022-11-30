@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-import { RouterProvider } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import AppLoader from './AppLoader/AppLoader';
 import AppRoutes from './AppRoutes/AppRoutes';

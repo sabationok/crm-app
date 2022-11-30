@@ -49,7 +49,7 @@ const BlockActions = () => {
 
   return (
     <>
-      <ButtonIcon iconId={isOpen ? 'close' : 'actions-h'} size="100%" iconSize="24px" onClick={handleOpenActions} />
+      <ButtonIcon iconId={isOpen ? 'close' : 'actions-h'} size="100%" iconSize="24px" className={s.btn} onClick={handleOpenActions} />
       <BlockPortal id={block.iconId}>
         <div className={isOpen ? s.actionsBackdropOpen : s.actionsBackdrop} onClick={handleOpenActions}>
           {isOpen && (

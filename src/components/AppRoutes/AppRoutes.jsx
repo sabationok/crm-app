@@ -95,9 +95,9 @@ const AppRoutes = () => {
           </Route>
 
           <Route path="counterParty/*" element={<AppMobilePage path="counterParty" />} errorElement={<PageError />}>
-            <Route index element={<Navigate to="counterPartysList" />} errorElement={<PageError />} />
-            <Route path="allCounterParties" element={<BlockCounterPartysList />} errorElement={<PageError />} />
-            <Route path="counterParty" element={<BlockCounterPartyInfo />} errorElement={<PageError />} />
+            <Route index element={<Navigate to="counterPartiesList" />} errorElement={<PageError />} />
+            <Route path="counterPartiesList" element={<BlockCounterPartysList />} errorElement={<PageError />} />
+            <Route path="counterAgent" element={<BlockCounterPartyInfo />} errorElement={<PageError />} />
             <Route path="chat" element={<BlockCounterPartyChat />} errorElement={<PageError />} />
             <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
           </Route>

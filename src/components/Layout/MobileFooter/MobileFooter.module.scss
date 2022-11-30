@@ -1,7 +1,8 @@
 .MobileFooter {
-  display: flex;
+  display: grid;
+  grid-template-columns: 40px repeat(4, 1fr) 40px;
   align-items: center;
-  justify-content: center;
+  justify-items: center;
 
   position: sticky;
   bottom: 0;
@@ -16,40 +17,12 @@
 
   background-color: var(--brand_clr__2);
 }
-.navLink,
-.navLinkActive {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-
-  text-align: left;
-
-  font-size: 14px;
-  line-height: 1.2;
-  letter-spacing: 0.06em;
-  min-width: 75px;
-
-  // width: 100%;
-  color: #fff;
-
-  fill: #fff;
-
-  padding: 2px;
-
-  background-color: inherit;
-  border-style: none;
-  border: 1px solid transparent;
-  transition: all var(--timing-function__main);
-  &:hover {
-    background-color: var(--brand_clr__1);
-  }
+.gridLeft {
+  grid-column: 1/2;
 }
-.navLinkActive {
-  background-color: var(--brand_clr__1);
+.gridCenter {
+  grid-column: 2/6;
 }
-.linkTitle {
-  font-size: 8px;
-  text-align: center;
-  width: 100%;
+.gridRight {
+  grid-column: 6/7;
 }

@@ -44,3 +44,14 @@
   transform: translate(-50%, -50%);
   transition: all var(--timing-function__main);
 }
+.btn{
+  fill: #fff;
+  &:hover {
+    fill: var(--brand_clr__1);
+    background-color: rgba(254,254,254,0.2);
+  }
+  &:active {
+    fill: var(--brand_clr__1);
+    background-color: rgba(254,254,254,0.1);
+  }
+}

@@ -1,5 +1,6 @@
 .DesktopFooter {
-  display: flex;
+  display: grid;
+  grid-template-columns: 40px repeat(10, 1fr) 40px;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -15,4 +16,7 @@
   height: 40px;
 
   background-color: var(--brand_clr__2);
+}
+.gridMenu{
+  grid-column: 12/13;
 }
