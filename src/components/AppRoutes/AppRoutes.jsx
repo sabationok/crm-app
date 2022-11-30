@@ -88,8 +88,8 @@ const AppRoutes = () => {
 
           <Route path="counterParty/*" element={<AppMobilePage path="counterParty" />}>
             <Route index element={<Navigate to="counterPartysList" />} />
-            <Route path="counterPartysList" element={<BlockCounterPartysList />} />
-            <Route path="counterPartyInfo" element={<BlockCounterPartyInfo />} />
+            <Route path="allCounterParties" element={<BlockCounterPartysList />} />
+            <Route path="counterParty" element={<BlockCounterPartyInfo />} />
             <Route path="chat" element={<BlockCounterPartyChat />} />
           </Route>
 

@@ -53,7 +53,7 @@ export const mobilePageRoutes = [
     iconId: 'notifications',
   },
 
-  { title: 'Замовлення', device: 'mobile', parentPath: 'orders', path: 'list', iconId: 'list' },
+  { title: 'Замовлення', device: 'mobile', parentPath: 'orders', path: 'allorders', iconId: 'list' },
   {
     title: 'Деталі замовлення',
     evice: 'mobile',
@@ -76,7 +76,7 @@ export const mobilePageRoutes = [
   { title: 'Статистика', device: 'mobile', parentPath: 'raports', path: 'statistics', iconId: 'statistics' },
   { title: 'Проблеми', device: 'mobile', parentPath: 'raports', path: 'problems', iconId: 'warning' },
 
-  { title: 'Контрагенти', device: 'mobile', parentPath: 'counterParty', path: 'allCounterParty', iconId: 'persons' },
+  { title: 'Контрагенти', device: 'mobile', parentPath: 'counterParty', path: 'allCounterParties', iconId: 'persons' },
   { title: 'Контрагент', device: 'mobile', parentPath: 'counterParty', path: 'counterParty', iconId: 'person' },
   { title: 'Чат', device: 'mobile', parentPath: 'counterParty', path: 'chat', iconId: 'chat' },
 
