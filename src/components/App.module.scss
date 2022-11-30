@@ -13,9 +13,13 @@
   @media screen and (max-width: 480px) {
     min-height: 100vh;
   }
-  @media screen and (min-width: 768px) {
+  @media screen and (orientation: landscape) {
     min-height: 320px;
-    height: 130vh;
+    height: 100vh;
+  }
+  @media screen and (min-width: 768px) {
+    height: 100vh;
+    max-height: 130vh;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: min-content 1fr;

@@ -8,7 +8,7 @@ import s from './MobileFooter.module.scss';
 
 const MobileFooter = props => {
   const filteredNavLinks = mobilePageRoutes.filter(link => link.parentPath === props.path);
-  console.log(props, filteredNavLinks);
+
   return (
     <div className={s.MobileFooter}>
       {filteredNavLinks.length > 0 &&
