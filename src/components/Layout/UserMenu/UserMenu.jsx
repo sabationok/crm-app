@@ -8,7 +8,7 @@ import s from './UserMenu.module.scss';
 const UserMenu = () => {
   return (
     <div className={s.box}>
-      <ButtonIcon iconId="person" size="32px" iconSize="100%" className={s.openButton} />
+      <ButtonIcon iconId="person" size="30px" iconSize="100%" className={s.openButton} />
 
       <ul className={s.list}>
         <ActionToggleAppTheme />

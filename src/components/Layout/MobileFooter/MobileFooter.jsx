@@ -23,7 +23,7 @@ const MobileFooter = props => {
       </div>
 
       <div className={s.gridRight}>
-        <NavMenu />
+        <NavMenu size="40px"/>
       </div>
     </div>
   );

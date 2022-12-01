@@ -13,3 +13,6 @@ export const BlockVendors = () => {
 export const BlockAdminRules = () => {
   return <Block title="Права доступу" iconId="admin" actions="primary" />;
 };
+export const BlockAdminSettings = () => {
+  return <Block title="Налаштування" iconId="settings" actions="primary" />;
+};

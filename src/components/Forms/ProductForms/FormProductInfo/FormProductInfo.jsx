@@ -1,10 +1,12 @@
+import { useBlock } from 'components/Block/BlockContext';
 import React, { useState } from 'react';
 import FormPrimary from '../../FormPrimary/FormPrimary';
 import PrimaryInput from '../../Inputs/InputPrimary/PrimaryInput';
 
 import s from './FormProductInfo.module.scss';
-
+// const inputs = [{}];
 const FormProductInfo = ({ formTitle = 'Form title' }) => {
+  const { isFormDisabled } = useBlock();
   const initialState = {};
   const [formData, setFormData] = useState(initialState);
 
@@ -20,25 +22,13 @@ const FormProductInfo = ({ formTitle = 'Form title' }) => {
     setFormData(initialState);
   }
   return (
-    <FormPrimary formTitle='Деталі товару' onSubmit={handleFormSubmit} onReset={handleFormReset}>
+    <FormPrimary formTitle="Деталі товару" onSubmit={handleFormSubmit} onReset={handleFormReset}>
       <div className={s.inputs}>
-        <PrimaryInput label="Назва" placeholder="Назва" name="1" value={formData['1']} onChange={handleChangeInput} />
-        <PrimaryInput label="SKU" placeholder="SKU" name="2" value={formData['2']} onChange={handleChangeInput} />
-        <PrimaryInput label="Ціна" placeholder="Ціна" name="3" value={formData['3']} onChange={handleChangeInput} />
-        <PrimaryInput
-          label="Комісія"
-          placeholder="Комісія"
-          name="4"
-          value={formData['4']}
-          onChange={handleChangeInput}
-        />
-        <PrimaryInput
-          label="Категорія"
-          placeholder="Категорія"
-          name="5"
-          value={formData['5']}
-          onChange={handleChangeInput}
-        />
+        <PrimaryInput label="Назва" disabled={isFormDisabled} placeholder="Назва" name="1" onChange={handleChangeInput} />
+        <PrimaryInput label="SKU" disabled={isFormDisabled} placeholder="SKU" name="2" onChange={handleChangeInput} />
+        <PrimaryInput label="Ціна" disabled={isFormDisabled} placeholder="Ціна" name="3" onChange={handleChangeInput} />
+        <PrimaryInput label="Комісія" disabled={isFormDisabled} placeholder="Комісія" name="4" onChange={handleChangeInput} />
+        <PrimaryInput label="Категорія" disabled={isFormDisabled} placeholder="Категорія" name="5" onChange={handleChangeInput} />
       </div>
     </FormPrimary>
   );

@@ -2,8 +2,9 @@ import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { pagesRoutes } from 'components/pagesRoutes';
 import { MaxTabletRoute, MinTabletXlRoute } from 'components/DeviceTypeInformer/DeviceTypeController';
-import { BlocksMap } from 'components/BlocksMap';
 import { pagesMapLowerCase } from 'components/PagesMap';
+import { BlocksMap } from 'components/BlocksMap';
+
 const AppMobilePage = lazy(() => import('components/AppPages/AppMobilePage/AppMobilePage'));
 const PageError = lazy(() => import('components/AppPages/PageError/PageError'));
 const PageNotFound = lazy(() => import('components/AppPages/PageNotFound/PageNotFound'));
@@ -28,11 +29,12 @@ const {
   BlockMainTasks,
   BlockMainTask,
   BlockMainNotify,
+  BlockSettings,
   BlockAdmin,
-  BlockAdminRules,
   BlockManagers,
   BlockVendors,
-  BlockSettings,
+  BlockAdminRules,
+  BlockAdminSettings,
 } = BlocksMap;
 
 const AppRoutes = () => {
@@ -116,7 +118,12 @@ const AppRoutes = () => {
             <Route path="managers" element={<BlockManagers />} errorElement={<PageError />} />
             <Route path="vendors" element={<BlockVendors />} errorElement={<PageError />} />
             <Route path="roles" element={<BlockAdminRules />} errorElement={<PageError />} />
-            <Route path="settings" element={<BlockSettings />} errorElement={<PageError />} />
+            <Route path="adminSettings" element={<BlockAdminSettings />} errorElement={<PageError />} />
+            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+          </Route>
+
+          <Route path="settings/*" element={<AppMobilePage path="settings" />} errorElement={<PageError />}>
+            <Route index element={<BlockSettings />} errorElement={<PageError />} />
             <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
           </Route>
           <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />

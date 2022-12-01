@@ -4,7 +4,7 @@ import { BlockReturnsList, BlockReturnInfo, BlockReturnInspection } from 'compon
 import { BlockRaportsList, BlockRaportInfo, BlockStatistics, BlockProblems } from 'components/Blocks/RaportBlocks';
 import { BlockCounterPartysList, BlockCounterPartyInfo, BlockCounterPartyChat } from 'components/Blocks/CounterPartyBlocks';
 import { BlockMainTasks, BlockMainTask, BlockMainNotify } from 'components/Blocks/MainBlocks';
-import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules } from 'components/Blocks/AdminBlocks';
+import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings } from 'components/Blocks/AdminBlocks';
 import BlockSettings from './Blocks/SettingsBlocks';
 
 // export let BlocksMap = {
@@ -51,9 +51,10 @@ export const BlocksMap = {
   BlockMainTasks,
   BlockMainTask,
   BlockMainNotify,
+  BlockSettings,
   BlockAdmin,
   BlockManagers,
   BlockVendors,
   BlockAdminRules,
-  BlockSettings,
+  BlockAdminSettings,
 };

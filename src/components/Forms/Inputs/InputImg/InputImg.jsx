@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
-import { useBlock } from 'components/Block/BlockContext';
 
 import s from './InputImg.module.scss';
 
-const InputImg = ({ name, id, onChange, selectedFile = null, multiple = false }) => {
+const InputImg = ({ id, onChange, selectedFile = null, disabled = false, ...props }) => {
   const [preview, setPreview] = useState();
-  const { isFormDisabled } = useBlock();
-
+  function handleChangeInput(ev) {
+    if (onChange) {
+      onChange(ev);
+    }
+  }
   useEffect(() => {
     let fileReader,
       isCancel = false;
@@ -32,16 +34,15 @@ const InputImg = ({ name, id, onChange, selectedFile = null, multiple = false })
 
   return (
     <>
-      <div className={isFormDisabled ? s.inputImgNotActive : s.inputImg}>
+      <div className={disabled ? s.inputImgNotActive : s.inputImg}>
         <input
           className="visually-hidden"
-          name={name}
           type="file"
           id={id}
           accept=".png, .jpg, .jpeg, .webp"
-          disabled={isFormDisabled || selectedFile}
-          multiple={multiple}
-          onChange={onChange}
+          disabled={disabled || selectedFile}
+          onChange={handleChangeInput}
+          {...props}
         />
         <label htmlFor={id} className={s.inputLabel}>
           {!selectedFile && <SvgIcon iconId="plus" size="40px" />}
@@ -57,3 +58,18 @@ const InputImg = ({ name, id, onChange, selectedFile = null, multiple = false })
 };
 
 export default InputImg;
+// function handleDrop(e) {
+//   e.stopPropagation(); e.preventDefault();
+//   var f = e.dataTransfer.files[0];
+//   /* f is a File */
+//   var reader = new FileReader();
+//   reader.onload = function(e) {
+//     var data = e.target.result;
+//     /* reader.readAsArrayBuffer(file) -> data will be an ArrayBuffer */
+//     var workbook = XLSX.read(data);
+
+//     /* DO SOMETHING WITH workbook HERE */
+//   };
+//   reader.readAsArrayBuffer(f);
+// }
+// drop_dom_element.addEventListener("drop", handleDrop, false);

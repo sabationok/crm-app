@@ -9,8 +9,9 @@
   border-radius: 4px;
   outline: 2px solid gray;
 
+  cursor: pointer;
   background-color: inherit;
-  transition: all var(--timing-function__main);
+  // transition: all var(--timing-function__main);
 }
 .inputImg {
   &:hover,

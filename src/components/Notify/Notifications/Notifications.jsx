@@ -36,7 +36,7 @@ const Notifications = () => {
         </>
       }
     >
-      <ButtonIcon iconId="notifications" size="32px" iconSize="100%" className={s.openButton} />
+      <ButtonIcon iconId="notifications" size="28px" iconSize="100%" className={s.openButton} />
     </ModalOpenLink>
   );
 };

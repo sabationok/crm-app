@@ -1,8 +1,10 @@
 .block,
 .blockDark {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: min-content 1fr min-content;
+
   position: relative;
-  display: flex;
-  flex-direction: column;
 
   overflow: hidden;
   height: 100%;
@@ -40,7 +42,8 @@
   overflow: hidden;
 
   height: 100%;
-  max-height: calc(100% - 35px);
+  // max-height: calc(100% - 35px);
+  max-height: 100%;
 
   background-color: inherit;
 }

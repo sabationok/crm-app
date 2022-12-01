@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import Layout from './Layout/Layout';
 import AppLoader from './AppLoader/AppLoader';
 import AppRoutes from './AppRoutes/AppRoutes';
-import DeviceTypeInformer from './DeviceTypeInformer/DeviceTypeInformer';
+import MyDevice from './DeviceTypeInformer/MyDevice';
 import { ToastContainer } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
@@ -19,7 +19,8 @@ export const App = () => {
           <AppRoutes />
         </Suspense>
       </Layout>
-      <DeviceTypeInformer />
+
+      <MyDevice />
       <ToastContainer
         position="bottom-left"
         autoClose={2000}

@@ -16,7 +16,7 @@ const Header = () => {
 
       <Notifications />
 
-      <UserMenu />
+      <UserMenu  />
     </header>
   );
 };

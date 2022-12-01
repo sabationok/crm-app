@@ -36,6 +36,12 @@ export const pagesRoutes = [
     iconId: 'persons',
   },
   {
+    title: 'Налаштування',
+    path: 'settings',
+    device: 'desktop',
+    iconId: 'settings',
+  },
+  {
     title: 'Адмін панель',
     path: 'admin',
     device: 'desktop',
@@ -86,6 +92,9 @@ export const mobilePageRoutes = [
 
   { title: 'Адмін', device: 'mobile', parentPath: 'admin', path: 'app', iconId: 'admin' },
   { title: 'Менеджери', device: 'mobile', parentPath: 'admin', path: 'managers', iconId: 'persons' },
-  { title: 'Вендори', device: 'mobile', parentPath: 'admin', path: 'vendors', iconId: 'persons' },
+  { title: 'Вендори', device: 'mobile', parentPath: 'admin', path: 'vendors', iconId: 'partners' },
+
+  { title: 'Двідники', device: 'mobile', parentPath: 'admin', path: 'boocks', iconId: 'list' },
   { title: 'Права доступу', device: 'mobile', parentPath: 'admin', path: 'roles', iconId: 'admin' },
+  { title: 'Нлаштування', device: 'mobile', parentPath: 'admin', path: 'settings', iconId: 'admin' },
 ];

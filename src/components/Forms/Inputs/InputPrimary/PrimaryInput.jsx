@@ -1,42 +1,25 @@
-import React from 'react';
-import { useBlock } from 'components/Block/BlockContext';
+import React, { useState } from 'react';
 
 import s from './PrimaryInput.module.scss';
-const PrimaryInput = ({
-  label,
-  value,
-  defaultValue,
-  name,
-  required = false,
-  id,
-  type = 'text',
-  placeholder,
-  onChange,
-  onClick,
-}) => {
-  const { isFormDisabled } = useBlock();
+const PrimaryInput = ({ label, name = 'input', onChange, ...props }) => {
+  const [inputValue, setInputValue] = useState();
+
+  function handleInputChange(ev) {
+    const { value } = ev;
+    setInputValue(value);
+    if (onChange) {
+      onChange(ev);
+    }
+  }
   return (
     <fieldset className={s.inputBox}>
-      <legend className={s.legend}>
-        <span className={s.legendInner}>{label}</span>
-      </legend>
+      {label && (
+        <legend className={s.legend}>
+          <span className={s.legendInner}>{label}</span>
+        </legend>
+      )}
 
-      {/* <label htmlFor={id} className={s.label}>
-          <span className={s.labelInner}>{label}</span>
-        </label> */}
-      <input
-        className={s.input}
-        name={name}
-        defaultValue={defaultValue}
-        value={value}
-        id={id}
-        type={type}
-        placeholder={placeholder}
-        required={required}
-        onChange={onChange}
-        onClick={onClick}
-        disabled={isFormDisabled}
-      />
+      <input className={s.input} value={inputValue} onChange={handleInputChange} {...props} />
     </fieldset>
   );
 };
