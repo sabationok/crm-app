@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppGridPage from '../AppGridPage/AppGridPage';
+import AppGridPage from './AppGridPage/AppGridPage';
 import { BlockRaportsList, BlockRaportInfo, BlockStatistics } from 'components/Blocks/RaportBlocks';
 
 // import s from './PageStatistics.module.scss';

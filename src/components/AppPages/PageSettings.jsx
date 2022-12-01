@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppGridPage from '../AppGridPage/AppGridPage';
+import AppGridPage from './AppGridPage/AppGridPage';
 import Block from 'components/Block/Block';
 
 // import s from './PageSettings.module.scss';

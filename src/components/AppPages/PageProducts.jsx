@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Outlet } from 'react-router-dom';
 
-import AppGridPage from '../AppGridPage/AppGridPage';
+import AppGridPage from './AppGridPage/AppGridPage';
 
 import { BlockProductsList, BlockProductInfo, BlockProductStock } from 'components/Blocks/ProductBlocks';
 

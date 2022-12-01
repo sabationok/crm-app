@@ -1,6 +1,6 @@
 // import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import AppGridPage from '../AppGridPage/AppGridPage';
+import AppGridPage from './AppGridPage/AppGridPage';
 import { BlockOrdersList, BlockOrderInfo, BlockOrderTTN } from 'components/Blocks/OrderBlocks';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { fetchAllOrders } from 'redux/orders/ordersThunks';
