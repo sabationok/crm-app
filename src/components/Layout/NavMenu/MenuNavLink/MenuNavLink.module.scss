@@ -18,7 +18,7 @@
   background-color: inherit;
   border-style: none;
   border: 1px solid transparent;
-  transition: all var(--timing-function__main);
+  // transition: all var(--timing-function__main);
   &:hover {
     background-color: var(--brand_clr__1);
   }
@@ -38,7 +38,7 @@
 
   transform: scaleY(0);
 
-  transition: all var(--timing-function__main);
+  // transition: all var(--timing-function__main);
   &.isOpen { transform: scaleY(1);
     height: fit-content;
     & .btnArrow {
