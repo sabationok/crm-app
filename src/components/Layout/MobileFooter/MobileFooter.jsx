@@ -8,8 +8,8 @@ import { mobilePageRoutes } from 'components/pagesRoutes';
 
 import s from './MobileFooter.module.scss';
 
-const MobileFooter = props => {
-  const filteredNavLinks = mobilePageRoutes.filter(link => link.parentPath === props.path);
+const MobileFooter = ({ path = '/', ...props }) => {
+  const filteredNavLinks = mobilePageRoutes.filter(link => link.parentPath === path);
 
   return (
     <div className={s.MobileFooter}>
@@ -23,7 +23,7 @@ const MobileFooter = props => {
       </div>
 
       <div className={s.gridRight}>
-        <NavMenu size="40px"/>
+        <NavMenu size="40px" />
       </div>
     </div>
   );

@@ -5,8 +5,37 @@ import { BlockRaportsList, BlockRaportInfo, BlockStatistics, BlockProblems } fro
 import { BlockCounterPartysList, BlockCounterPartyInfo, BlockCounterPartyChat } from 'components/Blocks/CounterPartyBlocks';
 import { BlockMainTasks, BlockMainTask, BlockMainNotify } from 'components/Blocks/MainBlocks';
 import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings } from 'components/Blocks/AdminBlocks';
-import BlockSettings from './Blocks/SettingsBlocks';
+import { BlockSettings, BlockDirectories, BlockSetProfile } from 'components/Blocks/SettingsBlocks';
 
+export const BlocksMap = {
+  BlockProductsList,
+  BlockProductInfo,
+  BlockProductStock,
+  BlockOrdersList,
+  BlockOrderInfo,
+  BlockOrderTTN,
+  BlockReturnsList,
+  BlockReturnInfo,
+  BlockReturnInspection,
+  BlockRaportsList,
+  BlockRaportInfo,
+  BlockStatistics,
+  BlockProblems,
+  BlockCounterPartysList,
+  BlockCounterPartyInfo,
+  BlockCounterPartyChat,
+  BlockMainTasks,
+  BlockMainTask,
+  BlockMainNotify,
+  BlockSettings,
+  BlockDirectories,
+  BlockSetProfile,
+  BlockAdmin,
+  BlockManagers,
+  BlockVendors,
+  BlockAdminRules,
+  BlockAdminSettings,
+};
 // export let BlocksMap = {
 //   products: BlockProductsList,
 //   product: BlockProductInfo,
@@ -31,30 +60,3 @@ import BlockSettings from './Blocks/SettingsBlocks';
 //   roles: BlockAdminRules,
 //   settings: BlockSettings,
 // };
-export const BlocksMap = {
-  BlockProductsList,
-  BlockProductInfo,
-  BlockProductStock,
-  BlockOrdersList,
-  BlockOrderInfo,
-  BlockOrderTTN,
-  BlockReturnsList,
-  BlockReturnInfo,
-  BlockReturnInspection,
-  BlockRaportsList,
-  BlockRaportInfo,
-  BlockStatistics,
-  BlockProblems,
-  BlockCounterPartysList,
-  BlockCounterPartyInfo,
-  BlockCounterPartyChat,
-  BlockMainTasks,
-  BlockMainTask,
-  BlockMainNotify,
-  BlockSettings,
-  BlockAdmin,
-  BlockManagers,
-  BlockVendors,
-  BlockAdminRules,
-  BlockAdminSettings,
-};

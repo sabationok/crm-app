@@ -8,6 +8,9 @@
 
   min-height: 300px;
   min-width: 260px;
+  @media screen  {
+    
+  }
 }
 .headerGrid {
   display: grid;
@@ -18,7 +21,8 @@
 
   padding: 8px 50px 8px 8px;
 
-  box-shadow: var(--header-shadow);
+  // box-shadow: var(--header-shadow);
+  border-bottom: 1px solid rgba(155,155,155, 0.3);
 }
 .openButton {
   fill: #fff;

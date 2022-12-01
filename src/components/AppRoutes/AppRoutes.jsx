@@ -1,14 +1,11 @@
-import { lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { pagesRoutes } from 'components/pagesRoutes';
 import { MaxTabletRoute, MinTabletXlRoute } from 'components/DeviceTypeInformer/DeviceTypeController';
-import { pagesMapLowerCase } from 'components/PagesMap';
-import { BlocksMap } from 'components/BlocksMap';
+import { pagesMapLowerCase } from 'components/AppPages/PagesMap';
+import { BlocksMap } from 'components/Blocks/BlocksMap';
+import { AppPages } from 'components/AppPages/PagesMap';
 
-const AppMobilePage = lazy(() => import('components/AppPages/AppMobilePage/AppMobilePage'));
-const PageError = lazy(() => import('components/AppPages/PageError/PageError'));
-const PageNotFound = lazy(() => import('components/AppPages/PageNotFound/PageNotFound'));
-
+const { AppMobilePage, PageError, PageNotFound } = AppPages;
 const {
   BlockProductsList,
   BlockProductInfo,
@@ -30,6 +27,8 @@ const {
   BlockMainTask,
   BlockMainNotify,
   BlockSettings,
+  BlockDirectories,
+  BlockSetProfile,
   BlockAdmin,
   BlockManagers,
   BlockVendors,
@@ -61,7 +60,15 @@ const AppRoutes = () => {
           <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
         </Route>
         <Route path="mobile/*" element={<MaxTabletRoute redirectTo="/desktop" />}>
-          <Route index element={<Navigate to="products" />} errorElement={<PageError />} />
+          <Route index element={<Navigate to="tasks" />} errorElement={<PageError />} />
+
+          <Route path="tasks/*" element={<AppMobilePage path="tasks" />} errorElement={<PageError />}>
+            <Route index element={<Navigate to="allTasks" />} errorElement={<PageError />} />
+            <Route path="allTasks" element={<BlockMainTasks />} errorElement={<PageError />} />
+            <Route path="task" element={<BlockMainTask />} errorElement={<PageError />} />
+            <Route path="notifications" element={<BlockMainNotify />} errorElement={<PageError />} />
+            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+          </Route>
 
           <Route path="products/*" element={<AppMobilePage path="products" />} errorElement={<PageError />}>
             <Route index element={<Navigate to="allProducts" />} errorElement={<PageError />} />
@@ -104,14 +111,6 @@ const AppRoutes = () => {
             <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
           </Route>
 
-          <Route path="tasks/*" element={<AppMobilePage path="tasks" />} errorElement={<PageError />}>
-            <Route index element={<Navigate to="allTasks" />} errorElement={<PageError />} />
-            <Route path="allTasks" element={<BlockMainTasks />} errorElement={<PageError />} />
-            <Route path="task" element={<BlockMainTask />} errorElement={<PageError />} />
-            <Route path="notifications" element={<BlockMainNotify />} errorElement={<PageError />} />
-            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
-          </Route>
-
           <Route path="admin/*" element={<AppMobilePage path="admin" />} errorElement={<PageError />}>
             <Route index element={<Navigate to="app" />} errorElement={<PageError />} />
             <Route path="app" element={<BlockAdmin />} errorElement={<PageError />} />
@@ -123,10 +122,17 @@ const AppRoutes = () => {
           </Route>
 
           <Route path="settings/*" element={<AppMobilePage path="settings" />} errorElement={<PageError />}>
-            <Route index element={<BlockSettings />} errorElement={<PageError />} />
+            <Route index element={<Navigate to="settings" />} errorElement={<PageError />} />
+            <Route path="settings" element={<BlockSettings />} errorElement={<PageError />} />
+            <Route path="directories" element={<BlockDirectories />} errorElement={<PageError />} /> ,
+            <Route path="setProfile" element={<BlockSetProfile />} errorElement={<PageError />} />
+            ,
             <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
           </Route>
-          <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+
+          <Route path="*" element={<AppMobilePage path="/" />} errorElement={<PageError />}>
+            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+          </Route>
         </Route>
       </Routes>
     </>

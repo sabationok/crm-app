@@ -1,6 +1,13 @@
 import React from 'react';
 import Block from 'components/Block/Block';
-const BlockSettings = () => {
+export const BlockSettings = () => {
   return <Block title="Налаштування" iconId="settings" actions="primary" />;
 };
-export default BlockSettings;
+export const BlockDirectories = () => {
+  return <Block title="Довідники" iconId="folder" actions="primary" />;
+};
+export const BlockSetProfile = () => {
+  return <Block title="Профіль" iconId="setProfile" actions="primary" />;
+};
+
+

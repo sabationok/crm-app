@@ -12,7 +12,7 @@ const SlickMobileNavMenu = ({ navLinkArr }) => {
     arrows: true,
     infinite: false,
     slidesToShow: navLinkArr.length < 3 ? navLinkArr.length : 3,
-    slidesToScroll: 1,
+    // slidesToScroll: 1,
   };
   return (
     <>

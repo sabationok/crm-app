@@ -42,7 +42,19 @@ export const pagesRoutes = [
     iconId: 'settings',
   },
   {
-    title: 'Адмін панель',
+    title: 'Вендор',
+    path: 'vendor',
+    device: 'desktop',
+    iconId: 'partners',
+  },
+  {
+    title: 'Менеджер',
+    path: 'manager',
+    device: 'desktop',
+    iconId: 'person',
+  },
+  {
+    title: 'Адмін',
     path: 'admin',
     device: 'desktop',
     iconId: 'admin',
@@ -86,15 +98,20 @@ export const mobilePageRoutes = [
   { title: 'Контрагент', device: 'mobile', parentPath: 'counterParty', path: 'counterAgent', iconId: 'person' },
   { title: 'Чат', device: 'mobile', parentPath: 'counterParty', path: 'chat', iconId: 'chat' },
 
-  { title: 'Загальні', device: 'mobile', parentPath: 'settings', path: 'app', iconId: 'settings' },
-  { title: 'Довідники', device: 'mobile', parentPath: 'settings', path: 'global', iconId: 'settings' },
-  { title: 'Інше', device: 'mobile', parentPath: 'settings', path: 'others', iconId: 'settings' },
+  { title: 'Загальні', device: 'mobile', parentPath: 'settings', path: 'settings', iconId: 'settings' },
+  { title: 'Довідники', device: 'mobile', parentPath: 'settings', path: 'directories', iconId: 'folder' },
+  { title: 'Профіль', device: 'mobile', parentPath: 'settings', path: 'setProfile', iconId: 'setProfile' },
+
+  { title: 'Бренди', device: 'mobile', parentPath: 'vendor', path: 'brands', iconId: 'brand' },
+  { title: 'Налаштування', device: 'mobile', parentPath: 'vendor', path: 'settings', iconId: 'settings' },
+
+  { title: 'Вендори', device: 'mobile', parentPath: 'manager', path: 'vendors', iconId: 'partners' },
+  { title: 'Бренди', device: 'mobile', parentPath: 'manager', path: 'brands', iconId: 'brand' },
+  { title: 'Налаштування', device: 'mobile', parentPath: 'manager', path: 'settings', iconId: 'settings' },
 
   { title: 'Адмін', device: 'mobile', parentPath: 'admin', path: 'app', iconId: 'admin' },
   { title: 'Менеджери', device: 'mobile', parentPath: 'admin', path: 'managers', iconId: 'persons' },
   { title: 'Вендори', device: 'mobile', parentPath: 'admin', path: 'vendors', iconId: 'partners' },
-
-  { title: 'Двідники', device: 'mobile', parentPath: 'admin', path: 'boocks', iconId: 'list' },
-  { title: 'Права доступу', device: 'mobile', parentPath: 'admin', path: 'roles', iconId: 'admin' },
-  { title: 'Нлаштування', device: 'mobile', parentPath: 'admin', path: 'settings', iconId: 'admin' },
+  { title: 'Права доступу', device: 'mobile', parentPath: 'admin', path: 'roles', iconId: 'lockPerson' },
+  { title: 'Налаштування', device: 'mobile', parentPath: 'admin', path: 'settings', iconId: 'settings' },
 ];
