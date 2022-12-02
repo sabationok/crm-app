@@ -34,13 +34,8 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  // grid-template-columns: repeat(2,1.5fr 1fr) ;
   gap: 8px;
-  @media screen and (min-width:480px) {
-    
-  // grid-template-columns: repeat(2,1.5fr 1fr) ;
-
-  }
+  width: 100%;
 }
 
 .input {
@@ -84,4 +79,27 @@
   //   opacity: 0;
   //   visibility: hidden;
   // }
+}
+.btnToCount {
+  justify-content: center;
+  padding: 8px 16px;
+
+  max-width: 70%;
+  color: #212121;
+  fill: #212121;
+  font-size: 14px;
+  font-weight: 700;
+  background-color: var(--brand_clr__1);
+
+  border-radius: 4px;
+  &:hover {
+    opacity: 0.9;
+    background-color: var(--brand_clr__1);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+  &:active {
+    opacity: 0.8;
+    background-color: var(--brand_clr__1);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  }
 }

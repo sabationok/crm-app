@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PrimaryInput from 'components/Forms/Inputs/InputPrimary/PrimaryInput';
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 import s from './PriceCommissionCounter.module.scss';
-import { useEffect } from 'react';
 // todo { label: 'Валюта', name: 'currency', action: 'text' },
 // todo { label: 'Cashback ID', name: 'cashbackId', action: 'cashbackID' },
 const commissionInputs = [
@@ -22,7 +22,7 @@ const costInputs = [
   { label: 'Валюта', name: 'currency' },
   { label: 'Кешбек ID', name: 'cashbackId', type: 'number', min: '0', max: '3', placeholder: '0-3' },
 ];
-const PriceCommissionCounter = ({ isCommission, onChange, priceFormData }) => {
+const PriceCommissionCounter = ({ isCommission, onChange, priceFormData, handleCountPrice }) => {
   const { formData } = useForm();
   // const inialState = {
   //   price: 0,
@@ -48,6 +48,9 @@ const PriceCommissionCounter = ({ isCommission, onChange, priceFormData }) => {
             <PrimaryInput key={input.name} value={priceFormData[input.name]} defaultValue={formData[input.name]} {...input} onChange={onChange} />
           ))}
       </div>
+      <ButtonIcon className={s.btnToCount} iconId={'checkBoxOn'} type="button" data="cost" onClick={handleCountPrice}>
+        Розрахувати
+      </ButtonIcon>
     </>
   );
 };

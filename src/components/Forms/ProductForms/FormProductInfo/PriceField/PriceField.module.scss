@@ -42,13 +42,13 @@
   grid-template-columns: 1fr;
   align-items: center;
   gap: 8px;
-  @media screen and (min-width: 480px)and (max-width: 768px) {
+  @media screen and (min-width: 480px) and (max-width: 768px) {
     grid-template-columns: 1fr max-content;
   }
 }
 .btnsGroup {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
 
   border-radius: 4px;
 
@@ -65,7 +65,7 @@
   font-weight: 700;
   background-color: var(--brand_clr__1);
 
-  width: 100%;
+  min-width: max-content;
   &:hover {
     background-color: var(--brand_clr__1);
   }
@@ -78,7 +78,7 @@
     justify-content: center;
     padding: 4px 8px;
   }
-  @media screen and (min-width: 480px)and (max-width: 768px) {
+  @media screen and (min-width: 480px) and (max-width: 768px) {
     justify-content: start;
     padding: 8px 16px;
   }
@@ -104,7 +104,6 @@
   justify-content: center;
   padding: 8px 16px;
 
-
   max-width: 70%;
   color: #212121;
   fill: #212121;
@@ -116,11 +115,11 @@
   &:hover {
     opacity: 0.9;
     background-color: var(--brand_clr__1);
-    box-shadow: 0 0 8px rgba(0,0,0, 0.5);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   }
   &:active {
     opacity: 0.8;
     background-color: var(--brand_clr__1);
-    box-shadow: 0 0 3px rgba(0,0,0, 0.5);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   }
 }

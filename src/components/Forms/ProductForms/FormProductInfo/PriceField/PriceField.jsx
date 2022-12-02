@@ -28,12 +28,10 @@ const PriceField = () => {
 
     console.log(priceFormData);
   }
-  function handleAcceptCountedData() {
+  function handleCountPrice() {
     onPriceChange({ ...priceFormData, isCommission });
   }
-  function handleFormReset() {
-    setPriceFormData({});
-  }
+
   return (
     <Fieldset legend="Ціна і вартість">
       <div className={s.flex}>
@@ -60,10 +58,10 @@ const PriceField = () => {
             </ButtonIcon>
           </div>
         </div>
-        <PriceCommissionCounter isCommission={isCommission} priceFormData={priceFormData} onChange={handleChangeInput} />
-        <ButtonIcon className={s.btnToCount} iconId={'checkBoxOn'} type="button" data="cost" onClick={handleAcceptCountedData}>
+        <PriceCommissionCounter isCommission={isCommission} priceFormData={priceFormData} onChange={handleChangeInput} handleCountPrice={handleCountPrice}/>
+        {/* <ButtonIcon className={s.btnToCount} iconId={'checkBoxOn'} type="button" data="cost" onClick={handleAcceptCountedData}>
           Розрахувати
-        </ButtonIcon>
+        </ButtonIcon> */}
       </div>
     </Fieldset>
   );
