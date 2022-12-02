@@ -11,8 +11,7 @@ const PrimaryInput = ({ label = 'input', onChange, value, disabled = false, plac
       onChange(ev);
     }
   }
-  const otthers = { ...props };
-  console.log(otthers);
+
   return (
     <fieldset className={s.inputBox} disabled={disabled}>
       {label && (

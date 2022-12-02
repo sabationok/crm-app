@@ -11,6 +11,7 @@ import s from './PriceField.module.scss';
 const PriceField = () => {
   const { onPriceChange, priceData } = useForm();
   const [isCommission, setIsCommission] = useState(priceData.isCommission);
+  const [priceFormData, setPriceFormData] = useState({});
   function handleSetCommission(ev) {
     onPriceChange({ isCommission: true });
 
@@ -21,7 +22,18 @@ const PriceField = () => {
 
     setIsCommission(false);
   }
+  function handleChangeInput(ev) {
+    const { name, value } = ev.target;
+    setPriceFormData({ ...priceFormData, [name]: value });
 
+    console.log(priceFormData);
+  }
+  function handleAcceptCountedData() {
+    onPriceChange({ ...priceFormData, isCommission });
+  }
+  function handleFormReset() {
+    setPriceFormData({});
+  }
   return (
     <Fieldset legend="Ціна і вартість">
       <div className={s.flex}>
@@ -48,7 +60,10 @@ const PriceField = () => {
             </ButtonIcon>
           </div>
         </div>
-        <PriceCommissionCounter isCommission={isCommission} />
+        <PriceCommissionCounter isCommission={isCommission} priceFormData={priceFormData} onChange={handleChangeInput} />
+        <ButtonIcon className={s.btnToCount} iconId={'checkBoxOn'} type="button" data="cost" onClick={handleAcceptCountedData}>
+          Розрахувати
+        </ButtonIcon>
       </div>
     </Fieldset>
   );

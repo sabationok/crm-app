@@ -23,6 +23,9 @@ const FormProductInfo = () => {
     brand: 'Noverra',
     authorId: '0217',
     authorName: 'Noverra Inc.',
+    description: 'sdfbsdfbsdf',
+    innerComment: 'sfdfbgr sd d',
+    cost: 523,
   };
   const [formData, setFormData] = useState(initialState);
   const [priceData, setPriceData] = useState({ isCommission: true });
@@ -73,15 +76,17 @@ const FormProductInfo = () => {
     >
       <StaticInputs />
 
-      <PriceField />
-
       <SelectCategory />
 
       <SelectAvailibility />
 
+      <PriceField />
+
       <OptionalInputs />
 
-      <InputTextarea label="Опис товару" onChange={handleChangeInput} />
+      <InputTextarea label="Опис товару" defaultValue={formData?.description} name="description" onChange={handleChangeInput} />
+
+      <InputTextarea label="Внутрішній коментар" defaultValue={formData?.innerComment} name="innerComment" onChange={handleChangeInput} />
     </FormPrimary>
   );
 };

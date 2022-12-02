@@ -49,6 +49,15 @@
   background-color: inherit;
 
   transition: all var(--timing-function__main);
+
+  &::placeholder{
+    font-size: 12px;
+  }
+  @media screen and (min-width: 320px) {
+    &::placeholder{
+      font-size: 14px;
+    }
+  }
 }
 .label {
   position: absolute;
@@ -72,4 +81,13 @@
   letter-spacing: 0.05em;
   padding: 0 4px 0;
   transition: all var(--timing-function__main);
+  &::placeholder{
+    font-size: 12px;
+  }
+  @media screen and (min-width: 320px) {
+    font-size: 12px;
+    &::placeholder{
+      font-size: 14px;
+    }
+  }
 }
