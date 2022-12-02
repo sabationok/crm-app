@@ -10,7 +10,7 @@ const OptionalInputs = () => {
   const { onChange } = useForm();
 
   function handleAddOptionalinput() {
-    setFormOptionalInputs([...inputsOptional, { label: 'optional', name: nanoid(5), component: 'text' }]);
+    setFormOptionalInputs([...formOptionalInputs, { label: 'optional', name: nanoid(5), component: 'text' }]);
   }
   function handleChangeInput(ev) {
     const { name, value } = ev.target;
