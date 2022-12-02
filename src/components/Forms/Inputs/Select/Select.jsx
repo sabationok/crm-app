@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 import s from './PrimaryInput.module.scss';
-const PrimaryInput = ({ label = 'input', onChange, value, disabled = false, placeholder = null, ...props }) => {
-  const [inputValue, setInputValue] = useState(value);
+const PrimarySelect = ({ label, name = 'input', onChange, placeholder = null, ...props }) => {
+  const [inputValue, setInputValue] = useState();
 
   function handleInputChange(ev) {
     const { value } = ev;
@@ -11,10 +11,8 @@ const PrimaryInput = ({ label = 'input', onChange, value, disabled = false, plac
       onChange(ev);
     }
   }
-  const otthers = { ...props };
-  console.log(otthers);
   return (
-    <fieldset className={s.inputBox} disabled={disabled}>
+    <fieldset className={s.inputBox}>
       {label && (
         <legend className={s.legend}>
           <span className={s.legendInner}>{label}</span>
@@ -26,4 +24,4 @@ const PrimaryInput = ({ label = 'input', onChange, value, disabled = false, plac
   );
 };
 
-export default PrimaryInput;
+export default PrimarySelect;

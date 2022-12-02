@@ -9,22 +9,12 @@ import { getAppSettings } from 'redux/selectors';
 
 import s from './Block.module.scss';
 
-const Block = ({
-  children,
-  title = 'Title',
-  iconId = 'info',
-  footer = true,
-  header = true,
-  style = {},
-  className = '',
-  filter = false,
-  ...otherProps
-}) => {
-  let props = { title, iconId, footer, header, style, className, filter };
+const Block = props => {
+  let { children, title = 'Title', iconId = 'info', footer = true, header = true, style = {}, className = '', filter = false } = props;
   const { isDarkTheme } = useSelector(getAppSettings);
   const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');
   const [isSearch, setIsSearch] = useState(false);
-  const [isFormDisabled, setIsFormDisabled] = useState(true);
+  const [isFormDisabled, setIsFormDisabled] = useState(false);
 
   function handleToggleBlockSearch() {
     setIsSearch(!isSearch);
@@ -32,7 +22,6 @@ const Block = ({
   function handleToggleEditForm() {
     setIsFormDisabled(!isFormDisabled);
   }
-
   const state = {
     isSearch,
     isFormDisabled,
@@ -46,7 +35,7 @@ const Block = ({
 
   return (
     <>
-      <BlockContext {...props} {...otherProps} {...stateHandlers} {...state}>
+      <BlockContext {...props} {...stateHandlers} {...state}>
         <div className={blockClassName} style={style}>
           {header && (
             <>

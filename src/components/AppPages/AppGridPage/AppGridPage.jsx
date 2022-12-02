@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Block from 'components/Block/Block';
 import { MinTabletXl } from 'components/DeviceTypeInformer/DeviceTypeController';
-// import
 
 import s from './AppGridPage.module.scss';
 
 const AppGridPage = ({
   pageGrid_5_5 = false,
   pageGrid_6_5 = false,
-  elementTop = <></>,
-  elementBottomLeft = <></>,
-  elementBottomRight = <></>,
+  elementTop = <Block />,
+  elementBottomLeft = <Block />,
+  elementBottomRight = <Block />,
   bigerSideLeft = false,
 }) => {
   const pageGridClassNames = [pageGrid_5_5 ? s.pageGrid_5_5 : '', pageGrid_6_5 ? s.pageGrid_6_5 : ''].join(' ');

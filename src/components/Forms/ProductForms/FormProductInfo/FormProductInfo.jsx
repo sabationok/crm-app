@@ -1,37 +1,117 @@
-import { useBlock } from 'components/Block/BlockContext';
+// import { useBlock } from 'components/Block/BlockContext';
+// import { nanoid } from 'nanoid';
 import React, { useState } from 'react';
 import FormPrimary from '../../FormPrimary/FormPrimary';
-import PrimaryInput from '../../Inputs/InputPrimary/PrimaryInput';
+import PriceField from './PriceField/PriceField';
+import InputTextarea from 'components/Forms/Inputs/InputTextarea/InputTextarea';
 
-import s from './FormProductInfo.module.scss';
-// const inputs = [{}];
-const FormProductInfo = ({ formTitle = 'Form title' }) => {
-  const { isFormDisabled } = useBlock();
-  const initialState = {};
+import StaticInputs from './StaticInputs/StaticInputs';
+import OptionalInputs from './OptionalInputs/OptionalInputs';
+
+import SelectAvailibility from './SelectAvailibility/SelectAvailibility';
+import SelectCategory from './SelectCategory/SelectCategory';
+
+// import s from './FormProductInfo.module.scss';
+// todo  { label: 'Видимість', name: 'visible', action: 'checkbox' },
+// todo { label: 'Статус', name: 'rewiewStatus', action: 'semiAuto' },
+
+const FormProductInfo = () => {
+  const initialState = {
+    createdAt: String(new Date()),
+    sku: '321865168151',
+    name: 'Сукня синя, шовкова',
+    brand: 'Noverra',
+    authorId: '0217',
+    authorName: 'Noverra Inc.',
+  };
   const [formData, setFormData] = useState(initialState);
+  const [priceData, setPriceData] = useState({ isCommission: true });
+  const [isVisible, setIsVisible] = useState(true);
 
+  function handleChangePriceState(dataObj) {
+    setPriceData({ ...priceData, ...dataObj });
+  }
+  function handleToggleVisibilityState(dataObj) {
+    setIsVisible(!isVisible);
+  }
   function handleChangeInput(ev) {
     const { name, value } = ev.target;
     setFormData({ ...formData, [name]: value });
   }
+  function handleChangeFormState(dataObj) {
+    setFormData({ ...formData, ...dataObj });
+
+    console.log(dataObj);
+  }
   function handleFormSubmit(ev) {
     ev.preventDefault();
-    console.log(formData);
+
+    const submitData = {
+      changedAt: String(new Date()),
+      isVisible,
+      ...formData,
+      ...priceData,
+    };
+
+    console.log(submitData);
   }
   function handleFormReset(ev) {
-    setFormData(initialState);
+    // setFormData(initialState);
   }
+
   return (
-    <FormPrimary formTitle="Деталі товару" onSubmit={handleFormSubmit} onReset={handleFormReset}>
-      <div className={s.inputs}>
-        <PrimaryInput label="Назва" disabled={isFormDisabled} placeholder="Назва" name="1" onChange={handleChangeInput} />
-        <PrimaryInput label="SKU" disabled={isFormDisabled} placeholder="SKU" name="2" onChange={handleChangeInput} />
-        <PrimaryInput label="Ціна" disabled={isFormDisabled} placeholder="Ціна" name="3" onChange={handleChangeInput} />
-        <PrimaryInput label="Комісія" disabled={isFormDisabled} placeholder="Комісія" name="4" onChange={handleChangeInput} />
-        <PrimaryInput label="Категорія" disabled={isFormDisabled} placeholder="Категорія" name="5" onChange={handleChangeInput} />
-      </div>
+    <FormPrimary
+      formTitle="Деталі товару"
+      onSubmit={handleFormSubmit}
+      onReset={handleFormReset}
+      onChange={handleChangeFormState}
+      formData={formData}
+      onPriceChange={handleChangePriceState}
+      priceData={priceData}
+      toggleVisibility={handleToggleVisibilityState}
+      isVisible
+    >
+      <StaticInputs />
+
+      <PriceField />
+
+      <SelectCategory />
+
+      <SelectAvailibility />
+
+      <OptionalInputs />
+
+      <InputTextarea label="Опис товару" onChange={handleChangeInput} />
     </FormPrimary>
   );
 };
 
 export default FormProductInfo;
+
+// const product = {
+//   createdAt: '2022-10-31T10:51:57.449Z',
+//   name: 'Recycled Granite Cheese',
+//   authorName: '',
+//   authorId: '',
+//   authorType: '',
+//   price: '',
+//   commision: '',
+//   currency: '',
+//   section: 'section 1',
+//   parentCategory: 'parentCategory 1',
+//   category: 'category 1',
+//   stock: 66,
+//   manufacturingTime: 52,
+//   availbability: 'availbability 1',
+//   lookItems: [],
+//   description: 'description 1',
+//   cashbackId: 'cashbackId 1',
+//   sku: 'sku 1',
+//   imgsList: [],
+//   updatedAt: 1667264565,
+//   selcted: false,
+//   rewiewStatus: 'rewiewStatus 1',
+//   visible: false,
+//   шьпі: [],
+//   id: '1',
+// };

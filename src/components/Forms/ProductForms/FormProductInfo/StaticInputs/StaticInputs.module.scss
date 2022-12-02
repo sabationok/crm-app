@@ -1,0 +1,9 @@
+.inputs {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+
+  background-color: inherit;
+}

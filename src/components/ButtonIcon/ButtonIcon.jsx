@@ -18,27 +18,22 @@ const ButtonIcon = ({
   onClick = null,
 }) => {
   const classNames = [s.Button, s[styleType], className].join(' ');
-  const iconClassNames=[s.iconSvg, iconClassName].join(' ');
+  const iconClassNames = [s.iconSvg, iconClassName].join(' ');
 
   let style = {
     width: size,
     height: size,
+    minWidth: size,
     ...styles,
   };
   let iconStyle = {
     width: iconSize,
     height: iconSize,
+    minWidth: iconSize,
     ...iconStyles,
   };
   return (
-    <button
-      type={type}
-      className={classNames}
-      disabled={disabled}
-      style={style}
-      title={title && title}
-      onClick={onClick}
-    >
+    <button type={type} className={classNames} disabled={disabled} style={style} title={title && title} onClick={onClick}>
       <svg className={iconClassNames} style={iconStyle}>
         <use href={`${sprite}#icon-${iconId}`}></use>
       </svg>
