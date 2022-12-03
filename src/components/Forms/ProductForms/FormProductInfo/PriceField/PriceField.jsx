@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import PriceCommissionCounter from '../PriceCommissionCounter/PriceCommissionCounter';
 
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
@@ -9,9 +8,13 @@ import Fieldset from 'components/Forms/Fieldset/Fieldset';
 
 import s from './PriceField.module.scss';
 const PriceField = () => {
-  const { formData, isCommission } = useForm();
-  function handleUnSetCommission() {}
-  function handleSetCommission() {}
+  const { isCommission, onFormStateChange } = useForm();
+  function handleUnSetCommission() {
+    onFormStateChange({isCommission:false});
+  }
+  function handleSetCommission() {
+    onFormStateChange({isCommission:true});
+  }
 
   return (
     <Fieldset legend="Ціна і вартість">

@@ -16,9 +16,7 @@ const Block = props => {
   const [isSearch, setIsSearch] = useState(false);
   const [isFormDisabled, setIsFormDisabled] = useState(false);
 
-  function handlePrintAction(ev, ref) {
-    window.print(ref);
-  }
+
   function handleToggleBlockSearch() {
     setIsSearch(!isSearch);
   }

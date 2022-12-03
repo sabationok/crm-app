@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import s from './PrimaryInput.module.scss';
-const PrimaryInput = ({ label = 'input',  disabled = false, placeholder = null, ...props }) => {
+const PrimaryInput = ({ label = 'input', disabled = false, placeholder = null, ...props }) => {
   return (
     <fieldset className={s.inputBox} disabled={disabled}>
       {label && (

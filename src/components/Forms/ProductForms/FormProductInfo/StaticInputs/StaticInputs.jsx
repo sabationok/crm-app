@@ -8,15 +8,10 @@ const StaticInputs = () => {
   const { onChange, formData } = useForm();
   const [staticInputs] = useState([...inputsStatic]);
 
-  function handleChangeInput(ev) {
-    const { name, value } = ev.target;
-    onChange({ [name]: value });
-  }
-
   return (
     <>
       {staticInputs.map(input => (
-        <PrimaryInput key={input.name} defaultValue={formData[input?.name]} {...input} onChange={handleChangeInput} />
+        <PrimaryInput key={input.name} defaultValue={formData[input?.name]} {...input} onChange={onChange} />
       ))}
     </>
   );

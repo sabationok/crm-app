@@ -1,5 +1,6 @@
 // import { useBlock } from 'components/Block/BlockContext';
 // import { nanoid } from 'nanoid';
+import { toast } from 'react-toastify';
 import React, { useState } from 'react';
 import FormPrimary from '../../FormPrimary/FormPrimary';
 import PriceField from './PriceField/PriceField';
@@ -125,9 +126,11 @@ const FormProductInfo = () => {
     };
 
     console.log(submitData);
+    toast.info('Форму відправлено');
   }
   function handleFormReset(ev) {
     setFormData(initialState);
+    toast.info('Форму очищено');
   }
 
   return (
@@ -139,7 +142,7 @@ const FormProductInfo = () => {
       onChange={handleChangeInput}
       formData={formData}
       {...formData}
-      id='productForm'
+      id="productForm"
     >
       <StaticInputs />
 
