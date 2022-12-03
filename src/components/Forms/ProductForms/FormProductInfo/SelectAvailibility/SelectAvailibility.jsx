@@ -6,8 +6,8 @@ import PrimaryInput from 'components/Forms/Inputs/InputPrimary/PrimaryInput';
 const SelectAvailibility = () => {
   return (
     <>
-      <PrimaryInput label="Наявність" name="availability" required />
-      <PrimaryInput label="Термін виготовлення, дні" name="productionTime" type="number" min="1" max="31" placeholder="1-31" required />
+      <PrimaryInput label="Наявність" name="availability"  />
+      <PrimaryInput label="Термін виготовлення, дні" name="productionTime" type="number" min="1" max="31" placeholder="1-31"  />
     </>
   );
 };

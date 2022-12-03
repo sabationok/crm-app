@@ -22,8 +22,9 @@ const costInputs = [
   { label: 'Валюта', name: 'currency' },
   { label: 'Кешбек ID', name: 'cashbackId', type: 'number', min: '0', max: '3', placeholder: '0-3' },
 ];
-const PriceCommissionCounter = ({ isCommission, onChange, priceFormData, handleCountPrice }) => {
-  const { formData } = useForm();
+const PriceCommissionCounter = () => {
+  const { formData, isCommission, onChange } = useForm();
+
   // const inialState = {
   //   price: 0,
   //   cost: 0,
@@ -36,17 +37,23 @@ const PriceCommissionCounter = ({ isCommission, onChange, priceFormData, handleC
   // useEffect(() => {
   //   onPriceChange(formData);
   // }, [formData, onPriceChange]);
+
+  function handleCountPrice() {
+    // eslint-disable-next-line no-restricted-globals
+    let isBoss = confirm('розрахувати ціну?');
+
+    if (isBoss) {
+      console.log(formData);
+      return;
+    }
+    alert('Інфа у консолі');
+  }
   return (
     <>
       <div className={s.grid}>
         {!isCommission &&
-          commissionInputs.map(input => (
-            <PrimaryInput key={input.name} value={priceFormData[input.name]} defaultValue={formData[input.name]} {...input} onChange={onChange} />
-          ))}
-        {isCommission &&
-          costInputs.map(input => (
-            <PrimaryInput key={input.name} value={priceFormData[input.name]} defaultValue={formData[input.name]} {...input} onChange={onChange} />
-          ))}
+          commissionInputs.map(input => <PrimaryInput key={input.name} onChange={onChange} value={formData[input.name]} {...input} />)}
+        {isCommission && costInputs.map(input => <PrimaryInput key={input.name} onChange={onChange} value={formData[input.name]} {...input} />)}
       </div>
       <ButtonIcon className={s.btnToCount} iconId={'checkBoxOn'} type="button" data="cost" onClick={handleCountPrice}>
         Розрахувати

@@ -1,17 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import s from './PrimaryInput.module.scss';
-const PrimaryInput = ({ label = 'input', onChange, value, disabled = false, placeholder = null, ...props }) => {
-  const [inputValue, setInputValue] = useState(value);
-
-  function handleInputChange(ev) {
-    const { value } = ev;
-    setInputValue(value);
-    if (onChange) {
-      onChange(ev);
-    }
-  }
-
+const PrimaryInput = ({ label = 'input',  disabled = false, placeholder = null, ...props }) => {
   return (
     <fieldset className={s.inputBox} disabled={disabled}>
       {label && (
@@ -20,7 +10,7 @@ const PrimaryInput = ({ label = 'input', onChange, value, disabled = false, plac
         </legend>
       )}
 
-      <input className={s.input} value={inputValue} placeholder={placeholder ?? label} onChange={handleInputChange} {...props} />
+      <input className={s.input} placeholder={placeholder ?? label} {...props} />
     </fieldset>
   );
 };

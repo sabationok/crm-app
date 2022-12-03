@@ -8,13 +8,13 @@ import s from './FormPrimary.module.scss';
 export const FormProvider = createContext();
 export const useForm = () => useContext(FormProvider);
 
-const FormPrimary = ({ children, onSubmit, onReset, formTitle = 'Form title', ...props }) => {
+const FormPrimary = ({ children, onSubmit, onReset, formTitle = 'Form title', id, ...props }) => {
   const { isFormDisabled } = useBlock();
 
   return (
     <FormProvider.Provider value={{ ...props, formTitle }}>
       <div className={s.formContainer}>
-        <form onSubmit={onSubmit} onReset={onReset}>
+        <form onSubmit={onSubmit} onReset={onReset} id={id}>
           <fieldset disabled={isFormDisabled} className={!isFormDisabled ? s.form : s.notActiveForm}>
             <legend className={s.formTitle}>
               <span>{formTitle}</span>
