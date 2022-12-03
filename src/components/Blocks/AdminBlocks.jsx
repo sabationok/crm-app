@@ -1,18 +1,18 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 
-export const BlockAdmin = () => {
-  return <Block title="Адмін" iconId="admin" actions="primary" />;
+export const BlockAdmin = ({ ...props }) => {
+  return <Block title="Адмін" iconId="admin" actions="primary" style={{ gridColumn: '1/6', gridRow: '1/5' }} {...props} />;
 };
-export const BlockManagers = () => {
-  return <Block title="Менеджери" iconId="admin" actions="persons" />;
+export const BlockManagers = ({ ...props }) => {
+  return <Block title="Менеджери" iconId="admin" actions="persons" style={{ gridColumn: '6/11', gridRow: '1/5' }} {...props} />;
 };
-export const BlockVendors = () => {
-  return <Block title="Вендори" iconId="admin" actions="persons" />;
+export const BlockVendors = ({ ...props }) => {
+  return <Block title="Вендори" iconId="admin" actions="persons" style={{ gridColumn: '1/6', gridRow: '5/8' }} {...props} />;
 };
-export const BlockAdminRules = () => {
-  return <Block title="Права доступу" iconId="admin" actions="primary" />;
+export const BlockAdminRules = ({ ...props }) => {
+  return <Block title="Права доступу" iconId="admin" actions="primary" style={{ gridColumn: '6/11', gridRow: '5/8' }} {...props} />;
 };
-export const BlockAdminSettings = () => {
-  return <Block title="Налаштування" iconId="settings" actions="primary" />;
+export const BlockAdminSettings = ({ ...props }) => {
+  return <Block title="Налаштування" iconId="settings" actions="primary" style={{ gridColumn: '1/6', gridRow: '8/11' }} {...props} />;
 };

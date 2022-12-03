@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Block from 'components/Block/Block';
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
+import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings } from 'components/Blocks/AdminBlocks';
 
 const PageAdmin = props => {
   return (
     <>
       <MinTabletXl>
-        <Block title="Адмін." iconId="admin" actions="withFilter" filter style={{ gridColumn: '1/6' }} />
-        <Block title="Адмін" iconId="admin" actions="primary" style={{ gridColumn: '1/3' }} />
-        <Block title="Налаштування" iconId="settings" actions="primary" style={{ gridColumn: '3/6' }} />
+        <BlockAdmin />
+        <BlockManagers />
+        <BlockVendors />
+        <BlockAdminRules />
+        <BlockAdminSettings />
       </MinTabletXl>
       <MaxToTablet>
-        <Block title="Адмін ліст" iconId="admin" actions="withFilter" filter style={{ gridColumn: '1/6' }} />
+        <BlockAdmin />
       </MaxToTablet>
     </>
   );

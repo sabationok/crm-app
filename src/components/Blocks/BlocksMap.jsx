@@ -7,6 +7,7 @@ import { BlockMainTasks, BlockMainTask, BlockMainNotify } from 'components/Block
 import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings } from 'components/Blocks/AdminBlocks';
 import { BlockSettings, BlockDirectories, BlockSetProfile } from 'components/Blocks/SettingsBlocks';
 
+import { BlockProfile, BlockBrands, BlockChat } from 'components/Blocks/BlocksVendor';
 export const BlocksMap = {
   BlockProductsList,
   BlockProductInfo,
@@ -35,6 +36,9 @@ export const BlocksMap = {
   BlockVendors,
   BlockAdminRules,
   BlockAdminSettings,
+  BlockProfile,
+  BlockBrands,
+  BlockChat,
 };
 // export let BlocksMap = {
 //   products: BlockProductsList,
