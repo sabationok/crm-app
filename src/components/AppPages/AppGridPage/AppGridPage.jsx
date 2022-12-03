@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Block from 'components/Block/Block';
 import DesktopFooter from 'components/Layout/DesktopFooter/DesktopFooter';
 import { Outlet } from 'react-router-dom';
 
@@ -28,9 +27,6 @@ const AppGridPage = ({ path }) => {
   return (
     <>
       <div className={s.pageGrid_5_5}>
-        {/* <div className={s.Top}>{elementTop}</div>
-        <div className={bottomLeftClassNames}>{elementBottomLeft}</div>
-        <div className={bottomRightClassNames}>{elementBottomRight}</div> */}
         <Outlet />
       </div>
       <DesktopFooter />

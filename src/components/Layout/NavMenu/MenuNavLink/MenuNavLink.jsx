@@ -1,14 +1,10 @@
 import { NavLink } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
 
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 
 import s from './MenuNavLink.module.scss';
 
 const MenuNavLink = ({ item }) => {
-  const isDesktop = useMediaQuery({ minWidth: 768 });
-  const device = isDesktop ? 'desktop' : 'mobile';
-
   return (
     <>
       <li>

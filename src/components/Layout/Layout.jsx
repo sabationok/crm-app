@@ -9,9 +9,6 @@ const Layout = ({ children }) => {
     <>
       <Header />
       {children}
-      
-
-
     </>
   );
 };
