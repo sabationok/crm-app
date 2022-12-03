@@ -127,7 +127,7 @@ const FormProductInfo = () => {
     console.log(submitData);
   }
   function handleFormReset(ev) {
-    // setFormData(initialState);
+    setFormData(initialState);
   }
 
   return (
