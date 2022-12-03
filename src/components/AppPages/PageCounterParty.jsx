@@ -3,18 +3,19 @@ import PropTypes from 'prop-types';
 import AppGridPage from './AppGridPage/AppGridPage';
 import { BlockCounterPartysList, BlockCounterPartyInfo, BlockCounterPartyChat } from 'components/Blocks/CounterPartyBlocks';
 
-// import s from './PageCounterParty.module.scss';
+import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 
 const PageCounterParty = props => {
   return (
     <>
-      <AppGridPage
-        pageGrid_6_5
-        {...props}
-        elementTop={<BlockCounterPartysList />}
-        elementBottomLeft={<BlockCounterPartyInfo />}
-        elementBottomRight={<BlockCounterPartyChat />}
-      />
+      <MinTabletXl>
+        <BlockCounterPartysList />
+        <BlockCounterPartyInfo />
+        <BlockCounterPartyChat />
+      </MinTabletXl>
+      <MaxToTablet>
+        <BlockCounterPartysList />
+      </MaxToTablet>
     </>
   );
 };

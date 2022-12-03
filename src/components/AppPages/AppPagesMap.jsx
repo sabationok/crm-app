@@ -7,7 +7,7 @@ const PageProducts = lazy(() => import('./PageProducts'));
 const PageOrders = lazy(() => import('./PageOrders'));
 const PageReturns = lazy(() => import('./PageReturns'));
 const PageCounterParty = lazy(() => import('./PageCounterParty'));
-const PageSettings = lazy(() => import('./PageSettings'));
+const PageDirectories = lazy(() => import('./PageDirectories'));
 const PageStatistics = lazy(() => import('./PageStatistics'));
 const PageManager = lazy(() => import('./PageManager'));
 const PageVendor = lazy(() => import('./PageVendor'));
@@ -22,10 +22,12 @@ export const AppPages = {
   PageOrders,
   PageReturns,
   PageCounterParty,
-  PageSettings,
+  PageDirectories,
   PageStatistics,
   PageAdmin,
   AppMobilePage,
+  PageVendor,
+  PageManager,
 };
 // export let PagesMap = {
 //   Main: PageMain,
@@ -43,19 +45,19 @@ export const AppPages = {
 //   Error: PageError,
 //   Mobile: AppMobilePage,
 // };
-export let pagesMapLowerCase = {
-  tasks: PageMain,
-  admin: PageAdmin,
-  raports: PageStatistics,
-  settings: PageSettings,
-  counterParty: PageCounterParty,
-  returns: PageReturns,
-  orders: PageOrders,
-  products: PageProducts,
-  manager: PageManager,
-  vendor: PageVendor,
-  logOut: PageLogOut,
-  notFound: PageNotFound,
-  error: PageError,
-  mobile: AppMobilePage,
-};
+// export let pagesMapLowerCase = {
+//   tasks: PageMain,
+//   admin: PageAdmin,
+//   raports: PageStatistics,
+//   directories: PageDirectories,
+//   counterParty: PageCounterParty,
+//   returns: PageReturns,
+//   orders: PageOrders,
+//   products: PageProducts,
+//   manager: PageManager,
+//   vendor: PageVendor,
+//   logOut: PageLogOut,
+//   notFound: PageNotFound,
+//   error: PageError,
+//   mobile: AppMobilePage,
+// };

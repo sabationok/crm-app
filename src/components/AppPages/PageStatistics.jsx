@@ -1,20 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppGridPage from './AppGridPage/AppGridPage';
 import { BlockRaportsList, BlockRaportInfo, BlockStatistics } from 'components/Blocks/RaportBlocks';
-
-// import s from './PageStatistics.module.scss';
+import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 
 const PageStatistics = props => {
   return (
     <>
-      <AppGridPage
-        pageGrid_5_5
-        {...props}
-        elementTop={<BlockRaportsList />}
-        elementBottomLeft={<BlockRaportInfo />}
-        elementBottomRight={<BlockStatistics />}
-      />
+      <MinTabletXl>
+        <BlockRaportsList />
+        <BlockRaportInfo />
+        <BlockStatistics />
+      </MinTabletXl>
+      <MaxToTablet>
+        <BlockRaportsList />
+      </MaxToTablet>
     </>
   );
 };

@@ -1,43 +1,39 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-// import { pagesRoutes } from 'components/pagesRoutes';
-import { MaxTabletRoute, MinTabletXlRoute } from 'components/DeviceTypeInformer/DeviceTypeController';
+import { MaxTabletRoute } from 'components/DeviceTypeInformer/DeviceTypeController';
 import AppGridPage from 'components/AppPages/AppGridPage/AppGridPage';
 import { BlocksMap } from 'components/Blocks/BlocksMap';
 import { AppPages } from 'components/AppPages/AppPagesMap';
-import { useSelector } from 'react-redux';
-import { getIndexPage } from 'redux/selectors';
-import { useSearchParams } from 'react-router-dom';
+
 import MobileFooter from 'components/Layout/MobileFooter/MobileFooter';
 import DesktopFooter from 'components/Layout/DesktopFooter/DesktopFooter';
 
-import { getDevice } from 'redux/selectors';
-import { useLocation } from 'react-router-dom';
-const { PageError, PageNotFound, PageMain, PageProducts, PageOrders, PageReturns, PageCounterParty, PageSettings, PageStatistics, PageAdmin } =
-  AppPages;
+
+import PageVendor from 'components/AppPages/PageVendor';
+const { PageError, PageNotFound, PageMain, PageProducts, PageOrders, PageReturns, PageStatistics, PageAdmin } = AppPages;
 const {
-  BlockProductsList,
+  // BlockProductsList,
   BlockProductInfo,
   BlockProductStock,
-  BlockOrdersList,
+  // BlockOrdersList,
   BlockOrderInfo,
   BlockOrderTTN,
-  BlockReturnsList,
+  // BlockReturnsList,
   BlockReturnInfo,
   BlockReturnInspection,
-  BlockRaportsList,
+  // BlockRaportsList,
   BlockRaportInfo,
   BlockStatistics,
-  BlockProblems,
-  BlockCounterPartysList,
-  BlockCounterPartyInfo,
-  BlockCounterPartyChat,
-  BlockMainTasks,
-  BlockMainTask,
-  BlockMainNotify,
-  BlockSettings,
-  BlockDirectories,
-  BlockSetProfile,
-  BlockAdmin,
+  // BlockProblems,
+  // BlockCounterPartysList,
+  // BlockCounterPartyInfo,
+  // BlockCounterPartyChat,
+  // BlockMainTasks,
+  // BlockMainTask,
+  // BlockMainNotify,
+  // BlockSettings,
+  // BlockDirectories,
+  // BlockSetProfile,
+  // BlockAdmin,
   BlockManagers,
   BlockVendors,
   BlockAdminRules,
@@ -45,27 +41,6 @@ const {
 } = BlocksMap;
 
 const AppRoutes = () => {
-  const indexPage = useSelector(getIndexPage);
-  let indexRote = 'desktop';
-  const [searchParams, setSearchParams] = useSearchParams();
-
-  const url = new URL(window.location);
-
-  const device = useSelector(getDevice);
-  const location = useLocation();
-  // console.log(location.pathname.includes(device), location, device);
-
-  console.log('router render');
-
-  function createRoute() {
-    let searchParamsArr = [];
-    searchParams.forEach((value, key) => {
-      searchParamsArr.push({ [key]: value });
-    });
-
-    return searchParamsArr.length === 0 ? 'desktop' : location;
-  }
-  console.log(createRoute());
   return (
     <>
       <Routes>
@@ -73,12 +48,27 @@ const AppRoutes = () => {
 
         <Route path="tasks" element={<PageMain />} errorElement={<PageError />} />
 
+        <Route path="tasks" element={<AppGridPage path="tasks" />} errorElement={<PageError />}>
+          <Route index element={<PageProducts />} errorElement={<PageError />}></Route>
+          <Route path="*" element={<MaxTabletRoute redirectTo="/tasks" />} errorElement={<PageError />}>
+            <Route index element={<PageProducts />} errorElement={<PageError />} />
+            <Route path="task" element={<BlockProductInfo />} errorElement={<PageError />} />
+            <Route path="task:id" element={<BlockProductInfo />} errorElement={<PageError />} />
+            <Route path="chat" element={<BlockProductStock />} errorElement={<PageError />} />
+            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+          </Route>
+          <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+        </Route>
+
         <Route path="products" element={<AppGridPage path="products" />} errorElement={<PageError />}>
           <Route index element={<PageProducts />} errorElement={<PageError />}></Route>
           <Route path="*" element={<MaxTabletRoute redirectTo="/products" />} errorElement={<PageError />}>
             <Route index element={<PageProducts />} errorElement={<PageError />} />
-            <Route path="product" element={<BlockProductInfo />} errorElement={<PageError />} />
-            <Route path="product:id" element={<BlockProductInfo />} errorElement={<PageError />} />
+            <Route path="product" errorElement={<PageError />}>
+              <Route index element={<BlockProductInfo />} errorElement={<PageError />} />
+              <Route path=":id" element={<BlockProductInfo />} errorElement={<PageError />} />
+              <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+            </Route>
             <Route path="stock" element={<BlockProductStock />} errorElement={<PageError />} />
             <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
           </Route>
@@ -124,25 +114,22 @@ const AppRoutes = () => {
           <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
         </Route>
 
-        <Route path="returns" element={<AppGridPage path="returns" />} errorElement={<PageError />}>
-          <Route index element={<PageReturns />} errorElement={<PageError />}></Route>
-          <Route path="*" element={<MaxTabletRoute redirectTo="/returns" />} errorElement={<PageError />}>
-            <Route index element={<PageReturns />} errorElement={<PageError />} />
-            <Route path="return" element={<BlockReturnInfo />} errorElement={<PageError />} />
-            <Route path="return:id" element={<BlockReturnInfo />} errorElement={<PageError />} />
-            <Route path="inspection" element={<BlockReturnInspection />} errorElement={<PageError />} />
+        <Route path="vendor" element={<AppGridPage path="vendor" />} errorElement={<PageError />}>
+          <Route index element={<PageVendor />} errorElement={<PageError />}></Route>
+          <Route path="*" element={<MaxTabletRoute redirectTo="/vendor" />} errorElement={<PageError />}>
+            <Route index element={<PageVendor />} errorElement={<PageError />} />
+            <Route path="brands" element={<BlockReturnInfo />} errorElement={<PageError />} />
             <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
           </Route>
           <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
         </Route>
 
-        <Route path="returns" element={<AppGridPage path="returns" />} errorElement={<PageError />}>
-          <Route index element={<PageReturns />} errorElement={<PageError />}></Route>
-          <Route path="*" element={<MaxTabletRoute redirectTo="/returns" />} errorElement={<PageError />}>
-            <Route index element={<PageReturns />} errorElement={<PageError />} />
-            <Route path="return" element={<BlockReturnInfo />} errorElement={<PageError />} />
-            <Route path="return:id" element={<BlockReturnInfo />} errorElement={<PageError />} />
-            <Route path="inspection" element={<BlockReturnInspection />} errorElement={<PageError />} />
+        <Route path="raports" element={<AppGridPage path="raports" />} errorElement={<PageError />}>
+          <Route index element={<PageStatistics />} errorElement={<PageError />}></Route>
+          <Route path="*" element={<MaxTabletRoute redirectTo="/raports" />} errorElement={<PageError />}>
+            <Route index element={<PageStatistics />} errorElement={<PageError />} />
+            <Route path="raport" element={<BlockRaportInfo />} errorElement={<PageError />} />
+            <Route path="statictics" element={<BlockStatistics />} errorElement={<PageError />} />
             <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
           </Route>
           <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />

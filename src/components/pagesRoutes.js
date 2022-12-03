@@ -36,10 +36,10 @@ export const pagesRoutes = [
     iconId: 'persons',
   },
   {
-    title: 'Налаштування',
-    path: 'settings',
+    title: 'Довідники',
+    path: 'directories',
     device: 'desktop',
-    iconId: 'settings',
+    iconId: 'folder',
   },
   {
     title: 'Вендор',
@@ -98,13 +98,15 @@ export const mobilePageRoutes = [
   { title: 'Контрагент', device: 'mobile', parentPath: 'counterAgent', path: 'counterAgent', iconId: 'person' },
   { title: 'Чат', device: 'mobile', parentPath: 'chat', path: 'chat', iconId: 'chat' },
 
-  { title: 'Загальні', device: 'mobile', parentPath: 'settings', path: '/settings', navLink: false, iconId: 'settings' },
-  { title: 'Довідники', device: 'mobile', parentPath: 'settings', path: 'directories', iconId: 'folder' },
-  { title: 'Профіль', device: 'mobile', parentPath: 'settings', path: 'setProfile', iconId: 'setProfile' },
+  { title: 'Довідники', device: 'mobile', parentPath: 'directories', path: '/directories', navLink: false, iconId: 'folder' },
+  { title: 'Категорії', device: 'mobile', parentPath: 'directories', path: '/categories', iconId: 'folder' },
+  { title: 'Інше', device: 'mobile', parentPath: 'directories', path: '/others', iconId: 'folder' },
 
+  { title: 'Профіль', device: 'mobile', parentPath: 'vendor', path: '/vendor', navLink: false, iconId: 'person' },
   { title: 'Бренди', device: 'mobile', parentPath: 'vendor', path: 'brands', iconId: 'brand' },
   { title: 'Налаштування', device: 'mobile', parentPath: 'vendor', path: 'settings', iconId: 'settings' },
 
+  { title: 'Профіль', device: 'mobile', parentPath: 'manager', path: '/manager', navLink: false, iconId: 'person' },
   { title: 'Вендори', device: 'mobile', parentPath: 'manager', path: 'vendors', iconId: 'partners' },
   { title: 'Бренди', device: 'mobile', parentPath: 'manager', path: 'brands', iconId: 'brand' },
   { title: 'Налаштування', device: 'mobile', parentPath: 'manager', path: 'settings', iconId: 'settings' },
