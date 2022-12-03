@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AppGridPage from './AppGridPage/AppGridPage';
-import {
-  BlockCounterPartysList,
-  BlockCounterPartyInfo,
-  BlockCounterPartyChat,
-} from 'components/Blocks/CounterPartyBlocks';
+import { BlockCounterPartysList, BlockCounterPartyInfo, BlockCounterPartyChat } from 'components/Blocks/CounterPartyBlocks';
 
 // import s from './PageCounterParty.module.scss';
 
@@ -14,6 +10,7 @@ const PageCounterParty = props => {
     <>
       <AppGridPage
         pageGrid_6_5
+        {...props}
         elementTop={<BlockCounterPartysList />}
         elementBottomLeft={<BlockCounterPartyInfo />}
         elementBottomRight={<BlockCounterPartyChat />}

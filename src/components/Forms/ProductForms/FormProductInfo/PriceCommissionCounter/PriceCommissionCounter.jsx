@@ -10,14 +10,14 @@ const commissionInputs = [
   { label: 'Ціна продажу', name: 'price', type: 'number', min: '1' },
   { label: 'Знижка, %', name: 'sale', type: 'number', min: '1', max: '100', placeholder: '%' },
   { label: 'Собівартість', name: 'cost', type: 'number', min: '1', disabled: true },
-  { label: 'Комісія. %', name: 'commission', type: 'number', min: '1', max: '100', placeholder: '%', autoFocus: true },
+  { label: 'Комісія. %', name: 'commission', type: 'number', min: '1', max: '100', placeholder: '%' },
   { label: 'Валюта', name: 'currency' },
   { label: 'Кешбек ID', name: 'cashbackId', type: 'number', min: '0', max: '3', placeholder: '0-3' },
 ];
 const costInputs = [
   { label: 'Ціна продажу', name: 'price', type: 'number', min: '1' },
   { label: 'Знижка, %', name: 'sale', type: 'number', min: '1', max: '100', placeholder: '%' },
-  { label: 'Собівартість', name: 'cost', type: 'number', min: '1', autoFocus: true },
+  { label: 'Собівартість', name: 'cost', type: 'number', min: '1' },
   { label: 'Комісія. %', name: 'commission', disabled: true, placeholder: '%' },
   { label: 'Валюта', name: 'currency' },
   { label: 'Кешбек ID', name: 'cashbackId', type: 'number', min: '0', max: '3', placeholder: '0-3' },

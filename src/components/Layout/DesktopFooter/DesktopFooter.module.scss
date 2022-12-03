@@ -16,7 +16,11 @@
   width: 100%;
 
   background-color: var(--brand_clr__2);
+  @media screen and (max-height: 280px) {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
-.gridMenu{
+.gridMenu {
   grid-column: 12/13;
 }

@@ -12,7 +12,7 @@ const MenuNavLink = ({ item }) => {
   return (
     <>
       <li>
-        <NavLink to={`/${device}/${item.path}`} className={({ isActive }) => (isActive ? s.navLinkActive : s.navLink)}>
+        <NavLink to={`/${item.path}`} className={({ isActive }) => (isActive ? s.navLinkActive : s.navLink)}>
           {item.iconId && <SvgIcon iconId={item.iconId} size="18px" />}
           <span>{item.title}</span>
         </NavLink>

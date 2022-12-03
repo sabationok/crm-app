@@ -3,29 +3,32 @@ import React from 'react';
 import { MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 import NavMenu from '../NavMenu/NavMenu';
 import SlickMobileNavMenu from './MobileNavMenu/SlickMobileNavMenu';
-
+import { Link } from 'react-router-dom';
 import { mobilePageRoutes } from 'components/pagesRoutes';
+import MobileNavLink from './MobileNavLink/MobileNavLink';
 
 import s from './MobileFooter.module.scss';
 
 const MobileFooter = ({ path = '/', ...props }) => {
-  const filteredNavLinks = mobilePageRoutes.filter(link => link.parentPath === path);
+  const filteredNavLinks = mobilePageRoutes.filter(link => link.parentPath === path && link?.navLink !== false);
+  const link = mobilePageRoutes.find(link => link.parentPath === path && link?.navLink === false);
 
   return (
-    <div className={s.MobileFooter}>
-      <div className={s.gridLeft}></div>
+    <MaxToTablet>
+      <div className={s.MobileFooter}>
+        <div className={s.gridLeft}>{filteredNavLinks.length > 0 && <MobileNavLink {...link} />}</div>
 
-      <div className={s.gridCenter}>
-        <MaxToTablet>
-          {/* <MobileNavMenu navLinkArr={filteredNavLinks} /> */}
-          <SlickMobileNavMenu navLinkArr={filteredNavLinks} />
-        </MaxToTablet>
-      </div>
+        <div className={s.gridCenter}>
+          <MaxToTablet>
+            <SlickMobileNavMenu navLinkArr={filteredNavLinks} />
+          </MaxToTablet>
+        </div>
 
-      <div className={s.gridRight}>
-        <NavMenu size="40px" />
+        <div className={s.gridRight}>
+          <NavMenu size="40px" />
+        </div>
       </div>
-    </div>
+    </MaxToTablet>
   );
 };
 

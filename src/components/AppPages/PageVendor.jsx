@@ -4,11 +4,12 @@ import AppGridPage from './AppGridPage/AppGridPage';
 
 // import s from './PageMain.module.scss';
 
-const PageVendor = () => {
+const PageVendor = (props) => {
   return (
     <>
       <AppGridPage
         pageGrid_5_5
+        {...props}
         elementTop={<Block title="Бренди" iconId="brand" actions="primary" />}
         elementBottomLeft={<Block title="Інше" iconId="info" actions="primary" />}
         elementBottomRight={<Block title="Сповіщення" iconId="chat" actions="primary" />}

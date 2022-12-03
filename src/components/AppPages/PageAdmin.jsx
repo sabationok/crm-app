@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Block from 'components/Block/Block';
-import AppGridPage from './AppGridPage/AppGridPage';
+import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 
-// import s from './PageAdmin.module.scss';
-
-const PageAdmin = () => {
+const PageAdmin = props => {
   return (
     <>
-      <AppGridPage
-        pageGrid_5_5
-        elementTop={<Block title="Завдання" iconId="list" actions="withFilter" filter />}
-        elementBottomLeft={<Block title="Адмін" iconId="admin" actions="primary" />}
-        elementBottomRight={<Block title="Адмін" iconId="settings" actions="primary" />}
-      />
+      <MinTabletXl>
+        <Block title="Адмін." iconId="admin" actions="withFilter" filter style={{ gridColumn: '1/6' }} />
+        <Block title="Адмін" iconId="admin" actions="primary" style={{ gridColumn: '1/3' }} />
+        <Block title="Налаштування" iconId="settings" actions="primary" style={{ gridColumn: '3/6' }} />
+      </MinTabletXl>
+      <MaxToTablet>
+        <Block title="Адмін ліст" iconId="admin" actions="withFilter" filter style={{ gridColumn: '1/6' }} />
+      </MaxToTablet>
     </>
   );
 };

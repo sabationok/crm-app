@@ -1,11 +1,19 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { pagesRoutes } from 'components/pagesRoutes';
+// import { pagesRoutes } from 'components/pagesRoutes';
 import { MaxTabletRoute, MinTabletXlRoute } from 'components/DeviceTypeInformer/DeviceTypeController';
-import { pagesMapLowerCase } from 'components/AppPages/PagesMap';
+import AppGridPage from 'components/AppPages/AppGridPage/AppGridPage';
 import { BlocksMap } from 'components/Blocks/BlocksMap';
-import { AppPages } from 'components/AppPages/PagesMap';
+import { AppPages } from 'components/AppPages/AppPagesMap';
+import { useSelector } from 'react-redux';
+import { getIndexPage } from 'redux/selectors';
+import { useSearchParams } from 'react-router-dom';
+import MobileFooter from 'components/Layout/MobileFooter/MobileFooter';
+import DesktopFooter from 'components/Layout/DesktopFooter/DesktopFooter';
 
-const { AppMobilePage, PageError, PageNotFound } = AppPages;
+import { getDevice } from 'redux/selectors';
+import { useLocation } from 'react-router-dom';
+const { PageError, PageNotFound, PageMain, PageProducts, PageOrders, PageReturns, PageCounterParty, PageSettings, PageStatistics, PageAdmin } =
+  AppPages;
 const {
   BlockProductsList,
   BlockProductInfo,
@@ -37,31 +45,134 @@ const {
 } = BlocksMap;
 
 const AppRoutes = () => {
-  let RoutePage = <></>;
+  const indexPage = useSelector(getIndexPage);
+  let indexRote = 'desktop';
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const url = new URL(window.location);
+
+  const device = useSelector(getDevice);
+  const location = useLocation();
+  // console.log(location.pathname.includes(device), location, device);
+
+  console.log('router render');
+
+  function createRoute() {
+    let searchParamsArr = [];
+    searchParams.forEach((value, key) => {
+      searchParamsArr.push({ [key]: value });
+    });
+
+    return searchParamsArr.length === 0 ? 'desktop' : location;
+  }
+  console.log(createRoute());
   return (
     <>
       <Routes>
-        <Route index element={<Navigate to="desktop" />} errorElement={<PageError />} />
-        <Route path="desktop/*" element={<MinTabletXlRoute redirectTo="/mobile" />} errorElement={<PageError />}>
-          <Route index element={<Navigate to="tasks" />} errorElement={<PageError />}></Route>
-          <Route
-            path="*"
-            element={pagesRoutes.map(route => {
-              RoutePage = pagesMapLowerCase[route.path];
+        <Route index element={<Navigate to="products" />} errorElement={<PageError />} />
 
-              return (
-                <Routes key={route.path}>
-                  <Route path={`${route.path}`} element={<RoutePage />}></Route>
-                </Routes>
-              );
-            })}
-            errorElement={<PageError />}
-          ></Route>
+        <Route path="tasks" element={<PageMain />} errorElement={<PageError />} />
+
+        <Route path="products" element={<AppGridPage path="products" />} errorElement={<PageError />}>
+          <Route index element={<PageProducts />} errorElement={<PageError />}></Route>
+          <Route path="*" element={<MaxTabletRoute redirectTo="/products" />} errorElement={<PageError />}>
+            <Route index element={<PageProducts />} errorElement={<PageError />} />
+            <Route path="product" element={<BlockProductInfo />} errorElement={<PageError />} />
+            <Route path="product:id" element={<BlockProductInfo />} errorElement={<PageError />} />
+            <Route path="stock" element={<BlockProductStock />} errorElement={<PageError />} />
+            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+          </Route>
           <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
         </Route>
-        <Route path="mobile/*" element={<MaxTabletRoute redirectTo="/desktop" />}>
-          <Route index element={<Navigate to="tasks" />} errorElement={<PageError />} />
 
+        <Route path="orders" element={<AppGridPage path="orders" />} errorElement={<PageError />}>
+          <Route index element={<PageOrders />} errorElement={<PageError />}></Route>
+
+          <Route path="*" element={<MaxTabletRoute redirectTo="/orders" />} errorElement={<PageError />}>
+            <Route index element={<PageOrders />} errorElement={<PageError />} />
+            <Route path="order" element={<BlockOrderInfo />} errorElement={<PageError />} />
+            <Route path="order:id" element={<BlockOrderInfo />} errorElement={<PageError />} />
+            <Route path="ttn" element={<BlockOrderTTN />} errorElement={<PageError />} />
+            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+          </Route>
+          <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+        </Route>
+
+        <Route path="returns" element={<AppGridPage path="returns" />} errorElement={<PageError />}>
+          <Route index element={<PageReturns />} errorElement={<PageError />}></Route>
+          <Route path="*" element={<MaxTabletRoute redirectTo="/returns" />} errorElement={<PageError />}>
+            <Route index element={<PageReturns />} errorElement={<PageError />} />
+            <Route path="return" element={<BlockReturnInfo />} errorElement={<PageError />} />
+            <Route path="return:id" element={<BlockReturnInfo />} errorElement={<PageError />} />
+            <Route path="inspection" element={<BlockReturnInspection />} errorElement={<PageError />} />
+            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+          </Route>
+          <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+        </Route>
+
+        <Route path="admin" element={<AppGridPage path="admin" />} errorElement={<PageError />}>
+          <Route index element={<PageAdmin />} errorElement={<PageError />}></Route>
+
+          <Route path="*" element={<MaxTabletRoute redirectTo="/admin" />} errorElement={<PageError />}>
+            <Route index element={<PageAdmin />} errorElement={<PageError />} />
+            <Route path="managers" element={<BlockManagers />} errorElement={<PageError />} />
+            <Route path="vendors" element={<BlockVendors />} errorElement={<PageError />} />
+            <Route path="roles" element={<BlockAdminRules />} errorElement={<PageError />} />
+            <Route path="settings" element={<BlockAdminSettings />} errorElement={<PageError />} />
+            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+          </Route>
+          <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+        </Route>
+
+        <Route path="returns" element={<AppGridPage path="returns" />} errorElement={<PageError />}>
+          <Route index element={<PageReturns />} errorElement={<PageError />}></Route>
+          <Route path="*" element={<MaxTabletRoute redirectTo="/returns" />} errorElement={<PageError />}>
+            <Route index element={<PageReturns />} errorElement={<PageError />} />
+            <Route path="return" element={<BlockReturnInfo />} errorElement={<PageError />} />
+            <Route path="return:id" element={<BlockReturnInfo />} errorElement={<PageError />} />
+            <Route path="inspection" element={<BlockReturnInspection />} errorElement={<PageError />} />
+            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+          </Route>
+          <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+        </Route>
+
+        <Route path="returns" element={<AppGridPage path="returns" />} errorElement={<PageError />}>
+          <Route index element={<PageReturns />} errorElement={<PageError />}></Route>
+          <Route path="*" element={<MaxTabletRoute redirectTo="/returns" />} errorElement={<PageError />}>
+            <Route index element={<PageReturns />} errorElement={<PageError />} />
+            <Route path="return" element={<BlockReturnInfo />} errorElement={<PageError />} />
+            <Route path="return:id" element={<BlockReturnInfo />} errorElement={<PageError />} />
+            <Route path="inspection" element={<BlockReturnInspection />} errorElement={<PageError />} />
+            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+          </Route>
+          <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+        </Route>
+
+        <Route
+          path="*"
+          element={
+            <PageNotFound>
+              <MobileFooter />
+              <DesktopFooter />
+            </PageNotFound>
+          }
+          errorElement={<PageError />}
+        />
+        {/* <Route path="desktop/*" element={<MinTabletXlRoute redirectTo="/mobile" />} errorElement={<PageError />}>
+          <Route index element={<Navigate to={indexPage} />} errorElement={<PageError />}></Route>
+          <Route path="tasks" element={<PageMain />} errorElement={<PageError />} />
+          <Route path="products" element={<PageProducts />} errorElement={<PageError />} />
+          <Route path="orders" element={<PageOrders />} errorElement={<PageError />} />
+          <Route path="returns" element={<PageReturns />} errorElement={<PageError />} />
+          <Route path="counterParty" element={<PageCounterParty />} errorElement={<PageError />} />
+          <Route path="settings" element={<PageSettings />} errorElement={<PageError />} />
+          <Route path="raports" element={<PageStatistics />} errorElement={<PageError />} />
+          <Route path="admin" element={<PageAdmin path="admin" />} errorElement={<PageError />} />
+          <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+        </Route> */}
+
+        {/* <Route path="mobile/*" element={<MaxTabletRoute redirectTo="/desktop" />}>
+          <Route index element={<Navigate to={indexPage} />} errorElement={<PageError />} />
           <Route path="tasks/*" element={<AppMobilePage path="tasks" />} errorElement={<PageError />}>
             <Route index element={<Navigate to="allTasks" />} errorElement={<PageError />} />
             <Route path="allTasks" element={<BlockMainTasks />} errorElement={<PageError />} />
@@ -133,7 +244,7 @@ const AppRoutes = () => {
           <Route path="*" element={<AppMobilePage path="/" />} errorElement={<PageError />}>
             <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
           </Route>
-        </Route>
+        </Route> */}
       </Routes>
     </>
   );

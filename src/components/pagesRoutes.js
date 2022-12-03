@@ -61,7 +61,7 @@ export const pagesRoutes = [
   },
 ];
 export const mobilePageRoutes = [
-  { title: 'Список завдань', device: 'mobile', parentPath: 'tasks', path: 'allTasks', iconId: 'list' },
+  { title: 'Список завдань', device: 'mobile', parentPath: 'tasks', path: '/tasks', navLink: false, iconId: 'list' },
   { title: 'Деталі завдання', device: 'mobile', parentPath: 'tasks', path: 'task', iconId: 'info' },
   {
     title: 'Сповіщення',
@@ -71,7 +71,7 @@ export const mobilePageRoutes = [
     iconId: 'notifications',
   },
 
-  { title: 'Замовлення', device: 'mobile', parentPath: 'orders', path: 'allorders', iconId: 'list' },
+  { title: 'Замовлення', device: 'mobile', parentPath: 'orders', path: '/orders', navLink: false, iconId: 'list' },
   {
     title: 'Деталі замовлення',
     evice: 'mobile',
@@ -81,24 +81,24 @@ export const mobilePageRoutes = [
   },
   { title: 'ТТН', device: 'mobile', parentPath: 'orders', path: 'ttn', iconId: 'ttn' },
 
-  { title: 'Список повернень', device: 'mobile', parentPath: 'returns', path: 'allReturns', iconId: 'list' },
+  { title: 'Список повернень', device: 'mobile', parentPath: 'returns', path: '/returns', navLink: false, iconId: 'list' },
   { title: 'Деталі повернення', device: 'mobile', parentPath: 'returns', path: 'return', iconId: 'return' },
   { title: 'Інспекція', device: 'mobile', parentPath: 'returns', path: 'inspection', iconId: 'inspect' },
 
-  { title: 'Товари', device: 'mobile', parentPath: 'products', path: 'allProducts', iconId: 'list' },
+  { title: 'Товари', device: 'mobile', parentPath: 'products', path: '/products', navLink: false, iconId: 'list' },
   { title: 'Деталі товару', device: 'mobile', parentPath: 'products', path: 'product', iconId: 'info' },
   { title: 'Залишки', device: 'mobile', parentPath: 'products', path: 'stock', iconId: 'storage' },
 
-  { title: 'Звіти', device: 'mobile', parentPath: 'raports', path: 'allRaports', iconId: 'list' },
+  { title: 'Звіти', device: 'mobile', parentPath: 'raports', path: '/raports', navLink: false, iconId: 'list' },
   { title: 'Звіт', device: 'mobile', parentPath: 'raports', path: 'raport', iconId: 'assignment-ok' },
   { title: 'Статистика', device: 'mobile', parentPath: 'raports', path: 'statistics', iconId: 'statistics' },
   { title: 'Проблеми', device: 'mobile', parentPath: 'raports', path: 'problems', iconId: 'warning' },
 
-  { title: 'Контрагенти', device: 'mobile', parentPath: 'counterParty', path: 'counterPartiesList', iconId: 'persons' },
-  { title: 'Контрагент', device: 'mobile', parentPath: 'counterParty', path: 'counterAgent', iconId: 'person' },
-  { title: 'Чат', device: 'mobile', parentPath: 'counterParty', path: 'chat', iconId: 'chat' },
+  { title: 'Контрагенти', device: 'mobile', parentPath: 'counterParty', path: '/counterParty', navLink: false, iconId: 'persons' },
+  { title: 'Контрагент', device: 'mobile', parentPath: 'counterAgent', path: 'counterAgent', iconId: 'person' },
+  { title: 'Чат', device: 'mobile', parentPath: 'chat', path: 'chat', iconId: 'chat' },
 
-  { title: 'Загальні', device: 'mobile', parentPath: 'settings', path: 'settings', iconId: 'settings' },
+  { title: 'Загальні', device: 'mobile', parentPath: 'settings', path: '/settings', navLink: false, iconId: 'settings' },
   { title: 'Довідники', device: 'mobile', parentPath: 'settings', path: 'directories', iconId: 'folder' },
   { title: 'Профіль', device: 'mobile', parentPath: 'settings', path: 'setProfile', iconId: 'setProfile' },
 
@@ -109,7 +109,7 @@ export const mobilePageRoutes = [
   { title: 'Бренди', device: 'mobile', parentPath: 'manager', path: 'brands', iconId: 'brand' },
   { title: 'Налаштування', device: 'mobile', parentPath: 'manager', path: 'settings', iconId: 'settings' },
 
-  { title: 'Адмін', device: 'mobile', parentPath: 'admin', path: 'app', iconId: 'admin' },
+  { title: 'Адмін', device: 'mobile', parentPath: 'admin', path: '/admin', navLink: false, iconId: 'admin' },
   { title: 'Менеджери', device: 'mobile', parentPath: 'admin', path: 'managers', iconId: 'persons' },
   { title: 'Вендори', device: 'mobile', parentPath: 'admin', path: 'vendors', iconId: 'partners' },
   { title: 'Права доступу', device: 'mobile', parentPath: 'admin', path: 'roles', iconId: 'lockPerson' },

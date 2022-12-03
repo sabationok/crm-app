@@ -1,6 +1,6 @@
 .MobileFooter {
   display: grid;
-  grid-template-columns: 40px repeat(4, 1fr) 40px;
+  grid-template-columns: 60px repeat(4, 1fr) 40px;
   grid-template-rows: 40px;
   align-items: center;
   justify-items: center;
@@ -15,6 +15,10 @@
   width: 100%;
 
   background-color: var(--brand_clr__2);
+  @media screen and (max-height: 280px) {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 .gridLeft,
 .gridCenter,
@@ -23,6 +27,7 @@
   width: 100%;
 }
 .gridLeft {
+  display: grid;
   grid-column: 1/2;
 }
 .gridCenter {
@@ -37,4 +42,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.navLink,
+.navLinkActive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  text-align: left;
+
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  height: 100%;
+  min-width: 5px;
+
+  // width: 100%;
+  color: #fff;
+
+  fill: #fff;
+
+  padding: 2px;
+
+  background-color: inherit;
+  border-style: none;
+  border: 1px solid transparent;
+  // transition: all var(--timing-function__main);
+  &:hover {
+    background-color: var(--brand_clr__1);
+  }
+}
+.navLinkActive {
+  background-color: var(--brand_clr__1);
+}
+.linkTitle {
+  font-size: 8px;
+  text-align: center;
+  width: 100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

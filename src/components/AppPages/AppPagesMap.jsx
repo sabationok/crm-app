@@ -27,22 +27,22 @@ export const AppPages = {
   PageAdmin,
   AppMobilePage,
 };
-export let PagesMap = {
-  Main: PageMain,
-  Admin: PageAdmin,
-  Raports: PageStatistics,
-  Settings: PageSettings,
-  CounterParty: PageCounterParty,
-  Returns: PageReturns,
-  Orders: PageOrders,
-  Products: PageProducts,
-  Manager: PageManager,
-  Vendor: PageVendor,
-  LogOut: PageLogOut,
-  NotFound: PageNotFound,
-  Error: PageError,
-  Mobile: AppMobilePage,
-};
+// export let PagesMap = {
+//   Main: PageMain,
+//   Admin: PageAdmin,
+//   Raports: PageStatistics,
+//   Settings: PageSettings,
+//   CounterParty: PageCounterParty,
+//   Returns: PageReturns,
+//   Orders: PageOrders,
+//   Products: PageProducts,
+//   Manager: PageManager,
+//   Vendor: PageVendor,
+//   LogOut: PageLogOut,
+//   NotFound: PageNotFound,
+//   Error: PageError,
+//   Mobile: AppMobilePage,
+// };
 export let pagesMapLowerCase = {
   tasks: PageMain,
   admin: PageAdmin,

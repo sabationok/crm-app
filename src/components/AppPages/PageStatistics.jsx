@@ -10,6 +10,7 @@ const PageStatistics = props => {
     <>
       <AppGridPage
         pageGrid_5_5
+        {...props}
         elementTop={<BlockRaportsList />}
         elementBottomLeft={<BlockRaportInfo />}
         elementBottomRight={<BlockStatistics />}

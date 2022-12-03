@@ -1,19 +1,17 @@
 import PropTypes from 'prop-types';
-import AppGridPage from './AppGridPage/AppGridPage';
 import { BlockReturnsList, BlockReturnInfo, BlockReturnInspection } from 'components/Blocks/ReturnBlocks';
-
+import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 // import s from './PageReturns.module.scss';
 
-const PageReturns = () => {
+const PageReturns = props => {
   return (
     <>
-      <AppGridPage
-        pageGrid_5_5
-        bigerSideLeft
-        elementTop={<BlockReturnsList />}
-        elementBottomLeft={<BlockReturnInfo />}
-        elementBottomRight={<BlockReturnInspection />}
-      />
+      <MinTabletXl>
+        <BlockReturnsList /> <BlockReturnInfo /> <BlockReturnInspection />
+      </MinTabletXl>
+      <MaxToTablet>
+        <BlockReturnsList />
+      </MaxToTablet>
     </>
   );
 };

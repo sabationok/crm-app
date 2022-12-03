@@ -16,6 +16,7 @@ const ButtonIcon = ({
   title = '',
   styleType = 'PrimaryBtn',
   onClick = null,
+  ...props
 }) => {
   const classNames = [s.Button, s[styleType], className].join(' ');
   const iconClassNames = [s.iconSvg, iconClassName].join(' ');
@@ -33,7 +34,7 @@ const ButtonIcon = ({
     ...iconStyles,
   };
   return (
-    <button type={type} className={classNames} disabled={disabled} style={style} title={title && title} onClick={onClick}>
+    <button type={type} className={classNames} disabled={disabled} style={style} title={title && title} onClick={onClick} {...props}>
       <svg className={iconClassNames} style={iconStyle}>
         <use href={`${sprite}#icon-${iconId}`}></use>
       </svg>

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { actionSetPage, actionSetDevice } from './pageActions';
+import { actionSetPage, actionSetDevice, actionSetIndexPage, actionSetSearchParams } from './pageActions';
 
 const initialState = {
   page: {
@@ -9,7 +9,13 @@ const initialState = {
     path: '',
     iconId: '',
   },
-  device: '',
+  indexPage: 'orders',
+  searchParams: {
+    product: null,
+    order: null,
+    return: null,
+  },
+  isMobile: false,
 };
 
 export const appPageSlice = createSlice({
@@ -20,7 +26,13 @@ export const appPageSlice = createSlice({
       state.page = action.payload;
     },
     [actionSetDevice]: (state, action) => {
-      state.device = action.payload;
+      state.isMobile = action.payload;
+    },
+    [actionSetIndexPage]: (state, action) => {
+      state.indexPage = action.payload;
+    },
+    [actionSetSearchParams]: (state, action) => {
+      state.searchParams = { ...state.searchParams, ...action.payload };
     },
   },
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
-import MobileNavLink from './MobileNavLink/MobileNavLink';
+import MobileNavLink from '../MobileNavLink/MobileNavLink';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 
@@ -19,7 +19,7 @@ const SlickMobileNavMenu = ({ navLinkArr }) => {
       {navLinkArr.length > 0 && (
         <Slider {...settings}>
           {navLinkArr.map(link => (
-            <MobileNavLink key={`${link?.device}/${link?.path}`} link={link} />
+            <MobileNavLink key={`${link?.device}/${link?.path}`} {...link} />
           ))}
         </Slider>
       )}

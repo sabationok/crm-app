@@ -10,7 +10,7 @@ import s from './ModalCustom.module.scss';
 export const ModalContext = createContext();
 export const useModal = () => useContext(ModalContext);
 
-const ModalCustom = ({ handleToggle, defaultBtn = true, children, }) => {
+const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   window.addEventListener('keydown', handleToggleModalByEsc);
@@ -25,13 +25,16 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children, }) => {
       handleToggle();
       setIsOpen(!isOpen);
     }
+    window.removeEventListener('keydown', handleToggleModalByEsc);
   }
 
   function handleToggleModalByEsc(evt) {
     let { code } = evt;
+    console.log('Escape');
     if (code === 'Escape') {
       handleToggle();
-      // setIsOpen(!isOpen);
+      setIsOpen(!isOpen);
+      console.log('Escape')
       window.removeEventListener('keydown', handleToggleModalByEsc);
     }
   }
@@ -51,7 +54,7 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children, }) => {
           <div className={s.Modal}>
             {defaultBtn && (
               <button className={s.closeModal} onClick={handleToggleModal}>
-                <SvgIconClose size={'100%'}/>
+                <SvgIconClose size={'100%'} />
               </button>
             )}
             {children}

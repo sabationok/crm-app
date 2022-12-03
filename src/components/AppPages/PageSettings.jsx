@@ -10,6 +10,7 @@ const PageSettings = props => {
     <>
       <AppGridPage
         pageGrid_5_5
+        {...props}
         elementTop={<Block title="Налаштування" iconId="list" actions="withFilter" filter />}
         elementBottomLeft={<Block title="Налаштування" iconId="person" actions="primary" />}
         elementBottomRight={<Block title="Налаштування" iconId="settings" actions="primary" />}

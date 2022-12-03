@@ -1,18 +1,17 @@
 import PropTypes from 'prop-types';
 import Block from 'components/Block/Block';
-import AppGridPage from './AppGridPage/AppGridPage';
-
-// import s from './PageMain.module.scss';
-
-const PageManager = () => {
+import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
+const PageManager = props => {
   return (
     <>
-      <AppGridPage
-        pageGrid_5_5
-        elementTop={<Block title="Вендори" iconId="partners" actions="primary" />}
-        elementBottomLeft={<Block title="Вендор" iconId="person" actions="primary" />}
-        elementBottomRight={<Block title="Бренди" iconId="brand" actions="primary" />}
-      />
+      <MinTabletXl>
+        <Block title="Вендори" iconId="partners" actions="primary" />
+        <Block title="Вендор" iconId="person" actions="primary" />
+        <Block title="Бренди" iconId="brand" actions="primary" />
+      </MinTabletXl>
+      <MaxToTablet>
+        <Block title="Вендори" iconId="partners" actions="primary" />
+      </MaxToTablet>
     </>
   );
 };
