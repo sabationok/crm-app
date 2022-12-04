@@ -15,11 +15,20 @@
   padding: 0 8px;
 
   overflow: visible;
-
+  border-bottom: 1px solid transparent;
+}
+.Light {
+  background-color: var(--brand_clr__2_light);
+  color: var(--brand_clr__2);
+  fill: var(--brand_clr__2);
+  // border-bottom-color: var(--brand_clr__2_light);
+  // box-shadow: var(--block-shadow);
+}
+.Dark {
+  background-color: var(--brand_clr__2);
   color: #f0f0f0;
   fill: #f0f0f0;
-
-  background-color: var(--brand_clr__2);
+    // border-bottom-color: var(--brand_clr__2);
 }
 .header {
   grid-template-columns: 30px 1fr 30px;

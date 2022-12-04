@@ -16,7 +16,6 @@ const Block = props => {
   const [isSearch, setIsSearch] = useState(false);
   const [isFormDisabled, setIsFormDisabled] = useState(false);
 
-
   function handleToggleBlockSearch() {
     setIsSearch(!isSearch);
   }
@@ -26,6 +25,7 @@ const Block = props => {
   const state = {
     isSearch,
     isFormDisabled,
+    isDarkTheme,
   };
   const stateHandlers = {
     handleToggleBlockSearch,

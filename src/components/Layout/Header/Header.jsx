@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import s from './Header.module.scss';
 const Header = () => {
   return (
-    <header className={s.header}>
+    <header className={[s.header, 'theme'].join(' ')}>
       <Link to="/" className={s.logoLink}>
         <span className={s.logoText}>LOGO</span>
       </Link>
@@ -16,7 +16,7 @@ const Header = () => {
 
       <Notifications />
 
-      <UserMenu  />
+      <UserMenu />
     </header>
   );
 };

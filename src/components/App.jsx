@@ -9,7 +9,6 @@ import { getAppSettings } from 'redux/selectors';
 import { actionSetDevice } from 'redux/page/pageActions';
 import { useMediaQuery } from 'react-responsive';
 
-
 import s from './App.module.scss';
 
 export const App = () => {
@@ -21,7 +20,7 @@ export const App = () => {
     dispatch(actionSetDevice(isMobile));
   }, [dispatch, isMobile]);
   return (
-    <div className={isDarkTheme ? s.appDark : s.app}>
+    <div className={[isDarkTheme ? s.appDark : s.app, isDarkTheme ? 'Dark' : 'Light'].join(' ')}>
       <Layout>
         <Suspense fallback={<AppLoader isLoading={true} />}>
           <AppRoutes />

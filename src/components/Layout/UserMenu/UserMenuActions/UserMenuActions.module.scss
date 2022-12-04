@@ -2,7 +2,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-
   text-align: left;
 
   font-size: 14px;
@@ -10,10 +9,8 @@
   letter-spacing: 0.06em;
 
   width: 100%;
-  color: #fff;
-  fill: #fff;
-
-  padding: 8px 16px;
+  // color: #fff;
+  // fill: #fff;
 
   background-color: inherit;
   border-style: none;
@@ -23,4 +20,9 @@
   &:hover {
     background-color: var(--brand_clr__1);
   }
+}
+.actionBtn{
+  justify-content: start;
+  width: 100%;
+  padding: 8px;
 }

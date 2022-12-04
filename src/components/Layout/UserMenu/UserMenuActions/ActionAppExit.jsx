@@ -7,8 +7,8 @@ import s from './UserMenuActions.module.scss';
 const ActionAppExit = () => {
   function handleToggleAppTheme(params) {}
   return (
-    <li>
-      <ButtonIcon iconId='logout' className={s.actionItem} onClick={handleToggleAppTheme}>
+    <li className={s.actionItem}>
+      <ButtonIcon iconId='logout' className={s.actionBtn} onClick={handleToggleAppTheme}>
         {'Вийти'}
       </ButtonIcon>
     </li>

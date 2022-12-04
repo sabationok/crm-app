@@ -14,7 +14,7 @@ const MobileFooter = ({ path = '/', ...props }) => {
 
   return (
     <MaxToTablet>
-      <div className={s.MobileFooter}>
+      <div className={[s.MobileFooter, 'theme'].join(' ')}>
         <div className={s.gridLeft}>{filteredNavLinks.length > 0 && link && <MobileNavLink {...link} />}</div>
 
         <div className={s.gridCenter}>

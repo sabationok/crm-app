@@ -46,7 +46,7 @@ const NavMenu = ({ size = '30px' }) => {
         onClick={handleToggleMenu}
       />
 
-      <ul className={s.navList}>
+      <ul className={[s.navList, 'theme'].join(' ')}>
         {pagesRoutesArr.map(link => (
           <MenuNavLink key={link.path} item={link} />
         ))}

@@ -8,8 +8,8 @@ import { useBlock } from '../BlockContext';
 import s from './BlockHeaderSearch.module.scss';
 
 const BlockHeaderSearch = () => {
-  const { title = 'Title', iconId = 'info', isSearch } = useBlock();
-  const headerClassName = !isSearch ? s.header : s.headerWithSearch;
+  const { title = 'Title', iconId = 'info', isSearch, isDarkTheme } = useBlock();
+  const headerClassName = [!isSearch ? s.header : s.headerWithSearch, isDarkTheme ? s.Dark : s.Light].join(' ');
 
   return (
     <div className={headerClassName}>

@@ -14,11 +14,24 @@
 
   width: 100%;
 
-  background-color: var(--brand_clr__2);
+  // background-color: var(--brand_clr__2);
   @media screen and (max-height: 280px) {
     opacity: 0;
     pointer-events: none;
   }
+}
+.Light {
+  background-color: var(--brand_clr__2_light);
+  color: var(--brand_clr__2);
+  fill: var(--brand_clr__2);
+  // border-bottom-color: var(--brand_clr__2_light);
+  // box-shadow: var(--block-shadow);
+}
+.Dark {
+  background-color: var(--brand_clr__2);
+  color: #f0f0f0;
+  fill: #f0f0f0;
+    // border-bottom-color: var(--brand_clr__2);
 }
 .gridLeft,
 .gridCenter,

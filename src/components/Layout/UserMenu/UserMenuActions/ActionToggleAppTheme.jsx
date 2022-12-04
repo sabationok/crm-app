@@ -13,10 +13,10 @@ const ActionToggleAppTheme = () => {
     dispatch(actionChangeTheme());
   }
   return (
-    <li>
+    <li className={s.actionItem} >
       <ButtonIcon
         iconId={isDarkTheme ? 'lightMode' : 'darkMode'}
-        className={s.actionItem}
+        className={s.actionBtn}
         onClick={handleToggleAppTheme}
       >
         {isDarkTheme ? 'На світлу сторону' : 'На темну сторону'}

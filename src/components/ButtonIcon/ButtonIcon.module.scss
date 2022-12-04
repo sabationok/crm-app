@@ -9,6 +9,7 @@
   font-weight: 400;
 
   padding: 2px;
+  color: inherit;
 
   border-style: none;
   overflow: hidden;
@@ -38,7 +39,8 @@
   }
 }
 .PrimaryBtn {
-  color: #fff;
+
+  // color: #fff;
   background-color: var(--btn_bckgrnd-color);
   &:hover {
     background-color: var(--btn_bckgrnd-color-hover);

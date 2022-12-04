@@ -6,7 +6,7 @@ import s from './DesktopFooter.module.scss';
 const DesktopFooter = () => {
   return (
     <MinTabletXl>
-      <div className={s.DesktopFooter}>
+      <div className={[s.DesktopFooter, 'theme'].join(' ')}>
         <div className={s.gridMenu}>
           <NavMenu />
         </div>

@@ -26,9 +26,9 @@
     visibility: hidden;
 
     overflow: hidden;
-    fill: #fff;
+    // fill: #fff;
 
-    background-color: var(--brand_clr__2);
+    // background-color: var(--brand_clr__2);
     box-shadow: var(--header-shadow);
 
     transition: all var(--timing-function__main);
@@ -62,7 +62,7 @@
     background-color: var(--brand_clr__1);
   }
   & .button {
-    fill: #fff;
+    // fill: #fff;
     &:hover {
       fill: var(--brand_clr__1);
       background-color: rgba(254,254,254,0.2);

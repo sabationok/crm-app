@@ -43,13 +43,13 @@
 
     overflow: hidden;
 
-    background-color: var(--brand_clr__2);
+    // background-color: var(--brand_clr__2);
     box-shadow: var(--header-shadow);
 
     transition: all var(--timing-function__main);
   }
   & .openButton {
-    fill: #fff;
+
     padding: 0;
     &:hover {
       fill: var(--brand_clr__1);

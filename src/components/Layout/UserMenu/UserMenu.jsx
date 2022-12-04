@@ -10,7 +10,7 @@ const UserMenu = () => {
     <div className={s.box}>
       <ButtonIcon iconId="person" size="30px" iconSize="100%" className={s.openButton} />
 
-      <ul className={s.list}>
+      <ul className={[s.list,'theme'].join(' ')}>
         <ActionToggleAppTheme />
         <ActionAppExit />
       </ul>
