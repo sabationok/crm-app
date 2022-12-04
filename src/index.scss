@@ -136,6 +136,10 @@ button {
     fill: #fff;
     background-color: var(--brand_clr__2);
   }
+  & .slick-prev:before,
+& .slick-next:before {
+
+}
 }
 .Light {
   color: var(--brand_clr__2);
@@ -145,7 +149,15 @@ button {
     fill: var(--brand_clr__2);
     background-color: var(--brand_clr__2_light);
   }
+  & .slick-prev:before,
+  & .slick-next:before {
+    color: var(--brand_clr__2);
+  }
 }
+
+// & .slick-prev:before,
+// & .slick-next:before {
+// }
 /* // bimp
 // --scrollbar-top-offset: 0px;
 // --scrollbar-bottom-offset: 0px;
