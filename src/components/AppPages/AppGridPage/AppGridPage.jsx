@@ -26,7 +26,7 @@ const AppGridPage = ({ path }) => {
 
   return (
     <>
-      <div className={s.pageGrid_5_5}>
+      <div className={s.pageGrid}>
         <Outlet />
       </div>
       <DesktopFooter />
