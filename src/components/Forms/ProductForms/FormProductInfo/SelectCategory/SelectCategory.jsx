@@ -4,9 +4,9 @@ import Fieldset from 'components/Forms/Fieldset/Fieldset';
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
 // import s from './SelectCategory.module.scss';
 const seletsArr = [
-  { label: 'Секція', name: 'section', action: 'text' },
-  { label: 'Категорія', name: 'parentCategory', action: 'text' },
-  { label: 'Підкатегорія', name: 'category', action: 'text' },
+  { label: 'Секція', name: 'section', sectionId: '' },
+  { label: 'Категорія', name: 'parentCategory', parentCategoryId: '' },
+  { label: 'Підкатегорія', name: 'category', categoryId: '' },
 ];
 const SelectCategory = () => {
   const { onChange, formData } = useForm();

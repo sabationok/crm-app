@@ -8,7 +8,7 @@ import s from './FormPrimary.module.scss';
 export const FormProvider = createContext();
 export const useForm = () => useContext(FormProvider);
 
-const FormPrimary = ({ children, onSubmit, onReset, formTitle = 'Form title', id, ...props }) => {
+const FormPrimary = ({ children, onSubmit, onCancel, onReset, formTitle = 'Form title', id, ...props }) => {
   const { isFormDisabled } = useBlock();
 
   return (
@@ -32,25 +32,30 @@ const FormPrimary = ({ children, onSubmit, onReset, formTitle = 'Form title', id
               >
                 <span className={s.btnName}>Прийняти</span>
               </ButtonIcon>
-              <ButtonIcon
-                iconId="clear"
-                styleType="ResetBtn"
-                type="reset"
-                styles={{ width: 'fit-content', minHeight: 'fit-content' }}
-                iconSize="26px"
-                disabled={isFormDisabled}
-              >
-                <span className={s.btnName}>Очистити</span>
-              </ButtonIcon>
-              <ButtonIcon
-                iconId="removeDone"
-                styleType="DeclineBtn"
-                styles={{ width: 'fit-content', minHeight: 'fit-content' }}
-                iconSize="26px"
-                disabled={isFormDisabled}
-              >
-                <span className={s.btnName}>Відхилити</span>
-              </ButtonIcon>
+              {onReset && (
+                <ButtonIcon
+                  iconId="clear"
+                  styleType="ResetBtn"
+                  type="reset"
+                  styles={{ width: 'fit-content', minHeight: 'fit-content' }}
+                  iconSize="26px"
+                  disabled={isFormDisabled}
+                >
+                  <span className={s.btnName}>Очистити</span>
+                </ButtonIcon>
+              )}
+              {onCancel && (
+                <ButtonIcon
+                  iconId="removeDone"
+                  styleType="DeclineBtn"
+                  styles={{ width: 'fit-content', minHeight: 'fit-content' }}
+                  iconSize="26px"
+                  disabled={isFormDisabled}
+                  onClick={onCancel}
+                >
+                  <span className={s.btnName}>Відхилити</span>
+                </ButtonIcon>
+              )}
             </div>
           </fieldset>
         </form>

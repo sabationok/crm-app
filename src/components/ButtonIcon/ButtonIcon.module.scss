@@ -68,8 +68,7 @@
   border-style: none;
   border-bottom: 4px solid transparent;
   background-color: var(--btn-deciscon_clr__primary);
-  &:hover,
-  &:focus {
+  &:hover {
     background-color: var(--btn-deciscon_clr__hover);
   }
   &:active {
@@ -78,22 +77,19 @@
 }
 
 .AcceptBtn {
-  &:hover,
-  &:focus {
+  &:hover {
     fill: rgb(118, 255, 108);
     border-color: rgb(118, 255, 108);
   }
 }
 .DeclineBtn {
-  &:hover,
-  &:focus {
+  &:hover {
     fill: rgb(255, 59, 59);
     border-color: rgb(255, 59, 59);
   }
 }
 .ResetBtn {
-  &:hover,
-  &:focus {
+  &:hover {
     fill: rgb(255, 255, 82);
     border-color: rgb(255, 255, 82);
   }

@@ -50,8 +50,12 @@ const initialState = {
   // ? brand name setting by author & id (supplayer)
   brand: '', // * string
   brandId: '', // * string
+  sectionId: '', // * string
+  Section: '', // * string
   parentCategoryId: '', // * string
+  parentCategory: '', // * string
   categoryId: '', // * string
+  category: '', // * string
   // ? availability
   availability: '', // * string
   // ?
@@ -86,7 +90,11 @@ const incomeData = {
   changedByAuthorId: '',
   changedByAuthorName: '',
   changedByAuthorType: '',
-  availability: '',
+  section: 'Одяг',
+  parentCategory: 'Жінкам',
+  category: 'Сукні, вечірні',
+  availability: 'Індивідуальне виготовлення',
+  productionTime: 7,
   description: 'Description',
   innerComment: 'Comment',
   cost: 400,
@@ -127,8 +135,13 @@ const FormProductInfo = () => {
 
     console.log(submitData);
     toast.info('Форму відправлено');
+    setFormData(initialState);
   }
   function handleFormReset(ev) {
+    setFormData(initialState);
+    toast.info('Форму очищено');
+  }
+  function handleFormCancel(ev) {
     setFormData(initialState);
     toast.info('Форму очищено');
   }
@@ -140,6 +153,7 @@ const FormProductInfo = () => {
       onReset={handleFormReset}
       onFormStateChange={handleChangeFormState}
       onChange={handleChangeInput}
+      onCancel={handleFormCancel}
       formData={formData}
       {...formData}
       id="productForm"
