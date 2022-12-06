@@ -80,19 +80,19 @@ const FormProductInfo = props => {
       {...formData}
       id="productForm"
     >
-      {/* <StaticInputs /> */}
+      <StaticInputs />
 
-      {/* <SelectCategory /> */}
+      <SelectCategory />
 
       <SelectAvailibility />
 
-      {/* <PriceField /> */}
+      <PriceField />
 
-      {/* <OptionalInputs /> */}
+      <OptionalInputs />
 
-      {/* <InputTextarea label="Опис товару" value={formData?.description} name="description" onChange={handleChangeInput} /> */}
+      <InputTextarea label="Опис товару" value={formData?.description} name="description" onChange={handleChangeInput} />
 
-      {/* <InputTextarea label="Внутрішній коментар" value={formData?.innerComment} name="innerComment" onChange={handleChangeInput} /> */}
+      <InputTextarea label="Внутрішній коментар" value={formData?.innerComment} name="innerComment" onChange={handleChangeInput} />
     </FormPrimary>
   );
 };
