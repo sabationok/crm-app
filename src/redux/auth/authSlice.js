@@ -1,13 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  userCurrent,
-  userLogIn,
-  userLogOut,
-  userRegister,
-} from '../thunks/authThunks';
+import { userCurrent, userLogIn, userLogOut, userRegister } from './authThunks';
 
 const initialState = {
-  user: { name: null, email: null, type: null, id: null },
+  user: {
+    createdAt: '', // * date
+    id: '21651asv165s1fv', // * string
+    name: 'Valeria Baranovka', // * string
+    type: 'manager', // * string
+    email: 'valeria@mail.com', // * string
+    phone: '+3806543218', // * string
+    // !! only for VENDORS
+    companyName: '', // * stringF
+    brandsList: [], // * array of string
+    mangerId: [], // * array of string
+    // !! only for MANAGERS
+    vendorslist: [], // * array of string },
+  },
   token: null,
   isLoggedIn: false,
   error: null,

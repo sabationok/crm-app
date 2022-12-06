@@ -11,6 +11,7 @@ export const ModalContext = createContext();
 export const useModal = () => useContext(ModalContext);
 
 const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
+  const modalTestName = 'modalname';
   const [isOpen, setIsOpen] = useState(true);
 
   window.addEventListener('keydown', handleToggleModalByEsc);
@@ -34,7 +35,7 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
     if (code === 'Escape') {
       handleToggle();
       setIsOpen(!isOpen);
-      console.log('Escape')
+      console.log('Escape');
       window.removeEventListener('keydown', handleToggleModalByEsc);
     }
   }
@@ -49,7 +50,7 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
 
   return (
     <ModalPortal>
-      <ModalContext.Provider value={{ isOpen, handleToggleModal }}>
+      <ModalContext.Provider value={{ isOpen, handleToggleModal,handleToggle, modalTestName }}>
         <div className={s.Backdrop} onClick={handleToggleModalBackdrop}>
           <div className={s.Modal}>
             {defaultBtn && (

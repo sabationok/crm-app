@@ -8,9 +8,9 @@ import s from './BlockHeader.module.scss';
 
 const BlockActions = lazy(() => import('../BlockActions/BlockActions'));
 const BlockHeader = () => {
-  const { title = 'Title', iconId = 'info', isDarkTheme } = useBlock();
+  const { title = 'Title', iconId = 'info', isDarkTheme, actions, headerStyles, headerClassName } = useBlock();
   return (
-    <div className={[s.header, isDarkTheme ? s.Dark : s.Light].join(' ')}>
+    <div className={[s.header, headerClassName, isDarkTheme ? s.Dark : s.Light].join(' ')} style={headerStyles}>
       <SvgIcon iconId={iconId} size={'24px'} />
 
       <span className={s.title}>
@@ -19,7 +19,7 @@ const BlockHeader = () => {
         </span>
       </span>
 
-      <BlockActions />
+      {actions && <BlockActions />}
     </div>
   );
 };

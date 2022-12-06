@@ -10,7 +10,18 @@ import { getAppSettings } from 'redux/selectors';
 import s from './Block.module.scss';
 
 const Block = props => {
-  let { children, title = 'Title', iconId = 'info', footer = true, header = true, style = {}, className = '', filter = false } = props;
+  let {
+    children,
+    footerChildren,
+    title = 'Title',
+    iconId = 'info',
+    footer = true,
+    header = true,
+    style = {},
+    headerStyles = {},
+    className = '',
+    filter = false,
+  } = props;
   const { isDarkTheme } = useSelector(getAppSettings);
   const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');
   const [isSearch, setIsSearch] = useState(false);
@@ -40,8 +51,8 @@ const Block = props => {
         <div className={blockClassName} style={style}>
           {header && (
             <>
-              {filter && <BlockHeaderSearch />}
-              {!filter && <BlockHeader />}
+              {filter && <BlockHeaderSearch style={headerStyles} />}
+              {!filter && <BlockHeader styl={headerStyles} />}
             </>
           )}
 
@@ -57,7 +68,7 @@ const Block = props => {
             </div>
           </div>
 
-          {footer && <div className={s.footer}></div>}
+          {footer && <div className={s.footer}>{footerChildren}</div>}
         </div>
       </BlockContext>
     </>

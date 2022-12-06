@@ -6,15 +6,14 @@ const ActionPrint = ({ action }) => {
   function handlePrintAction(ref) {
     // const formEl = document.querySelector('#productForm').contentWindow;
     // console.log(formEl);
-
     // eslint-disable-next-line no-restricted-globals
     // const newWindow = open('', 'windowPrint');
     // newWindow.document.write(formEl);
-
     // console.log(newWindow.document.write(formEl))
     // window.open(formEl, '__blank', 'visible=none');
     // newWindow.document.writeln(formEl);
     // newWindow.print();
+    // printElRef.focus()
   }
 
   return (

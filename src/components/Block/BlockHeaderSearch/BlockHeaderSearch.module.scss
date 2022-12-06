@@ -1,10 +1,11 @@
 .header,
 .headerWithSearch {
   display: grid;
-
+  
   grid-template-rows: 30px;
-  gap: 8px;
+  align-content: center;
   align-items: center;
+  gap: 8px;
 
   position: sticky;
   top: 0;

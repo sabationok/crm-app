@@ -8,11 +8,10 @@ import { useBlock } from '../BlockContext';
 import s from './BlockHeaderSearch.module.scss';
 
 const BlockHeaderSearch = () => {
-  const { title = 'Title', iconId = 'info', isSearch, isDarkTheme } = useBlock();
-  const headerClassName = [!isSearch ? s.header : s.headerWithSearch, isDarkTheme ? s.Dark : s.Light].join(' ');
+  const { title = 'Title', iconId = 'info', isSearch, isDarkTheme, actions, headerStyles, headerClassName } = useBlock();
 
   return (
-    <div className={headerClassName}>
+    <div className={[!isSearch ? s.header : s.headerWithSearch, isDarkTheme ? s.Dark : s.Light, headerClassName].join(' ')} style={headerStyles}>
       <SvgIcon iconId={iconId} size={'24px'} />
 
       {isSearch && <BlockSearch />}
@@ -23,7 +22,7 @@ const BlockHeaderSearch = () => {
         </span>
       )}
 
-      <BlockActions />
+      {actions && <BlockActions />}
     </div>
   );
 };

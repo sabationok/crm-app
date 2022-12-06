@@ -58,13 +58,12 @@
   background-color: inherit;
 }
 .footer {
-  display: block;
   position: sticky;
   top: 100%;
   left: 0;
   z-index: 5;
 
-  height: 5px;
+  min-height: 5px;
   width: 100%;
 }
 .inWork {

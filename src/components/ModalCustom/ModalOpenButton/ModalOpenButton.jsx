@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ModalCustom from 'components/ModalCustom/ModalCustom';
 
-const ModalOpenButton = ({ children, modalChildren, className = '',defaultBtn = true, }) => {
+const ModalOpenButton = ({ children, modalChildren, className = '', defaultBtn = true }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   function toggleModal(ev) {
     setIsModalOpen(!isModalOpen);

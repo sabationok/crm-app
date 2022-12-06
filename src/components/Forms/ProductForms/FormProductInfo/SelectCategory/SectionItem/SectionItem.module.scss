@@ -1,0 +1,26 @@
+.sectionItemContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  // gap: 8px;
+
+  padding: 8px;
+  &.isOpen {
+    & .icon {
+      transform: rotate(0);
+    }
+  }
+}
+
+.sectionItem {
+  display: grid;
+  grid-template-columns: min-content 1fr 1fr min-content;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px;
+}
+.icon {
+  transform: rotate(90deg);
+  transition: var(--timing-function__main);
+}
+

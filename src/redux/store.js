@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from '@reduxjs/toolkit';
 import { filterReducer } from './slices/sliceFilter';
-import { userReducer } from './slices/authSlice';
+import { userReducer } from './auth/authSlice';
 import { postsReducer } from './posts/slicePosts';
 import { ordersReducer } from './orders/ordersSlice';
 import { appPageReducer } from './page/pageSlice';
