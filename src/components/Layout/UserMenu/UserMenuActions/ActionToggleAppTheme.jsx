@@ -17,6 +17,7 @@ const ActionToggleAppTheme = () => {
       <ButtonIcon
         iconId={isDarkTheme ? 'lightMode' : 'darkMode'}
         className={s.actionBtn}
+        title='Дозволить вам переключитись між темними та світлим режимами'
         onClick={handleToggleAppTheme}
       >
         {isDarkTheme ? 'На світлу сторону' : 'На темну сторону'}
