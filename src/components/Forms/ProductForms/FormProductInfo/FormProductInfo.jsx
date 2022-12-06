@@ -23,7 +23,7 @@ import SelectCategory from './SelectCategory/SelectCategory';
 
 const FormProductInfo = props => {
   const { user } = useSelector(selectUserData);
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState(initialState);
 
   function handleChangeFormState(dataObj) {
     setFormData({ ...formData, ...dataObj });
@@ -34,6 +34,10 @@ const FormProductInfo = props => {
   function handleChangeInput(ev) {
     const { name, value } = ev.target;
     setFormData({ ...formData, [name]: value });
+  }
+  function handleChangeCheckbox(ev){
+    const { name, checked } = ev.target;
+    setFormData({ ...formData, [name]: checked });
   }
   function handleFormSubmit(ev) {
     ev.preventDefault();
@@ -70,24 +74,25 @@ const FormProductInfo = props => {
       onReset={handleFormReset}
       onFormStateChange={handleChangeFormState}
       onChange={handleChangeInput}
+      onChangeCheckbox={handleChangeCheckbox}
       onCancel={handleFormCancel}
       formData={formData}
       {...formData}
       id="productForm"
     >
-      <StaticInputs />
+      {/* <StaticInputs /> */}
 
-      <SelectCategory />
+      {/* <SelectCategory /> */}
 
       <SelectAvailibility />
 
-      <PriceField />
+      {/* <PriceField /> */}
 
-      <OptionalInputs />
+      {/* <OptionalInputs /> */}
 
-      <InputTextarea label="Опис товару" value={formData?.description} name="description" onChange={handleChangeInput} />
+      {/* <InputTextarea label="Опис товару" value={formData?.description} name="description" onChange={handleChangeInput} /> */}
 
-      <InputTextarea label="Внутрішній коментар" value={formData?.innerComment} name="innerComment" onChange={handleChangeInput} />
+      {/* <InputTextarea label="Внутрішній коментар" value={formData?.innerComment} name="innerComment" onChange={handleChangeInput} /> */}
     </FormPrimary>
   );
 };

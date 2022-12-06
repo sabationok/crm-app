@@ -131,6 +131,7 @@ button {
 .Dark {
   color: #fff;
   fill: #fff;
+ 
   & .theme {
     color: #fff;
     fill: #fff;
@@ -141,6 +142,7 @@ button {
 .Light {
   color: var(--brand_clr__2);
   fill: var(--brand_clr__2);
+  background-color: #fff;
   & .theme {
     color: var(--brand_clr__2);
     fill: var(--brand_clr__2);

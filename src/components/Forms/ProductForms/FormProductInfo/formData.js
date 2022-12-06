@@ -39,7 +39,13 @@ export const initialState = {
   categoryId: '', // * string
   category: '', // * string
   // ? availability
-  availability: '', // * string
+  productingTime: '', // * date
+  awaitingTime: '', // * date
+  notAvailable: true, // * boolean
+  awaitingInStock: false, // * boolean
+  onStock: false, // * boolean
+  toOrder: false, // * boolean
+  individualOrder: false, // * boolean
   // ?
   description: '', // * string
   // ? comment for manager/vendor/admin. Not for customer
@@ -57,6 +63,8 @@ export const initialState = {
   // ? not required
   sale: 0, // *number 0.00
   cashbackId: 0, // *number 0.00
+
+  sizesTable: '',
 };
 export const incomeData = {
   createdAt: String(new Date()),
@@ -68,14 +76,22 @@ export const incomeData = {
   authorName: userInfo.name,
   authorType: userInfo.type,
   aprovedStatus: false,
-  isVisible: false,
   changedByAuthorId: '',
   changedByAuthorName: '',
   changedByAuthorType: '',
+  sectionId: '', // * string
   section: 'Одяг',
+  parentCategoryId: '', // * string
   parentCategory: 'Жінкам',
+  categoryId: '', // * string
   category: 'Сукні, вечірні',
-  availability: 'Індивідуальне виготовлення',
+
+  availability: '',
+  notAvailable: '',
+  awaitingInStock: '',
+  onStock: '',
+  toOrder: '',
+  individual: '',
   productionTime: 7,
   description: 'Description',
   innerComment: 'Comment',

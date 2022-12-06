@@ -10,7 +10,6 @@ import Block from 'components/Block/Block';
 
 import s from './SectionsList.module.scss';
 
-
 export const SectionsListContext = createContext();
 export const useSectionsList = () => useContext(SectionsListContext);
 const SectionsList = () => {
@@ -38,7 +37,6 @@ const SectionsList = () => {
   function handleSelectCategory(category) {
     setSelectedCategory(category);
     setDisabledAcceptBtn(false);
-    console.log('select list', category);
   }
 
   return (

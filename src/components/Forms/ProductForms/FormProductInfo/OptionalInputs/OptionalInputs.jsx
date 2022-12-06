@@ -12,14 +12,11 @@ const OptionalInputs = () => {
   function handleAddOptionalinput() {
     setFormOptionalInputs([...formOptionalInputs, { label: 'optional', name: nanoid(5), component: 'text' }]);
   }
-  function handleChangeInput(ev) {
-    const { name, value } = ev.target;
-    onChange({ [name]: value });
-  }
+
   return (
     <>
       {formOptionalInputs.map(input => (
-        <PrimaryInput key={input.name} {...input} onChange={handleChangeInput} />
+        <PrimaryInput key={input.name} {...input}  onChange={onChange} />
       ))}
 
       <button onClick={handleAddOptionalinput} type="button">
