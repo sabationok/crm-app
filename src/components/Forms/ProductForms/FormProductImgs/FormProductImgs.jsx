@@ -17,10 +17,10 @@ const FormProductImgs = ({ formTitle = 'Form title' }) => {
 
   function handleChangeInput(ev) {
     const { files } = ev.target;
-    if (files.length > filesCount) {
-      toast.error(`Ви обрали більше ${filesCount} файлів`);
-      return;
-    }
+    // if (files.length > filesCount) {
+    //   toast.error(`Ви обрали більше ${filesCount} файлів`);
+    //   return;
+    // }
     const filesArr = [...files];
 
     const checkedFiles = filesArr.filter(file => {

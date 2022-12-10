@@ -47,7 +47,13 @@ const InputImg = ({ id, onChange, selectedFile = null, disabled = false, ...prop
         <label htmlFor={id} className={s.inputLabel}>
           {!selectedFile && <SvgIcon iconId="plus" size="40px" />}
           {preview && (
-            <ModalOpenLink modalContent={<img src={preview} alt={selectedFile?.name} />}>
+            <ModalOpenLink
+              modalContent={
+                <div className={s.bigModalImgBox}>
+                  <img className={s.bigModalImg} src={preview} alt={selectedFile?.name} />
+                </div>
+              }
+            >
               <img className={s.labelInnerImg} src={preview} alt={selectedFile?.name} />
             </ModalOpenLink>
           )}
