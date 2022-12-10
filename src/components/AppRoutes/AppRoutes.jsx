@@ -1,5 +1,4 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { MaxTabletRoute } from 'components/DeviceTypeInformer/DeviceTypeController';
 import AppGridPage from 'components/AppPages/AppGridPage/AppGridPage';
 
 import { AppPages } from 'components/AppPages/AppPagesMap';
