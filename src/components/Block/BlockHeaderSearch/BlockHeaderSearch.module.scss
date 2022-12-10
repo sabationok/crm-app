@@ -32,10 +32,10 @@
     // border-bottom-color: var(--brand_clr__2);
 }
 .header {
-  grid-template-columns: 30px 1fr 30px;
+  grid-template-columns: min-content 1fr 30px;
 }
 .headerWithSearch {
-  grid-template-columns: 30px max-content 1fr 30px;
+  grid-template-columns: min-content max-content 1fr 30px;
 }
 .blockLink {
   white-space: nowrap;

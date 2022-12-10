@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import PropTypes from 'prop-types';
 import BlockContext from './BlockContext';
-import BlockHeaderSearch from './BlockHeaderSearch/BlockHeaderSearch';
+import SvgIcon from 'components/SvgIcon/SvgIcon';
 
-import { useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
+import { useSelector } from 'react-redux';
 
-import s from './Block.module.scss';
+import s from './BlockSimple.module.scss';
 
-const Block = props => {
+const BlockSimple = props => {
   let {
     children,
     footerChildren,
@@ -18,37 +18,36 @@ const Block = props => {
     header = true,
     style = {},
     headerStyles = {},
+    footerStyle = {},
     className = '',
+    footerClassName = '',
+    headerClassName = '',
   } = props;
   const { isDarkTheme } = useSelector(getAppSettings);
   const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');
-  const [isSearch, setIsSearch] = useState(false);
-  const [isFormDisabled, setIsFormDisabled] = useState(false);
 
-  function handleToggleBlockSearch() {
-    setIsSearch(!isSearch);
-  }
-  function handleToggleEditForm() {
-    setIsFormDisabled(!isFormDisabled);
-  }
   const state = {
-    isSearch,
-    isFormDisabled,
     isDarkTheme,
   };
-  const stateHandlers = {
-    handleToggleBlockSearch,
-    handleToggleEditForm,
-  };
+  const stateHandlers = {};
 
-  console.log(`block '${title}'inicialize`);
+  console.log(`blockSimple '${title}'inicialize`);
 
   return (
     <>
       <BlockContext {...props} {...stateHandlers} {...state}>
         <div className={blockClassName} style={style}>
+          {header && (
+            <div className={[s.header, headerClassName].join(' ')} style={headerStyles}>
+              <SvgIcon iconId={iconId} size={'24px'} />
 
-          {header && <BlockHeaderSearch style={headerStyles} />}
+              {title && (
+                <span className={s.title}>
+                  <span title={title}>{title}</span>
+                </span>
+              )}
+            </div>
+          )}
 
           <div className={s.content} id={iconId}>
             <div className={s.overflow}>
@@ -62,13 +61,17 @@ const Block = props => {
             </div>
           </div>
 
-          {footer && <div className={s.footer}>{footerChildren}</div>}
+          {footer && (
+            <div style={footerStyle} className={[s.footer, footerClassName].join(' ')}>
+              {footerChildren}
+            </div>
+          )}
         </div>
       </BlockContext>
     </>
   );
 };
 
-Block.propTypes = {};
+BlockSimple.propTypes = {};
 
-export default Block;
+export default BlockSimple;

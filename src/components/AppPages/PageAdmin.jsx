@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 // import { useSearchParams } from 'react-router-dom';
 
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
-import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings } from 'components/Blocks/AdminBlocks';
+import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings } from 'components/Blocks/BlocksMap';
 // import { useEffect } from 'react';
 
 const PageAdmin = ({ path }) => {

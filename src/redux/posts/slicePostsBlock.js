@@ -9,9 +9,11 @@ import {
   actionChangeSearchParam,
 } from 'redux/posts/postsActions';
 
+
 const initialState = {
   markedPosts: [],
   selectedPostId: null,
+  selectedPostData: {},
   searchQuery: '',
   searchParam: '',
 };

@@ -13,15 +13,48 @@
   // fill: #fff;
 
   background-color: inherit;
-  border-style: none;
-  border: 1px solid transparent;
+
 
   &:hover {
     background-color: var(--brand_clr__1);
   }
 }
-.actionBtn{
+.actionItemDbl {
+  display: flex;
+  align-items: center;
+
+  text-align: left;
+
+  font-size: 14px;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+
+  width: 100%;
+  // color: #fff;
+  // fill: #fff;
+
+  background-color: inherit;
+
+}
+.actionBtn {
   justify-content: start;
   width: 100%;
   padding: 8px;
+}
+.gridChangeBtn,
+.gridChangeBtnActive {
+  justify-content: start;
+  width: 100%;
+  padding: 8px;
+  
+
+}
+.gridChangeBtn{
+
+}
+.gridChangeBtnActive {
+  background-color: var(--brand_clr__1);
+  &:hover {
+  background-color: var(--brand_clr__1);
+  }
 }

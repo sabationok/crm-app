@@ -5,7 +5,7 @@ const PageError = lazy(() => import('./PageError/PageError'));
 const PageLogOut = lazy(() => import('./PageLogOut/PageLogOut'));
 const PageProducts = lazy(() => import('./PageProducts'));
 const PageOrders = lazy(() => import('./PageOrders'));
-const PageReturns = lazy(() => import('./PageReturns'));
+const PageRefunds = lazy(() => import('./PageRefunds'));
 const PageCounterParty = lazy(() => import('./PageCounterParty'));
 const PageDirectories = lazy(() => import('./PageDirectories'));
 const PageStatistics = lazy(() => import('./PageStatistics'));
@@ -20,7 +20,7 @@ export const AppPages = {
   PageLogOut,
   PageProducts,
   PageOrders,
-  PageReturns,
+  PageRefunds,
   PageCounterParty,
   PageDirectories,
   PageStatistics,

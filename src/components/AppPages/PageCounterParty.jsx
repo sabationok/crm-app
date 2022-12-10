@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BlockCounterPartysList, BlockCounterPartyInfo, BlockCounterPartyChat } from 'components/Blocks/CounterPartyBlocks';
+import { BlockCounterPartysList, BlockCounterPartyInfo, BlockCounterPartyChat } from 'components/Blocks/BlocksMap';
 
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 

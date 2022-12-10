@@ -38,16 +38,7 @@ const PriceCommissionCounter = () => {
   //   onPriceChange(formData);
   // }, [formData, onPriceChange]);
 
-  function handleCountPrice() {
-    // eslint-disable-next-line no-restricted-globals
-    let isBoss = confirm('розрахувати ціну?');
-
-    if (isBoss) {
-      console.log(formData);
-      return;
-    }
-    alert('Інфа у консолі');
-  }
+  function handleCountPrice() {}
   return (
     <>
       <div className={s.grid}>

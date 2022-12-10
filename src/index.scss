@@ -131,13 +131,12 @@ button {
 .Dark {
   color: #fff;
   fill: #fff;
- 
+
   & .theme {
     color: #fff;
     fill: #fff;
     background-color: var(--brand_clr__2);
   }
-
 }
 .Light {
   color: var(--brand_clr__2);

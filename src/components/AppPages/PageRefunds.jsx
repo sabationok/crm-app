@@ -1,16 +1,18 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { BlockRefundsList, BlockRefundInspect, BlockRefundInfo } from 'components/Blocks/BlocksMap';
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
-import { BlockProductsList, BlockProductInfo, BlockProductStock } from 'components/Blocks/BlocksMap';
 import { useDispatch } from 'react-redux';
 import { actionSetPageGridChange } from 'redux/page/pageActions';
-const PageProducts = ({ path = 'products', ...props }) => {
+// import s from './PageRefunds.module.scss';
+
+const PageRefunds = ({ path = 'refunds' }) => {
   const dispatch = useDispatch();
 
   const blocksMap = {
-    products: <BlockProductsList />,
-    product: <BlockProductInfo />,
-    stock: <BlockProductStock />,
+    refunds: <BlockRefundsList />,
+    refund: <BlockRefundInfo />,
+    inspection: <BlockRefundInspect />,
   };
 
   useEffect(() => {
@@ -23,17 +25,19 @@ const PageProducts = ({ path = 'products', ...props }) => {
   return (
     <>
       <MinTabletXl>
-        <BlockProductsList />
-        <BlockProductInfo />
-        <BlockProductStock />
+        <BlockRefundsList />
+        <BlockRefundInfo />
+        <BlockRefundInspect />
       </MinTabletXl>
-      <MaxToTablet>{path ? blocksMap[path] : blocksMap.admin}</MaxToTablet>
+      <MaxToTablet>
+        <BlockRefundsList />
+      </MaxToTablet>
+      <MaxToTablet>{path ? blocksMap[path] : blocksMap.refunds}</MaxToTablet>
     </>
   );
 };
-
-PageProducts.propTypes = {
+PageRefunds.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 };
 
-export default PageProducts;
+export default PageRefunds;

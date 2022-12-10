@@ -230,6 +230,12 @@
     <symbol id="icon-checkBoxOff" viewBox="0 0 24 24">
       <path d="M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
     </symbol>
+    <symbol id="icon-pageGrid-1" viewBox="0 0 24 24">
+      <path d="M2 4v7h20V4H2zm8 16h12v-7H10v7zm-8 0h6v-7H2v7z"></path>
+    </symbol>
+    <symbol id="icon-pageGrid-2" viewBox="0 0 24 24">
+      <path d="M16 20H2V4h14v16zm2-12h4V4h-4v4zm0 12h4v-4h-4v4zm0-6h4v-4h-4v4z"></path>
+    </symbol>
     <symbol id="icon-new" viewBox="0 0 24 24">
    </symbol>
   </defs>

@@ -14,15 +14,16 @@ import {
   actionMarkAllCheckboxes,
   actionChangeSearchParam,
 } from 'redux/posts/postsActions';
+import { products } from 'data/products';
 const initialState = {
-  posts: [],
+  posts: [...products],
   isLoading: false,
   lastEditedId: null,
   error: null,
-  markedPosts: [],
-  selectedPostId: null,
-  searchQuery: '',
-  searchParam: '',
+  // markedPosts: [],
+  selectedPostId: '123456789',
+  // searchQuery: '',
+  // searchParam: '',
 };
 
 export const postsSlice = createSlice({

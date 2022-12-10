@@ -39,13 +39,13 @@ export const initialState = {
   categoryId: '', // * string
   category: '', // * string
   // ? availability
-  productingTime: '', // * date
-  awaitingTime: '', // * date
   notAvailable: true, // * boolean
   awaitingInStock: false, // * boolean
   onStock: false, // * boolean
   toOrder: false, // * boolean
+  awaitingTime: '', // * number/string
   individualOrder: false, // * boolean
+  productingTime: '', // * number/string
   // ?
   description: '', // * string
   // ? comment for manager/vendor/admin. Not for customer
@@ -63,7 +63,7 @@ export const initialState = {
   // ? not required
   sale: 0, // *number 0.00
   cashbackId: 0, // *number 0.00
-
+  // ? optional inputs
   sizesTable: '',
 };
 export const incomeData = {

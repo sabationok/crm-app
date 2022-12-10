@@ -7,18 +7,19 @@ import { useNotify } from 'components/Notify/NotifyProvider';
 
 const ActionShare = ({ action }) => {
   const { title } = useBlock();
+
   const { appNotify } = useNotify();
   let LINK = `${window.location}/${title}`;
 
   async function handleShareBtnClick() {
     const shareData = {
-      title: `Поділитись назвою блоку ${title}`,
-      text: `Поділитись назвою блоку ${title}`,
+      title: `Поділитись`,
+      text: `Поділитись`,
       url: LINK,
     };
     try {
       navigator.share(shareData);
-      toast.success(`Назва блоку для надсилання ${title}`);
+      // toast.success(`Назва блоку для надсилання ${title}`);
       appNotify.success(shareData.title, `${shareData.text}, ${shareData.url}`);
     } catch (err) {
       console.log(err);

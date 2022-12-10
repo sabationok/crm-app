@@ -1,4 +1,4 @@
-export const selectPosts = state => state.posts;
+export const getPosts = state => state.posts;
 export const selectOrders = state => state.orders;
 export const selectFilter = state => state.filter;
 export const selectUserData = state => state.auth;

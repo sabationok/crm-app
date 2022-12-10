@@ -8,5 +8,5 @@ export const BlockMainTask = () => {
   return <Block title="Завдання" iconId="info" actions="primary"style={{ gridColumn: '1/5', gridRow: '5/11' }} />;
 };
 export const BlockMainNotify = () => {
-  return <Block title="Сповіщення" iconId="notifications" actions="primary" style={{ gridColumn: '5/11', gridRow: '5/11' }}/>;
+  return <Block title="Чат" iconId="chat" actions="primary" style={{ gridColumn: '5/11', gridRow: '5/11' }}/>;
 };

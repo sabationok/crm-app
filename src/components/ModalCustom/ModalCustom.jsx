@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ModalPortal from './ModalPortal/ModalPortal';
 import SvgIconClose from './SvgIconClose/SvgIconClose';
+
 import s from './ModalCustom.module.scss';
 
 //* ""handleToggle"" функція яка тоглить стейт модалки
@@ -11,7 +12,6 @@ export const ModalContext = createContext();
 export const useModal = () => useContext(ModalContext);
 
 const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
-  const modalTestName = 'modalname';
   const [isOpen, setIsOpen] = useState(true);
 
   window.addEventListener('keydown', handleToggleModalByEsc);
@@ -50,7 +50,7 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
 
   return (
     <ModalPortal>
-      <ModalContext.Provider value={{ isOpen, handleToggleModal,handleToggle, modalTestName }}>
+      <ModalContext.Provider value={{ isOpen, handleToggleModal, handleToggle }}>
         <div className={s.Backdrop} onClick={handleToggleModalBackdrop}>
           <div className={s.Modal}>
             {defaultBtn && (

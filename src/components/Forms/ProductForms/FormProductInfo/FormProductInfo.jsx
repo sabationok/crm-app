@@ -1,7 +1,7 @@
+import React, { useEffect, useState } from 'react';
 // import { useBlock } from 'components/Block/BlockContext';
 // import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
-import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUserData } from 'redux/selectors';
 import { initialState } from './formData';
@@ -21,13 +21,12 @@ import SelectCategory from './SelectCategory/SelectCategory';
 // todo  { label: 'Видимість', name: 'visible', action: 'checkbox' },
 // todo { label: 'Статус', name: 'rewiewStatus', action: 'semiAuto' },
 
-const FormProductInfo = props => {
+const FormProductInfo = ({ edit = false, create = false }) => {
   const { user } = useSelector(selectUserData);
   const [formData, setFormData] = useState(initialState);
 
   function handleChangeFormState(dataObj) {
     setFormData({ ...formData, ...dataObj });
-
     // console.log(dataObj);
     console.log(formData);
   }
@@ -35,7 +34,7 @@ const FormProductInfo = props => {
     const { name, value } = ev.target;
     setFormData({ ...formData, [name]: value });
   }
-  function handleChangeCheckbox(ev){
+  function handleChangeCheckbox(ev) {
     const { name, checked } = ev.target;
     setFormData({ ...formData, [name]: checked });
   }
@@ -67,6 +66,14 @@ const FormProductInfo = props => {
     toast.info('Форму очищено');
   }
 
+  useEffect(() => {
+    if (edit) {
+      setFormData(initialState);
+      console.log(edit);
+      return;
+    }
+    console.log(create);
+  }, [create, edit]);
   return (
     <FormPrimary
       formTitle="Деталі товару"

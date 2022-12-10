@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
-import { BlockProfile, BlockBrands, BlockChat } from 'components/Blocks/BlocksVendor';
+import { BlockProfile, BlockBrands, BlockChat } from 'components/Blocks/BlocksMap';
 const PageVendor = props => {
   return (
     <>
