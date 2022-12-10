@@ -6,11 +6,11 @@ import FormProductImgs from 'components/Forms/ProductForms/FormProductImgs/FormP
 import ModalOpenButton from 'components/ModalCustom/ModalOpenButton/ModalOpenButton';
 import { useSelector } from 'react-redux';
 import { getPosts } from 'redux/selectors';
-import { getAppPage } from 'redux/selectors';
+import { getAppPageSettings } from 'redux/selectors';
 import s from './BlockProductInfo.module.scss';
 const BlockProductInfo = () => {
   const posts = useSelector(getPosts);
-  const { pageGrid = 'gridFirst' } = useSelector(getAppPage);
+  const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
 
   console.log(posts);
 
@@ -19,7 +19,7 @@ const BlockProductInfo = () => {
       <ModalOpenButton
         modalChildren={
           <BlockSimple title="Hедагування товару" iconId="info" className={s.modalBlock} headerClassName={s.modalHeader}>
-            <FormProductInfo edit />
+            <FormProductInfo />
             <FormProductImgs />
           </BlockSimple>
         }

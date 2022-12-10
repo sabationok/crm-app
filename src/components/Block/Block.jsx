@@ -20,10 +20,10 @@ const Block = props => {
     headerStyles = {},
     className = '',
   } = props;
-  const { isDarkTheme } = useSelector(getAppSettings);
-  const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');
   const [isSearch, setIsSearch] = useState(false);
+  const { isDarkTheme } = useSelector(getAppSettings);
   const [isFormDisabled, setIsFormDisabled] = useState(false);
+  const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');
 
   function handleToggleBlockSearch() {
     setIsSearch(!isSearch);
@@ -47,7 +47,6 @@ const Block = props => {
     <>
       <BlockContext {...props} {...stateHandlers} {...state}>
         <div className={blockClassName} style={style}>
-
           {header && <BlockHeaderSearch style={headerStyles} />}
 
           <div className={s.content} id={iconId}>

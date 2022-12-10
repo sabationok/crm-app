@@ -6,15 +6,13 @@ import { AppPages } from 'components/AppPages/AppPagesMap';
 import MobileFooter from 'components/Layout/MobileFooter/MobileFooter';
 import DesktopFooter from 'components/Layout/DesktopFooter/DesktopFooter';
 
-const { PageError, PageNotFound, PageMain, PageProducts, PageOrders, PageRefunds, PageAdmin } = AppPages;
+const { PageError, PageNotFound, PageProducts, PageOrders, PageRefunds, PageAdmin } = AppPages;
 
 const AppRoutes = () => {
   return (
     <>
       <Routes>
         <Route index element={<Navigate to="products" />} errorElement={<PageError />} />
-
-        <Route path="tasks" element={<PageMain />} errorElement={<PageError />} />
 
         <Route path="products" element={<AppGridPage path="products" />} errorElement={<PageError />}>
           <Route index element={<PageProducts />} errorElement={<PageError />}></Route>
