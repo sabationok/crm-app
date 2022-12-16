@@ -1,66 +1,36 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
-import BlockPortal from '../BlockPortal';
+
 import BlockActionsList from './ActionsList/ActionsList';
+
+import BlockModalPortal from '../BlockModal/BlockModalPortal';
 
 import { useBlock } from '../BlockContext';
 
 import s from './BlockActions.module.scss';
 
-const BlockActions = ({ actions }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const block = useBlock();
+const BlockActions = () => {
+  const { isModalOpen, handleToggleModal, iconId, actions, actionsPrimary, actionsWithFilter } = useBlock();
 
   const memoizedActionsArr = useMemo(() => {
-    switch (block.actions) {
+    switch (actions) {
       case 'primary':
-        return block.actionsPrimary;
+        return actionsPrimary;
 
       case 'withFilter':
-        return block.actionsWithFilter;
+        return actionsWithFilter;
 
       default:
         return [];
     }
-  }, [block.actions, block.actionsPrimary, block.actionsWithFilter]);
-
-  function handleOpenActions(evt) {
-    setIsOpen(!isOpen);
-  }
-
-  useEffect(() => {
-    function handleCloseActionsByEscape(ev) {
-      let { code } = ev;
-      if (code === 'Escape') {
-        setIsOpen(false);
-        window.removeEventListener('keydown', handleCloseActionsByEscape);
-        return;
-      }
-      return;
-    }
-    if (!isOpen) {
-      window.removeEventListener('keydown', handleCloseActionsByEscape);
-      return;
-    } else if (isOpen) {
-      window.addEventListener('keydown', handleCloseActionsByEscape);
-      return;
-    }
-  }, [isOpen]);
+  }, [actions, actionsPrimary, actionsWithFilter]);
 
   return (
     <>
-      <ButtonIcon iconId={isOpen ? 'close' : 'actions-h'} size="100%" iconSize="24px" className={s.btn} onClick={handleOpenActions} />
-      <BlockPortal id={block.iconId}>
-        <div className={isOpen ? s.actionsBackdropOpen : s.actionsBackdrop} onClick={handleOpenActions}>
-          {isOpen && (
-            <div className={s.actionsContainer} id={block.iconId}>
-              {block.actionBtns}
-              <span className={s.actionsTitle}>{`Додаткові дії блоку "${block.title}"`}</span>
-              {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
-            </div>
-          )}
-        </div>
-      </BlockPortal>
+      <ButtonIcon iconId={isModalOpen ? 'close' : 'actions-h'} size="100%" iconSize="24px" className={s.btn} onClick={handleToggleModal} />
+      <BlockModalPortal id={iconId}>
+        {isModalOpen && <>{memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}</>}
+      </BlockModalPortal>
     </>
   );
 };

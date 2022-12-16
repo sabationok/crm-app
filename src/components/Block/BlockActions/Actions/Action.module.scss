@@ -32,23 +32,25 @@
       opacity: 1;
       pointer-events: all;
       visibility: visible;
-      z-index: 10;
+      transform: translateX(-50%) scale(1);
     }
   }
 }
 .actionTitle {
   position: absolute;
-  top: calc(100% + 5px);
+  top: calc(100% + 3px);
   left: 50%;
+  z-index: 10;
 
-  padding: 4px;
+  padding: 6px;
 
   min-width: 100%;
 
-  font-size: 12px;
+  font-size: 11px;
   color: #fff;
 
-  transform: translateX(-50%);
+  transform-origin: top center;
+  transform: translateX(-50%) scale(0.2);
 
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.8);
@@ -67,7 +69,7 @@
     width: 0;
     position: absolute;
     pointer-events: none;
-    border-bottom-color: rgba(0, 0, 0, 0.6);
+    border-bottom-color: rgba(0, 0, 0, 0.8);
     border-width: 5px;
     margin-left: -5px;
   }

@@ -14,7 +14,7 @@ import ActionDelete from '../Actions/ActionDelete';
 import ActionRefresh from '../Actions/ActionRefresh';
 import ActionPrimary from '../Actions/ActionPrimary';
 
-import s from './ActionsList.module.scss';
+// import s from './ActionsList.module.scss';
 
 const BlockActionsList = ({ arr = [] }) => {
   const actionsMap = {
@@ -33,7 +33,8 @@ const BlockActionsList = ({ arr = [] }) => {
   };
   let Action = <></>;
   return (
-    <ul className={s.actionsList}>
+    <>
+      {/* <ul className={s.actionsList}></ul> */}
       {arr.map(action => {
         if (action.name) {
           Action = actionsMap[action.name];
@@ -42,7 +43,7 @@ const BlockActionsList = ({ arr = [] }) => {
         }
         return <ActionPrimary key={action.name} {...action} />;
       })}
-    </ul>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 import BlockContext from './BlockContext';
 import BlockHeaderSearch from './BlockHeaderSearch/BlockHeaderSearch';
+import BlockModal from './BlockModal/BlockModal';
 
 import { useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
@@ -21,6 +22,7 @@ const Block = props => {
     className = '',
   } = props;
   const [isSearch, setIsSearch] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState();
   const { isDarkTheme } = useSelector(getAppSettings);
   const [isFormDisabled, setIsFormDisabled] = useState(false);
   const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');
@@ -31,17 +33,20 @@ const Block = props => {
   function handleToggleEditForm() {
     setIsFormDisabled(!isFormDisabled);
   }
-  // function handleAddBlockActions(actions) {
-  //   setActionBtns(actions);
-  // }
+  function handleToggleModal() {
+    setIsModalOpen(!isModalOpen);
+  }
+
   const state = {
     isSearch,
     isFormDisabled,
     isDarkTheme,
+    isModalOpen,
   };
   const stateHandlers = {
     handleToggleBlockSearch,
     handleToggleEditForm,
+    handleToggleModal,
   };
 
   console.log(`block '${title}'inicialize`);
@@ -62,6 +67,7 @@ const Block = props => {
                 </div>
               )}
             </div>
+            <BlockModal />
           </div>
 
           {footer && <div className={s.footer}>{footerChildren}</div>}

@@ -1,21 +1,16 @@
 import React from 'react';
 
-// import ModalOpenButton from 'components/ModalCustom/ModalOpenButton/ModalOpenButton';
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
 import BlockSimple from 'components/BlockSimple/BlockSimple';
 import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
 import FormProductImgs from 'components/Forms/ProductForms/FormProductImgs/FormProductImgs';
-
-import SvgIcon from 'components/SvgIcon/SvgIcon';
-
-// import { useBlock } from 'components/Block/BlockContext';
+import ActionPrimary from 'components/Block/BlockActions/Actions/ActionPrimary';
 
 import s from './Actions.module.scss';
 
 const Actions = () => {
   return (
-    <div className={s.buttons}>
+    <>
       <ModalOpenLink
         modalContent={
           <BlockSimple title="Редагування товару" iconId="info" className={s.modalBlock} headerClassName={s.modalHeader}>
@@ -23,7 +18,7 @@ const Actions = () => {
           </BlockSimple>
         }
       >
-        <SvgIcon size="24px" iconId="edit" />
+        <ActionPrimary iconId="edit" title="Змінити" />
       </ModalOpenLink>
 
       <ModalOpenLink
@@ -33,7 +28,7 @@ const Actions = () => {
           </BlockSimple>
         }
       >
-        <SvgIcon size="24px" iconId="gallery" />
+        <ActionPrimary iconId="gallery" title="Редагувати зображення" />
       </ModalOpenLink>
 
       <ModalOpenLink
@@ -43,7 +38,7 @@ const Actions = () => {
           </BlockSimple>
         }
       >
-        <SvgIcon size="24px" iconId="plus" />
+        <ActionPrimary iconId="plus" title="Створити новий" />
       </ModalOpenLink>
 
       <ModalOpenLink
@@ -53,11 +48,11 @@ const Actions = () => {
           </BlockSimple>
         }
       >
-        <SvgIcon size="24px" iconId="copy" />
+        <ActionPrimary iconId="copy" title="Створити копію" />
       </ModalOpenLink>
 
-      <ButtonIcon iconId="delete" iconSize="24px" styles={{ padding: 0, borderStyle: 'none' }} />
-    </div>
+      <ActionPrimary iconId="delete" title="Видалити" />
+    </>
   );
 };
 
