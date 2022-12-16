@@ -1,0 +1,8 @@
+.row {
+display: grid;
+  grid-template-columns: 1fr 1.5fr;
+
+}
+.col{
+  padding: 8px;
+}

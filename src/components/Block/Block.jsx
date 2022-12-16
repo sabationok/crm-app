@@ -31,6 +31,9 @@ const Block = props => {
   function handleToggleEditForm() {
     setIsFormDisabled(!isFormDisabled);
   }
+  // function handleAddBlockActions(actions) {
+  //   setActionBtns(actions);
+  // }
   const state = {
     isSearch,
     isFormDisabled,

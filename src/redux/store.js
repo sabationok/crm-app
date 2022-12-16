@@ -24,7 +24,12 @@ const persistAppSettingsConfig = {
   whitelist: ['isDarkTheme'],
 };
 const persistedAppSettingsReducer = persistReducer(persistAppSettingsConfig, appSettingsReducer);
-
+const persistPageSettingsConfig = {
+  key: 'appPage',
+  storage,
+  whitelist: ['pageGrid'],
+};
+const persistedAppPageReducer = persistReducer(persistPageSettingsConfig, appPageReducer);
 const persistAppNotifyConfig = {
   key: 'appNotify',
   storage,
@@ -40,7 +45,7 @@ const rootReducer = combineReducers({
   auth: persistedUserReducer,
   appNotify: persistedAppNotifyReducer,
   appSettings: persistedAppSettingsReducer,
-  appPage: appPageReducer,
+  appPage: persistedAppPageReducer,
 });
 
 export const store = configureStore({

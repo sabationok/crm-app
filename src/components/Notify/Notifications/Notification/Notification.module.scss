@@ -48,6 +48,8 @@
   font-size: 12px;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  text-align: end;
 }
 .success {
   fill: var(--clr-success);

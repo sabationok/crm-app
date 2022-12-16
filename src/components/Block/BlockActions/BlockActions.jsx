@@ -7,7 +7,7 @@ import { useBlock } from '../BlockContext';
 
 import s from './BlockActions.module.scss';
 
-const BlockActions = () => {
+const BlockActions = ({ actions }) => {
   const [isOpen, setIsOpen] = useState(false);
   const block = useBlock();
 
@@ -53,7 +53,8 @@ const BlockActions = () => {
       <BlockPortal id={block.iconId}>
         <div className={isOpen ? s.actionsBackdropOpen : s.actionsBackdrop} onClick={handleOpenActions}>
           {isOpen && (
-            <div className={s.actionsContainer}>
+            <div className={s.actionsContainer} id={block.iconId}>
+              {block.actionBtns}
               <span className={s.actionsTitle}>{`Додаткові дії блоку "${block.title}"`}</span>
               {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
             </div>

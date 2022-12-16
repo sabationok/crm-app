@@ -1,72 +1,88 @@
 import React from 'react';
-import PrimaryInput from 'components/Forms/Inputs/InputPrimary/PrimaryInput';
+import PrimaryInput from 'components/Forms/Inputs/PrimaryInput/PrimaryInput';
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
 import Fieldset from 'components/Forms/Fieldset/Fieldset';
 
-import s from './SelectAvailibility.module.scss';
-const SelectAvailibility = () => {
-  const { onChange, onChangeCheckbox, formData } = useForm();
-  // const [onStock, setOnStock] = useState(!formData?.notAvailable);
+import { availabilityCheckboxes } from './constants';
 
-  // function handleCheckBoxChange(ev) {
-  //   let { id, name, value, checked } = ev.target;
-  //   console.log(`${id},${name},${value}, ${checked}`);
-  //   onChange(ev);
-  // }
+import s from './SelectAvailibility.module.scss';
+
+const SelectAvailibility = () => {
+  const { onChange, formData, onAvailabilityChange, onOrderTypeChange } = useForm();
+  const { available, notAvailable, awaitingOnStock, order, specialOrder } = availabilityCheckboxes;
+
   return (
     <>
       <Fieldset legend="Наявність товару">
-        <label htmlFor="notAvailable" className={s.label}>
+        <label htmlFor={notAvailable.name} className={s.label}>
           <input
-            name="notAvailable"
+            name={notAvailable.name}
             type="checkbox"
-            id="notAvailable"
-            value={formData?.notAvailable}
-            onChange={onChangeCheckbox}
-            checked={formData?.notAvailable}
+            id={notAvailable.name}
+            onChange={onAvailabilityChange}
+            value={formData?.availability}
+            checked={formData?.availability === notAvailable.name}
           />
-          <span>Відсутній</span>
+          <span>{notAvailable.label}</span>
         </label>
-        <label htmlFor="awaitingInStock" className={s.label}>
-          <input name="awaitingInStock" type="checkbox" id="awaitingInStock" value={formData?.awaitingInStock} onChange={onChangeCheckbox} />
-          <span>Очікується надходження</span>
+        <label htmlFor={awaitingOnStock.name} className={s.label}>
+          <input
+            name={awaitingOnStock.name}
+            type="checkbox"
+            id={awaitingOnStock.name}
+            value={formData?.availability}
+            checked={formData?.availability === awaitingOnStock.name}
+            onChange={onAvailabilityChange}
+          />
+          <span>{awaitingOnStock.label}</span>
         </label>
-        <label htmlFor="onStock" className={s.label}>
-          <input name="onStock" type="checkbox" id="onStock" value={formData?.onStock} onChange={onChangeCheckbox} checked={formData?.onStock} />
-          <span>У наявності</span>
+        <label htmlFor={available.name} className={s.label}>
+          <input
+            name={available.name}
+            type="checkbox"
+            id={available.name}
+            value={formData?.availability}
+            onChange={onAvailabilityChange}
+            checked={formData?.availability === available.name}
+          />
+          <span>{available.label}</span>
         </label>
 
-        <label htmlFor="toOrder" className={s.label}>
-          <input name="toOrder" type="checkbox" id="toOrder" value={formData?.toOrder} onChange={onChangeCheckbox} />
-          <span>Під замовлення</span>
-        </label>
-        <PrimaryInput
-          label="Термін очікування, дні"
-          name="awaitingTime"
-          defaultValue={formData?.awaitingTime}
-          type="number"
-          min="1"
-          max="31"
-          placeholder="1-31"
-          disabled={!formData?.toOrder}
-          onChange={onChange}
-        />
+        <div className={s.gridWrapper}>
+          <label htmlFor={order.name} className={s.label}>
+            <input name={order.name} type="checkbox" id={order.name} value={formData?.order} onChange={onOrderTypeChange} />
+            <span>{order.label}</span>
+          </label>
+          <PrimaryInput
+            label="Термін очікування, дні"
+            name="orderAwaitingTime"
+            defaultValue={formData?.orderAwaitingTime}
+            type="number"
+            min="1"
+            max="31"
+            placeholder="1-31"
+            disabled={!formData?.order}
+            onChange={onChange}
+          />
+        </div>
 
-        <label htmlFor="individualOrder" className={s.label}>
-          <input name="individualOrder" type="checkbox" id="individualOrder" value={formData?.individualOrder} onChange={onChangeCheckbox} />
-          <span>Індивідуальне виготовлення</span>
-        </label>
-        <PrimaryInput
-          label="Термін виготовлення, дні"
-          name="productionTime"
-          defaultValue={formData?.productionTime}
-          type="number"
-          min="1"
-          max="31"
-          placeholder="1-31"
-          disabled={!formData?.individualOrder}
-          onChange={onChange}
-        />
+        <div className={s.gridWrapper}>
+          <label htmlFor={specialOrder.name} className={s.label}>
+            <input name={specialOrder.name} type="checkbox" id={specialOrder.name} value={formData?.specialOrder} onChange={onOrderTypeChange} />
+            <span>{specialOrder.label}</span>
+          </label>
+          <PrimaryInput
+            label="Термін очікування, дні"
+            name="specialOrderAwaitingTime"
+            defaultValue={formData?.specialOrderAwaitingTime}
+            type="number"
+            min="1"
+            max="31"
+            placeholder="1-31"
+            disabled={!formData?.specialOrder}
+            onChange={onChange}
+          />
+        </div>
       </Fieldset>
     </>
   );

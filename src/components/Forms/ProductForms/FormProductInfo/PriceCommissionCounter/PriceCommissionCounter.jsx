@@ -1,7 +1,9 @@
 import React from 'react';
-import PrimaryInput from 'components/Forms/Inputs/InputPrimary/PrimaryInput';
+import PrimaryInput from 'components/Forms/Inputs/PrimaryInput/PrimaryInput';
+
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+// import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+import ButtonText from 'components/ButtonText/ButtonText';
 
 import s from './PriceCommissionCounter.module.scss';
 // todo { label: 'Валюта', name: 'currency', action: 'text' },
@@ -46,9 +48,9 @@ const PriceCommissionCounter = () => {
           commissionInputs.map(input => <PrimaryInput key={input.name} onChange={onChange} value={formData[input.name]} {...input} />)}
         {isCommission && costInputs.map(input => <PrimaryInput key={input.name} onChange={onChange} value={formData[input.name]} {...input} />)}
       </div>
-      <ButtonIcon className={s.btnToCount} iconId={'checkBoxOn'} type="button" data="cost" onClick={handleCountPrice}>
+      <ButtonText className={s.btnToCount} data="cost" onClick={handleCountPrice}>
         Розрахувати
-      </ButtonIcon>
+      </ButtonText>
     </>
   );
 };

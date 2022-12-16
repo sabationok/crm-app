@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  fetchAllPosts,
-  fetchAddPost,
-  fetchDeletePost,
-  fetchEditPost,
-} from 'redux/posts/postsThunks';
+import { fetchAllPosts, fetchAddPost, fetchDeletePost, fetchEditPost } from 'redux/posts/postsThunks';
 import {
   actionChangeSearchQuery,
   actionMarkCheckbox,
@@ -20,10 +15,10 @@ const initialState = {
   isLoading: false,
   lastEditedId: null,
   error: null,
-  // markedPosts: [],
-  selectedPostId: '123456789',
-  // searchQuery: '',
-  // searchParam: '',
+  markedPosts: [],
+  selectedPostId: '',
+  searchQuery: '',
+  searchParam: '',
 };
 
 export const postsSlice = createSlice({
@@ -56,9 +51,7 @@ export const postsSlice = createSlice({
 
     [fetchDeletePost.fulfilled](state, action) {
       state.isLoading = false;
-      state.posts = state.posts.filter(
-        user => user.id !== action.payload.id
-      );
+      state.posts = state.posts.filter(user => user.id !== action.payload.id);
     },
     [fetchDeletePost.rejected](state, action) {
       state.isLoading = false;
@@ -80,7 +73,7 @@ export const postsSlice = createSlice({
     [fetchEditPost.pending](state, action) {
       state.isLoading = true;
     },
-    
+
     [actionChangeSearchQuery](state, { payload }) {
       state.searchQuery = payload;
     },

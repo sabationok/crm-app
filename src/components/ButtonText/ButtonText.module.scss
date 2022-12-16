@@ -10,8 +10,6 @@
 
   padding: 8px 16px;
 
-  background-color: transparent;
-
   border-style: none;
   border-radius: 4px;
   border: 2px solid transparent;
@@ -34,17 +32,17 @@
     background-color: var(--brand_clr__1-active);
   }
 }
-.PrimaryBtn {
-  color: #fff;
-  fill: #fff;
-  background-color: var(--btn_bckgrnd-color);
-  &:hover {
-    background-color: var(--btn_bckgrnd-color-hover);
-  }
-  &:active {
-    background-color: var(--btn_bckgrnd-color-active);
-  }
-}
+// .PrimaryBtn {
+//   color: #fff;
+//   fill: #fff;
+//   background-color: var(--btn_bckgrnd-color);
+//   &:hover {
+//     background-color: var(--btn_bckgrnd-color-hover);
+//   }
+//   &:active {
+//     background-color: var(--btn_bckgrnd-color-active);
+//   }
+// }
 .BorderBtn {
   border: 2px solid var(--brand_clr__1);
   background-color: transparent;

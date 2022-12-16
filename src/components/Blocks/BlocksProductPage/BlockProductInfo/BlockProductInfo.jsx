@@ -1,46 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Block from 'components/Block/Block';
-import BlockSimple from 'components/BlockSimple/BlockSimple';
-import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
-import FormProductImgs from 'components/Forms/ProductForms/FormProductImgs/FormProductImgs';
-import ModalOpenButton from 'components/ModalCustom/ModalOpenButton/ModalOpenButton';
-
+import TopInfo from './TopInfo/TopInfo';
 import TableProductInfo from './TableProductInfo/TableProductInfo';
 import TableProductImgs from './TableProductImgs/TableProductImgs';
-import { useSelector } from 'react-redux';
-import { getPosts } from 'redux/selectors';
+import { useDispatch, useSelector } from 'react-redux';
+import Actions from './Actions/Actions';
+// import { getPosts } from 'redux/selectors';
 import { getAppPageSettings } from 'redux/selectors';
+// import {fetchAllPosts} from 'redux/posts/postsThunks';
+
 import s from './BlockProductInfo.module.scss';
+
 const BlockProductInfo = () => {
-  const posts = useSelector(getPosts);
+  // const dispatch = useDispatch();
+  // const posts = useSelector(getPosts);
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
+  // console.log(posts);
 
-  console.log(posts);
-
+  // useEffect(() => {
+  //   dispatch(fetchAllPosts());
+  // }, [dispatch]);
   return (
     <Block title="Деталі" iconId="info" actions="primary" className={s[pageGrid]}>
+      <Actions />
       <TableProductInfo>
-        <ModalOpenButton
-          modalChildren={
-            <BlockSimple title="Редагування товару" iconId="info" className={s.modalBlock} headerClassName={s.modalHeader}>
-              <FormProductInfo />
-            </BlockSimple>
-          }
-        >
-          Редагувати товар
-        </ModalOpenButton>
+        <TopInfo />
       </TableProductInfo>
-      <TableProductImgs>
-        <ModalOpenButton
-          modalChildren={
-            <BlockSimple title="Редагування товару" iconId="info" className={s.modalBlock} headerClassName={s.modalHeader}>
-              <FormProductImgs />
-            </BlockSimple>
-          }
-        >
-          Керувати зображеннями
-        </ModalOpenButton>
-      </TableProductImgs>
+
+      <TableProductImgs></TableProductImgs>
     </Block>
   );
 };

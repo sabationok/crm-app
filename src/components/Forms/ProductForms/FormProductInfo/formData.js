@@ -14,9 +14,9 @@ const userInfo = {
 };
 export const initialState = {
   // ???!!! seting by server ????
-  createdAt: '', // * date
-  changedAt: '', // * date
-  id: '', // * string
+  // createdAt: '', // * date
+  // changedAt: '', // * date
+  // id: '', // * string
   // ? last author data who changed
   changedByAuthorId: '', // * string // * userInfo.id
   changedByAuthorName: '', // * string // * userInfo.id
@@ -39,13 +39,11 @@ export const initialState = {
   categoryId: '', // * string
   category: '', // * string
   // ? availability
-  notAvailable: true, // * boolean
-  awaitingInStock: false, // * boolean
-  onStock: false, // * boolean
-  toOrder: false, // * boolean
-  awaitingTime: '', // * number/string
-  individualOrder: false, // * boolean
-  productingTime: '', // * number/string
+  availability: '', // * string
+  order: false, // * boolean
+  orderAwaitingTime: '', // * number/string
+  specialOrder: false, // * boolean
+  specialOrderAwaitingTime: '', // * number/string
   // ?
   description: '', // * string
   // ? comment for manager/vendor/admin. Not for customer

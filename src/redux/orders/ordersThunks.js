@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import crmApi from '../../services/crmApi';
-// import { token } from '../../services/crmApi';
+import localHostApi from '../../services/localHostApi';
+// import { token } from '../../services/localHostApi';
 
 export const fetchAllOrders = createAsyncThunk(
   'orders/fetchOrders',
   async (_, thunkAPI) => {
     try {
-      const response = await crmApi.get(`/orders`);
+      const response = await localHostApi.get(`/orders`);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -19,7 +19,7 @@ export const fetchAddOrder = createAsyncThunk(
   'orders/fetchAddOrder',
   async (newOrder, thunkAPI) => {
     try {
-      const response = await crmApi.post(`/orders`, newOrder);
+      const response = await localHostApi.post(`/orders`, newOrder);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -31,7 +31,7 @@ export const fetchDeleteOrder = createAsyncThunk(
   'orders/fetchDeletePost',
   async (orderID, thunkAPI) => {
     try {
-      const response = await crmApi.delete(`/orders/${orderID}`);
+      const response = await localHostApi.delete(`/orders/${orderID}`);
 
       return response.data;
     } catch (error) {
@@ -45,7 +45,7 @@ export const fetchEditOrder = createAsyncThunk(
   async (editedOrder, thunkAPI) => {
     console.log(editedOrder);
     try {
-      const response = await crmApi.put(
+      const response = await localHostApi.put(
         `/orders/${editedOrder.id}`,
         editedOrder.data
       );

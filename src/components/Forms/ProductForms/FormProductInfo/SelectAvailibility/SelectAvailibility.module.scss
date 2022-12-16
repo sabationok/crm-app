@@ -1,7 +1,19 @@
-.label{
+.label {
   display: flex;
+  align-items: flex-start;
+
   gap: 8px;
+
+  // height: 45px;
 
   width: fit-content;
   padding: 4px;
+}
+
+.gridWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 480px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }

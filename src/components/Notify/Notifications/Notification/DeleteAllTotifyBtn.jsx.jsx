@@ -7,6 +7,6 @@ const DeleteAllTotifyBtn = ({ id, ...props }) => {
   function handleDeleteAllNotifications() {
     appNotify.deleteAll();
   }
-  return <ButtonIcon iconId="delete" size="28px" iconSize="100%" onClick={handleDeleteAllNotifications} {...props} />;
+  return <ButtonIcon iconId="delete" size="28px" iconSize="100%" styles={{ padding: 0 }} onClick={handleDeleteAllNotifications} {...props} />;
 };
 export default DeleteAllTotifyBtn;

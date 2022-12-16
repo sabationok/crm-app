@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import { useBlock } from 'components/Block/BlockContext';
 // import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { selectUserData } from 'redux/selectors';
 import { initialState } from './formData';
+import { useModal } from 'components/ModalCustom/ModalCustom';
 
 import FormPrimary from '../../FormPrimary/FormPrimary';
 import PriceField from './PriceField/PriceField';
@@ -20,10 +21,14 @@ import SelectCategory from './SelectCategory/SelectCategory';
 // import s from './FormProductInfo.module.scss';
 // todo  { label: 'Видимість', name: 'visible', action: 'checkbox' },
 // todo { label: 'Статус', name: 'rewiewStatus', action: 'semiAuto' },
+import { useDispatch } from 'react-redux';
+import { fetchAddPost } from 'redux/posts/postsThunks';
 
-const FormProductInfo = ({ edit = false, create = false }) => {
+const FormProductInfo = ({ edit = false, create = false, copy = false }) => {
   const { user } = useSelector(selectUserData);
+  const { handleToggleModal } = useModal();
   const [formData, setFormData] = useState(initialState);
+  const dispatch = useDispatch();
 
   function handleChangeFormState(dataObj) {
     setFormData({ ...formData, ...dataObj });
@@ -38,23 +43,38 @@ const FormProductInfo = ({ edit = false, create = false }) => {
     const { name, checked } = ev.target;
     setFormData({ ...formData, [name]: checked });
   }
+  function handleAvailabilityChange(ev) {
+    const { name } = ev.target;
+
+    setFormData({ ...formData, availability: name });
+  }
+  function handleOrderTypeChange(ev) {
+    const { name, checked } = ev.target;
+
+    setFormData({ ...formData, [name]: checked });
+  }
   function handleFormSubmit(ev) {
     ev.preventDefault();
 
     const submitData = {
       ...formData,
-      createdAt: String(new Date()),
-      changedAt: String(new Date()),
-      changedByAuthorId: user.id,
-      changedByAuthorName: user.name,
-      changedByAuthorType: user.type,
-      authorId: user.id,
-      authorName: user.name,
-      authorType: user.type,
+      changedByAuthorId: user.id || '',
+      changedByAuthorName: user.name || '',
+      changedByAuthorType: user.type || '',
+      authorId: user.id || '',
+      authorName: user.name || '',
+      authorType: user.type || '',
+    };
+    console.log(submitData);
+
+    const onSuccess = () => {
+      toast.success('Форму відправлено');
+    };
+    const onError = () => {
+      toast.error('Форму не відправлено');
     };
 
-    console.log(submitData);
-    toast.info('Форму відправлено');
+    dispatch(fetchAddPost({ submitData, onSuccess, onError }));
     setFormData(initialState);
   }
   function handleFormReset(ev) {
@@ -62,18 +82,25 @@ const FormProductInfo = ({ edit = false, create = false }) => {
     toast.info('Форму очищено');
   }
   function handleFormCancel(ev) {
-    setFormData(initialState);
-    toast.info('Форму очищено');
+    handleToggleModal();
   }
 
   useEffect(() => {
     if (edit) {
-      setFormData(initialState);
-      console.log(edit);
+      console.log(edit, 'edit form');
       return;
     }
-    console.log(create);
-  }, [create, edit]);
+    if (create) {
+      setFormData(initialState);
+      console.log(create, 'create form');
+      return;
+    }
+    if (copy) {
+      console.log(copy, 'copy form');
+      return;
+    }
+  }, [create, edit, copy]);
+
   return (
     <FormPrimary
       formTitle="Деталі товару"
@@ -82,6 +109,8 @@ const FormProductInfo = ({ edit = false, create = false }) => {
       onFormStateChange={handleChangeFormState}
       onChange={handleChangeInput}
       onChangeCheckbox={handleChangeCheckbox}
+      onAvailabilityChange={handleAvailabilityChange}
+      onOrderTypeChange={handleOrderTypeChange}
       onCancel={handleFormCancel}
       formData={formData}
       {...formData}

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
-import PrimaryInput from 'components/Forms/Inputs/InputPrimary/PrimaryInput';
+import PrimaryInput from 'components/Forms/Inputs/PrimaryInput/PrimaryInput';
 import { inputsOptional } from './inputsOptional';
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
 
-// import s from './OptionalInputs.module.scss';
+import s from './OptionalInputs.module.scss';
 const OptionalInputs = () => {
   const [formOptionalInputs, setFormOptionalInputs] = useState([...inputsOptional]);
   const { onChange } = useForm();
@@ -16,10 +16,10 @@ const OptionalInputs = () => {
   return (
     <>
       {formOptionalInputs.map(input => (
-        <PrimaryInput key={input.name} {...input}  onChange={onChange} />
+        <PrimaryInput key={input.name} {...input} onChange={onChange} />
       ))}
 
-      <button onClick={handleAddOptionalinput} type="button">
+      <button className={s.button} onClick={handleAddOptionalinput} type="button">
         Додати інпут
       </button>
     </>
