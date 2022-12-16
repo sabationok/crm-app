@@ -268,14 +268,14 @@ export const products = [
     productionTime: 7,
     description: 'Description',
     innerComment: 'Comment',
-    cost: 400,
-    isApproved: false,
+    isApproved: 'pending', // ? success, pending, rejected
     isVisible: false,
     isCommission: false,
     commission: 5,
     cashbackId: 3,
     sale: 10,
     currency: 'UAH',
+    cost: 400,
     price: 500,
   },
 ];

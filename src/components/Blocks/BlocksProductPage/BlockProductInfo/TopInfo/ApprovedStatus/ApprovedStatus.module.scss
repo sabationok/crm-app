@@ -1,0 +1,15 @@
+.statusBox {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+.success {
+  fill: var(--clr-success);
+}
+.pending {
+  fill: var(--clr-warning);
+}
+.rejected {
+  fill: var(--clr-error);
+}

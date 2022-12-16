@@ -3,6 +3,8 @@ import React from 'react';
 // import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 import DateInfo from './DateInfo/DateInfo';
+import ApprovedStatus from './ApprovedStatus/ApprovedStatus';
+import VisibilityStatus from './VisibilityStatus/VisibilityStatus';
 import { useSelector } from 'react-redux';
 import { getPosts } from 'redux/selectors';
 
@@ -38,18 +40,13 @@ const TopInfo = () => {
 
   return (
     <>
-      {/* <div className={s.buttons}>
-        <ButtonIcon>Кнопка</ButtonIcon>
-
-        <ButtonIcon>Кнопка</ButtonIcon>
-
-        <ButtonIcon>Кнопка</ButtonIcon>
-      </div> */}
       <div className={s.topInfo}>
         <RowSimple title="Створено" data={<DateInfo dateString={createdAt} />} />
         <RowSimple title="Автор (ID, тип)" data={`${authorName || 'author'} (${authorId || '0000'}, ${authorType || 'vendor'})`} />
-        <RowSimple title="Видимість" data={isVisible ? 'Видимий' : 'Прихований'} info="Чи видимий пост для користувачів" />
-        <RowSimple title="Статус" data={isApproved ? 'Так' : 'Ні'} info="Статус огляду менеджером" />
+        <RowSimple title="Видимість" data={<VisibilityStatus status={isVisible} />} info="Чи видимий пост для користувачів" />
+
+        <RowSimple title="Статус" data={<ApprovedStatus status={isApproved} />} info="Статус огляду менеджером" />
+
         <RowSimple title="SKU" data={sku} />
         <RowSimple title="Назва" data={name} />
         <RowSimple title="Бренд" data={brand} />

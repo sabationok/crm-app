@@ -1,0 +1,12 @@
+.statusBox {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+.visible {
+  fill: var(--clr-success);
+}
+.hidden {
+  fill: var(--clr-warning);
+}

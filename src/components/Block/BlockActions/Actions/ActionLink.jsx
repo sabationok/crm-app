@@ -7,7 +7,7 @@ import { getPosts } from 'redux/selectors';
 const ActionLink = ({ action }) => {
   const { selectedPostId } = useSelector(getPosts);
 
-  function handleCopyBtnClick() {
+  async function handleCopyBtnClick() {
     if (!selectedPostId) {
       toast.error(`Помилка: пост не обрано`);
       return;
