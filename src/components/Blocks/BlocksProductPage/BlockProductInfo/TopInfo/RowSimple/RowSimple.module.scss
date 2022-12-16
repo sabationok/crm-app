@@ -1,12 +1,30 @@
-.row {
+.row,
+.darkRow {
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 2fr;
+  font-size: 12px;
 }
-.col {
+.row {
+  & .col1 {
+    color: rgba(42, 42, 42, 0.8);
+  }
+}
+.darkRow {
+  & .col1 {
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+.col1,
+.col2 {
   display: flex;
 
   gap: 8px;
   padding: 4px;
+}
+
+.col1 {
+  align-items: center;
+  font-size: 12px;
 }
 .infoBox {
   position: relative;

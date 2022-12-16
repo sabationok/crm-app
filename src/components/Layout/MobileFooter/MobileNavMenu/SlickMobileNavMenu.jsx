@@ -13,6 +13,14 @@ const SlickMobileNavMenu = ({ navLinkArr }) => {
     infinite: false,
     slidesToShow: navLinkArr.length < 3 ? navLinkArr.length : 3,
     // slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 320,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
   };
   return (
     <>
@@ -25,12 +33,12 @@ const SlickMobileNavMenu = ({ navLinkArr }) => {
       )}
 
       {navLinkArr.length === 0 && (
-        <div>
+        <>
           <Link to={'/'} className={s.navLink}>
             <SvgIcon iconId={'home'} size="20px" />
             <span className={s.linkTitle}>{'Головна'}</span>
           </Link>
-        </div>
+        </>
       )}
     </>
   );

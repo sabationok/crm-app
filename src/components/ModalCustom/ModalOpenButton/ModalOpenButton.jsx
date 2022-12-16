@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import ModalCustom from 'components/ModalCustom/ModalCustom';
 
+import s from './ModalOpenButton.module.scss';
+
 const ModalOpenButton = ({ children, modalChildren, className, defaultBtn = true }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   function toggleModal(ev) {
@@ -8,7 +10,7 @@ const ModalOpenButton = ({ children, modalChildren, className, defaultBtn = true
   }
   return (
     <>
-      <button className={className} type="button" onClick={toggleModal}>
+      <button className={[s.button, className].join(' ')} type="button" onClick={toggleModal}>
         {children}
       </button>
       {isModalOpen && (

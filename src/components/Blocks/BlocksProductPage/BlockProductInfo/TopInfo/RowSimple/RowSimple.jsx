@@ -1,12 +1,15 @@
-import SvgIcon from 'components/SvgIcon/SvgIcon';
 import React from 'react';
+import SvgIcon from 'components/SvgIcon/SvgIcon';
 
+import { useBlock } from 'components/Block/BlockContext';
 import s from './RowSimple.module.scss';
 
 const RowSimple = ({ title = '', data, info = '' }) => {
+  const { isDarkTheme } = useBlock();
+
   return (
-    <div className={s.row}>
-      <div className={s.col}>
+    <div className={isDarkTheme ? s.darkRow : s.row}>
+      <div className={s.col1}>
         {title}
         {info && (
           <div className={s.infoBox}>
@@ -17,7 +20,7 @@ const RowSimple = ({ title = '', data, info = '' }) => {
           </div>
         )}
       </div>
-      <div className={s.col}>{data}</div>
+      <div className={s.col2}>{data}</div>
     </div>
   );
 };

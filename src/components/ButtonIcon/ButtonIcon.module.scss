@@ -16,6 +16,7 @@
   border: 1px solid transparent;
 
   cursor: pointer;
+
   transition: all var(--timing-function__main);
   &:disabled {
     pointer-events: none;
@@ -39,7 +40,6 @@
   }
 }
 .PrimaryBtn {
-
   // color: #fff;
   background-color: var(--btn_bckgrnd-color);
   &:hover {

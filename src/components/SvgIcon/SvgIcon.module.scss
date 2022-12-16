@@ -3,7 +3,8 @@
   align-items: center;
   justify-content: center;
   width: 24px;
-  height: 24px;  fill: inherit;
+  height: 24px;
+  fill: inherit;
   transition: inherit;
 }
 .svg {
@@ -11,7 +12,5 @@
   height: 100%;
   fill: inherit;
   pointer-events: none;
-  // transition: all var(--timing-function__main);
-  transition: inherit;
-
+  transition: all var(--timing-function__main);
 }

@@ -4,7 +4,6 @@ import s from './TableRow.module.scss';
 const TableRow = () => {
   const { tableTitles = [], rowGrid = {} } = useTable();
 
-
   const styles = {
     ...rowGrid,
   };
@@ -13,7 +12,7 @@ const TableRow = () => {
     <>
       <div style={styles} className={s.row}>
         {tableTitles.map((title, idx) => (
-          <CellText key={title.id} title={title} idx={idx} />
+          <CellText key={title.id} {...title} idx={idx} />
         ))}
       </div>
     </>

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+import ModalOpenButton from 'components/ModalCustom/ModalOpenButton/ModalOpenButton.jsx';
+import SvgIcon from 'components/SvgIcon/SvgIcon.jsx';
 import DeleteAllTotifyBtn from './Notification/DeleteAllTotifyBtn.jsx';
-import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
 
 import Notification from './Notification/Notification';
 
@@ -10,13 +10,15 @@ import { getAppNotify, getAppSettings } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 
 import s from './Notifications.module.scss';
+
 const Notifications = () => {
   const { notifications } = useSelector(getAppNotify);
   const { isDarkTheme } = useSelector(getAppSettings);
 
   return (
-    <ModalOpenLink
-      modalContent={
+    <ModalOpenButton
+      className={s.openButton}
+      modalChildren={
         <>
           <div className={[s.Notifications, isDarkTheme ? s.Dark : s.Light].join(' ')}>
             <div className={s.headerGrid}>
@@ -36,8 +38,8 @@ const Notifications = () => {
         </>
       }
     >
-      <ButtonIcon iconId="notifications" size="28px" iconSize="100%" className={s.openButton} />
-    </ModalOpenLink>
+      <SvgIcon iconId="notifications" size="28px" iconSize="100%" />
+    </ModalOpenButton>
   );
 };
 
