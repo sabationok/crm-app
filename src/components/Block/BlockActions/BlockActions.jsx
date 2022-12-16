@@ -10,7 +10,7 @@ import { useBlock } from '../BlockContext';
 import s from './BlockActions.module.scss';
 
 const BlockActions = () => {
-  const { isModalOpen, handleToggleModal, iconId, actions, actionsPrimary, actionsWithFilter } = useBlock();
+  const { isModalOpen, handleToggleModal, iconId, actions, actionsPrimary, actionsWithFilter, ActionsComp } = useBlock();
 
   const memoizedActionsArr = useMemo(() => {
     switch (actions) {
@@ -29,7 +29,12 @@ const BlockActions = () => {
     <>
       <ButtonIcon iconId={isModalOpen ? 'close' : 'actions-h'} size="100%" iconSize="24px" className={s.btn} onClick={handleToggleModal} />
       <BlockModalPortal id={iconId}>
-        {isModalOpen && <>{memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}</>}
+        {isModalOpen && (
+          <>
+            {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
+            {ActionsComp && <ActionsComp />}
+          </>
+        )}
       </BlockModalPortal>
     </>
   );

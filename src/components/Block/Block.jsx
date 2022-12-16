@@ -67,7 +67,7 @@ const Block = props => {
                 </div>
               )}
             </div>
-            <BlockModal />
+            <BlockModal title={`Додаткові дії блоку "${title}"`} />
           </div>
 
           {footer && <div className={s.footer}>{footerChildren}</div>}

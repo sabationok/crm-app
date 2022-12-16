@@ -15,7 +15,7 @@ const BlockModal = ({ title }) => {
 
   useEffect(() => {
     function handleCloseModalByEscape(ev) {
-      console.log('first')
+      console.log('first');
       let { code } = ev;
       if (code === 'Escape') {
         handleToggleModal();
@@ -31,6 +31,9 @@ const BlockModal = ({ title }) => {
       window.addEventListener('keydown', handleCloseModalByEscape);
       return;
     }
+    return () => {
+      window.removeEventListener('keydown', handleCloseModalByEscape);
+    };
   }, [handleToggleModal, isModalOpen]);
 
   return (

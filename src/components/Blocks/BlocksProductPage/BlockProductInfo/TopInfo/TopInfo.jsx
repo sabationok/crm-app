@@ -48,8 +48,8 @@ const TopInfo = () => {
       <div className={s.topInfo}>
         <RowSimple title="Створено" data={<DateInfo dateString={createdAt} />} />
         <RowSimple title="Автор (ID, тип)" data={`${authorName || 'author'} (${authorId || '0000'}, ${authorType || 'vendor'})`} />
-        <RowSimple title="Видимість для покупців" data={isVisible ? 'Так' : 'Ні'} />
-        <RowSimple title="Прийнято менеджером" data={isApproved ? 'Так' : 'Ні'} />
+        <RowSimple title="Видимість" data={isVisible ? 'Видимий' : 'Прихований'} info="Чи видимий пост для користувачів" />
+        <RowSimple title="Статус" data={isApproved ? 'Так' : 'Ні'} info="Статус огляду менеджером" />
         <RowSimple title="SKU" data={sku} />
         <RowSimple title="Назва" data={name} />
         <RowSimple title="Бренд" data={brand} />
@@ -63,8 +63,6 @@ const TopInfo = () => {
         <RowSimple title="Батьківська категорія (ID)" data={`${parentCategory} (${parentCategoryId})`} />
         <RowSimple title="Категорія (ID)" data={`${category} (${categoryId})`} />
       </div>
-
-
     </>
   );
 };
