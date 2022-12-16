@@ -13,7 +13,7 @@ const ApprovedStatus = ({ status = 'pending' }) => {
   const iconId = {
     success: 'success',
     pending: 'time',
-    rejected: 'info',
+    rejected: 'error',
   };
   return (
     <div className={className}>

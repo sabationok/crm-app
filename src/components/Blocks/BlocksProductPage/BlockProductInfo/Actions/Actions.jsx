@@ -6,6 +6,8 @@ import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormP
 import FormProductImgs from 'components/Forms/ProductForms/FormProductImgs/FormProductImgs';
 import ActionPrimary from 'components/Block/BlockActions/Actions/ActionPrimary';
 
+import { toast } from 'react-toastify';
+
 import s from './Actions.module.scss';
 
 const Actions = () => {
@@ -13,7 +15,7 @@ const Actions = () => {
     <>
       <ModalOpenLink
         modalContent={
-          <BlockSimple title="Редагування товару" iconId="info" className={s.modalBlock} headerClassName={s.modalHeader}>
+          <BlockSimple title="Редагування товару" iconId="edit" className={s.modalBlock} headerClassName={s.modalHeader}>
             <FormProductInfo edit />
           </BlockSimple>
         }
@@ -23,7 +25,7 @@ const Actions = () => {
 
       <ModalOpenLink
         modalContent={
-          <BlockSimple title="Керувати зображеннями" iconId="info" className={s.modalBlock} headerClassName={s.modalHeader}>
+          <BlockSimple title="Керувати зображеннями" iconId="gallery" className={s.modalBlock} headerClassName={s.modalHeader}>
             <FormProductImgs />
           </BlockSimple>
         }
@@ -33,7 +35,7 @@ const Actions = () => {
 
       <ModalOpenLink
         modalContent={
-          <BlockSimple title="Створення товару" iconId="info" className={s.modalBlock} headerClassName={s.modalHeader}>
+          <BlockSimple title="Створення товару" iconId="plus" className={s.modalBlock} headerClassName={s.modalHeader}>
             <FormProductInfo create />
           </BlockSimple>
         }
@@ -43,7 +45,7 @@ const Actions = () => {
 
       <ModalOpenLink
         modalContent={
-          <BlockSimple title="Створення товару" iconId="info" className={s.modalBlock} headerClassName={s.modalHeader}>
+          <BlockSimple title="Копія товару" iconId="copy" className={s.modalBlock} headerClassName={s.modalHeader}>
             <FormProductInfo create />
           </BlockSimple>
         }
@@ -51,7 +53,19 @@ const Actions = () => {
         <ActionPrimary iconId="copy" title="Створити копію" />
       </ModalOpenLink>
 
-      <ActionPrimary iconId="delete" title="Видалити" />
+      <ActionPrimary
+        iconId="delete"
+        title="Видалити"
+        onClick={() => {
+          // eslint-disable-next-line no-restricted-globals
+          const response = confirm('Ви дійсно бажаєте видалити товар?');
+          if (!response) {
+            toast.info('Видалення відхилено');
+            return;
+          }
+          toast.success('Товар видалено');
+        }}
+      />
     </>
   );
 };
