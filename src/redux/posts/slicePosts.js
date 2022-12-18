@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllPosts, fetchAddPost, fetchDeletePost, fetchEditPost } from 'redux/posts/postsThunks';
+import { fetchAllPosts, fetchAddPost, fetchDeletePost, fetchEditPost, fetchAddPostImgs } from 'redux/posts/postsThunks';
 import {
   actionChangeSearchQuery,
   actionMarkCheckbox,
@@ -46,6 +46,19 @@ export const postsSlice = createSlice({
       state.error = action.payload;
     },
     [fetchAddPost.pending](state, action) {
+      state.isLoading = true;
+    },
+
+    [fetchAddPostImgs.fulfilled](state, action) {
+      state.isLoading = false;
+      // state.posts = [action.payload, ...state.posts];
+      console.log(action.payload);
+    },
+    [fetchAddPostImgs.rejected](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    [fetchAddPostImgs.pending](state, action) {
       state.isLoading = true;
     },
 

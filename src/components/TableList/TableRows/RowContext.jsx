@@ -3,9 +3,9 @@ import { useContext, createContext } from 'react';
 export const RowCNTXT = createContext();
 export const useRow = () => useContext(RowCNTXT);
 
-const RowContext = ({ children, rowIdx, rowData }) => {
+const RowContext = ({ children, value }) => {
   return (
-    <RowCNTXT.Provider value={{ rowData, rowIdx }}>
+    <RowCNTXT.Provider value={{ ...value }}>
       <>{children}</>
     </RowCNTXT.Provider>
   );

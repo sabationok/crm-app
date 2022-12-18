@@ -4,11 +4,15 @@ import FormPrimary from '../../FormPrimary/FormPrimary';
 import { toast } from 'react-toastify';
 import { useNotify } from 'components/Notify/NotifyProvider';
 
+import { useDispatch } from 'react-redux';
+import { fetchAddPostImgs } from 'redux/posts/postsThunks';
+
 import s from './FormProductImgs.module.scss';
 
 const imageMimeType = /image\/(png|jpg|jpeg|webp)/i;
 
 const FormProductImgs = ({ formTitle = 'Form title' }) => {
+  const dispatch = useDispatch();
   const initialState = [];
   const { appNotify } = useNotify();
   const [formData, setFormData] = useState(initialState);
@@ -17,10 +21,9 @@ const FormProductImgs = ({ formTitle = 'Form title' }) => {
 
   function handleChangeInput(ev) {
     const { files } = ev.target;
-    // if (files.length > filesCount) {
-    //   toast.error(`Ви обрали більше ${filesCount} файлів`);
-    //   return;
-    // }
+    if (files.length > filesCount) {
+      toast.error(`Ви обрали більше ${filesCount} файлів`);
+    }
     const filesArr = [...files];
 
     const checkedFiles = filesArr.filter(file => {
@@ -36,17 +39,28 @@ const FormProductImgs = ({ formTitle = 'Form title' }) => {
       return file;
     });
     setSelectedFiles([...selectedFiles, ...checkedFiles]);
-    const newFilesCount = filesCount - formData.length;
 
-    
-    setFilesCount(newFilesCount);
+    setFilesCount(prevFilesCount => {
+      return prevFilesCount - formData.length;
+    });
   }
 
   function handleFormSubmit(ev) {
     ev.preventDefault();
     console.log(formData, `submit data`);
 
-    appNotify.info('Завантаження файлів', `Кількість завантажених файлів: ${formData.length}`);
+    const submitData = {
+      submitData: formData,
+      onSuccess: () => {
+        appNotify.info('Завантаження файлів', `Кількість завантажених файлів: ${formData.length}`);
+      },
+      onError: error => {
+        appNotify.info(`Завантаження файлів перервано, спробуйте ще раз. Помилка: ${error.message}`);
+      },
+    };
+    // appNotify.info('Завантаження файлів', `Кількість завантажених файлів: ${formData.length}`);
+    console.log(formData);
+    dispatch(fetchAddPostImgs(submitData));
   }
   function handleFormReset(ev) {
     setFormData(initialState);
@@ -68,7 +82,7 @@ const FormProductImgs = ({ formTitle = 'Form title' }) => {
   }, [selectedFiles, selectedFiles.length]);
 
   return (
-    <FormPrimary formTitle="Фото товару" onSubmit={handleFormSubmit} onReset={handleFormReset}>
+    <FormPrimary formTitle="Фото товару" onSubmit={handleFormSubmit} onReset={handleFormReset} enctype="multipart/form-data">
       <div className={s.inputs}>
         {formData.length > 0 &&
           formData.map((file, idx) => (

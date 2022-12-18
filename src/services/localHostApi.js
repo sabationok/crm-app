@@ -6,7 +6,7 @@ import axios from 'axios';
 const PORT = 3030;
 
 const localHostApi = axios.create({
-  baseURL: `http://localhost:${PORT}/api/product/`,
+  baseURL: `http://localhost:${PORT}/api/`,
 });
 
 export const token = {

@@ -23,13 +23,12 @@
 
   border-bottom: 1px solid rgb(160, 160, 160);
 
-  // transition: all var(--timing-function__main);
+  transition: all var(--timing-function__main);
 
-  &:hover {
-    background-color: rgba(103, 202, 255, 0.15);
+  // &:hover {
+  //   background-color: rgba(103, 202, 255, 0.15);
 
-
-  }
+  // }
   &.selected {
     background-color: rgba(103, 202, 255, 0.3);
   }

@@ -8,17 +8,14 @@ import { getAppPageSettings } from 'redux/selectors';
 import s from './UserMenuActions.module.scss';
 
 const ActionPageGrid = () => {
-  const [activeGrid, setActiveGrid] = useState(true);
   const dispatch = useDispatch();
-  const { pageGridChange } = useSelector(getAppPageSettings);
+  const { pageGridChange, pageGrid } = useSelector(getAppPageSettings);
 
   function onGridFirstClick() {
     dispatch(actionSetPageGrid('gridFirst'));
-    setActiveGrid(true);
   }
   function onGridSecondClick() {
     dispatch(actionSetPageGrid('gridSecond'));
-    setActiveGrid(false);
   }
 
   return (
@@ -26,8 +23,16 @@ const ActionPageGrid = () => {
       <MinTabletXl>
         {pageGridChange && (
           <li className={s.actionItemDbl}>
-            <ButtonIcon iconId="pageGrid-1" className={!activeGrid ? s.gridChangeBtn : s.gridChangeBtnActive} onClick={onGridFirstClick} />
-            <ButtonIcon iconId="pageGrid-2" className={activeGrid ? s.gridChangeBtn : s.gridChangeBtnActive} onClick={onGridSecondClick} />
+            <ButtonIcon
+              iconId="pageGrid-1"
+              className={pageGrid === 'gridFirst' ? s.gridChangeBtnActive : s.gridChangeBtn}
+              onClick={onGridFirstClick}
+            />
+            <ButtonIcon
+              iconId="pageGrid-2"
+              className={pageGrid === 'gridSecond' ? s.gridChangeBtnActive : s.gridChangeBtn}
+              onClick={onGridSecondClick}
+            />
           </li>
         )}
       </MinTabletXl>

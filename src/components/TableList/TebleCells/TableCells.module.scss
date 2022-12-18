@@ -1,5 +1,11 @@
 .title,
+.checkboxColl,
+.checkboxCollHead,
+.actions,
 .coll {
+  display: flex;
+  align-items: center;
+
   padding: 8px;
 
   height: 100%;
@@ -17,8 +23,6 @@
   text-overflow: ellipsis;
 }
 .coll {
-  display: flex;
-  align-items: center;
   &:hover {
     background-color: rgba(103, 202, 255, 0.5);
   }
@@ -30,6 +34,13 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+}
+.actions,
+.checkboxColl,
+.checkboxCollHead {
+  justify-content: center;
+
+  padding: 0;
 }
 .cellInnerWrap {
   display: -webkit-box;
@@ -75,4 +86,13 @@
   justify-content: flex-end;
 }
 .text {
+}
+.actionsBtn {
+  // transition: all var(--timing-function__main);
+  &:hover {
+    background-color: rgba(238, 238, 238, 0.4);
+  }
+  &:active {
+    background-color: rgba(238, 238, 238, 0.2);
+  }
 }

@@ -18,7 +18,7 @@ const TableContext = ({ children, value }) => {
   const rowGrid = {
     display: 'grid',
     // gridTemplateColumns: `repeat(${tableTitles.length}, max-content)`,
-    gridTemplateColumns: `repeat(${tableTitles.length}, 100px)`,
+    gridTemplateColumns: `50px 40px repeat(${tableTitles.length - 2}, 115px)`,
   };
 
   // useEffect(() => {

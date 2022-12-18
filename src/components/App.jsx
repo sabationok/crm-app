@@ -19,6 +19,7 @@ export const App = () => {
   useEffect(() => {
     dispatch(actionSetDevice(isMobile));
   }, [dispatch, isMobile]);
+
   return (
     <div className={[isDarkTheme ? s.appDark : s.app, isDarkTheme ? 'Dark' : 'Light'].join(' ')}>
       <Layout>

@@ -4,7 +4,7 @@ import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
 
 import s from './InputImg.module.scss';
 
-const InputImg = ({ id, onChange, selectedFile = null, disabled = false, ...props }) => {
+const InputImg = ({ id, onChange, selectedFile = null, disabled = false, onDelete, onEdit, ...props }) => {
   const [preview, setPreview] = useState();
   function handleChangeInput(ev) {
     if (onChange) {

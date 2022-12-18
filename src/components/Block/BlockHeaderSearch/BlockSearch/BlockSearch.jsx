@@ -50,7 +50,7 @@ const BlockSearch = props => {
       applyFounder({
         searchParam: 'name',
         searchQuery: searchParam.name,
-        data: tableTitles.filter(el => el?.filter && el?.visible),
+        data: tableTitles.filter(el => el?.search && el?.visible),
       })
     );
   }, [searchParam, tableTitles]);
@@ -77,13 +77,7 @@ const BlockSearch = props => {
         }}
       >
         <div className={classOpen} onClick={handleToggleOpenSelect}>
-          <input
-            className={scss.inputParam}
-            type="text"
-            placeholder="Параметр"
-            value={searchParam.name}
-            onChange={handleChangeSearchParamInput}
-          />
+          <input className={scss.inputParam} type="text" placeholder="Параметр" value={searchParam.name} onChange={handleChangeSearchParamInput} />
           <ul className={scss.selectList}>
             {foundedData.map(item => (
               <li

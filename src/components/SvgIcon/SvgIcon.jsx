@@ -6,6 +6,7 @@ const SvgIcon = ({ iconId = 'info', style, size = '', svgClass = '', className =
     ...style,
     width: size,
     height: size,
+    minWidth: size,
   };
   const classNameArr = [s.iconBox, className].join(' ');
   const svgClassArr = [s.svg, svgClass].join(' ');

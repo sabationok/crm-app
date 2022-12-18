@@ -7,10 +7,10 @@ const TableBody = () => {
   const { visiblePosts = [] } = useTable();
   return (
     <div className={s.tBody}>
+      <TableRow key={1} rowData={{}} idx={1} />
+
       {visiblePosts.map((rowData, idx) => (
-        <RowContext key={rowData.id} rowData={rowData} idx={idx}>
-          <TableRow />
-        </RowContext>
+        <TableRow key={rowData.id} rowData={rowData} idx={idx} />
       ))}
     </div>
   );
