@@ -2,7 +2,7 @@ import React from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 
 import s from './ApprovedStatus.module.scss';
-const ApprovedStatus = ({ status = 'pending' }) => {
+const ApprovedStatus = ({ status = 'success' }) => {
   const className = [s.statusBox, s[status]].join(' ');
 
   const text = {

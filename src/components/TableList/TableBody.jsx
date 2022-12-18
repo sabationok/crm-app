@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTable } from './TableContext';
-import RowContext from './TableRows/RowContext';
+// import RowContext from './TableRows/RowContext';
 import TableRow from './TableRows/TableRow';
 import s from './TableList.module.scss';
 const TableBody = () => {

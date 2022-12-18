@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { MinTabletXl } from 'components/DeviceTypeInformer/DeviceTypeController';
 import { useDispatch, useSelector } from 'react-redux';
