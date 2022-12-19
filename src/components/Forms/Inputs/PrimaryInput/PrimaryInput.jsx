@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 const PrimaryInput = ({ label = 'input', disabled = false, placeholder = null, ...props }) => {
   return (
     <>
-      <TextField label={label} disabled={disabled} placeholder={placeholder} {...props}  variant='standard'/>
+      <TextField label={label} disabled={disabled} placeholder={placeholder} {...props} variant="standard" />
     </>
   );
 };

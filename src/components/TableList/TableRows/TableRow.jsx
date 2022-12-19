@@ -10,12 +10,15 @@ import CellDate from '../TebleCells/CellDate';
 import CellCheckBox from '../TebleCells/CellCheckBox';
 import CellActions from '../TebleCells/CellActions';
 
-import { useDispatch } from 'react-redux';
-import { actionSelectPostByClick } from 'redux/posts/postsActions';
+// import { useDispatch } from 'react-redux';
+// import { actionSelectPostByClick } from 'redux/posts/postsActions';
+
+import { useNavigate } from 'react-router-dom';
 
 import s from './TableRow.module.scss';
 const TableRow = props => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { tableTitles = [], rowGrid = {} } = useTable();
 
   const styles = {
@@ -41,8 +44,8 @@ const TableRow = props => {
 
     const { rowData } = props;
     if (rowData?._id) {
-      dispatch(actionSelectPostByClick(rowData?._id));
-      console.log(rowData._id);
+      // dispatch(actionSelectPostByClick(rowData?._id));
+      navigate(`/products/${rowData?._id}`);
     }
   }
   return (

@@ -20,11 +20,13 @@ import SelectCategory from './SelectCategory/SelectCategory';
 
 import { useDispatch } from 'react-redux';
 import { fetchAddPost } from 'redux/posts/postsThunks';
+import { getPosts } from 'redux/selectors';
 
 // import s from './FormProductInfo.module.scss';
 
-const FormProductInfo = ({ edit = false, create = false, copy = false }) => {
+const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => {
   const { user } = useSelector(getUserData);
+  const { posts } = useSelector(getPosts);
   const { handleToggleModal } = useModal();
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
@@ -85,8 +87,9 @@ const FormProductInfo = ({ edit = false, create = false, copy = false }) => {
   }
 
   useEffect(() => {
-    if (edit) {
-      console.log(edit, 'edit form');
+    if (edit && id) {
+      const selectedPost = posts.find(post => post?._id === id);
+      setFormData(selectedPost);
       return;
     }
     if (create) {
@@ -94,11 +97,12 @@ const FormProductInfo = ({ edit = false, create = false, copy = false }) => {
       console.log(create, 'create form');
       return;
     }
-    if (copy) {
-      console.log(copy, 'copy form');
+    if (copy && id) {
+      const selectedPost = posts.find(post => post?._id === id);
+      setFormData(selectedPost);
       return;
     }
-  }, [create, edit, copy]);
+  }, [create, edit, copy, posts, id]);
 
   return (
     <FormPrimary

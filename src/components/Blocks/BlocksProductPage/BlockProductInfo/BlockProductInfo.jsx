@@ -5,14 +5,18 @@ import TableProductInfo from './TableProductInfo/TableProductInfo';
 import TableProductImgs from './TableProductImgs/TableProductImgs';
 import Actions from './Actions/Actions';
 import BlockEmpty from '../BlockEmpty/BlockEmpty';
-import { getAppPageSettings, getSelectedPost } from 'redux/selectors';
+import { getAppPageSettings, getPosts } from 'redux/selectors';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 import s from './BlockProductInfo.module.scss';
 
 const BlockProductInfo = () => {
-  const selectedPost = useSelector(getSelectedPost);
+  const { id } = useParams();
+  const { posts } = useSelector(getPosts);
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
+
+  const selectedPost = posts.find(post => post._id === id);
 
   return (
     <Block title="Деталі" iconId="info" actions="primary" className={s[pageGrid]} ActionsComp={Actions} post={selectedPost}>

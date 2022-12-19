@@ -1,21 +1,25 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 
-import FormProductStock from 'components/Forms/ProductForms/FormProductStock/FormProductStock';
+// import FormProductStock from 'components/Forms/ProductForms/FormProductStock/FormProductStock';
 import BlockEmpty from '../BlockEmpty/BlockEmpty';
+import Actions from './Actions/Actions';
 import { useSelector } from 'react-redux';
 import { getAppPageSettings } from 'redux/selectors';
-import { getPosts } from 'redux/selectors';
+// import { getPosts } from 'redux/selectors';
+import { useParams } from 'react-router-dom';
 
 import s from './BlockProductStock.module.scss';
 
 const BlockProductStock = () => {
-  const { selectedPostId } = useSelector(getPosts);
+  const { id } = useParams();
+  // const { posts } = useSelector(getPosts);
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
 
+  // const selectedPost = posts.find(post => post?._id === id);
   return (
-    <Block title="Склад" iconId="storage" actions="primary" className={s[pageGrid]}>
-      {selectedPostId ? <FormProductStock /> : <BlockEmpty title="Оберіть пост зі списку" />}
+    <Block title="Склад" iconId="storage" actions="primary" className={s[pageGrid]} ActionsComp={Actions}>
+      {id ? <BlockEmpty title="Таблиця складських залишків" /> : <BlockEmpty title="Оберіть пост зі списку" />}
     </Block>
   );
 };

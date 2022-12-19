@@ -1,6 +1,6 @@
 import React from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
-import MobileNavLink from '../MobileNavLink/MobileNavLink';
+import MobileNavLink from './MobileNavLink/MobileNavLink';
 import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 

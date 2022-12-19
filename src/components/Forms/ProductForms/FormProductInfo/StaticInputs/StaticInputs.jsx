@@ -12,7 +12,7 @@ const StaticInputs = () => {
   return (
     <>
       {staticInputs.map(input => (
-        <PrimaryInput key={input.name} defaultValue={formData[input?.name]} {...input} onChange={onChange} />
+        <PrimaryInput key={input.name} value={formData[input?.name]} {...input} onChange={onChange} />
       ))}
     </>
   );

@@ -5,6 +5,8 @@
   width: 100%;
   height: fit-content;
 
+  font-family: 'Roboto';
+
   padding: 0;
   border-radius: 4px;
   border-style: solid;
@@ -50,7 +52,13 @@
   border-style: none;
   background-color: inherit;
 
+  font-family: inherit;
+
   transition: all var(--timing-function__main);
+
+  &::placeholder {
+    font-family: inherit;
+  }
 }
 .label {
   position: absolute;

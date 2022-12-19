@@ -4,7 +4,7 @@ import { MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController'
 import NavMenu from '../NavMenu/NavMenu';
 import SlickMobileNavMenu from './MobileNavMenu/SlickMobileNavMenu';
 import { mobilePageRoutes } from 'components/pagesRoutes';
-import MobileNavLink from './MobileNavLink/MobileNavLink';
+import MobileNavLink from './MobileNavMenu/MobileNavLink/MobileNavLink';
 
 import s from './MobileFooter.module.scss';
 

@@ -17,24 +17,33 @@ const AppRoutes = () => {
         <Route path="products" element={<AppGridPage path="products" />} errorElement={<PageError />}>
           <Route index element={<PageProducts />} errorElement={<PageError />}></Route>
           <Route path="products" element={<PageProducts path="products" />} errorElement={<PageError />} />
+          <Route path=":id" element={<PageProducts path="products" />} errorElement={<PageError />} />
           <Route path="product" element={<PageProducts path="product" />} errorElement={<PageError />} />
+          <Route path=":id/product" element={<PageProducts path="product" />} errorElement={<PageError />} />
           <Route path="stock" element={<PageProducts path="stock" />} errorElement={<PageError />} />
+          <Route path=":id/stock" element={<PageProducts path="stock" />} errorElement={<PageError />} />
           <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
         </Route>
 
         <Route path="orders" element={<AppGridPage path="orders" />} errorElement={<PageError />}>
           <Route index element={<PageOrders />} errorElement={<PageError />}></Route>
           <Route path="orders" element={<PageOrders path="orders" />} errorElement={<PageError />} />
+          <Route path=":id" element={<PageOrders path="orders" />} errorElement={<PageError />} />
           <Route path="order" element={<PageOrders path="order" />} errorElement={<PageError />} />
+          <Route path=":id/order" element={<PageOrders path="order" />} errorElement={<PageError />} />
           <Route path="ttn" element={<PageOrders path="ttn" />} errorElement={<PageError />} />
+          <Route path=":id/ttn" element={<PageOrders path="ttn" />} errorElement={<PageError />} />
           <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
         </Route>
 
         <Route path="refunds" element={<AppGridPage path="refunds" />} errorElement={<PageError />}>
           <Route index element={<PageRefunds />} errorElement={<PageError />}></Route>
           <Route path="refunds" element={<PageRefunds path="refunds" />} errorElement={<PageError />} />
+          <Route path=":id" element={<PageRefunds path="refunds" />} errorElement={<PageError />} />
           <Route path="refund" element={<PageRefunds path="refund" />} errorElement={<PageError />} />
           <Route path="inspect" element={<PageRefunds path="inspect" />} errorElement={<PageError />} />
+          <Route path=":id/refund" element={<PageRefunds path="refund" />} errorElement={<PageError />} />
+          <Route path=":id/inspect" element={<PageRefunds path="inspect" />} errorElement={<PageError />} />
           <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
         </Route>
 

@@ -11,6 +11,7 @@ const SelectAvailibility = () => {
   const { onChange, formData, onAvailabilityChange, onOrderTypeChange } = useForm();
   const { available, notAvailable, awaitingOnStock, order, specialOrder } = availabilityCheckboxes;
 
+  console.log(formData);
   return (
     <>
       <Fieldset legend="Наявність товару">
@@ -50,7 +51,7 @@ const SelectAvailibility = () => {
 
         <div className={s.gridWrapper}>
           <label htmlFor={order.name} className={s.label}>
-            <input name={order.name} type="checkbox" id={order.name} value={formData?.order} onChange={onOrderTypeChange} />
+            <input name={order.name} type="checkbox" id={order.name} value={formData?.order} checked={formData?.order} onChange={onOrderTypeChange} />
             <span>{order.label}</span>
           </label>
           <PrimaryInput
@@ -68,7 +69,14 @@ const SelectAvailibility = () => {
 
         <div className={s.gridWrapper}>
           <label htmlFor={specialOrder.name} className={s.label}>
-            <input name={specialOrder.name} type="checkbox" id={specialOrder.name} value={formData?.specialOrder} onChange={onOrderTypeChange} />
+            <input
+              name={specialOrder.name}
+              type="checkbox"
+              id={specialOrder.name}
+              value={formData?.specialOrder}
+              checked={formData?.specialOrder}
+              onChange={onOrderTypeChange}
+            />
             <span>{specialOrder.label}</span>
           </label>
           <PrimaryInput

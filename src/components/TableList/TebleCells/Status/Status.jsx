@@ -25,7 +25,7 @@ const Status = ({ status }) => {
     awaitingOnStock: 'time',
     default: 'info',
   };
-  console.log(status);
+
   const compStatus = statusName[status] && iconId[status] ? status : 'default';
   const className = [s.statusBox, s[compStatus]].join(' ');
 

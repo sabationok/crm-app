@@ -35,14 +35,14 @@
   background-color: inherit;
 }
 .actionBtn {
-  justify-content: start;
+  justify-content: flex-start;
   width: 100%;
   padding: 8px;
 }
 .exitLink {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   gap: 8px;
 
   width: 100%;
