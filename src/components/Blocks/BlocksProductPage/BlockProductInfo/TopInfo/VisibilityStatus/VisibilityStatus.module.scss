@@ -6,7 +6,9 @@
 }
 .visible {
   fill: var(--clr-success);
+  color: var(--clr-success);
 }
 .hidden {
   fill: var(--clr-warning);
+  color: var(--clr-warning);
 }

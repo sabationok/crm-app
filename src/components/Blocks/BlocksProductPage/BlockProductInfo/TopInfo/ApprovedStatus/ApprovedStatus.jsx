@@ -7,7 +7,7 @@ const ApprovedStatus = ({ status = 'pending' }) => {
 
   const text = {
     success: 'Прийнято',
-    pending: 'Очікує перегляду',
+    pending: 'Очікує',
     rejected: 'Відхилено',
   };
   const iconId = {

@@ -14,17 +14,17 @@ const userInfo = {
 };
 export const initialState = {
   // ???!!! seting by server ????
-  // createdAt: '', // * date
-  // changedAt: '', // * date
-  // id: '', // * string
-  // ? last author data who changed
-  changedByAuthorId: '', // * string // * userInfo.id
-  changedByAuthorName: '', // * string // * userInfo.id
-  changedByAuthorType: '', // * string // * userInfo.id
+  // _createdAt: '', // * date
+  // _updatedAt: '', // * date
+  // _id: '', // * string
   // ? author data who created
   authorId: '', // * string // * userInfo.id
   authorName: '', // * string // * userInfo.name
   authorType: '', // * string // * userInfo.type
+  // ? last author data who updated
+  updatedByAuthorId: '', // * string // * userInfo.id
+  updatedByAuthorName: '', // * string // * userInfo.id
+  updatedByAuthorType: '', // * string // * userInfo.id
   // ? seting by author manualy or by randomizator
   sku: '', // * string
   // ? seting by author
@@ -65,32 +65,31 @@ export const initialState = {
   sizesTable: '',
 };
 export const incomeData = {
-  createdAt: String(new Date()),
-  changedAt: String(new Date()),
+  _id: '51dfgn65fgn1ddfn1321',
+  _createdAt: '2022.12.10 12:52:20',
+  _updatedAt: '2022.12.15 16:50:10',
   sku: '321865168151',
   name: 'Сукня синя, шовкова',
   brand: 'Noverra',
   authorId: userInfo.id,
   authorName: userInfo.name,
   authorType: userInfo.type,
-  aprovedStatus: false,
-  changedByAuthorId: '',
-  changedByAuthorName: '',
-  changedByAuthorType: '',
-  sectionId: '', // * string
+  approvedStatus: 'success',
+  visibilityStatus: false,
+  updatesByAuthorId: '',
+  updatesByAuthorName: '',
+  updatesByAuthorType: '',
+  sectionId: '54951',
   section: 'Одяг',
-  parentCategoryId: '', // * string
+  parentCategoryId: '6151',
   parentCategory: 'Жінкам',
-  categoryId: '', // * string
+  categoryId: '651',
   category: 'Сукні, вечірні',
-
-  availability: '',
-  notAvailable: '',
-  awaitingInStock: '',
-  onStock: '',
-  toOrder: '',
-  individual: '',
-  productionTime: 7,
+  availability: null,
+  order: true,
+  orderAwaitingTime: 2,
+  specialOrder: true,
+  specialOrderAwaitingTime: 6,
   description: 'Description',
   innerComment: 'Comment',
   cost: 400,
@@ -101,3 +100,17 @@ export const incomeData = {
   currency: 'UAH',
   price: 500,
 };
+export const productsArrTest = [
+  { ...incomeData, sku: 'fdg6b51656df2g', _id: '65165sd1dc65sd1', approvedStatus: 'pending', visibilityStatus: false, availability: 'available' },
+  { ...incomeData, sku: 'sdf1b6s1d3s2ff', _id: '65153sd1dc65sd1', approvedStatus: 'pending', visibilityStatus: false, availability: 'notAvailable' },
+  {
+    ...incomeData,
+    sku: 'sd21fv32d1f32s',
+    _id: '651655165125sd5',
+    approvedStatus: 'success',
+    visibilityStatus: true,
+    availability: 'awaitingOnStock',
+  },
+  { ...incomeData, sku: 'fdg6b51656dsfs', _id: '65sdfbbdsd1dc65', approvedStatus: 'rejected', visibilityStatus: false, availability: 'available' },
+  { ...incomeData, sku: 'fdg6bas656dsfs', _id: '65sdfb58sd1dc65', approvedStatus: 'rejected', visibilityStatus: false, availability: 'notAvailable' },
+];

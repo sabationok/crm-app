@@ -6,7 +6,8 @@ import s from './TableCells.module.scss';
 
 const CellText = ({ title, idx, className = '' }) => {
   const { rowData } = useRow();
-  const content = rowData[title?.action] || '---';
+
+  const content = rowData[title?.dataTitle] || '---';
   const actionClassName = content !== '---' ? s[title?.action] : s.empty;
   const classNames = [s.coll, actionClassName, ...className].join(' ');
 

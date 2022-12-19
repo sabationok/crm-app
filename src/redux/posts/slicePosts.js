@@ -8,10 +8,13 @@ import {
   actionSelectPostByClick,
   actionMarkAllCheckboxes,
   actionChangeSearchParam,
+  actionUnMarkAllCheckboxes,
 } from 'redux/posts/postsActions';
-import { products } from 'data/products';
+
+import { productsArrTest } from 'data/productsFormData';
+
 const initialState = {
-  posts: [...products],
+  posts: [...productsArrTest],
   isLoading: false,
   lastEditedId: null,
   error: null,
@@ -96,10 +99,13 @@ export const postsSlice = createSlice({
     [actionSelectPostByClick](state, { payload }) {
       state.selectedPostId = payload;
     },
-    [actionMarkCheckbox](state, action) {},
     [actionMarkAllCheckboxes](state, action) {
       console.log('marked all checkboxes');
     },
+    [actionUnMarkAllCheckboxes](state, action) {
+      console.log('unmarked all checkboxes');
+    },
+    [actionMarkCheckbox](state, action) {},
     [actionUnmarkCheckbox](state, action) {},
     [actionDeletePost](state, action) {},
   },

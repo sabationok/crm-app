@@ -20,7 +20,7 @@
   visibility: visible;
   pointer-events: all;
   transform: scale(1);
-  background-color: rgba(20, 20, 20, 0.3);
+  background-color: rgba(20, 20, 20, 0.5);
 }
 
 .actionsContainer {
@@ -35,8 +35,11 @@
   max-height: 80%;
   width: 95%;
   color: #242424;
+
   border-radius: 4px;
-  background-color: rgba(254, 254, 254, 0.7);
+
+  background-color: rgba(254, 254, 254, 0.85);
+
   box-shadow: 0 0 8px rgba(122, 122, 122, 0.8);
 
   transition: all var(--timing-function__main);

@@ -1,12 +1,13 @@
 import React from 'react';
-// import { useRow } from '../TableRows/RowContext';
-
+import { useRow } from '../TableRows/RowContext';
+import CheckBox from './CheckBox/CheckBox';
 import s from './TableCells.module.scss';
 const CellCheckBox = ({ title, idx, className, onChange }) => {
+  const { rowData } = useRow();
   const classNames = [s.checkboxColl, className].join(' ');
   return (
     <div className={classNames}>
-      <input className={s.checkbox} type="checkbox" onChange={onChange} />
+      <CheckBox id={rowData._id} />
     </div>
   );
 };

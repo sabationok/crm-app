@@ -22,8 +22,6 @@ export const initialState = {
     category: '',
     availability: '', // * notAvailable, awaitingInStock, onStock, toOrder, individualOrder,
     notAvailable: true,
-    awaitingInStock: false,
-    onStock: false,
     toOrder: false,
     awaitingTime: '',
     individualOrder: false,

@@ -15,10 +15,13 @@ const TableContext = ({ children, value }) => {
   const [selectedAll, setSelectedAll] = useState(false);
   // const [tableDataCloned, setTableDateCloned] = useState([]);
   // const [foundedPosts, setFoundedPosts] = useState([]);
+  const tableCellsWidth = tableTitles.map(el => el.width);
+
   const rowGrid = {
     display: 'grid',
     // gridTemplateColumns: `repeat(${tableTitles.length}, max-content)`,
-    gridTemplateColumns: `50px 40px repeat(${tableTitles.length - 2}, 115px)`,
+    // gridTemplateColumns: `50px 40px repeat(${tableTitles.length - 2}, minmax(100px, 125px))`,
+    gridTemplateColumns: tableCellsWidth.join(' '),
   };
 
   // useEffect(() => {

@@ -2,7 +2,7 @@
 .darkRow {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  font-size: 12px;
+  font-size: 14px;
 }
 .row {
   & .col1 {
@@ -17,13 +17,13 @@
 .col1,
 .col2 {
   display: flex;
-
+  align-items: flex-start;
   gap: 8px;
+
   padding: 4px;
 }
 
 .col1 {
-  align-items: center;
   font-size: 12px;
 }
 .infoBox {

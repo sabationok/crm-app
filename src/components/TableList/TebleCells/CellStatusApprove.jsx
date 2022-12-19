@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRow } from '../TableRows/RowContext';
-import ApprovedStatus from './ApprovedStatus/ApprovedStatus';
+import Status from './Status/Status';
 
 import s from './TableCells.module.scss';
 const CellStatusApprove = ({ title, idx, className }) => {
@@ -11,7 +11,8 @@ const CellStatusApprove = ({ title, idx, className }) => {
 
   return (
     <div className={classNames}>
-      <ApprovedStatus status={rowData?.ApprovedStatus} />
+      {/* <ApprovedStatus status={rowData?.approvedStatus} /> */}
+      <Status status={rowData?.approvedStatus} />
     </div>
   );
 };

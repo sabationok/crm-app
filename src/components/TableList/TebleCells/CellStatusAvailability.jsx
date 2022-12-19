@@ -3,18 +3,18 @@ import { useRow } from '../TableRows/RowContext';
 import Status from './Status/Status';
 
 import s from './TableCells.module.scss';
-const CellStatusVisibility = ({ title, idx, className }) => {
+
+const CellStatusAvailability = ({ title, idx, className }) => {
   const { rowData } = useRow();
-  const content = rowData[title?.action] || '---';
+  const content = rowData[title?.dataTitle] || '---';
   const actionClassName = content !== '---' ? s[title?.action] : s.empty;
   const classNames = [s.coll, actionClassName, className].join(' ');
 
   return (
     <div className={classNames}>
-      {/* <VisibilityStatus status={rowData?.visibilityStatus} /> */}
-      <Status status={rowData?.visibilityStatus ? 'visible' : 'hidden'} />
+      <Status status={rowData?.availability} />
     </div>
   );
 };
 
-export default CellStatusVisibility;
+export default CellStatusAvailability;

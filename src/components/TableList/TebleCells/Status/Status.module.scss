@@ -12,18 +12,30 @@
   border: 2px solid transparent;
   border-radius: 8px;
 }
+.available,
+.visible,
 .success {
   fill: var(--clr-success);
   border-color: var(--clr-success);
   color: var(--clr-success);
 }
+
+.hidden,
+.awaitingOnStock,
 .pending {
   fill: var(--clr-warning);
   border-color: var(--clr-warning);
   color: var(--clr-warning);
 }
+.notAvailable,
 .rejected {
   fill: var(--clr-error);
   border-color: var(--clr-error);
   color: var(--clr-error);
+}
+
+.default {
+  border-color: var(--clr-default);
+  fill: var(--clr-default);
+  color: var(--clr-default);
 }

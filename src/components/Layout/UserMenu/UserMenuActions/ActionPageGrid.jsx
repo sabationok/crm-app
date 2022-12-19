@@ -23,16 +23,17 @@ const ActionPageGrid = () => {
       <MinTabletXl>
         {pageGridChange && (
           <li className={s.actionItemDbl}>
+            <span className={s.title}>Вигляд сторінки</span>
             <ButtonIcon
               iconId="pageGrid-1"
               className={pageGrid === 'gridFirst' ? s.gridChangeBtnActive : s.gridChangeBtn}
               onClick={onGridFirstClick}
-            />
+            ></ButtonIcon>
             <ButtonIcon
               iconId="pageGrid-2"
               className={pageGrid === 'gridSecond' ? s.gridChangeBtnActive : s.gridChangeBtn}
               onClick={onGridSecondClick}
-            />
+            ></ButtonIcon>
           </li>
         )}
       </MinTabletXl>

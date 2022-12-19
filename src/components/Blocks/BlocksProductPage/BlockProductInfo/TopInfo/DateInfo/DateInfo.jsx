@@ -13,7 +13,12 @@ const DateInfo = ({ dateString }) => {
     seconds = date.getSeconds().toString().padStart(2, 0);
   }
 
-  return <>{dateString ? `${year}.${month}.${day} (${hours}:${minutes}:${seconds})` : `0000.00.00 (00:00:00)`}</>;
+  return (
+    <>
+      <span>{dateString ? `${day}.${month}.${year}` : `00.00.0000`}</span>
+      <span>{dateString ? `(${hours}:${minutes}:${seconds})` : `(00:00:00)`}</span>
+    </>
+  );
 };
 
 export default DateInfo;

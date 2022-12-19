@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 // import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
-import { selectUserData } from 'redux/selectors';
-import { initialState } from './formData';
+import { getUserData } from 'redux/selectors';
+import { initialState } from '../../../../data/productsFormData';
 import { useModal } from 'components/ModalCustom/ModalCustom';
 
 import FormPrimary from '../../FormPrimary/FormPrimary';
@@ -18,14 +18,13 @@ import SelectAvailibility from './SelectAvailibility/SelectAvailibility';
 import SelectCategory from './SelectCategory/SelectCategory';
 // import { useBlock } from 'components/Block/BlockContext';
 
-// import s from './FormProductInfo.module.scss';
-// todo  { label: 'Видимість', name: 'visible', action: 'checkbox' },
-// todo { label: 'Статус', name: 'rewiewStatus', action: 'semiAuto' },
 import { useDispatch } from 'react-redux';
 import { fetchAddPost } from 'redux/posts/postsThunks';
 
+// import s from './FormProductInfo.module.scss';
+
 const FormProductInfo = ({ edit = false, create = false, copy = false }) => {
-  const { user } = useSelector(selectUserData);
+  const { user } = useSelector(getUserData);
   const { handleToggleModal } = useModal();
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();

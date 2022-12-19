@@ -6,10 +6,13 @@
 }
 .success {
   fill: var(--clr-success);
+  color: var(--clr-success);
 }
 .pending {
   fill: var(--clr-warning);
+  color: var(--clr-warning);
 }
 .rejected {
   fill: var(--clr-error);
+  color: var(--clr-error);
 }

@@ -3,28 +3,22 @@ import Block from 'components/Block/Block';
 import TopInfo from './TopInfo/TopInfo';
 import TableProductInfo from './TableProductInfo/TableProductInfo';
 import TableProductImgs from './TableProductImgs/TableProductImgs';
-import { useSelector } from 'react-redux';
 import Actions from './Actions/Actions';
-// import { getPosts } from 'redux/selectors';
-import { getAppPageSettings } from 'redux/selectors';
-// import {fetchAllPosts} from 'redux/posts/postsThunks';
+import BlockEmpty from '../BlockEmpty/BlockEmpty';
+import { getAppPageSettings, getSelectedPost } from 'redux/selectors';
+import { useSelector } from 'react-redux';
 
 import s from './BlockProductInfo.module.scss';
 
 const BlockProductInfo = () => {
-  // const dispatch = useDispatch();
-  // const posts = useSelector(getPosts);
+  const selectedPost = useSelector(getSelectedPost);
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
-  // console.log(posts);
 
-  // useEffect(() => {
-  //   dispatch(fetchAllPosts());
-  // }, [dispatch]);
   return (
-    <Block title="Деталі" iconId="info" actions="primary" className={s[pageGrid]} ActionsComp={Actions}>
-      <TableProductInfo>
-        <TopInfo />
-      </TableProductInfo>
+    <Block title="Деталі" iconId="info" actions="primary" className={s[pageGrid]} ActionsComp={Actions} post={selectedPost}>
+      {selectedPost?._id && <TopInfo />}
+      {!selectedPost?._id && <BlockEmpty title="Оберіть пост зі списку" />}
+      <TableProductInfo></TableProductInfo>
 
       <TableProductImgs></TableProductImgs>
     </Block>
