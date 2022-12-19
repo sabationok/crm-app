@@ -30,7 +30,7 @@ const TableRow = props => {
     category: CellCategory,
     approvedStatus: CellStatusApprove,
     visibilityStatus: CellStatusVisibility,
-    stock: CellStatusAvailability,
+    availability: CellStatusAvailability,
     number: CellNumber,
   };
 

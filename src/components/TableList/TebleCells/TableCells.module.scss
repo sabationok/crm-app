@@ -57,36 +57,22 @@
 .empty {
   justify-content: center;
 }
-.sku {
-}
-.name {
-}
-.authorName {
-}
-.authorId {
-}
-.price {
-  justify-content: flex-end;
-}
-.currency {
-  justify-content: flex-end;
-}
-.commision {
-  justify-content: flex-end;
-}
-.section {
-}
-.parentCategory {
-}
+
 .category {
 }
-.availability {
-  justify-content: flex-end;
-}
-.productionTime {
-  justify-content: flex-end;
-}
+
 .text {
+}
+.approvedStatus,
+.availability,
+.visibilityStatus {
+  justify-content: center;
+}
+.date {
+  justify-content: center;
+}
+.number {
+  justify-content: flex-end;
 }
 .actionsBtn {
   // transition: all var(--timing-function__main);

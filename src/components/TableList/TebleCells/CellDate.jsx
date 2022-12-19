@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRow } from '../TableRows/RowContext';
+import DateInfo from './Date/DateInfo';
 
 import s from './TableCells.module.scss';
 
@@ -27,7 +28,9 @@ const CellDate = ({ title, dateString, className }) => {
 
   return (
     <div className={classNames} title={`${day}.${month}.${year} (${hours}:${minutes}:${seconds})`}>
-      <span>{content ? `${day}.${month}.${year}` : `00.00.0000`}</span>
+      <DateInfo dateInfo={content} />
+      <DateInfo dateInfo={rowData?._updatedAt} />
+      {/* <span>{content ? `${day}.${month}.${year}` : `00.00.0000`}</span> */}
       {/* <span>{content ? `(${hours}:${minutes}:${seconds})` : `(00:00:00)`}</span> */}
     </div>
   );

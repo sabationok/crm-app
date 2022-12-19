@@ -4,13 +4,15 @@
 
   gap: 4px;
 
-  font-size: 10px;
+  font-size: 12px;
   padding: 2px 4px;
 
   min-width: 100%;
 
   border: 2px solid transparent;
   border-radius: 8px;
+
+  cursor: default;
 }
 .available,
 .visible,
