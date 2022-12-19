@@ -39,6 +39,15 @@
   width: 100%;
   padding: 8px;
 }
+.exitLink {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 8px;
+
+  width: 100%;
+  padding: 8px;
+}
 .gridChangeBtn,
 .gridChangeBtnActive {
   justify-content: start;

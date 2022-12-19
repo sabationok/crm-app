@@ -6,7 +6,7 @@ import { AppPages } from 'components/AppPages/AppPagesMap';
 import MobileFooter from 'components/Layout/MobileFooter/MobileFooter';
 import DesktopFooter from 'components/Layout/DesktopFooter/DesktopFooter';
 
-const { PageError, PageNotFound, PageProducts, PageOrders, PageRefunds, PageAdmin } = AppPages;
+const { PageError, PageNotFound, PageProducts, PageOrders, PageRefunds, PageAdmin, PageLogOut } = AppPages;
 
 const AppRoutes = () => {
   return (
@@ -57,6 +57,7 @@ const AppRoutes = () => {
           }
           errorElement={<PageError />}
         />
+        <Route path="logout" element={<PageLogOut />} />
       </Routes>
     </>
   );

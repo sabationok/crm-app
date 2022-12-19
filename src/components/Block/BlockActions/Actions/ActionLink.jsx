@@ -12,7 +12,7 @@ const ActionLink = ({ action }) => {
       toast.error(`Помилка: пост не обрано`);
       return;
     }
-    let LINK = `${window.location}`;
+    let LINK = `${window.location}/?id=${selectedPostId}`;
     navigator.clipboard.writeText(LINK);
     toast.info(`Посилання скопійоване до буферу обміну`);
   }
