@@ -93,7 +93,7 @@ export const incomeData = {
   description: 'Опис товару',
   innerComment: 'Коментар який не буде замітно для користувачів зовні',
   cost: 400,
-  isCommission: false,
+  isCommission: true,
   commission: 5,
   cashbackId: 3,
   sale: 10,

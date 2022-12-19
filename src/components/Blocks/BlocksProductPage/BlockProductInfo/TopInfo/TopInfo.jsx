@@ -1,10 +1,8 @@
 import React from 'react';
 // import { useBlock } from 'components/Block/BlockContext';
-// import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 import DateInfo from './DateInfo/DateInfo';
-import ApprovedStatus from './ApprovedStatus/ApprovedStatus';
-import VisibilityStatus from './VisibilityStatus/VisibilityStatus';
+import Status from './Status/Status';
 import { useBlock } from 'components/Block/BlockContext';
 
 import RowSimple from './RowSimple/RowSimple';
@@ -17,7 +15,7 @@ const TopInfo = () => {
   return (
     <>
       <div className={s.topInfo}>
-        <RowSimple title="Статус" data={<ApprovedStatus status={post?.approvedStatus} />} info="Статус огляду менеджером" />
+        <RowSimple title="Статус" data={<Status status={post?.approvedStatus} />} info="Статус огляду менеджером" />
 
         <RowSimple title="SKU" data={post?.sku} />
         <RowSimple title="Назва" data={post?.name} />
@@ -25,7 +23,11 @@ const TopInfo = () => {
 
         <RowSimple title="Створено" data={<DateInfo dateString={post?._createdAt} />} />
         <RowSimple title="Автор (ID, тип)" data={`${post?.authorName || 'author'} (${post?.authorId || '0000'}, ${post?.authorType || 'vendor'})`} />
-        <RowSimple title="Видимість" data={<VisibilityStatus status={post?.visibilityStatus} />} info="Чи видимий пост для користувачів" />
+        <RowSimple
+          title="Видимість"
+          data={<Status status={post?.visibilityStatus ? 'visible' : 'hidden'} />}
+          info="Чи видимий пост для користувачів"
+        />
 
         <RowSimple title="Змінено" data={<DateInfo dateString={post?._updatedAt} />} />
         <RowSimple
@@ -36,7 +38,9 @@ const TopInfo = () => {
         <RowSimple title="Ціна" data={`${post?.price} `} />
         <RowSimple title="Вартість" data={`${post?.cost} `} />
         <RowSimple title="Кешбек, ID" data={`${post?.cashbackId} `} />
+        <RowSimple title="Комісійний" data={<Status status={post?.isCommission ? 'isCommission' : 'isStandart'} />} />
         <RowSimple title="Комісія, %" data={`${post?.commission} `} />
+
         <RowSimple title="Знижка, %" data={`${post?.sale} `} />
         <RowSimple title="Валюта" data={`${post?.currency} `} />
 
