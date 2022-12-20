@@ -1,13 +1,13 @@
 import React from 'react';
 
 import s from './TableDinamic.module.scss';
-export const SelectHead = ({ item, arr, editable }) => {
+export const SelectHead = ({ item, arr, ...props }) => {
   return (
     <div className={s.selectBox}>
-      <select name={item.title} id={item.id} className={s.select} disabled={!editable}>
+      <select name={item.title} id={item.id} className={s.select} {...props} defaultValue={item.id}>
         {arr.map(el => {
           return (
-            <option key={el.id} value={el.id} selected={item.title === el.title}>
+            <option key={el.id} value={el.id}>
               {el.title}
             </option>
           );
@@ -16,3 +16,4 @@ export const SelectHead = ({ item, arr, editable }) => {
     </div>
   );
 };
+// selected={item.title === el.title}

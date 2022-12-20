@@ -4,13 +4,13 @@ import { useTable } from './TableContext';
 import s from './TableDinamic.module.scss';
 
 const RowHead = () => {
-  const { collumns = [], rowGrid, collOptions, editable } = useTable();
+  const { collumns = [], rowGrid, collOptions, disabled } = useTable();
 
   return (
     <div className={s.tableHRow} style={rowGrid}>
       <div className={s.coll}>Параметри</div>
       {collumns.map(coll => (
-        <SelectHead key={coll.id} className={s.select} {...coll} item={coll} arr={collOptions} editable={editable} />
+        <SelectHead key={coll.id} className={s.select} item={coll} arr={collOptions} disabled={disabled} />
       ))}
     </div>
   );

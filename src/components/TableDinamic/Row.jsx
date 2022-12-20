@@ -6,13 +6,13 @@ import Coll from './Coll';
 import s from './TableDinamic.module.scss';
 
 const Row = ({ row = {} }) => {
-  const { rows = [], rowGrid, rowOptions, editable } = useTable();
+  const { rows = [], rowGrid, rowOptions, disabled } = useTable();
 
   return (
     <div className={s.tableHRow} style={rowGrid}>
-      <SelectHead arr={rowOptions} item={row} editable={editable} />
+      <SelectHead arr={rowOptions} item={row} disabled={disabled} />
       {rows.map(row => (
-        <Coll key={row.id} className={s.coll} item={row} {...row} editable={editable} />
+        <Coll key={row.id} className={s.coll} item={row} disabled={disabled} />
       ))}
     </div>
   );

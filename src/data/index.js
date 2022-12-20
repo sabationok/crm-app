@@ -1,4 +1,4 @@
 import * as productsTableTitles from './productsTableTitles';
 import * as productFormData from './productsFormData';
-
-export { productsTableTitles, productFormData };
+import * as stockData from './stockData';
+export { productsTableTitles, productFormData, stockData };
