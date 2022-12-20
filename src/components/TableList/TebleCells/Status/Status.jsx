@@ -12,7 +12,7 @@ const Status = ({ status }) => {
     available: 'У наявності',
     notAvailable: 'Відсутній',
     awaitingOnStock: 'Очікується',
-    default: 'Відсутній',
+    default: 'Без статусу',
   };
   const iconId = {
     success: 'success',

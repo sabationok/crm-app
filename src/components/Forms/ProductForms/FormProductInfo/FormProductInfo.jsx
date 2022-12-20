@@ -1,31 +1,27 @@
 import React, { useState, useEffect } from 'react';
 // import { useBlock } from 'components/Block/BlockContext';
-// import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
-import { useSelector } from 'react-redux';
-import { getUserData } from 'redux/selectors';
+// import { getUserData } from 'redux/selectors';
 import { initialState } from '../../../../data/productsFormData';
 import { useModal } from 'components/ModalCustom/ModalCustom';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAddPost, fetchEditPost } from 'redux/posts/postsThunks';
+import { getPosts } from 'redux/selectors';
+import { prepareRowData, prepareRowSubmitData } from '../../../../data/productsFormData';
+// import prepareRowSubmitData
 
 import FormPrimary from '../../FormPrimary/FormPrimary';
 import PriceField from './PriceField/PriceField';
 import InputTextarea from 'components/Forms/Inputs/InputTextarea/InputTextarea';
-
 import StaticInputs from './StaticInputs/StaticInputs';
 import OptionalInputs from './OptionalInputs/OptionalInputs';
-
 import SelectAvailibility from './SelectAvailibility/SelectAvailibility';
 import SelectCategory from './SelectCategory/SelectCategory';
-// import { useBlock } from 'components/Block/BlockContext';
-
-import { useDispatch } from 'react-redux';
-import { fetchAddPost } from 'redux/posts/postsThunks';
-import { getPosts } from 'redux/selectors';
 
 // import s from './FormProductInfo.module.scss';
 
 const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => {
-  const { user } = useSelector(getUserData);
+  // const { user } = useSelector(getUserData);
   const { posts } = useSelector(getPosts);
   const { handleToggleModal } = useModal();
   const [formData, setFormData] = useState(initialState);
@@ -33,7 +29,6 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => 
 
   function handleChangeFormState(dataObj) {
     setFormData({ ...formData, ...dataObj });
-    // console.log(dataObj);
     console.log(formData);
   }
   function handleChangeInput(ev) {
@@ -57,15 +52,8 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => 
   function handleFormSubmit(ev) {
     ev.preventDefault();
 
-    const submitData = {
-      ...formData,
-      changedByAuthorId: user.id || '',
-      changedByAuthorName: user.name || '',
-      changedByAuthorType: user.type || '',
-      authorId: user.id || '',
-      authorName: user.name || '',
-      authorType: user.type || '',
-    };
+    const submitData = prepareRowSubmitData(formData);
+
     console.log(submitData);
 
     const onSuccess = () => {
@@ -75,7 +63,14 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => 
       toast.error('Форму не відправлено');
     };
 
-    dispatch(fetchAddPost({ submitData, onSuccess, onError }));
+    if (edit && id) {
+      dispatch(fetchEditPost({ submitData, onSuccess, onError }));
+      return;
+    }
+    if (create || (copy && id)) {
+      dispatch(fetchAddPost({ submitData, onSuccess, onError }));
+      return;
+    }
     setFormData(initialState);
   }
   function handleFormReset(ev) {
@@ -89,17 +84,25 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => 
   useEffect(() => {
     if (edit && id) {
       const selectedPost = posts.find(post => post?._id === id);
-      setFormData(selectedPost);
+
+      const newData = prepareRowData(selectedPost);
+
+      setFormData(newData);
       return;
     }
     if (create) {
       setFormData(initialState);
+
       console.log(create, 'create form');
+
       return;
     }
     if (copy && id) {
       const selectedPost = posts.find(post => post?._id === id);
-      setFormData(selectedPost);
+
+      const newData = prepareRowData(selectedPost);
+
+      setFormData(newData);
       return;
     }
   }, [create, edit, copy, posts, id]);
@@ -116,7 +119,6 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => 
       onOrderTypeChange={handleOrderTypeChange}
       onCancel={handleFormCancel}
       formData={formData}
-      {...formData}
       id="productForm"
     >
       <StaticInputs />
@@ -137,31 +139,3 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => 
 };
 
 export default FormProductInfo;
-
-// const product = {
-//   createdAt: '2022-10-31T10:51:57.449Z',
-//   name: 'Recycled Granite Cheese',
-//   authorName: '',
-//   authorId: '',
-//   authorType: '',
-//   price: '',
-//   commision: '',
-//   currency: '',
-//   section: 'section 1',
-//   parentCategory: 'parentCategory 1',
-//   category: 'category 1',
-//   stock: 66,
-//   manufacturingTime: 52,
-//   availbability: 'availbability 1',
-//   lookItems: [],
-//   description: 'description 1',
-//   cashbackId: 'cashbackId 1',
-//   sku: 'sku 1',
-//   imgsList: [],
-//   updatedAt: 1667264565,
-//   selcted: false,
-//   rewiewStatus: 'rewiewStatus 1',
-//   visible: false,
-//   шьпі: [],
-//   id: '1',
-// };

@@ -24,3 +24,18 @@ export const users = [
     password: '123456789',
   },
 ];
+export const userInfo = {
+  createdAt: '', // * date
+  updatedAt: '', // * date
+  id: '21651asv165s1fv', // * string
+  name: 'Valeria Baranovka', // * string
+  type: 'manager', // * string
+  email: 'valeria@mail.com', // * string
+  phone: '+3806543218', // * string
+  // !! only for VENDORS
+  companyName: '', // * stringF
+  brandsList: [], // * array of string
+  mangerId: [], // * array of string
+  // !! only for MANAGERS
+  vendorslist: [], // * array of string
+};

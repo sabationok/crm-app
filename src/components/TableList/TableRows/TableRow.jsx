@@ -14,8 +14,8 @@ import CellActions from '../TebleCells/CellActions';
 // import { actionSelectPostByClick } from 'redux/posts/postsActions';
 
 import { useNavigate } from 'react-router-dom';
-
 import s from './TableRow.module.scss';
+
 const TableRow = props => {
   // const dispatch = useDispatch();
   const navigate = useNavigate();

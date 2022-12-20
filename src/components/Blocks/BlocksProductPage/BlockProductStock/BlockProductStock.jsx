@@ -6,6 +6,7 @@ import BlockEmpty from '../BlockEmpty/BlockEmpty';
 import Actions from './Actions/Actions';
 import { useSelector } from 'react-redux';
 import { getAppPageSettings } from 'redux/selectors';
+import TableDinamic from 'components/TableDinamic/TableDinamic';
 // import { getPosts } from 'redux/selectors';
 import { useParams } from 'react-router-dom';
 
@@ -19,7 +20,14 @@ const BlockProductStock = () => {
   // const selectedPost = posts.find(post => post?._id === id);
   return (
     <Block title="Склад" iconId="storage" actions="primary" className={s[pageGrid]} ActionsComp={Actions}>
-      {id ? <BlockEmpty title="Таблиця складських залишків" /> : <BlockEmpty title="Оберіть пост зі списку" />}
+      {id ? (
+        <>
+          <TableDinamic />
+          {/* <BlockEmpty title="Таблиця складських залишків" /> */}
+        </>
+      ) : (
+        <BlockEmpty title="Оберіть пост зі списку" />
+      )}
     </Block>
   );
 };

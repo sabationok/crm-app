@@ -18,6 +18,4 @@ const CellText = ({ title, idx, className = '' }) => {
   );
 };
 
-CellText.propTypes = {};
-
 export default CellText;

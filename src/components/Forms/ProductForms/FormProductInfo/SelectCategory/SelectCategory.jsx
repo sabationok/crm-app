@@ -5,7 +5,7 @@ import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
 import ModalOpenButton from 'components/ModalCustom/ModalOpenButton/ModalOpenButton';
 import SectionsList from './SectionsList/SectionsList';
 
-import s from './SelectCategory.module.scss'
+import s from './SelectCategory.module.scss';
 
 const seletsArr = [
   { label: 'Секція', name: 'section' }, // * sectionId: ''
@@ -22,7 +22,9 @@ const SelectCategory = () => {
         {seletsArr.map(input => {
           return <PrimaryInput key={input.name} {...input} value={formData[input.name]} onChange={onChange} disabled />;
         })}
-        <ModalOpenButton modalChildren={<SectionsList />} className={s.button}>Оберіть категорію</ModalOpenButton>
+        <ModalOpenButton modalChildren={<SectionsList />} className={s.button}>
+          Оберіть категорію
+        </ModalOpenButton>
       </Fieldset>
     </>
   );
