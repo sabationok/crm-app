@@ -1,10 +1,11 @@
 import React from 'react';
 import { SelectHead } from './SelectHead';
 import { useTable } from './TableContext';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import s from './TableDinamic.module.scss';
 
 const RowHead = () => {
-  const { collumns = [], rowGrid, collOptions, disabled } = useTable();
+  const { collumns = [], rowGrid, collOptions, disabled, handleAddCollumn } = useTable();
 
   return (
     <div className={s.tableHRow} style={rowGrid}>
@@ -12,6 +13,11 @@ const RowHead = () => {
       {collumns.map(coll => (
         <SelectHead key={coll.id} className={s.select} item={coll} arr={collOptions} disabled={disabled} />
       ))}
+      {!disabled && (
+        <ButtonIcon iconId="plus" className={s.plusBtn} onClick={handleAddCollumn}>
+          Додати
+        </ButtonIcon>
+      )}
     </div>
   );
 };

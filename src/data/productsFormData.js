@@ -173,7 +173,7 @@ export const incomeData = {
     specialOrderAwaitingTime: 6,
   },
   description: 'Опис товару',
-  innerComment: 'Коментар який не буде замітно для користувачів зовні',
+  innerComment: 'Коментар',
   priceInfo: {
     price: 500,
     cost: 400,
