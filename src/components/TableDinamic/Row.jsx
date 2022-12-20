@@ -9,10 +9,12 @@ import s from './TableDinamic.module.scss';
 const Row = ({ row = {}, plusBtn = false }) => {
   const { rows = [], rowGrid, rowOptions, collumns, disabled, handleAddRow } = useTable();
 
+  const disablePlusBtn = rows.length >= rowOptions.length;
+
   return (
     <div className={s.row} style={rowGrid}>
       {plusBtn && (
-        <ButtonIcon className={s.plusBtn} iconId="plus" onClick={handleAddRow}>
+        <ButtonIcon className={s.plusBtn} iconId="plus" disabled={disablePlusBtn} onClick={handleAddRow}>
           Рядок
         </ButtonIcon>
       )}
@@ -20,7 +22,13 @@ const Row = ({ row = {}, plusBtn = false }) => {
       {!plusBtn && <SelectHead arr={rowOptions} item={row} disabled={disabled} />}
 
       {collumns.map((coll, idx) => (
-        <Coll key={coll.id} className={s.coll} item={rows[idx]} disabled={disabled} />
+        <>
+          {!plusBtn ? (
+            <Coll key={coll.id} className={s.coll} item={rows[idx]} disabled={disabled} />
+          ) : (
+            <Coll key={coll.id} className={s.coll} disabled />
+          )}
+        </>
       ))}
 
       {!disabled && <Coll className={s.coll} disabled />}
