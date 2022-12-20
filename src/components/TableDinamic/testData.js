@@ -23,10 +23,10 @@ export const collOptions = [
   { title: 'XXXL', option: '6', id: '6', width: '100px' },
 ];
 export const collumns = [
-  { title: 'S', option: '1', id: '1', width: '70px' },
-  { title: 'M', option: '2', id: '2', width: '70px' },
-  { title: 'L', option: '3', id: '3', width: '70px' },
-  { title: 'Xl', option: '4', id: '4', width: '70px' },
-  { title: 'XXL', option: '5', id: '5', width: '70px' },
-  { title: 'XXXL', option: '6', id: '6', width: '70px' },
+  { title: 'S', option: '1', id: '1', width: '1fr' },
+  { title: 'M', option: '2', id: '2', width: '1fr' },
+  { title: 'L', option: '3', id: '3', width: '1fr' },
+  { title: 'Xl', option: '4', id: '4', width: '1fr' },
+  { title: 'XXL', option: '5', id: '5', width: '1fr' },
+  { title: 'XXXL', option: '6', id: '6', width: '1fr' },
 ];
