@@ -5,6 +5,7 @@ import CellCategory from '../TebleCells/CellCategory';
 import CellStatusApprove from '../TebleCells/CellStatusApprove';
 import CellStatusVisibility from '../TebleCells/CellStatusVisibility';
 import CellStatusAvailability from '../TebleCells/CellStatusAvailability';
+import CellStatusType from '../TebleCells/CellStatusType';
 import CellNumber from '../TebleCells/CellNumber';
 import CellDate from '../TebleCells/CellDate';
 import CellCheckBox from '../TebleCells/CellCheckBox';
@@ -33,7 +34,8 @@ const TableRow = props => {
     category: CellCategory,
     approvedStatus: CellStatusApprove,
     visibilityStatus: CellStatusVisibility,
-    availability: CellStatusAvailability,
+    availabilityStatus: CellStatusAvailability,
+    typeStatus: CellStatusType,
     number: CellNumber,
   };
 

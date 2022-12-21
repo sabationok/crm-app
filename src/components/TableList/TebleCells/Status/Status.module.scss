@@ -5,7 +5,7 @@
   gap: 4px;
 
   font-size: 12px;
-  padding: 2px 4px;
+  padding: 4px 4px;
 
   min-width: 100%;
 
@@ -15,6 +15,7 @@
   cursor: default;
 }
 .available,
+.isStandart,
 .visible,
 .success {
   fill: var(--clr-success);
@@ -24,6 +25,7 @@
 
 .hidden,
 .awaitingOnStock,
+.isCommission,
 .pending {
   fill: var(--clr-warning);
   border-color: var(--clr-warning);

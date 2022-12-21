@@ -11,7 +11,6 @@ const CellStatusVisibility = ({ title, idx, className }) => {
 
   return (
     <div className={classNames}>
-      {/* <VisibilityStatus status={rowData?.visibilityStatus} /> */}
       <Status status={rowData?.visibilityStatus ? 'visible' : 'hidden'} />
     </div>
   );

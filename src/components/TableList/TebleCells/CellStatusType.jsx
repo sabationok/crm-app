@@ -3,7 +3,7 @@ import { useRow } from '../TableRows/RowContext';
 import Status from './Status/Status';
 
 import s from './TableCells.module.scss';
-const CellStatusApprove = ({ title, idx, className }) => {
+const CellStatusType = ({ title, idx, className }) => {
   const { rowData } = useRow();
   const content = rowData[title?.action] || '---';
   const actionClassName = content !== '---' ? s[title?.action] : s.empty;
@@ -11,16 +11,9 @@ const CellStatusApprove = ({ title, idx, className }) => {
 
   return (
     <div className={classNames}>
-      <Status status={rowData?.approvedStatus} />
+      <Status status={rowData?.isCommission ? 'isCommission' : 'isStandart'} />
     </div>
   );
 };
 
-export default CellStatusApprove;
-
-// approvedStatus
-// visibilityStatus
-// stock
-// category
-// string
-// number
+export default CellStatusType;

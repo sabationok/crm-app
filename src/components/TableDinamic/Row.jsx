@@ -22,13 +22,9 @@ const Row = ({ row = {}, plusBtn = false }) => {
       {!plusBtn && <SelectHead arr={rowOptions} item={row} disabled={disabled} />}
 
       {collumns.map((coll, idx) => (
-        <>
-          {!plusBtn ? (
-            <Coll key={coll.id} className={s.coll} item={rows[idx]} disabled={disabled} />
-          ) : (
-            <Coll key={coll.id} className={s.coll} disabled />
-          )}
-        </>
+        <React.Fragment key={coll.id}>
+          {!plusBtn ? <Coll className={s.coll} item={rows[idx]} disabled={disabled} /> : <Coll className={s.coll} disabled />}
+        </React.Fragment>
       ))}
 
       {!disabled && <Coll className={s.coll} disabled />}

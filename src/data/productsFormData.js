@@ -214,6 +214,15 @@ export const productsArrTest = [
     availabilityInfo: {
       availability: 'awaitingOnStock',
     },
+    priceInfo: {
+      price: 700,
+      cost: 500,
+      isCommission: false,
+      commission: 5,
+      cashbackId: 2,
+      sale: 3,
+      currency: 'UAH',
+    },
   },
   {
     ...incomeData,

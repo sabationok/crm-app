@@ -14,7 +14,7 @@ const Status = ({ status }) => {
     awaitingOnStock: 'Очікується',
     isCommission: 'Комісійний',
     isStandart: 'Стандартний',
-    default: 'Відсутній',
+    default: 'Статус відсутній',
   };
   const iconId = {
     success: 'success',

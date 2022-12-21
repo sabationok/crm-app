@@ -10,14 +10,16 @@ const RowSimple = ({ title = '', data, info = '' }) => {
   return (
     <div className={isDarkTheme ? s.darkRow : s.row}>
       <div className={s.col1}>
-        {title}
+        <span>{title}</span>
+      </div>
+      <div className={s.infoBox}>
         {info && (
-          <div className={s.infoBox}>
+          <>
             <SvgIcon iconId="info" size="18px" />
             <div className={s.info}>
               <span>{info}</span>
             </div>
-          </div>
+          </>
         )}
       </div>
       <div className={s.col2}>{data}</div>

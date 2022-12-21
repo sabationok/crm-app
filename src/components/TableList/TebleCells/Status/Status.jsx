@@ -12,6 +12,8 @@ const Status = ({ status }) => {
     available: 'У наявності',
     notAvailable: 'Відсутній',
     awaitingOnStock: 'Очікується',
+    isCommission: 'Комісійний',
+    isStandart: 'Стандарт',
     default: 'Без статусу',
   };
   const iconId = {
@@ -23,6 +25,8 @@ const Status = ({ status }) => {
     available: 'success',
     notAvailable: 'clear',
     awaitingOnStock: 'time',
+    isCommission: 'success',
+    isStandart: 'success',
     default: 'info',
   };
 

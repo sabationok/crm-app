@@ -9,7 +9,6 @@ import { getAppPageSettings } from 'redux/selectors';
 import TableDinamic from 'components/TableDinamic/TableDinamic';
 // import { getPosts } from 'redux/selectors';
 import { useParams } from 'react-router-dom';
-// import { rowOptions, collOptions, collumns, rows } from ;
 import { stockData } from 'data';
 import s from './BlockProductStock.module.scss';
 
@@ -21,7 +20,7 @@ const BlockProductStock = () => {
   // const selectedPost = posts.find(post => post?._id === id);
   return (
     <Block title="Склад" iconId="storage" actions="primary" className={s[pageGrid]} ActionsComp={Actions} stockData={stockData}>
-      {id ? <TableDinamic /> : <BlockEmpty title="Оберіть пост зі списку" />}
+      {id ? <TableDinamic disabled /> : <BlockEmpty title="Оберіть пост зі списку" />}
     </Block>
   );
 };
