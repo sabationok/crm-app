@@ -43,6 +43,7 @@
   box-shadow: 0 0 8px rgba(122, 122, 122, 0.8);
 
   transition: all var(--timing-function__main);
+
   @media screen and (max-width: 768px) {
     top: 50%;
     left: 50%;

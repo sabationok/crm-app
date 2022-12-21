@@ -20,9 +20,9 @@ export const initialFormState = {
   },
   // ? last author data who updated
   updatedBy: {
-    updatedByAuthorId: '', // * string // * userInfo.id
-    updatedByAuthorName: '', // * string // * userInfo.id
-    updatedByAuthorType: '', // * string // * userInfo.id
+    updatorId: '', // * string // * userInfo.id
+    updatorName: '', // * string // * userInfo.id
+    updatorType: '', // * string // * userInfo.id
   },
   categoryInfo: {
     sectionId: '', // * string
@@ -151,9 +151,9 @@ export const incomeData = {
   },
   updatedAt: '2022.12.15 16:50:10',
   updatedBy: {
-    updaterId: userInfo.id,
-    updaterName: userInfo.name,
-    updaterType: userInfo.type,
+    updatorId: userInfo.id,
+    updatorName: userInfo.name,
+    updatorType: userInfo.type,
   },
   approvedStatus: 'success',
   visibilityStatus: false,

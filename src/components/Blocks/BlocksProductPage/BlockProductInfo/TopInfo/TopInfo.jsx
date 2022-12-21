@@ -37,10 +37,8 @@ const TopInfo = () => {
 
         <RowSimple title="Змінено, Дата (Час)" data={<DateInfo dateString={post?.updatedAt} />} />
         <RowSimple
-          title="Автор (ID, Тип)"
-          data={`${updatedBy?.changedByAuthorName || 'author'} (${updatedBy?.changedByAuthorId || '0000'}, ${
-            updatedBy?.changedByAuthorType || 'vendor'
-          })`}
+          title="Автор (ID, тип)"
+          data={`${updatedBy?.updatorName || 'author'} (${updatedBy?.updatorId || '0000'}, ${updatedBy?.updatorType || 'vendor'})`}
         />
 
         <RowSimple title="Ціна" data={`${priceInfo?.price} `} />
