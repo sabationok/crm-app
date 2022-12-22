@@ -28,6 +28,7 @@ const TableHeadRow = () => {
 
           return <Cell key={title.name} title={title} idx={idx} />;
         }
+        Cell = CellsMap.string;
         return <Cell key={title.name} title={title} idx={idx} />;
       })}
     </div>

@@ -15,7 +15,7 @@ export const pagesRoutes = [
     title: 'Повернення',
     path: 'refunds',
     device: 'desktop',
-    iconId: 'return',
+    iconId: 'refund',
   },
   {
     title: 'Товари',
@@ -82,7 +82,7 @@ export const mobilePageRoutes = [
   { title: 'ТТН', device: 'mobile', parentPath: 'orders', path: 'ttn', iconId: 'ttn' },
 
   { title: 'Список повернень', device: 'mobile', parentPath: 'refunds', path: '/refunds', navLink: false, iconId: 'list' },
-  { title: 'Деталі повернення', device: 'mobile', parentPath: 'refunds', path: 'refund', iconId: 'return' },
+  { title: 'Деталі повернення', device: 'mobile', parentPath: 'refunds', path: 'refund', iconId: 'refund' },
   { title: 'Інспекція', device: 'mobile', parentPath: 'refunds', path: 'inspection', iconId: 'inspect' },
 
   { title: 'Товари', device: 'mobile', parentPath: 'products', path: '/products', navLink: false, iconId: 'list' },

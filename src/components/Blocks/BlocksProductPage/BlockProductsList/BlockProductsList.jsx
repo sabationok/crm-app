@@ -1,16 +1,29 @@
 import React from 'react';
 import Block from 'components/Block/Block';
-import { useSelector } from 'react-redux';
-// import { getPosts } from 'redux/selectors';
 import TableList from 'components/TableList/BlockTable';
+import { useSelector } from 'react-redux';
+import { getAppPageSettings, getPosts } from 'redux/selectors';
 import { productsTableTitles } from 'data/productsTableTitles';
-import { getAppPageSettings } from 'redux/selectors';
+import { prepareProductData } from 'data/productsFormData';
+
 import s from './BlockProductsList.module.scss';
-const BlockProductsList = () => {
-  // const posts = useSelector(getPosts);
+
+const BlockProductsList = props => {
+  const { posts } = useSelector(getPosts);
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
+
+  const blockSettings = {
+    title: 'Список товарів',
+    iconId: 'list',
+    actions: 'withFilter',
+    className: s[pageGrid],
+    tableData: [...posts],
+    tableTitles: productsTableTitles,
+    prepareRowData: prepareProductData,
+    ...props,
+  };
   return (
-    <Block title="Список товарів" iconId="list" actions="withFilter" filter className={s[pageGrid]} tableTitles={productsTableTitles}>
+    <Block {...blockSettings}>
       <TableList />
     </Block>
   );

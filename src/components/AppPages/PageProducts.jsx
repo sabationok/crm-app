@@ -4,6 +4,7 @@ import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTy
 import { BlockProductsList, BlockProductInfo, BlockProductStock } from 'components/Blocks/BlocksMap';
 import { useDispatch } from 'react-redux';
 import { actionSetPageGridChange } from 'redux/page/pageActions';
+
 const PageProducts = ({ path = 'products', ...props }) => {
   const dispatch = useDispatch();
 

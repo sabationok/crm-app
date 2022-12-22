@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import MenuNavLink from './MenuNavLink/MenuNavLink';
 
-import { pagesRoutes } from 'components/pagesRoutes';
+import { pagesRoutes } from 'data/pagesRoutes';
 
 import s from './NavMenu.module.scss';
 

@@ -8,9 +8,11 @@ import CellStatusAvailability from '../TebleCells/CellStatusAvailability';
 import CellStatusType from '../TebleCells/CellStatusType';
 import CellNumber from '../TebleCells/CellNumber';
 import CellDate from '../TebleCells/CellDate';
+import CellStatus from '../TebleCells/CellStatus';
 import CellCheckBox from '../TebleCells/CellCheckBox';
 import CellActions from '../TebleCells/CellActions';
-
+import { useSelector } from 'react-redux';
+import { getIndexPage } from 'redux/selectors';
 // import { useDispatch } from 'react-redux';
 // import { actionSelectPostByClick } from 'redux/posts/postsActions';
 
@@ -19,6 +21,7 @@ import s from './TableRow.module.scss';
 
 const TableRow = props => {
   // const dispatch = useDispatch();
+  const indexPage = useSelector(getIndexPage);
   const navigate = useNavigate();
   const { tableTitles = [], rowGrid = {} } = useTable();
 
@@ -37,6 +40,7 @@ const TableRow = props => {
     availabilityStatus: CellStatusAvailability,
     typeStatus: CellStatusType,
     number: CellNumber,
+    status: CellStatus,
   };
 
   let Cell = CellText;
@@ -47,7 +51,7 @@ const TableRow = props => {
     const { rowData } = props;
     if (rowData?._id) {
       // dispatch(actionSelectPostByClick(rowData?._id));
-      navigate(`/products/${rowData?._id}`);
+      navigate(`/${indexPage}/${rowData?._id}`);
     }
   }
   return (
@@ -59,6 +63,7 @@ const TableRow = props => {
 
             return <Cell key={title.name} title={title} idx={idx} />;
           }
+          Cell = CellsMap.string;
           return <Cell key={title.name} title={title} idx={idx} />;
         })}
       </div>

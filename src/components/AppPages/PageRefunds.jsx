@@ -29,9 +29,6 @@ const PageRefunds = ({ path = 'refunds' }) => {
         <BlockRefundInfo />
         <BlockRefundInspect />
       </MinTabletXl>
-      <MaxToTablet>
-        <BlockRefundsList />
-      </MaxToTablet>
       <MaxToTablet>{path ? blocksMap[path] : blocksMap.refunds}</MaxToTablet>
     </>
   );

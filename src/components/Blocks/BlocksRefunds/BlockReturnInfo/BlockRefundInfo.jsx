@@ -4,7 +4,7 @@ import FormPrimary from 'components/Forms/FormPrimary/FormPrimary';
 
 const BlockRefundInfo = () => {
   return (
-    <Block title="Деталі повернення" iconId="return" actions="primary" style={{ gridColumn: '1/5', gridRow: '5/11' }}>
+    <Block title="Деталі повернення" iconId="refund" actions="primary" style={{ gridColumn: '1/5', gridRow: '5/11' }}>
       <FormPrimary formTitle="Деталі повернення" />
     </Block>
   );

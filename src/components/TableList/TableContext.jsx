@@ -10,18 +10,16 @@ export const TableCNTXT = createContext();
 export const useTable = () => useContext(TableCNTXT);
 
 const TableContext = ({ children, value }) => {
-  const { tableTitles = [] } = useBlock();
-  // const { searchQuery, searchParam } = useSelector(selectPosts);
+  const { tableTitles = [], tableData = [], prepareRowData } = useBlock();
   const [selectedAll, setSelectedAll] = useState(false);
+  const tableCollWidth = tableTitles.map(el => el.width);
+  // const { searchQuery, searchParam } = useSelector(selectPosts);
   // const [tableDataCloned, setTableDateCloned] = useState([]);
   // const [foundedPosts, setFoundedPosts] = useState([]);
-  const tableCellsWidth = tableTitles.map(el => el.width);
 
   const rowGrid = {
     display: 'grid',
-    // gridTemplateColumns: `repeat(${tableTitles.length}, max-content)`,
-    // gridTemplateColumns: `50px 40px repeat(${tableTitles.length - 2}, minmax(100px, 125px))`,
-    gridTemplateColumns: tableCellsWidth.join(' '),
+    gridTemplateColumns: tableCollWidth.join(' '),
   };
 
   // useEffect(() => {
@@ -45,12 +43,13 @@ const TableContext = ({ children, value }) => {
     <TableCNTXT.Provider
       value={{
         ts,
-        ...value,
         rowGrid,
-        tableTitles: tableTitles,
+        tableData,
+        tableTitles,
         setSelectedAll: setSelectedAll,
         selectedAll: selectedAll,
-        // visiblePosts: foundedPosts,
+        prepareRowData,
+        ...value,
       }}
     >
       {children}

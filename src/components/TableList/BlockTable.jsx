@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 import TableContext from './TableContext';
 
@@ -22,7 +21,5 @@ const TableList = props => {
     </TableContext>
   );
 };
-
-TableList.propTypes = {};
 
 export default TableList;

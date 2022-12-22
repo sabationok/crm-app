@@ -63,8 +63,8 @@ export const initialFormState = {
   },
   sizesTable: '',
 };
-export const initialState = prepareRowData(initialFormState);
-export function prepareRowData({
+export const initialState = prepareProductData(initialFormState);
+export function prepareProductData({
   _id,
   sku,
   name,
@@ -82,7 +82,7 @@ export function prepareRowData({
   priceInfo,
   ...others
 }) {
-  let rowData = {
+  let data = {
     _id,
     sku,
     name,
@@ -99,9 +99,9 @@ export function prepareRowData({
     ...availabilityInfo,
     ...priceInfo,
   };
-  return rowData;
+  return data;
 }
-export function prepareRowSubmitData(data) {
+export function prepareProductSubmitData(data) {
   let submitData = {
     sku: data?.sku,
     name: data?.name,

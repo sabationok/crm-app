@@ -1,10 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  fetchAllOrders,
-  fetchAddOrder,
-  fetchDeleteOrder,
-  fetchEditOrder,
-} from 'redux/orders/ordersThunks';
+import { fetchAllOrders, fetchAddOrder, fetchDeleteOrder, fetchEditOrder } from 'redux/orders/ordersThunks';
 import {
   actionChangeSearchQuery,
   actionMarkCheckbox,
@@ -14,8 +9,10 @@ import {
   actionMarkAllCheckboxes,
   actionChangeSearchParam,
 } from 'redux/orders/ordersActions';
+
+import { testOrdersArr } from 'data/orders';
 const initialState = {
-  orders: [],
+  orders: [...testOrdersArr],
   isLoading: false,
   lastEditedId: null,
   error: null,

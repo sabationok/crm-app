@@ -12,7 +12,7 @@ const AppRoutes = () => {
   return (
     <>
       <Routes>
-        <Route index element={<Navigate to="products" />} errorElement={<PageError />} />
+        <Route index element={<Navigate to="orders" />} errorElement={<PageError />} />
 
         <Route path="products" element={<AppGridPage path="products" />} errorElement={<PageError />}>
           <Route index element={<PageProducts />} errorElement={<PageError />}></Route>

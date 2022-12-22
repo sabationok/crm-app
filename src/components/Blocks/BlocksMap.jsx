@@ -2,7 +2,9 @@ import BlockProductsList from './BlocksProductPage/BlockProductsList/BlockProduc
 import BlockProductStock from './BlocksProductPage/BlockProductStock/BlockProductStock';
 import BlockProductInfo from './BlocksProductPage/BlockProductInfo/BlockProductInfo';
 import BlockChat from './BlockChat';
-import { BlockOrdersList, BlockOrderInfo, BlockOrderTTN } from 'components/Blocks/BlocksOrders/OrderBlocks';
+import BlockOrderTTN from './BlocksOrderPage/BlockOrderTTN/BlockOrderTTN';
+import BlockOrdersList from './BlocksOrderPage/BlockOrdersList/BlockOrdersList';
+import BlockOrderInfo from './BlocksOrderPage/BlockOrderInfo/BlockOrderInfo';
 import BlockRefundsList from './BlocksRefunds/BlockReturnsList/BlockRefundsList';
 import BlockRefundInspect from './BlocksRefunds/BlockRefundInspect/BlockRefundInspect';
 import BlockRefundInfo from './BlocksRefunds/BlockReturnInfo/BlockRefundInfo';

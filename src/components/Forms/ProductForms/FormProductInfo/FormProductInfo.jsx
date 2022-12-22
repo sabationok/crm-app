@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { useBlock } from 'components/Block/BlockContext';
+import { useBlock } from 'components/Block/BlockContext';
 import { toast } from 'react-toastify';
 // import { getUserData } from 'redux/selectors';
 import { initialState } from '../../../../data/productsFormData';
@@ -7,8 +7,6 @@ import { useModal } from 'components/ModalCustom/ModalCustom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAddPost, fetchEditPost } from 'redux/posts/postsThunks';
 import { getPosts } from 'redux/selectors';
-import { prepareRowData, prepareRowSubmitData } from '../../../../data/productsFormData';
-// import prepareRowSubmitData
 
 import FormPrimary from '../../FormPrimary/FormPrimary';
 import PriceField from './PriceField/PriceField';
@@ -22,6 +20,7 @@ import SelectCategory from './SelectCategory/SelectCategory';
 
 const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => {
   // const { user } = useSelector(getUserData);
+  const { prepareRowData, prepareSubmitData } = useBlock();
   const { posts } = useSelector(getPosts);
   const { handleToggleModal } = useModal();
   const [formData, setFormData] = useState(initialState);
@@ -52,7 +51,7 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => 
   function handleFormSubmit(ev) {
     ev.preventDefault();
 
-    const submitData = prepareRowSubmitData(formData);
+    const submitData = prepareSubmitData(formData);
 
     console.log(submitData);
 
@@ -105,7 +104,7 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => 
       setFormData(newData);
       return;
     }
-  }, [create, edit, copy, posts, id]);
+  }, [create, edit, copy, posts, id, prepareRowData]);
 
   return (
     <FormPrimary

@@ -29,9 +29,6 @@ const PageOrders = ({ path = 'orders' }) => {
         <BlockOrderInfo />
         <BlockOrderTTN />
       </MinTabletXl>
-      <MaxToTablet>
-        <BlockOrdersList />
-      </MaxToTablet>
       <MaxToTablet>{path ? blocksMap[path] : blocksMap.orders}</MaxToTablet>
     </>
   );
