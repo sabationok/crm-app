@@ -4,7 +4,7 @@ import { useRow } from '../TableRows/RowContext';
 
 import s from './TableCells.module.scss';
 
-const CellText = ({ title, idx, className = '' }) => {
+const CellText = ({ title, idx, className = '', onClick }) => {
   const { rowData } = useRow();
 
   const content = rowData[title?.dataTitle] || '---';
@@ -12,7 +12,7 @@ const CellText = ({ title, idx, className = '' }) => {
   const classNames = [s.coll, actionClassName, ...className].join(' ');
 
   return (
-    <div className={classNames} title={content}>
+    <div className={classNames} title={content} onClick={onClick}>
       <span className={s.cellInner}>{content}</span>
     </div>
   );

@@ -56,15 +56,15 @@ const TableRow = props => {
   }
   return (
     <RowContext value={props}>
-      <div style={styles} className={s.row} onClick={handleOnRowClick}>
+      <div style={styles} className={s.row}>
         {tableTitles.map((title, idx) => {
           if (CellsMap[title.action]) {
             Cell = CellsMap[title.action];
 
-            return <Cell key={title.name} title={title} idx={idx} />;
+            return <Cell key={title.name} title={title} idx={idx} onClick={handleOnRowClick} />;
           }
           Cell = CellsMap.string;
-          return <Cell key={title.name} title={title} idx={idx} />;
+          return <Cell key={title.name} title={title} idx={idx} onClick={handleOnRowClick} />;
         })}
       </div>
     </RowContext>

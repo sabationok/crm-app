@@ -4,7 +4,7 @@ import DateInfo from './Date/DateInfo';
 
 import s from './TableCells.module.scss';
 
-const CellDate = ({ title, className }) => {
+const CellDate = ({ title, className, onClick }) => {
   const { rowData } = useRow();
 
   const content = rowData[title?.dataTitle];
@@ -12,7 +12,7 @@ const CellDate = ({ title, className }) => {
   const classNames = [s.coll, s.collDate, actionClassName, className].join(' ');
 
   return (
-    <div className={classNames}>
+    <div className={classNames} onClick={onClick}>
       <DateInfo dateInfo={rowData?.createdAt} />
 
       <DateInfo dateInfo={rowData?.updatedAt} />
