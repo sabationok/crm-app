@@ -7,17 +7,17 @@ import { useParams } from 'react-router-dom';
 // import { getOrders } from 'redux/selectors';
 import { getAppPageSettings } from 'redux/selectors';
 
-import s from './BlockOrderTTN.module.scss';
+import s from './BlockOrdeInvoices.module.scss';
 
-const BlockOrderTTN = props => {
+const BlockOrdeInvoices = props => {
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
   const { id } = useParams();
   // const { orders } = useSelector(getOrders);
   // const selectedOrder = posts.find(order => order._id === id);
 
   const blockSettings = {
-    title: 'ТТН',
-    iconId: 'ttn',
+    title: 'Інвойси',
+    iconId: 'assignment',
     actions: 'primary',
     className: s[pageGrid],
     ActionsComp: Actions,
@@ -28,4 +28,4 @@ const BlockOrderTTN = props => {
   return <Block {...blockSettings}>{id}</Block>;
 };
 
-export default BlockOrderTTN;
+export default BlockOrdeInvoices;

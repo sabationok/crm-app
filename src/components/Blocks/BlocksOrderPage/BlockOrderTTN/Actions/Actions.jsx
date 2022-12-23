@@ -21,11 +21,11 @@ const Actions = () => {
         <ActionPrimary iconId="edit" title="Змінити" />
       </ModalOpenLink>
 
-      <ModalOpenLink
+      {/* <ModalOpenLink
         modalContent={<BlockSimple title="Створення замовлення" iconId="plus" className={s.modalBlock} headerClassName={s.modalHeader}></BlockSimple>}
       >
         <ActionPrimary iconId="plus" title="Створити" />
-      </ModalOpenLink>
+      </ModalOpenLink> */}
     </>
   );
 };

@@ -10,7 +10,7 @@ export const TableCNTXT = createContext();
 export const useTable = () => useContext(TableCNTXT);
 
 const TableContext = ({ children, value }) => {
-  const { tableTitles = [], tableData = [], prepareRowData } = useBlock();
+  const { tableTitles = [], tableData = [], prepeareRowData } = useBlock();
   const [selectedAll, setSelectedAll] = useState(false);
   const tableCollWidth = tableTitles.map(el => el.width);
   // const { searchQuery, searchParam } = useSelector(selectPosts);
@@ -48,7 +48,7 @@ const TableContext = ({ children, value }) => {
         tableTitles,
         setSelectedAll: setSelectedAll,
         selectedAll: selectedAll,
-        prepareRowData,
+        prepeareRowData,
         ...value,
       }}
     >

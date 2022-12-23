@@ -13,6 +13,7 @@ import ActionCreate from '../Actions/ActionCreate';
 import ActionDelete from '../Actions/ActionDelete';
 import ActionRefresh from '../Actions/ActionRefresh';
 import ActionPrimary from '../Actions/ActionPrimary';
+import ActionFulLPageMode from '../Actions/ActionFullPageMode';
 
 // import s from './ActionsList.module.scss';
 
@@ -30,17 +31,19 @@ const BlockActionsList = ({ arr = [] }) => {
     delete: ActionDelete,
     create: ActionCreate,
     refresh: ActionRefresh,
+    zoom: ActionFulLPageMode,
   };
   let Action = <></>;
   return (
     <>
       {/* <ul className={s.actionsList}></ul> */}
       {arr.map(action => {
-        if (action.name) {
+        if (actionsMap[action.name]) {
           Action = actionsMap[action.name];
 
           return <Action key={action.name} action={action} {...action} />;
         }
+
         return <ActionPrimary key={action.name} {...action} />;
       })}
     </>

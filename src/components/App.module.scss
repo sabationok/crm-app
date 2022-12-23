@@ -15,12 +15,12 @@
     height: 100vh;
   }
 
-  @media screen and (orientation: landscape) {
+  @media screen and (max-height: 480px) {
     min-height: 480px;
+    height: 100vh;
+    max-height: 140vh;
   }
   @media screen and (min-width: 768px) {
-    height: 100vh;
-    max-height: 130vh;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: max-content 1fr max-content;

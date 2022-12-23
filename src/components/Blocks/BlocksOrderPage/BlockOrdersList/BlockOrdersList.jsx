@@ -6,8 +6,10 @@ import { useSelector } from 'react-redux';
 // import { useParams } from 'react-router-dom';
 import { getAppPageSettings, getOrders } from 'redux/selectors';
 import { ordersTableTitles } from 'data/ordersTableTitles';
+import { prepeareOrderData } from 'data/orders';
 
 import s from './BlockOrdersList.module.scss';
+
 const BlockOrderList = props => {
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
   const { orders } = useSelector(getOrders);
@@ -18,15 +20,16 @@ const BlockOrderList = props => {
     iconId: 'list',
     actions: 'withFilter',
     className: s[pageGrid],
+    prepeareRowdata: prepeareOrderData,
     tableTitles: ordersTableTitles,
-    tableData: [...orders],
+    tableData: orders,
     order: {},
     ...props,
   };
 
   return (
     <Block {...blockSettings}>
-      <TableList />{' '}
+      <TableList />
     </Block>
   );
 };

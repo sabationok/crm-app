@@ -2,32 +2,30 @@ import React from 'react';
 
 import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
 import BlockSimple from 'components/BlockSimple/BlockSimple';
-import FormProductStock from 'components/Forms/ProductForms/FormProductStock/FormProductStock';
 import ActionPrimary from 'components/Block/BlockActions/Actions/ActionPrimary';
-
 import { useParams } from 'react-router-dom';
 
 import s from './Actions.module.scss';
 
 const Actions = () => {
-  const { id } = useParams();
+  const { id = 'Параметр відсутній' } = useParams();
   return (
     <>
       <ModalOpenLink
         modalContent={
-          <BlockSimple
-            title="Керувати складськими залишками"
-            iconId="edit"
-            className={s.modalBlock}
-            headerClassName={s.modalHeader}
-            style={{ width: '95vw' }}
-          >
-            <FormProductStock edit id={id} />
+          <BlockSimple title="Редагувати інвойси" iconId="edit" className={s.modalBlock} headerClassName={s.modalHeader}>
+            <span>{id}</span>
           </BlockSimple>
         }
       >
         <ActionPrimary iconId="edit" title="Змінити" />
       </ModalOpenLink>
+
+      {/* <ModalOpenLink
+        modalContent={<BlockSimple title="Створення замовлення" iconId="plus" className={s.modalBlock} headerClassName={s.modalHeader}></BlockSimple>}
+      >
+        <ActionPrimary iconId="plus" title="Створити" />
+      </ModalOpenLink> */}
     </>
   );
 };

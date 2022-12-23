@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useBlock } from '../BlockContext';
 
 import s from './BlockModal.module.scss';
-const BlockModal = ({ title }) => {
+const BlockModal = ({ title, children }) => {
   const { iconId, isModalOpen, handleToggleModal } = useBlock();
 
   function onBackdropClick(ev) {
@@ -39,8 +39,10 @@ const BlockModal = ({ title }) => {
   return (
     <div className={isModalOpen ? s.BackdropOpen : s.Backdrop} onClick={onBackdropClick}>
       <div className={s.Container}>
-        <span className={s.Title}>{title}</span>
-        <div className={s.actionsList} id={`${iconId}-modal`}></div>
+        {/* <span className={s.Title}>{title}</span> */}
+        <div className={s.actionsList} id={`${iconId}-modal`}>
+          {children}
+        </div>
       </div>
     </div>
   );

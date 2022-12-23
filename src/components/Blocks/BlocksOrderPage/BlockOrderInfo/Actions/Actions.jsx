@@ -5,8 +5,6 @@ import BlockSimple from 'components/BlockSimple/BlockSimple';
 import ActionPrimary from 'components/Block/BlockActions/Actions/ActionPrimary';
 import { useParams } from 'react-router-dom';
 
-import { toast } from 'react-toastify';
-
 import s from './Actions.module.scss';
 
 const Actions = () => {
@@ -30,25 +28,11 @@ const Actions = () => {
 
       <ModalOpenLink
         modalContent={
-          <BlockSimple title="Створення повернення" iconId="return" className={s.modalBlock} headerClassName={s.modalHeader}></BlockSimple>
+          <BlockSimple title="Створення повернення" iconId="refund" className={s.modalBlock} headerClassName={s.modalHeader}></BlockSimple>
         }
       >
-        <ActionPrimary iconId="return" title="Створити повернення" />
+        <ActionPrimary iconId="refund" title="Створити повернення" />
       </ModalOpenLink>
-
-      <ActionPrimary
-        iconId="delete"
-        title="Видалити"
-        onClick={() => {
-          // eslint-disable-next-line no-restricted-globals
-          const response = confirm('Ви дійсно бажаєте видалити замовлення?');
-          if (!response) {
-            toast.info('Видалення відхилено');
-            return;
-          }
-          toast.success('Замолвення видалено');
-        }}
-      />
     </>
   );
 };

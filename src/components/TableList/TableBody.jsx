@@ -6,11 +6,11 @@ import TableRow from './TableRows/TableRow';
 import s from './TableList.module.scss';
 
 const TableBody = () => {
-  const { tableData, prepareRowData } = useTable();
+  const { tableData, prepeareRowData } = useTable();
   return (
     <div className={s.tBody}>
       {tableData.map((rowData, idx) => (
-        <TableRow key={rowData._id} rowData={prepareRowData ? prepareRowData(rowData) : rowData} idx={idx} />
+        <TableRow key={rowData._id} rowData={prepeareRowData ? prepeareRowData(rowData) : rowData} idx={idx} />
       ))}
     </div>
   );

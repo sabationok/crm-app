@@ -5,9 +5,9 @@ import { useSelector } from 'react-redux';
 import { getAppPageSettings, getPosts } from 'redux/selectors';
 import { productsTableTitles } from 'data/productsTableTitles';
 import { prepareProductData } from 'data/productsFormData';
+import Actions from './Actions/Actions';
 
 import s from './BlockProductsList.module.scss';
-
 const BlockProductsList = props => {
   const { posts } = useSelector(getPosts);
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
@@ -19,7 +19,8 @@ const BlockProductsList = props => {
     className: s[pageGrid],
     tableData: [...posts],
     tableTitles: productsTableTitles,
-    prepareRowData: prepareProductData,
+    ActionsComp: Actions,
+    prepeareRowData: prepareProductData,
     ...props,
   };
   return (

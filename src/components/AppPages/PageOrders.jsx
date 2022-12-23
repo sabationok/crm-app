@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
-import { BlockOrdersList, BlockOrderInfo, BlockOrderTTN } from 'components/Blocks/BlocksMap';
+import { BlockOrdersList, BlockOrderInfo, BlockOrderTTN, BlockOrdeInvoices } from 'components/Blocks/BlocksMap';
 // import s from './PageOrders.module.scss';
 import { useDispatch } from 'react-redux';
 import { actionSetPageGridChange } from 'redux/page/pageActions';
@@ -12,6 +12,7 @@ const PageOrders = ({ path = 'orders' }) => {
     orders: <BlockOrdersList />,
     order: <BlockOrderInfo />,
     ttn: <BlockOrderTTN />,
+    invoices: <BlockOrdeInvoices />,
   };
 
   useEffect(() => {
@@ -27,6 +28,7 @@ const PageOrders = ({ path = 'orders' }) => {
       <MinTabletXl>
         <BlockOrdersList />
         <BlockOrderInfo />
+        <BlockOrdeInvoices />
         <BlockOrderTTN />
       </MinTabletXl>
       <MaxToTablet>{path ? blocksMap[path] : blocksMap.orders}</MaxToTablet>

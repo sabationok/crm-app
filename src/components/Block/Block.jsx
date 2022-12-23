@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 // import PropTypes from 'prop-types';
 import BlockContext from './BlockContext';
 import BlockHeaderSearch from './BlockHeaderSearch/BlockHeaderSearch';
 import BlockModal from './BlockModal/BlockModal';
+import BlockActionsList from './BlockActions/ActionsList/ActionsList';
+import blockActions from './blockActions';
 
 import { useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
 
 import s from './Block.module.scss';
+import { toast } from 'react-toastify';
 
 const Block = props => {
   let {
@@ -20,41 +23,59 @@ const Block = props => {
     style = {},
     headerStyles = {},
     className = '',
+    ActionsComp,
+    actions,
   } = props;
   const [isSearch, setIsSearch] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState();
   const { isDarkTheme } = useSelector(getAppSettings);
-  const [isFormDisabled, setIsFormDisabled] = useState(false);
+  const [isFullPageMode, setIsFullPageMode] = useState(false);
   const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');
+  const fullPageGrid = isFullPageMode ? { gridColumn: '1/11', gridRow: '1/11', zIndex: '10' } : {};
 
   function handleToggleBlockSearch() {
     setIsSearch(!isSearch);
   }
-  function handleToggleEditForm() {
-    setIsFormDisabled(!isFormDisabled);
-  }
+
   function handleToggleModal() {
     setIsModalOpen(!isModalOpen);
   }
 
+  function actionToglleFullPageMode() {
+    setIsFullPageMode(!isFullPageMode);
+    toast.info(`Вигляд блоку змінено ${isFullPageMode}`);
+  }
   const state = {
     isSearch,
-    isFormDisabled,
     isDarkTheme,
     isModalOpen,
+    isFullPageMode,
   };
   const stateHandlers = {
     handleToggleBlockSearch,
-    handleToggleEditForm,
     handleToggleModal,
+    actionToglleFullPageMode,
   };
+
+  const memoizedActionsArr = useMemo(() => {
+    switch (actions) {
+      case 'primary':
+        return blockActions.actionsPrimary;
+
+      case 'withFilter':
+        return blockActions.actionsWithFilter;
+
+      default:
+        return [];
+    }
+  }, [actions]);
 
   console.log(`block '${title}'inicialize`);
 
   return (
     <>
       <BlockContext {...props} {...stateHandlers} {...state}>
-        <div className={blockClassName} style={style}>
+        <div className={blockClassName} style={{ ...style, ...fullPageGrid }}>
           {header && <BlockHeaderSearch style={headerStyles} />}
 
           <div className={s.content} id={iconId}>
@@ -67,7 +88,10 @@ const Block = props => {
                 </div>
               )}
             </div>
-            <BlockModal title={`Додаткові дії блоку "${title}"`} />
+            <BlockModal title={`Додаткові дії блоку "${title}"`}>
+              {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
+              {ActionsComp && <ActionsComp />}
+            </BlockModal>
           </div>
 
           {footer && <div className={s.footer}>{footerChildren}</div>}

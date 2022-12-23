@@ -89,7 +89,11 @@ export const ordersSlice = createSlice({
       console.log('marked all checkboxes');
     },
     [actionUnmarkCheckbox](state, action) {},
-    [actionDeleteOrder](state, action) {},
+    [actionDeleteOrder](state, action) {
+      state.isLoading = true;
+      action.payload.onSuccess();
+      state.orders = state.orders.filter(order => order._id !== action.payload.data._id);
+    },
   },
 });
 

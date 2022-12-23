@@ -11,7 +11,7 @@ import s from './ModalCustom.module.scss';
 export const ModalContext = createContext();
 export const useModal = () => useContext(ModalContext);
 
-const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
+const ModalCustom = ({ handleToggle, defaultBtn = true, children, modalStyle }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   window.addEventListener('keydown', handleToggleModalByEsc);
@@ -52,7 +52,7 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children }) => {
     <ModalPortal>
       <ModalContext.Provider value={{ isOpen, handleToggleModal, handleToggle }}>
         <div className={s.Backdrop} onClick={handleToggleModalBackdrop}>
-          <div className={s.Modal}>
+          <div className={s.Modal} style={modalStyle}>
             {defaultBtn && (
               <button className={s.closeModal} onClick={handleToggleModal}>
                 <SvgIconClose size={'100%'} />
