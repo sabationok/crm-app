@@ -33,6 +33,7 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => 
   function handleChangeInput(ev) {
     const { name, value } = ev.target;
     setFormData({ ...formData, [name]: value });
+    console.log({ [name]: value });
   }
   function handleChangeCheckbox(ev) {
     const { name, checked } = ev.target;

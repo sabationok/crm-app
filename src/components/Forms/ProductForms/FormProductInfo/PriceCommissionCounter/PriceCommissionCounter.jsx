@@ -25,7 +25,11 @@ const costInputs = [
   { label: 'Кешбек ID', name: 'cashbackId', type: 'number', min: '0', max: '3', placeholder: '0-3' },
 ];
 const PriceCommissionCounter = () => {
-  const { formData, isCommission, onChange } = useForm();
+  const {
+    formData,
+    formData: { isCommission },
+    onChange,
+  } = useForm();
 
   // const inialState = {
   //   price: 0,

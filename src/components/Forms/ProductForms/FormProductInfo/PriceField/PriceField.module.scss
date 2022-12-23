@@ -48,11 +48,11 @@
 }
 .btnsGroup {
   display: flex;
-  flex-wrap: wrap;
+  justify-items: center;
 
-  border-radius: 4px;
+  // border-radius: 4px;
 
-  overflow: hidden;
+  // overflow: hidden;
   @media screen and (min-width: 480px) {
     grid-template-columns: max-content max-content;
   }
@@ -64,10 +64,19 @@
   font-size: 14px;
   font-weight: 700;
   background-color: var(--brand_clr__1);
-
   min-width: max-content;
+  width: 50%;
+
+  &.l {
+    border-radius: 4px 0 0 4px;
+  }
+  &.r {
+    border-radius: 0 4px 4px 0;
+  }
   &:hover {
     background-color: var(--brand_clr__1);
+    z-index: 5;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   }
   @media screen and (max-width: 320px) {
     font-weight: 600;
@@ -87,18 +96,14 @@
     padding: 8px;
   }
 }
+
 .activeBtn {
   background-color: rgb(113, 248, 86);
   &:hover {
     background-color: rgb(103, 255, 72);
-    opacity: 0.8;
   }
 }
 .btn {
-  opacity: 0.8;
-  &:hover {
-    opacity: 1;
-  }
 }
 .btnToCount {
   justify-content: center;

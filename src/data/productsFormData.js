@@ -39,6 +39,7 @@ export const initialFormState = {
     orderAwaitingTime: '', // * number/string
     specialOrder: false, // * boolean
     specialOrderAwaitingTime: '', // * number/string
+    // available, notAvailable, awaitingOnStock, order, specialOrder
   },
 
   // ?
@@ -193,6 +194,10 @@ export const productsArrTest = [
     visibilityStatus: false,
     availabilityInfo: {
       availability: 'notAvailable',
+      order: false,
+      orderAwaitingTime: 2,
+      specialOrder: false,
+      specialOrderAwaitingTime: 6,
     },
   },
   {
@@ -203,6 +208,10 @@ export const productsArrTest = [
     visibilityStatus: false,
     availabilityInfo: {
       availability: 'notAvailable',
+      order: false,
+      orderAwaitingTime: 2,
+      specialOrder: false,
+      specialOrderAwaitingTime: 6,
     },
   },
   {
@@ -213,6 +222,10 @@ export const productsArrTest = [
     visibilityStatus: true,
     availabilityInfo: {
       availability: 'awaitingOnStock',
+      order: false,
+      orderAwaitingTime: 2,
+      specialOrder: false,
+      specialOrderAwaitingTime: 6,
     },
     priceInfo: {
       price: 700,
@@ -232,6 +245,10 @@ export const productsArrTest = [
     visibilityStatus: false,
     availabilityInfo: {
       availability: 'available',
+      order: true,
+      orderAwaitingTime: 2,
+      specialOrder: true,
+      specialOrderAwaitingTime: 6,
     },
   },
   {
@@ -241,6 +258,10 @@ export const productsArrTest = [
     approvedStatus: 'pending',
     availabilityInfo: {
       availability: 'available',
+      order: false,
+      orderAwaitingTime: 2,
+      specialOrder: true,
+      specialOrderAwaitingTime: 6,
     },
   },
   {
@@ -251,6 +272,10 @@ export const productsArrTest = [
     visibilityStatus: true,
     availabilityInfo: {
       availability: 'available',
+      order: true,
+      orderAwaitingTime: 2,
+      specialOrder: false,
+      specialOrderAwaitingTime: 6,
     },
   },
 ];

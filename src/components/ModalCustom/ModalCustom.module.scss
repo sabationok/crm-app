@@ -31,8 +31,8 @@
   min-width: 200px;
 
   min-height: 200px;
-  // width: 98%;
-  // height: 98%;
+  max-width: 98%;
+  max-height: 98%;
 
   // color: inherit;
   // fill: inherit;
@@ -40,14 +40,6 @@
   border-radius: 4px;
   overflow: hidden;
   background-color: rgba(255, 255, 255, 0.5);
-  @media screen and (max-width: 768px) {
-    max-width: 98%;
-    max-height: 98%;
-  }
-  @media screen and (min-width: 768px) {
-    max-width: 700px;
-    max-height: 98%;
-  }
 }
 .closeModal {
   position: absolute;

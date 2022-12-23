@@ -11,7 +11,6 @@ const SelectAvailibility = () => {
   const { onChange, formData, onAvailabilityChange, onOrderTypeChange } = useForm();
   const { available, notAvailable, awaitingOnStock, order, specialOrder } = availabilityCheckboxes;
 
-  console.log(formData);
   return (
     <>
       <Fieldset legend="Наявність товару">
@@ -21,28 +20,29 @@ const SelectAvailibility = () => {
             type="checkbox"
             id={notAvailable.name}
             onChange={onAvailabilityChange}
-            value={formData?.availability}
             checked={formData?.availability === notAvailable.name}
           />
           <span>{notAvailable.label}</span>
         </label>
+
         <label htmlFor={awaitingOnStock.name} className={s.label}>
           <input
             name={awaitingOnStock.name}
             type="checkbox"
             id={awaitingOnStock.name}
-            value={formData?.availability}
+            // value={formData?.availability}
             checked={formData?.availability === awaitingOnStock.name}
             onChange={onAvailabilityChange}
           />
           <span>{awaitingOnStock.label}</span>
         </label>
+
         <label htmlFor={available.name} className={s.label}>
           <input
             name={available.name}
             type="checkbox"
             id={available.name}
-            value={formData?.availability}
+            // value={formData?.availability}
             onChange={onAvailabilityChange}
             checked={formData?.availability === available.name}
           />
@@ -57,8 +57,8 @@ const SelectAvailibility = () => {
           <PrimaryInput
             label="Термін очікування, дні"
             name="orderAwaitingTime"
-            defaultValue={formData?.orderAwaitingTime}
-            type="number"
+            value={formData?.orderAwaitingTime}
+            type="text"
             min="1"
             max="31"
             placeholder="1-31"
@@ -79,11 +79,12 @@ const SelectAvailibility = () => {
             />
             <span>{specialOrder.label}</span>
           </label>
+
           <PrimaryInput
             label="Термін очікування, дні"
             name="specialOrderAwaitingTime"
-            defaultValue={formData?.specialOrderAwaitingTime}
-            type="number"
+            value={formData?.specialOrderAwaitingTime}
+            type="text"
             min="1"
             max="31"
             placeholder="1-31"

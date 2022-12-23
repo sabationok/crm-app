@@ -8,14 +8,16 @@ import Fieldset from 'components/Forms/Fieldset/Fieldset';
 
 import s from './PriceField.module.scss';
 const PriceField = () => {
-  const { isCommission, onFormStateChange } = useForm();
+  const {
+    formData: { isCommission },
+    onFormStateChange,
+  } = useForm();
   function handleUnSetCommission() {
-    onFormStateChange({isCommission:false});
+    onFormStateChange({ isCommission: false });
   }
   function handleSetCommission() {
-    onFormStateChange({isCommission:true});
+    onFormStateChange({ isCommission: true });
   }
-
   return (
     <Fieldset legend="Ціна і вартість">
       <div className={s.flex}>
@@ -23,7 +25,7 @@ const PriceField = () => {
           <span>Що будемо рахувати?</span>
           <div className={s.btnsGroup}>
             <ButtonIcon
-              className={!isCommission ? s.activeBtn : s.btn}
+              className={[!isCommission ? s.activeBtn : s.btn, s.l].join(' ')}
               iconId={!isCommission ? 'checkBoxOn' : 'checkBoxOff'}
               type="button"
               data="cost"
@@ -32,7 +34,7 @@ const PriceField = () => {
               Собівартість
             </ButtonIcon>
             <ButtonIcon
-              className={isCommission ? s.activeBtn : s.btn}
+              className={[isCommission ? s.activeBtn : s.btn, s.r].join(' ')}
               iconId={isCommission ? 'checkBoxOn' : 'checkBoxOff'}
               type="button"
               data="commission"

@@ -61,6 +61,11 @@ const TopInfo = () => {
         <RowSimple title="Внутрішній коментар" data={`${post?.innerComment}` || ''} info="Коментар який не буде замітно для користувачів зовні" />
 
         <RowSimple title="Наявність" data={<Status status={availabilityInfo?.availability} />} />
+        <RowSimple title="Замовлення (Термін очікування)" data={`${availabilityInfo?.order} (${availabilityInfo?.orderAwaitingTime})`} />
+        <RowSimple
+          title="Індивідуальне виготовлення (Термін очікування)"
+          data={`${availabilityInfo?.specialOrder} (${availabilityInfo?.specialOrderAwaitingTime})`}
+        />
 
         <RowSimple title="ДАЛІ БУДЕ ..." />
 

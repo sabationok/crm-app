@@ -12,3 +12,12 @@ export const availabilityCheckboxes = {
   order: { name: 'order', label: 'Під замовлення' },
   specialOrder: { name: 'specialOrder', label: 'Індитвідуальне виготовлення' },
 };
+// availabilityInfo: {
+//   // ? availability
+//   availability: '', // * string
+//   order: false, // * boolean
+//   orderAwaitingTime: '', // * number/string
+//   specialOrder: false, // * boolean
+//   specialOrderAwaitingTime: '', // * number/string
+//   // available, notAvailable, awaitingOnStock, order, specialOrder
+// },
