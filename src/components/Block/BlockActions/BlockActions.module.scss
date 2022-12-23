@@ -22,7 +22,6 @@
   transform: scale(1);
   background-color: rgba(20, 20, 20, 0.5);
 }
-
 .actionsContainer {
   position: absolute;
 
@@ -55,8 +54,10 @@
     transform: translateX(-50%);
   }
 }
+
 .btn {
-  // fill: #fff;
+  padding: 0;
+  fill: inherit;
   &:hover {
     fill: var(--brand_clr__1);
     background-color: rgba(254, 254, 254, 0.2);
@@ -71,36 +72,63 @@
   position: absolute;
   top: 100%;
   left: 0;
-
+  // position: relative;
+  fill: inherit;
   width: 100%;
   height: 0;
+  // height: 100%;
 
   // overflow: hidden;
 }
 .actions {
-  overflow: hidden;
+  // overflow: hidden;
+  pointer-events: none;
 }
 .actionsOpen {
-  overflow: visible;
+  height: fit-content;
+  pointer-events: all;
+  // overflow: visible;
   & .actionsBox {
-    transform: translateY(0);
+    visibility: visible;
+    transform: translate(0);
   }
 }
 .actionsBox {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-
-  transition: all var(--timing-function__main);
-  width: 100%;
-  min-height: 50px;
-  background-color: rgba(254, 254, 254, 0.85);
-  transform: translateY(-100%);
-}
-.actionsList {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  // gap: 8px;
 
-  padding: 16px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  visibility: hidden;
+
+  fill: inherit;
+
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  transition: all var(--timing-function__main);
+
+  @media screen and (max-width: 768px) {
+    transform: translateY(-200%);
+    // padding: 0 8px;
+    max-width: 30px;
+  }
+
+  @media screen and (orientation: portrait) {
+    padding: 8px 0;
+  }
+  @media screen and (min-width: 768px) and (orientation: portrait) {
+    transform: translateX(100%);
+    // padding: 0 8px;
+    max-width: calc(10% - 16px);
+  }
+  @media screen and (orientation: landscape) {
+    transform: translateX(100%);
+    padding: 0 8px;
+    max-width: 98%;
+  }
 }

@@ -1,46 +1,48 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
-// import BlockActionsList from './ActionsList/ActionsList';
+import BlockActionsList from './ActionsList/ActionsList';
 
 // import BlockModalPortal from '../BlockModal/BlockModalPortal';
+
+import blockActions from '../blockActions';
 
 import { useBlock } from '../BlockContext';
 
 import s from './BlockActions.module.scss';
 
 const BlockActions = () => {
-  // const [isOpen, setIsOpen] = useState(false);
-  const { isModalOpen, handleToggleModal } = useBlock();
-  //  iconId, actions, actionsPrimary, actionsWithFilter, ActionsComp, id, isDarkTheme
-  // function handleIsopen(params) {
-  //   setIsOpen(!isOpen);
-  // }
-  // const memoizedActionsArr = useMemo(() => {
-  //   switch (actions) {
-  //     case 'primary':
-  //       return actionsPrimary;
+  const [isOpen, setIsOpen] = useState(false);
+  const { actions, ActionsComp } = useBlock();
+  function handleIsOpen(params) {
+    setIsOpen(!isOpen);
+  }
 
-  //     case 'withFilter':
-  //       return actionsWithFilter;
+  const memoizedActionsArr = useMemo(() => {
+    switch (actions) {
+      case 'primary':
+        return blockActions.actionsPrimary;
 
-  //     default:
-  //       return [];
-  //   }
-  // }, [actions, actionsPrimary, actionsWithFilter]);
+      case 'withFilter':
+        return blockActions.actionsWithFilter;
+
+      default:
+        return [];
+    }
+  }, [actions]);
 
   return (
     <>
-      <ButtonIcon iconId={isModalOpen ? 'close' : 'actions-h'} size="100%" iconSize="24px" className={s.btn} onClick={handleToggleModal} />
+      <ButtonIcon iconId={isOpen ? 'close' : 'actions-h'} size="30px" iconSize="100%" className={s.btn} onClick={handleIsOpen} />
 
-      {/* <BlockModalPortal id={id ?? iconId}>
-        {isModalOpen && (
+      <div className={isOpen ? s.actionsOpen : s.actions}>
+        <div className={[s.actionsBox, 'theme'].join(' ')}>
           <>
             {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
             {ActionsComp && <ActionsComp />}
           </>
-        )}
-      </BlockModalPortal> */}
+        </div>
+      </div>
     </>
   );
 };

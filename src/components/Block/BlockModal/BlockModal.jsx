@@ -39,7 +39,6 @@ const BlockModal = ({ title, children }) => {
   return (
     <div className={isModalOpen ? s.BackdropOpen : s.Backdrop} onClick={onBackdropClick}>
       <div className={s.Container}>
-        {/* <span className={s.Title}>{title}</span> */}
         <div className={s.actionsList} id={`${iconId}-modal`}>
           {children}
         </div>

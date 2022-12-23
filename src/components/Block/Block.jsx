@@ -1,10 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 import BlockContext from './BlockContext';
 import BlockHeaderSearch from './BlockHeaderSearch/BlockHeaderSearch';
 import BlockModal from './BlockModal/BlockModal';
-import BlockActionsList from './BlockActions/ActionsList/ActionsList';
-import blockActions from './blockActions';
 
 import { useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
@@ -23,8 +21,6 @@ const Block = props => {
     style = {},
     headerStyles = {},
     className = '',
-    ActionsComp,
-    actions,
   } = props;
   const [isSearch, setIsSearch] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState();
@@ -57,19 +53,6 @@ const Block = props => {
     actionToglleFullPageMode,
   };
 
-  const memoizedActionsArr = useMemo(() => {
-    switch (actions) {
-      case 'primary':
-        return blockActions.actionsPrimary;
-
-      case 'withFilter':
-        return blockActions.actionsWithFilter;
-
-      default:
-        return [];
-    }
-  }, [actions]);
-
   console.log(`block '${title}'inicialize`);
 
   return (
@@ -88,10 +71,7 @@ const Block = props => {
                 </div>
               )}
             </div>
-            <BlockModal title={`Додаткові дії блоку "${title}"`}>
-              {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
-              {ActionsComp && <ActionsComp />}
-            </BlockModal>
+            <BlockModal title={`Додаткові дії блоку "${title}"`}></BlockModal>
           </div>
 
           {footer && <div className={s.footer}>{footerChildren}</div>}

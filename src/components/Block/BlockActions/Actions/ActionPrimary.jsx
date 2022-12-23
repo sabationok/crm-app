@@ -7,7 +7,7 @@ const ActionPrimary = ({ name, status = true, iconId = 'close', title = 'title',
   return (
     <>
       <div className={s.listItem}>
-        <ButtonIcon iconId={iconId} size="100%" iconSize="28px" className={s.actionBtn} onClick={onClick} disabled={!status} />
+        <ButtonIcon iconId={iconId} iconSize="80%" className={s.actionBtn} onClick={onClick} disabled={!status} title={title} />
         <span className={s.actionTitle}>{title}</span>
       </div>
     </>
