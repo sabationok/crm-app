@@ -9,6 +9,9 @@ import {
   actionMarkAllCheckboxes,
   actionChangeSearchParam,
   actionUnMarkAllCheckboxes,
+  actionChangePostVisibility,
+  actionApprovePost,
+  actionRejectPost,
 } from 'redux/posts/postsActions';
 
 import { productsArrTest } from 'data/productsFormData';
@@ -107,7 +110,48 @@ export const postsSlice = createSlice({
     },
     [actionMarkCheckbox](state, action) {},
     [actionUnmarkCheckbox](state, action) {},
-    [actionDeletePost](state, action) {},
+    [actionChangePostVisibility](state, action) {
+      const post = state.posts.find(post => post._id === action.payload.data._id);
+
+      if (!post) {
+        action.payload.onError();
+        return;
+      }
+
+      post.visibilityStatus = !post.visibilityStatus;
+      action.payload.onSuccess();
+    },
+    [actionApprovePost](state, action) {
+      const post = state.posts.find(post => post._id === action.payload.data._id);
+
+      if (!post) {
+        action.payload.onError();
+        return;
+      }
+
+      post.approvedStatus = 'success';
+      action.payload.onSuccess();
+    },
+    [actionRejectPost](state, action) {
+      const post = state.posts.find(post => post._id === action.payload.data._id);
+
+      if (!post) {
+        action.payload.onError();
+        return;
+      }
+
+      post.approvedStatus = 'rejected';
+      action.payload.onSuccess();
+    },
+    [actionDeletePost](state, action) {
+      const post = state.posts.find(post => post._id === action.payload.data._id);
+      if (!post) {
+        action.payload.onError();
+        return;
+      }
+      state.posts = state.posts.filter(post => post._id !== action.payload.data._id);
+      action.payload.onSuccess();
+    },
   },
 });
 

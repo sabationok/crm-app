@@ -90,9 +90,13 @@ export const ordersSlice = createSlice({
     },
     [actionUnmarkCheckbox](state, action) {},
     [actionDeleteOrder](state, action) {
-      state.isLoading = true;
-      action.payload.onSuccess();
+      const order = state.orders.find(order => order._id === action.payload.data._id);
+      if (!order) {
+        action.payload.onError();
+        return;
+      }
       state.orders = state.orders.filter(order => order._id !== action.payload.data._id);
+      action.payload.onSuccess();
     },
   },
 });
