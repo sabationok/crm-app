@@ -28,25 +28,23 @@ const BlockHeaderSearch = () => {
 
       {isSearch && <BlockSearch />}
 
-      {title && (
+      {!isSearch && title && (
         <span className={s.title}>
           <span title={title}>{title}</span>
         </span>
       )}
 
-      <div>
-        <MinTabletXl>
-          {
-            <ButtonIcon
-              iconId={isFullPageMode ? 'zoomMinus' : 'zoomPlus'}
-              size="30px"
-              iconSize={isFullPageMode ? '85%' : '90%'}
-              onClick={actionToglleFullPageMode}
-              className={s.btn}
-            />
-          }
-        </MinTabletXl>
-      </div>
+      <MinTabletXl>
+        {
+          <ButtonIcon
+            iconId={isFullPageMode ? 'zoomMinus' : 'zoomPlus'}
+            size="30px"
+            iconSize={isFullPageMode ? '85%' : '90%'}
+            onClick={actionToglleFullPageMode}
+            className={s.btn}
+          />
+        }
+      </MinTabletXl>
 
       {actions && <BlockActions />}
     </div>

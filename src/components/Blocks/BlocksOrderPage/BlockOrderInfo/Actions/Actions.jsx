@@ -33,6 +33,14 @@ const Actions = () => {
       >
         <ActionPrimary iconId="refund" title="Створити повернення" />
       </ModalOpenLink>
+
+      <ModalOpenLink
+        modalContent={
+          <BlockSimple title="Створення інвойс" iconId="assignment" className={s.modalBlock} headerClassName={s.modalHeader}></BlockSimple>
+        }
+      >
+        <ActionPrimary iconId="assignment" title="Створити інвойс" />
+      </ModalOpenLink>
     </>
   );
 };

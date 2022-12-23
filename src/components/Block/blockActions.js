@@ -1,8 +1,8 @@
 const actionsPrimary = [
+  { name: 'delete', title: 'Видалити', iconId: 'delete', status: true },
   { name: 'link', title: 'Посилання', iconId: 'link', status: true },
   { name: 'share', title: 'Поділитись', iconId: 'share', status: true },
   { name: 'print', title: 'Друк', iconId: 'print', status: false },
-  { name: 'delete', title: 'Видалити', iconId: 'delete', status: true },
   { name: 'export', title: 'Експорт', iconId: 'upload', status: false },
   { name: 'import', title: 'Імпорт', iconId: 'download', status: false },
 ];

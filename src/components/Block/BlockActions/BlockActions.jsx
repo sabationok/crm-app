@@ -38,8 +38,8 @@ const BlockActions = () => {
       <div className={isOpen ? s.actionsOpen : s.actions}>
         <div className={[s.actionsBox, 'theme'].join(' ')}>
           <>
-            {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
             {ActionsComp && <ActionsComp />}
+            {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
           </>
         </div>
       </div>
