@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/crm-app/static/css/main.a08caa9d.css",
-    "main.js": "/crm-app/static/js/main.5a63a2bd.js",
+    "main.css": "/crm-app/static/css/main.6907d12a.css",
+    "main.js": "/crm-app/static/js/main.e8225bf0.js",
     "static/css/332.e173df0d.chunk.css": "/crm-app/static/css/332.e173df0d.chunk.css",
     "static/js/332.171685b4.chunk.js": "/crm-app/static/js/332.171685b4.chunk.js",
     "static/css/695.8fa1659a.chunk.css": "/crm-app/static/css/695.8fa1659a.chunk.css",
@@ -24,9 +24,9 @@
     "static/css/639.7a53502d.chunk.css": "/crm-app/static/css/639.7a53502d.chunk.css",
     "static/js/639.8c827467.chunk.js": "/crm-app/static/js/639.8c827467.chunk.js",
     "static/js/90.bb80e00b.chunk.js": "/crm-app/static/js/90.bb80e00b.chunk.js",
-    "static/js/63.5fa3ccd8.chunk.js": "/crm-app/static/js/63.5fa3ccd8.chunk.js",
-    "static/css/244.4ae209de.chunk.css": "/crm-app/static/css/244.4ae209de.chunk.css",
-    "static/js/244.31ce6307.chunk.js": "/crm-app/static/js/244.31ce6307.chunk.js",
+    "static/js/63.a916aaf4.chunk.js": "/crm-app/static/js/63.a916aaf4.chunk.js",
+    "static/css/244.ca9c7afa.chunk.css": "/crm-app/static/css/244.ca9c7afa.chunk.css",
+    "static/js/244.9814ae1f.chunk.js": "/crm-app/static/js/244.9814ae1f.chunk.js",
     "static/media/spriteSvg.svg": "/crm-app/static/media/spriteSvg.f0c744cac5b3ae6f7001d2d876ae2578.svg",
     "static/media/slick.svg": "/crm-app/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/crm-app/static/media/slick.a4e97f5a2a64f0ab1323.eot",
@@ -37,8 +37,8 @@
     "index.html": "/crm-app/index.html",
     "static/media/icomoon.ttf?5w1sho": "/crm-app/static/media/icomoon.e025b34c3ddf7c10303a.ttf",
     "static/media/icomoon.svg?5w1sho": "/crm-app/static/media/icomoon.a8601e60c05fa3416211.svg",
-    "main.a08caa9d.css.map": "/crm-app/static/css/main.a08caa9d.css.map",
-    "main.5a63a2bd.js.map": "/crm-app/static/js/main.5a63a2bd.js.map",
+    "main.6907d12a.css.map": "/crm-app/static/css/main.6907d12a.css.map",
+    "main.e8225bf0.js.map": "/crm-app/static/js/main.e8225bf0.js.map",
     "332.e173df0d.chunk.css.map": "/crm-app/static/css/332.e173df0d.chunk.css.map",
     "332.171685b4.chunk.js.map": "/crm-app/static/js/332.171685b4.chunk.js.map",
     "695.8fa1659a.chunk.css.map": "/crm-app/static/css/695.8fa1659a.chunk.css.map",
@@ -61,12 +61,12 @@
     "639.7a53502d.chunk.css.map": "/crm-app/static/css/639.7a53502d.chunk.css.map",
     "639.8c827467.chunk.js.map": "/crm-app/static/js/639.8c827467.chunk.js.map",
     "90.bb80e00b.chunk.js.map": "/crm-app/static/js/90.bb80e00b.chunk.js.map",
-    "63.5fa3ccd8.chunk.js.map": "/crm-app/static/js/63.5fa3ccd8.chunk.js.map",
-    "244.4ae209de.chunk.css.map": "/crm-app/static/css/244.4ae209de.chunk.css.map",
-    "244.31ce6307.chunk.js.map": "/crm-app/static/js/244.31ce6307.chunk.js.map"
+    "63.a916aaf4.chunk.js.map": "/crm-app/static/js/63.a916aaf4.chunk.js.map",
+    "244.ca9c7afa.chunk.css.map": "/crm-app/static/css/244.ca9c7afa.chunk.css.map",
+    "244.9814ae1f.chunk.js.map": "/crm-app/static/js/244.9814ae1f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a08caa9d.css",
-    "static/js/main.5a63a2bd.js"
+    "static/css/main.6907d12a.css",
+    "static/js/main.e8225bf0.js"
   ]
 }
