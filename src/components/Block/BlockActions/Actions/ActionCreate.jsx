@@ -1,6 +1,6 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
-import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
+import ModalOpenTrigger from 'components/ModalCustom/ModalOpenTrigger/ModalOpenTrigger';
 import BlockSimple from 'components/BlockSimple/BlockSimple';
 import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
 
@@ -14,16 +14,16 @@ const ActionCreate = ({ action, props, type = 'product', iconId = 'plus', title 
     realization: () => <div>{props?.id}</div>,
   };
   let Children = ActionMap[type];
+
   return (
-    <ModalOpenLink
+    <ModalOpenTrigger
+      trigger={props => <ActionPrimary title={title} iconId={iconId} {...action} {...props} />}
       modalContent={
         <BlockSimple title={title} iconId={iconId} className={s.modalBlock} headerClassName={s.modalHeader}>
           {ActionMap[type] && <Children {...props} />}
         </BlockSimple>
       }
-    >
-      <ActionPrimary title={title} iconId={iconId} {...action} />
-    </ModalOpenLink>
+    />
   );
 };
 

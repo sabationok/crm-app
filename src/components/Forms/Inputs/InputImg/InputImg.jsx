@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
-import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
+import ModalOpenLink from 'components/ModalCustom/ModalOpenTrigger/ModalOpenTrigger';
 
 import s from './InputImg.module.scss';
 

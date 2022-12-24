@@ -1,7 +1,6 @@
 import React from 'react';
 
 import BlockSearch from './BlockSearch/BlockSearch';
-import BlockActions from '../BlockActions/BlockActions';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { MinTabletXl } from 'components/DeviceTypeInformer/DeviceTypeController';
@@ -20,6 +19,8 @@ const BlockHeaderSearch = () => {
     headerClassName,
     isFullPageMode,
     actionToglleFullPageMode,
+    handleToggleAction,
+    isActionsOpen,
   } = useBlock();
 
   return (
@@ -46,7 +47,9 @@ const BlockHeaderSearch = () => {
         }
       </MinTabletXl>
 
-      {actions && <BlockActions />}
+      {actions && (
+        <ButtonIcon iconId={isActionsOpen ? 'close' : 'actions-h'} size="30px" iconSize="100%" className={s.btn} onClick={handleToggleAction} />
+      )}
     </div>
   );
 };

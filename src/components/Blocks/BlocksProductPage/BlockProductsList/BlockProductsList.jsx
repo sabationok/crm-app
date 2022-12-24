@@ -4,7 +4,7 @@ import TableList from 'components/TableList/BlockTable';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { actionDeletePost as actionDelete, actionTogglePostVisibility, actionApprovePost, actionRejectPost } from 'redux/posts/postsActions';
-import { postsMessages as messages } from '../postsMessages';
+import { postsMessages as messages } from '../../../../data/postsMessages';
 import { getAppPageSettings, getPosts } from 'redux/selectors';
 import { productsTableTitles } from 'data/productsTableTitles';
 import { prepareProductData } from 'data/productsFormData';

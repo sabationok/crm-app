@@ -1,5 +1,4 @@
-import React, { useState, useMemo } from 'react';
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+import React, { useMemo } from 'react';
 
 import BlockActionsList from './ActionsList/ActionsList';
 
@@ -12,11 +11,7 @@ import { useBlock } from '../BlockContext';
 import s from './BlockActions.module.scss';
 
 const BlockActions = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const { actions, ActionsComp } = useBlock();
-  function handleIsOpen(params) {
-    setIsOpen(!isOpen);
-  }
+  const { actions, ActionsComp, handleToggleAction, isActionsOpen } = useBlock();
 
   const memoizedActionsArr = useMemo(() => {
     switch (actions) {
@@ -33,14 +28,10 @@ const BlockActions = () => {
 
   return (
     <>
-      <ButtonIcon iconId={isOpen ? 'close' : 'actions-h'} size="30px" iconSize="100%" className={s.btn} onClick={handleIsOpen} />
-
-      <div className={isOpen ? s.actionsOpen : s.actions}>
-        <div className={[s.actionsBox, 'theme'].join(' ')}>
-          <>
-            {ActionsComp && <ActionsComp />}
-            {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
-          </>
+      <div className={[s.actionsBackdrop, isActionsOpen && s.isOpen].join(' ')} onClick={handleToggleAction}>
+        <div className={s.actionsList}>
+          {ActionsComp && <ActionsComp />}
+          {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
         </div>
       </div>
     </>

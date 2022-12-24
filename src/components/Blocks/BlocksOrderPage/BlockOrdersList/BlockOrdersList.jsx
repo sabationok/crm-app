@@ -9,7 +9,7 @@ import { ordersTableTitles } from 'data/ordersTableTitles';
 import { prepeareOrderData } from 'data/orders';
 import { actionDeleteOrder as actionDelete } from 'redux/orders/ordersActions';
 import { useNavigate } from 'react-router-dom';
-import { ordersMessages as deleteMessages } from '../ordersMessages';
+import { ordersMessages as deleteMessages } from '../../../../data/ordersMessages';
 
 import s from './BlockOrdersList.module.scss';
 

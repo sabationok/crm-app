@@ -1,128 +1,176 @@
-.actionsBackdrop,
-.actionsBackdropOpen {
+// .actionsBackdrop,
+// .actionsBackdropOpen {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+
+//   overflow: hidden;
+
+//   width: 100%;
+//   height: 100%;
+
+//   opacity: 0;
+//   pointer-events: none;
+//   transform: scale(0);
+//   transition: all var(--timing-function__main);
+// }
+// .actionsBackdropOpen {
+//   z-index: 5;
+//   opacity: 1;
+//   visibility: visible;
+//   pointer-events: all;
+//   transform: scale(1);
+//   background-color: rgba(20, 20, 20, 0.5);
+// }
+// .actionsContainer {
+//   position: absolute;
+
+//   display: grid;
+//   grid-template-columns: 1fr;
+//   gap: 8px;
+
+//   text-align: center;
+//   padding: 16px;
+//   max-height: 80%;
+//   width: 95%;
+//   color: #242424;
+
+//   border-radius: 4px;
+
+//   background-color: rgba(254, 254, 254, 0.85);
+
+//   box-shadow: 0 0 8px rgba(122, 122, 122, 0.8);
+
+//   transition: all var(--timing-function__main);
+
+//   @media screen and (max-width: 768px) {
+//     top: 50%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//   }
+//   @media screen and (min-width: 768px) {
+//     top: 5%;
+//     left: 50%;
+//     transform: translateX(-50%);
+//   }
+// }
+
+// .btn {
+//   padding: 0;
+//   fill: inherit;
+//   &:hover {
+//     fill: var(--brand_clr__1);
+//     background-color: rgba(254, 254, 254, 0.2);
+//   }
+//   &:active {
+//     fill: var(--brand_clr__1);
+//     background-color: rgba(254, 254, 254, 0.1);
+//   }
+// }
+// .actions,
+// .actionsOpen {
+//   position: absolute;
+//   top: 100%;
+//   left: 0;
+//   // position: relative;
+//   fill: inherit;
+//   width: 100%;
+//   max-width: 100%;
+//   height: 0;
+//   // height: 100%;
+
+//   // overflow: hidden;
+// }
+// .actions {
+//   // overflow: hidden;
+//   pointer-events: none;
+// }
+// .actionsOpen {
+//   height: fit-content;
+//   pointer-events: all;
+//   // overflow: visible;
+//   & .actionsBox {
+//     visibility: visible;
+//     transform: translate(0);
+//   }
+// }
+// .actionsBox {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   flex-wrap: wrap;
+//   gap: 8px;
+
+//   position: absolute;
+//   top: 8px;
+//   right: 8px;
+
+//   // padding: 8px;
+//   max-width: calc(100% - 16px);
+//   visibility: hidden;
+
+//   fill: inherit;
+
+//   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+//   border-radius: 4px;
+//   transition: all var(--timing-function__main);
+
+//   @media screen and (max-width: 768px) and (orientation: portrait) {
+//     flex-direction: column;
+//     transform: translateY(-200%);
+//   }
+//   @media screen and (max-width: 768px) and (orientation: landscape) {
+//     transform: translateX(100%);
+//   }
+//   @media screen and (min-width: 768px) {
+//     transform: translateX(100%);
+//   }
+// }
+
+.actionsBackdrop {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
 
-  overflow: hidden;
-
+  // max-width: 0;
   width: 100%;
   height: 100%;
-
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0);
-  transition: all var(--timing-function__main);
-}
-.actionsBackdropOpen {
-  z-index: 5;
-  opacity: 1;
-  visibility: visible;
-  pointer-events: all;
-  transform: scale(1);
-  background-color: rgba(20, 20, 20, 0.5);
-}
-.actionsContainer {
-  position: absolute;
-
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
-
-  text-align: center;
-  padding: 16px;
-  max-height: 80%;
-  width: 95%;
-  color: #242424;
-
-  border-radius: 4px;
-
-  background-color: rgba(254, 254, 254, 0.85);
-
-  box-shadow: 0 0 8px rgba(122, 122, 122, 0.8);
-
-  transition: all var(--timing-function__main);
-
-  @media screen and (max-width: 768px) {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  @media screen and (min-width: 768px) {
-    top: 5%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-.btn {
-  padding: 0;
-  fill: inherit;
-  &:hover {
-    fill: var(--brand_clr__1);
-    background-color: rgba(254, 254, 254, 0.2);
-  }
-  &:active {
-    fill: var(--brand_clr__1);
-    background-color: rgba(254, 254, 254, 0.1);
-  }
-}
-.actions,
-.actionsOpen {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  // position: relative;
-  fill: inherit;
-  width: 100%;
-  max-width: 100%;
-  height: 0;
-  // height: 100%;
-
-  // overflow: hidden;
-}
-.actions {
-  // overflow: hidden;
-  pointer-events: none;
-}
-.actionsOpen {
-  height: fit-content;
-  pointer-events: all;
-  // overflow: visible;
-  & .actionsBox {
-    visibility: visible;
-    transform: translate(0);
-  }
-}
-.actionsBox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 8px;
-
-  position: absolute;
-  top: 8px;
-  right: 8px;
-
-  // padding: 8px;
-  max-width: calc(100% - 16px);
+  z-index: 10;
+  overflow: auto;
+  // opacity: 0;
   visibility: hidden;
 
-  fill: inherit;
+  pointer-events: none;
 
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
+  transition: all var(--timing-function__main);
+  &.isOpen {
+    max-width: 100%;
+    background-color: rgba(0, 0, 0, 0.05);
+    // opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+
+    & .actionsList {
+      transform: translate(0);
+    }
+  }
+}
+.actionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  // display: grid;
+  // grid-template-columns: repeat(10, min-content);
+  // gap: 16px;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  padding: 8px;
+  // width: fit-content;
+
   transition: all var(--timing-function__main);
 
-  @media screen and (max-width: 768px) and (orientation: portrait) {
-    flex-direction: column;
-    transform: translateY(-200%);
-  }
-  @media screen and (max-width: 768px) and (orientation: landscape) {
-    transform: translateX(100%);
-  }
-  @media screen and (min-width: 768px) {
-    transform: translateX(100%);
-  }
+  transform: translateY(-100%);
 }

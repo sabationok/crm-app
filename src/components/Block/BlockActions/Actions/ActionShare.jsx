@@ -3,22 +3,17 @@ import ActionPrimary from './ActionPrimary';
 
 import { toast } from 'react-toastify';
 import { useNotify } from 'components/Notify/NotifyProvider';
+import { useParams } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
 // import { getPosts } from 'redux/selectors';
-// import { useParams } from 'react-router-dom';
 
 const ActionShare = ({ action }) => {
-  // const { selectedPostId } = useSelector(getPosts);
   const { appNotify } = useNotify();
-  // const { id } = useParams();
+  const { id } = useParams();
 
   async function handleShareBtnClick() {
-    // if (!selectedPostId) {
-    //   toast.error(`Помилка: пост не обрано`);
-    //   return;
-    // }
     let LINK = `${window.location}/`;
-    console.log(LINK);
+
     const shareData = {
       title: `Поділитись`,
       text: `Поділитись`,
@@ -34,7 +29,7 @@ const ActionShare = ({ action }) => {
     }
   }
 
-  return <ActionPrimary {...action} onClick={handleShareBtnClick} />;
+  return <ActionPrimary {...action} onClick={handleShareBtnClick} status={!!id} />;
 };
 
 export default ActionShare;

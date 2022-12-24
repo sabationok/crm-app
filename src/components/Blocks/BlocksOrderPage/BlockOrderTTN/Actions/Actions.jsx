@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
+import ModalOpenLink from 'components/ModalCustom/ModalOpenTrigger/ModalOpenTrigger';
 import BlockSimple from 'components/BlockSimple/BlockSimple';
 import ActionPrimary from 'components/Block/BlockActions/Actions/ActionPrimary';
 import { useParams } from 'react-router-dom';

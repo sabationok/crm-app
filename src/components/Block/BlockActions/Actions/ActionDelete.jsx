@@ -11,7 +11,7 @@ const ActionDelete = ({ action }) => {
   function handleDeleteAction() {
     deleteAction ? deleteAction(action?.id ?? id) : toast.error('ERROR DELETE');
   }
-  return deleteAction && <ActionPrimary onClick={handleDeleteAction} {...action} />;
+  return deleteAction && <ActionPrimary onClick={handleDeleteAction} {...action} status={!!id} />;
 };
 
 export default ActionDelete;

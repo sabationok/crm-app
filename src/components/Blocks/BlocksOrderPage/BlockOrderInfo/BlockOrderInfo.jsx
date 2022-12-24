@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 import { getAppPageSettings } from 'redux/selectors';
 import { actionDeleteOrder } from 'redux/orders/ordersActions';
 import { useNavigate } from 'react-router-dom';
-import { ordersMessages as deleteMessages } from '../ordersMessages';
+import { ordersMessages as deleteMessages } from '../../../../data/ordersMessages';
 
 const BlockOrderInfo = props => {
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);

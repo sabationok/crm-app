@@ -1,70 +1,47 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
-import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { actionTogglePostVisibility } from 'redux/posts/postsActions';
-import { postsMessages as messages } from 'components/Block/blockActions';
+import { postsMessages as messages } from 'data';
 import { useBlock } from 'components/Block/BlockContext';
+import { toast } from 'react-toastify';
+import { useParams } from 'react-router-dom';
 
 const ActionTogglePostVisibility = ({ action }) => {
-  const dispatch = useDispatch();
-  const { id } = useParams();
   const { post } = useBlock();
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  const { Visibility, NOT_SELECTED_ID } = messages;
 
   function togglePostVisibility(id) {
-    const { VISIBILITY_CONFIRM, NOT_SELECTED_ID, VISIBILITY_CHANGED, VISIBILITY_ERROR } = messages;
-    const confirm = window.confirm(VISIBILITY_CONFIRM(id));
-    if (!confirm) {
-      return;
-    }
+    const confirm = window.confirm(Visibility.confirm(id));
     if (!id) {
       NOT_SELECTED_ID();
+      return;
+    }
+    if (!confirm) {
       return;
     }
     const payload = {
       data: { _id: id },
       onSuccess: () => {
-        VISIBILITY_CHANGED(id);
+        toast.success(`${Visibility.changed(id)}`);
       },
       onError: () => {
-        VISIBILITY_ERROR(id);
+        toast.error(Visibility.error(id));
       },
     };
     dispatch(actionTogglePostVisibility(payload));
   }
-  // function approvePostAction(id) {
-  //   const { APPROVED, STATUS_ERROR } = messages;
-  //   const payload = {
-  //     data: { _id: id },
-  //     onSuccess: () => {
-  //       APPROVED(id);
-  //     },
-  //     onError: () => {
-  //       STATUS_ERROR(id);
-  //     },
-  //   };
-  //   dispatch(actionApprovePost(payload));
-  // }
-  // function rejectPostAction(id) {
-  //   const { REJECTED, STATUS_ERROR } = messages;
-  //   const payload = {
-  //     data: { _id: id },
-  //     onSuccess: () => {
-  //       REJECTED(id);
-  //     },
-  //     onError: () => {
-  //       STATUS_ERROR(id);
-  //     },
-  //   };
-  //   dispatch(actionRejectPost(payload));
-  // }
+
   return (
     <ActionPrimary
       onClick={() => {
-        togglePostVisibility(id);
+        togglePostVisibility(post._id);
       }}
-      iconId={post.visibilityStatus ? 'visibility-on' : 'visibility-off'}
+      iconId={post?.visibilityStatus ? 'visibility-on' : 'visibility-off'}
       {...action}
+      status={!!id}
     />
   );
 };

@@ -9,9 +9,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { actionDeletePost as actionDelete } from 'redux/posts/postsActions';
-import { postsMessages as deleteMessages } from '../postsMessages';
+import { postsMessages as messages } from 'data';
 
 import s from './BlockProductInfo.module.scss';
+import { toast } from 'react-toastify';
 
 const BlockProductInfo = props => {
   const { id } = useParams();
@@ -22,24 +23,23 @@ const BlockProductInfo = props => {
   const selectedPost = posts.find(post => post._id === id);
 
   function deleteAction(id) {
-    const { NOT_SELECTED_ID, DELETE_CONFIRM, DELETE_DECLINE, DELETE_SUCCESS, DELETE_ERROR } = deleteMessages;
+    const { NOT_SELECTED_ID, Deleting } = messages;
     if (!id) {
-      NOT_SELECTED_ID();
+      NOT_SELECTED_ID(id);
       return;
     }
-    const confirm = window.confirm(DELETE_CONFIRM(id));
+    const confirm = window.confirm(Deleting.confirm(id));
     if (!confirm) {
-      DELETE_DECLINE(id);
       return;
     }
     const payload = {
       data: { _id: id },
       onSuccess: () => {
-        DELETE_SUCCESS(id);
+        toast.success(Deleting.success(id));
         navigate(`/products`);
       },
       onError: () => {
-        DELETE_ERROR(id);
+        toast.error(Deleting.error(id));
       },
     };
     dispatch(actionDelete(payload));

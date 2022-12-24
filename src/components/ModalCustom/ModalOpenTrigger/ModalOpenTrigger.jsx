@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ModalCustom from '../ModalCustom';
 
-const ModalOpenLink = ({ children, className, modalContent, defaultBtn = true, modalStyle }) => {
+const ModalOpenTrigger = ({ children, trigger, className, modalContent, style, defaultBtn = true, modalStyle, disabled = false }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   function toggleModalByLink(ev) {
     ev.preventDefault();
@@ -10,11 +10,20 @@ const ModalOpenLink = ({ children, className, modalContent, defaultBtn = true, m
   function toggleModal(ev) {
     setIsModalOpen(!isModalOpen);
   }
+
+  const styles = {
+    ...style,
+    pointerEvents: disabled ? 'none' : 'all',
+  };
+  let Trigger = trigger;
   return (
     <>
-      <a className={className} onClick={toggleModalByLink} href="/">
-        {children}
-      </a>
+      {!trigger && (
+        <a className={className} onClick={toggleModalByLink} href="/open-modal" style={styles}>
+          {children}
+        </a>
+      )}
+      {trigger && <Trigger onClick={toggleModalByLink} />}
       {isModalOpen && (
         <ModalCustom handleToggle={toggleModal} modalStyle={modalStyle} defaultBtn={defaultBtn}>
           {modalContent}
@@ -24,4 +33,4 @@ const ModalOpenLink = ({ children, className, modalContent, defaultBtn = true, m
   );
 };
 
-export default ModalOpenLink;
+export default ModalOpenTrigger;
