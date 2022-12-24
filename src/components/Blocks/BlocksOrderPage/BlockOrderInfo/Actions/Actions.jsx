@@ -15,9 +15,9 @@ const Actions = () => {
 
       <ActionEdit type="order" props={{ id: id }} title="Редагування замовлення" />
 
-      <ActionCreate type="refund" props={{ id: id }} action={{ status: !id }} iconId="refund" title="Створення повернення" />
+      <ActionCreate type="refund" props={{ id: id }} iconId="refund" title="Створення повернення" />
 
-      <ActionCreate type="realization" props={{ id: id }} action={{ status: !id }} iconId="assignment-ok" title="Створення реалізації" />
+      <ActionCreate type="realization" props={{ id: id }} iconId="assignment-ok" title="Створення реалізації" />
     </>
   );
 };
