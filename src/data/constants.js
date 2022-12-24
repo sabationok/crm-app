@@ -1,6 +1,7 @@
 export const statusName = {
+  approved: 'Узгоджено',
   success: 'Прийнято',
-  pending: 'Очікує',
+  pending: 'Очікування',
   rejected: 'Відхилено',
   visible: 'Видимий',
   hidden: 'Прихований',
@@ -36,6 +37,7 @@ export const statusName = {
 };
 export const statusIconId = {
   success: 'success',
+  approved: 'success',
   pending: 'time',
   rejected: 'error',
   visible: 'visibility-on',

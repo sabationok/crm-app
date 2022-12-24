@@ -3,8 +3,8 @@ import Block from 'components/Block/Block';
 import TableList from 'components/TableList/BlockTable';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { actionDeletePost as actionDelete, actionTogglePostVisibility, actionApprovePost, actionRejectPost } from 'redux/posts/postsActions';
-import { postsMessages as messages } from '../../../../data/postsMessages';
+import { actionDeletePost, actionTogglePostVisibility, actionApprovePost, actionRejectPost, actionArchivePost } from 'redux/posts/postsActions';
+import { postsMessages as messages } from 'data';
 import { getAppPageSettings, getPosts } from 'redux/selectors';
 import { productsTableTitles } from 'data/productsTableTitles';
 import { prepeareProductData } from 'data/products';
@@ -17,9 +17,9 @@ const BlockProductsList = props => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { NOT_SELECTED_ID, Deleting, Visibility, Approving, Rejecting } = messages;
+  const { NOT_SELECTED_ID, Deleting, Visibility, Approving, Rejecting, Archivating } = messages;
 
-  function deleteAction(id) {
+  function deletePostAction(id) {
     const confirm = window.confirm(Deleting.confirm(id));
     if (!confirm) {
       return;
@@ -35,7 +35,24 @@ const BlockProductsList = props => {
         toast.error(Deleting.error(id));
       },
     };
-    dispatch(actionDelete(payload));
+    dispatch(actionDeletePost(payload));
+  }
+  function archivePostAction(id) {
+    const confirm = window.confirm(Archivating.confirm(id));
+    if (!confirm) {
+      return;
+    }
+    const payload = {
+      data: { _id: id },
+      onSuccess: () => {
+        toast.success(Archivating.success(id));
+        navigate(`/products`);
+      },
+      onError: () => {
+        toast.error(Archivating.error(id));
+      },
+    };
+    dispatch(actionArchivePost(payload));
   }
   function togglePostVisibility(id) {
     const confirm = window.confirm(Visibility.confirm(id));
@@ -98,10 +115,11 @@ const BlockProductsList = props => {
     tableData: [...posts],
     tableTitles: productsTableTitles,
     prepeareRowData: prepeareProductData,
-    deleteAction,
     togglePostVisibility,
+    deletePostAction,
     approvePostAction,
     rejectPostAction,
+    archivePostAction,
     ...props,
   };
   return (

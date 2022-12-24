@@ -9,12 +9,15 @@ import {
   actionMarkAllCheckboxes,
   actionChangeSearchParam,
   actionUnMarkAllCheckboxes,
+  actionArchivePost,
   actionTogglePostVisibility,
   actionApprovePost,
   actionRejectPost,
 } from 'redux/posts/postsActions';
 
 import { productsArrTest } from 'data/products';
+import { postStatus } from 'data/products';
+const { ARCHIVED, REJECTED, APPROVED } = postStatus;
 
 const initialState = {
   posts: [...productsArrTest],
@@ -129,7 +132,7 @@ export const postsSlice = createSlice({
         return;
       }
 
-      post.approvedStatus = 'success';
+      post.approvedStatus = APPROVED;
       action.payload.onSuccess();
     },
     [actionRejectPost](state, action) {
@@ -140,7 +143,18 @@ export const postsSlice = createSlice({
         return;
       }
 
-      post.approvedStatus = 'rejected';
+      post.approvedStatus = REJECTED;
+      action.payload.onSuccess();
+    },
+    [actionArchivePost](state, action) {
+      const post = state.posts.find(post => post._id === action.payload.data._id);
+
+      if (!post) {
+        action.payload.onError();
+        return;
+      }
+
+      post.approvedStatus = ARCHIVED;
       action.payload.onSuccess();
     },
     [actionDeletePost](state, action) {

@@ -1,6 +1,7 @@
 import { userInfo } from './users';
 
 export const postStatus = {
+  APPROVED: 'approved',
   ARCHIVED: 'archived',
   ACCEPTED: 'accepted',
   REJECTED: 'rejected',
@@ -15,7 +16,7 @@ export const postStatus = {
   IS_COMMISSION: 'isCommission',
   COMMISSION: 'isStandart',
 };
-const { ACCEPTED, REJECTED, PENDING, AVAILABLE, NOT_AVAILABLE, AWAITING_ON_STOCK } = postStatus;
+const { APPROVED, REJECTED, PENDING, AVAILABLE, NOT_AVAILABLE, AWAITING_ON_STOCK } = postStatus;
 export const initialFormState = {
   // ???!!! seting by server ????
   // createdAt: '', // * date
@@ -206,7 +207,7 @@ export const productsArrTest = [
     ...incomeData,
     sku: 'fdg6b51656df2g',
     _id: '65165sd1dc65sd1',
-    approvedStatus: ACCEPTED,
+    approvedStatus: APPROVED,
     visibilityStatus: false,
     availabilityInfo: {
       availability: NOT_AVAILABLE,
@@ -234,7 +235,7 @@ export const productsArrTest = [
     ...incomeData,
     sku: 'sd21fv32d1f32s',
     _id: '651655165125sd5',
-    approvedStatus: ACCEPTED,
+    approvedStatus: APPROVED,
     visibilityStatus: true,
     availabilityInfo: {
       availability: AWAITING_ON_STOCK,
