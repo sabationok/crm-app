@@ -4,6 +4,7 @@ import { useRow } from '../TableRows/RowContext';
 import { useBlock } from 'components/Block/BlockContext';
 
 import s from './TableCells.module.scss';
+import { toast } from 'react-toastify';
 
 const CellActions = ({ title, idx, className = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,16 +19,16 @@ const CellActions = ({ title, idx, className = '' }) => {
   }
 
   function handleDeleteAction() {
-    deleteAction ? deleteAction(rowData._id) : console.log('error');
+    deleteAction ? deleteAction(rowData._id) : toast.error('deleteAction');
   }
   function handletogglePostVisibility() {
-    togglePostVisibility ? togglePostVisibility(rowData._id) : console.log('error');
+    togglePostVisibility ? togglePostVisibility(rowData._id) : toast.error('togglePostVisibility');
   }
   function handleApprove() {
-    approvePostAction ? approvePostAction(rowData._id) : console.log('error');
+    approvePostAction ? approvePostAction(rowData._id) : toast.error('approvePostAction');
   }
   function handleReject() {
-    rejectPostAction ? rejectPostAction(rowData._id) : console.log('error');
+    rejectPostAction ? rejectPostAction(rowData._id) : toast.error('rejectPostAction');
   }
 
   return (
