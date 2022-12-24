@@ -15,7 +15,8 @@
 .available,
 .visible,
 .isStandart,
-.success {
+.success,
+.accepted {
   fill: var(--clr-success);
   color: var(--clr-success);
 }

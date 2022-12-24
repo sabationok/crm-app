@@ -49,7 +49,7 @@ const BlockProductsList = props => {
     const payload = {
       data: { _id: id },
       onSuccess: () => {
-        toast.success(Visibility.success(id));
+        toast.success(Visibility.changed(id));
       },
       onError: () => {
         toast.error(Visibility.error(id));
@@ -89,6 +89,7 @@ const BlockProductsList = props => {
     };
     dispatch(actionRejectPost(payload));
   }
+
   const blockSettings = {
     title: 'Список товарів',
     iconId: 'list',
