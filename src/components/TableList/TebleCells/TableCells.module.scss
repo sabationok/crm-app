@@ -86,19 +86,17 @@
   top: 0;
   left: 0;
 
-  // overflow: hidden;
-  // max-width: 0;
   height: 100%;
 
   border-radius: 4px;
-  // background-color: #fff;
   fill: #fff;
   background-color: rgba(50, 50, 50, 1);
 
   transition: all var(--timing-function__main);
 }
 .rowActions {
-  transform: translateX(-100%);
+  // transform: translateX(-100%);
+  z-index: 5;
 }
 .rowActionsVisible {
   max-width: fit-content;
@@ -106,7 +104,7 @@
   box-shadow: 0 0 5px gray;
   box-shadow: 0 0 5px rgb(222, 222, 222);
 
-  z-index: 10;
+  z-index: 5;
   transform: translateX(40px);
 }
 .listItem {
