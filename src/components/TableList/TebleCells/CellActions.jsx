@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { useRow } from '../TableRows/RowContext';
 import { useBlock } from 'components/Block/BlockContext';
+import { useSelector } from 'react-redux';
+import { getAppPageSettings } from 'redux/selectors';
 
 import s from './TableCells.module.scss';
-const CellActions = ({ title, idx, className = '', onClick }) => {
+
+const CellActions = ({ title, idx, className = '' }) => {
+  const { indexPage } = useSelector(getAppPageSettings);
   const [isOpen, setIsOpen] = useState(false);
   const { deleteAction, togglePostVisibility, approvePostAction, rejectPostAction } = useBlock();
   const { rowData } = useRow();
@@ -28,6 +32,7 @@ const CellActions = ({ title, idx, className = '', onClick }) => {
   function handleReject() {
     rejectPostAction ? rejectPostAction(rowData._id) : console.log('error');
   }
+
   return (
     <>
       <div className={isOpen ? s.rowActionsVisible : s.rowActions}>
@@ -51,18 +56,24 @@ const CellActions = ({ title, idx, className = '', onClick }) => {
           </div>
         )}
 
-        <div className={s.listItem}>
-          <ButtonIcon size="40px" iconSize="24px" iconId="success" className={s.actionsBtn} disabled={disabledApproveBtn} onClick={handleApprove} />{' '}
-          <span className={s.actionTitle}>Затвердити</span>
-        </div>
-        <div className={s.listItem}>
-          <ButtonIcon size="40px" iconSize="24px" iconId="clear" className={s.actionsBtn} disabled={disabledRejectBtn} onClick={handleReject} />{' '}
-          <span className={s.actionTitle}>Відхилити</span>
-        </div>
+        {indexPage === 'products' && (
+          <div className={s.listItem}>
+            <ButtonIcon size="40px" iconSize="24px" iconId="success" className={s.actionsBtn} disabled={disabledApproveBtn} onClick={handleApprove} />{' '}
+            <span className={s.actionTitle}>Затвердити</span>
+          </div>
+        )}
+
+        {indexPage === 'products' && (
+          <div className={s.listItem}>
+            <ButtonIcon size="40px" iconSize="24px" iconId="clear" className={s.actionsBtn} disabled={disabledRejectBtn} onClick={handleReject} />{' '}
+            <span className={s.actionTitle}>Відхилити</span>
+          </div>
+        )}
 
         <div className={s.listItem}>
           <ButtonIcon size="40px" iconSize="24px" iconId="share" className={s.actionsBtn} /> <span className={s.actionTitle}>Поділитись</span>
         </div>
+
         <div className={s.listItem}>
           <ButtonIcon size="40px" iconSize="24px" iconId="link" className={s.actionsBtn} /> <span className={s.actionTitle}>Посилання</span>
         </div>

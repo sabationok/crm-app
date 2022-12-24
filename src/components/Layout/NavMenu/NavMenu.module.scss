@@ -16,7 +16,7 @@
     position: absolute;
     bottom: 100%;
     right: 0;
-    z-index: 105;
+    z-index: 50;
 
     min-width: 230px;
 
@@ -65,11 +65,11 @@
     // fill: #fff;
     &:hover {
       fill: var(--brand_clr__1);
-      background-color: rgba(254,254,254,0.2);
+      background-color: rgba(254, 254, 254, 0.2);
     }
     &:active {
       fill: var(--brand_clr__1);
-      background-color: rgba(254,254,254,0.1);
+      background-color: rgba(254, 254, 254, 0.1);
     }
   }
 }

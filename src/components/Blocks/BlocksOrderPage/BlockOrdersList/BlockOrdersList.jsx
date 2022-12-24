@@ -9,9 +9,10 @@ import { ordersTableTitles } from 'data/ordersTableTitles';
 import { prepeareOrderData } from 'data/orders';
 import { actionDeleteOrder as actionDelete } from 'redux/orders/ordersActions';
 import { useNavigate } from 'react-router-dom';
-import { ordersMessages as deleteMessages } from '../../../../data/ordersMessages';
+import { ordersMessages as messages } from 'data';
 
 import s from './BlockOrdersList.module.scss';
+import { toast } from 'react-toastify';
 
 const BlockOrderList = props => {
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
@@ -19,26 +20,25 @@ const BlockOrderList = props => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // const { id } = useParams();
+  const { NOT_SELECTED, Deleting, Archivating, Accepting, Declining } = messages;
 
   function deleteAction(id) {
-    const { NOT_SELECTED_ID, DELETE_CONFIRM, DELETE_DECLINE, DELETE_SUCCESS, DELETE_ERROR } = deleteMessages;
     if (!id) {
-      NOT_SELECTED_ID();
+      NOT_SELECTED();
       return;
     }
-    const confirm = window.confirm(DELETE_CONFIRM(id));
+    const confirm = window.confirm(Deleting.confirm(id));
     if (!confirm) {
-      DELETE_DECLINE(id);
       return;
     }
     const payload = {
       data: { _id: id },
       onSuccess: () => {
-        DELETE_SUCCESS(id);
         navigate(`/orders`);
+        toast.successDeleting.success(id)();
       },
       onError: () => {
-        DELETE_ERROR(id);
+        toast.error(Deleting.error(id));
       },
     };
     dispatch(actionDelete(payload));
