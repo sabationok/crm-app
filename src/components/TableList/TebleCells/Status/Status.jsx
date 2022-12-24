@@ -36,6 +36,7 @@ const Status = ({ status }) => {
     standart: 'Стандарт',
     problem: 'Проблема',
     resolving: 'Вирішується',
+    archived: 'Архівний',
     default: 'Без статусу',
   };
   const iconId = {
@@ -70,6 +71,7 @@ const Status = ({ status }) => {
     curier: 'info',
     orderSuccess: 'success',
     pendingRefund: 'NEED REFUND',
+    archived: 'error',
     default: 'info',
   };
 

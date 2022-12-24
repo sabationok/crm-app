@@ -3,11 +3,11 @@ import Block from 'components/Block/Block';
 import TableList from 'components/TableList/BlockTable';
 
 import { useSelector, useDispatch } from 'react-redux';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getAppPageSettings, getOrders } from 'redux/selectors';
 import { ordersTableTitles } from 'data/ordersTableTitles';
 import { prepeareOrderData } from 'data/orders';
-import { actionDeleteOrder as actionDelete } from 'redux/orders/ordersActions';
+import { actionDeleteOrder, actionArchiveOrder, actionAcceptOrder, actionDeclineOrder } from 'redux/orders/ordersActions';
 import { useNavigate } from 'react-router-dom';
 import { ordersMessages as messages } from 'data';
 
@@ -19,8 +19,9 @@ const BlockOrderList = props => {
   const { orders } = useSelector(getOrders);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  // const { id } = useParams();
+  const { id } = useParams();
   const { NOT_SELECTED, Deleting, Archivating, Accepting, Declining } = messages;
+  const selectedOrder = orders.find(el => el._id === id);
 
   function deleteAction(id) {
     if (!id) {
@@ -35,24 +36,94 @@ const BlockOrderList = props => {
       data: { _id: id },
       onSuccess: () => {
         navigate(`/orders`);
-        toast.successDeleting.success(id)();
+        toast.success(Deleting.success(id));
       },
       onError: () => {
         toast.error(Deleting.error(id));
       },
     };
-    dispatch(actionDelete(payload));
+    dispatch(actionDeleteOrder(payload));
   }
+
+  function archivatingAction(id) {
+    if (!id) {
+      NOT_SELECTED();
+      return;
+    }
+    const confirm = window.confirm(Archivating.confirm(id));
+    if (!confirm) {
+      return;
+    }
+    const payload = {
+      data: { _id: id },
+      onSuccess: () => {
+        navigate(`/orders`);
+        toast.success(Archivating.success(id));
+      },
+      onError: () => {
+        toast.error(Archivating.error(id));
+      },
+    };
+    dispatch(actionArchiveOrder(payload));
+  }
+
+  function acceptingAction(id) {
+    if (!id) {
+      NOT_SELECTED();
+      return;
+    }
+    const confirm = window.confirm(Accepting.confirm(id));
+    if (!confirm) {
+      return;
+    }
+    const payload = {
+      data: { _id: id },
+      onSuccess: () => {
+        navigate(`/orders`);
+        toast.success(Accepting.success(id));
+      },
+      onError: () => {
+        toast.error(Accepting.error(id));
+      },
+    };
+    dispatch(actionAcceptOrder(payload));
+  }
+
+  function declinigAction(id) {
+    if (!id) {
+      NOT_SELECTED();
+      return;
+    }
+    const confirm = window.confirm(Declining.confirm(id));
+    if (!confirm) {
+      return;
+    }
+    const payload = {
+      data: { _id: id },
+      onSuccess: () => {
+        navigate(`/orders`);
+        toast.success(Declining.success(id));
+      },
+      onError: () => {
+        toast.error(Declining.error(id));
+      },
+    };
+    dispatch(actionDeclineOrder(payload));
+  }
+
   const blockSettings = {
     title: 'Список замовлень',
     iconId: 'list',
     actions: 'withFilter',
     className: s[pageGrid],
-    prepeareRowdata: prepeareOrderData,
+    order: selectedOrder,
     tableTitles: ordersTableTitles,
     tableData: orders,
+    prepeareRowdata: prepeareOrderData,
+    archiveOrderAction: archivatingAction,
+    approveOrderAction: acceptingAction,
+    rejectOrderAction: declinigAction,
     deleteAction,
-    order: {},
     ...props,
   };
 

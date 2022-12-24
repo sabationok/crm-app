@@ -5,11 +5,15 @@ import {
   actionMarkCheckbox,
   actionUnmarkCheckbox,
   actionDeleteOrder,
+  actionArchiveOrder,
+  actionAcceptOrder,
+  actionDeclineOrder,
   actionSelectOrderByClick,
   actionMarkAllCheckboxes,
   actionChangeSearchParam,
 } from 'redux/orders/ordersActions';
 
+import { orderStatus } from 'data/orders';
 import { testOrdersArr } from 'data/orders';
 const initialState = {
   orders: [...testOrdersArr],
@@ -70,7 +74,6 @@ export const ordersSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-
     [fetchEditOrder.pending](state, action) {
       state.isLoading = true;
     },
@@ -81,14 +84,16 @@ export const ordersSlice = createSlice({
     [actionChangeSearchParam](state, { payload }) {
       state.searchParam = payload.dataTitle;
     },
+
     [actionSelectOrderByClick](state, { payload }) {
       state.selectedPostId = payload;
     },
     [actionMarkCheckbox](state, action) {},
+    [actionUnmarkCheckbox](state, action) {},
     [actionMarkAllCheckboxes](state, action) {
       console.log('marked all checkboxes');
     },
-    [actionUnmarkCheckbox](state, action) {},
+
     [actionDeleteOrder](state, action) {
       const order = state.orders.find(order => order._id === action.payload.data._id);
       if (!order) {
@@ -96,6 +101,36 @@ export const ordersSlice = createSlice({
         return;
       }
       state.orders = state.orders.filter(order => order._id !== action.payload.data._id);
+      action.payload.onSuccess();
+    },
+    [actionArchiveOrder](state, action) {
+      const order = state.orders.find(order => order._id === action.payload.data._id);
+      if (!order) {
+        action.payload.onError();
+        return;
+      }
+
+      order.orderStatus = orderStatus.ARCHIVED;
+      action.payload.onSuccess();
+    },
+    [actionAcceptOrder](state, action) {
+      const order = state.orders.find(order => order._id === action.payload.data._id);
+      if (!order) {
+        action.payload.onError();
+        return;
+      }
+
+      order.orderStatus = orderStatus.ACCEPTED;
+      action.payload.onSuccess();
+    },
+    [actionDeclineOrder](state, action) {
+      const order = state.orders.find(order => order._id === action.payload.data._id);
+      if (!order) {
+        action.payload.onError();
+        return;
+      }
+
+      order.orderStatus = orderStatus.REJECTED;
       action.payload.onSuccess();
     },
   },

@@ -14,7 +14,7 @@ export const ordersMessages = {
   },
 
   Accepting: {
-    confirm: id => `Бажаєте прийняти замолення № ${id} ?`,
+    confirm: id => `Бажаєте прийняти замовлення № ${id} ?`,
     success: id => `Замовлення № ${id} прийнято`,
     error: id => `Прийняття замовлення № ${id} невдале`,
   },

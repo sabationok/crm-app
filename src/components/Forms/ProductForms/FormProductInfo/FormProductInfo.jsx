@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useBlock } from 'components/Block/BlockContext';
 import { toast } from 'react-toastify';
 // import { getUserData } from 'redux/selectors';
-import { initialState } from '../../../../data/productsFormData';
+import { initialState } from '../../../../data/products';
 import { useModal } from 'components/ModalCustom/ModalCustom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAddPost, fetchEditPost } from 'redux/posts/postsThunks';

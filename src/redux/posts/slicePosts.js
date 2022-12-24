@@ -14,7 +14,7 @@ import {
   actionRejectPost,
 } from 'redux/posts/postsActions';
 
-import { productsArrTest } from 'data/productsFormData';
+import { productsArrTest } from 'data/products';
 
 const initialState = {
   posts: [...productsArrTest],

@@ -4,7 +4,7 @@ import TopInfo from './TopInfo/TopInfo';
 import Actions from './Actions/Actions';
 import BlockEmpty from '../../BlockEmpty/BlockEmpty';
 import { getAppPageSettings, getPosts } from 'redux/selectors';
-import { prepareProductData, prepareProductSubmitData } from 'data/productsFormData';
+import { prepeareProductData, prepeareProductSubmitData } from 'data/products';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
@@ -22,8 +22,9 @@ const BlockProductInfo = props => {
   const dispatch = useDispatch();
   const selectedPost = posts.find(post => post._id === id);
 
+  const { NOT_SELECTED_ID, Deleting } = messages;
+
   function deleteAction(id) {
-    const { NOT_SELECTED_ID, Deleting } = messages;
     if (!id) {
       NOT_SELECTED_ID(id);
       return;
@@ -51,8 +52,8 @@ const BlockProductInfo = props => {
     actions: 'primary',
     className: s[pageGrid],
     ActionsComp: Actions,
-    prepareRowData: prepareProductData,
-    prepareSubmitData: prepareProductSubmitData,
+    prepareRowData: prepeareProductData,
+    prepareSubmitData: prepeareProductSubmitData,
     deleteAction,
     post: selectedPost,
     ...props,

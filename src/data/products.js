@@ -1,5 +1,21 @@
 import { userInfo } from './users';
 
+export const postStatus = {
+  ARCHIVED: 'archived',
+  ACCEPTED: 'accepted',
+  REJECTED: 'rejected',
+  PENDING: 'pending',
+
+  AVAILABLE: 'available',
+  NOT_AVAILABLE: 'notAvailable',
+  AWAITING_ON_STOCK: 'awaitingOnStock',
+
+  VISIBLE: 'visible',
+  HIDDEN: 'notVisible',
+  IS_COMMISSION: 'isCommission',
+  COMMISSION: 'isStandart',
+};
+const { ACCEPTED, REJECTED, PENDING, AVAILABLE, NOT_AVAILABLE, AWAITING_ON_STOCK } = postStatus;
 export const initialFormState = {
   // ???!!! seting by server ????
   // createdAt: '', // * date
@@ -64,8 +80,8 @@ export const initialFormState = {
   },
   sizesTable: '',
 };
-export const initialState = prepareProductData(initialFormState);
-export function prepareProductData({
+export const initialState = prepeareProductData(initialFormState);
+export function prepeareProductData({
   _id,
   sku,
   name,
@@ -102,7 +118,7 @@ export function prepareProductData({
   };
   return data;
 }
-export function prepareProductSubmitData(data) {
+export function prepeareProductSubmitData(data) {
   let submitData = {
     sku: data?.sku,
     name: data?.name,
@@ -190,10 +206,10 @@ export const productsArrTest = [
     ...incomeData,
     sku: 'fdg6b51656df2g',
     _id: '65165sd1dc65sd1',
-    approvedStatus: 'success',
+    approvedStatus: ACCEPTED,
     visibilityStatus: false,
     availabilityInfo: {
-      availability: 'notAvailable',
+      availability: NOT_AVAILABLE,
       order: false,
       orderAwaitingTime: 2,
       specialOrder: false,
@@ -204,10 +220,10 @@ export const productsArrTest = [
     ...incomeData,
     sku: 'sdf1b6s1d3s2ff',
     _id: '65153sd1dc65sd1',
-    approvedStatus: 'pending',
+    approvedStatus: PENDING,
     visibilityStatus: false,
     availabilityInfo: {
-      availability: 'notAvailable',
+      availability: NOT_AVAILABLE,
       order: false,
       orderAwaitingTime: 2,
       specialOrder: false,
@@ -218,10 +234,10 @@ export const productsArrTest = [
     ...incomeData,
     sku: 'sd21fv32d1f32s',
     _id: '651655165125sd5',
-    approvedStatus: 'success',
+    approvedStatus: ACCEPTED,
     visibilityStatus: true,
     availabilityInfo: {
-      availability: 'awaitingOnStock',
+      availability: AWAITING_ON_STOCK,
       order: false,
       orderAwaitingTime: 2,
       specialOrder: false,
@@ -241,10 +257,10 @@ export const productsArrTest = [
     ...incomeData,
     sku: 'fdg6b51656dsfs',
     _id: '65sdfbbdsd1dc65',
-    approvedStatus: 'rejected',
+    approvedStatus: REJECTED,
     visibilityStatus: false,
     availabilityInfo: {
-      availability: 'available',
+      availability: AVAILABLE,
       order: true,
       orderAwaitingTime: 2,
       specialOrder: true,
@@ -257,7 +273,7 @@ export const productsArrTest = [
     _id: '65sdfb58sd1dc65',
     approvedStatus: 'pending',
     availabilityInfo: {
-      availability: 'available',
+      availability: AVAILABLE,
       order: false,
       orderAwaitingTime: 2,
       specialOrder: true,
@@ -268,10 +284,10 @@ export const productsArrTest = [
     ...incomeData,
     sku: 'fdg6sd1656dsfs',
     _id: '65sdfbb45d1dc65',
-    approvedStatus: 'rejected',
+    approvedStatus: REJECTED,
     visibilityStatus: true,
     availabilityInfo: {
-      availability: 'available',
+      availability: AVAILABLE,
       order: true,
       orderAwaitingTime: 2,
       specialOrder: false,

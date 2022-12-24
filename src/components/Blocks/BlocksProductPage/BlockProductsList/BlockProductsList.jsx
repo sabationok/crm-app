@@ -7,41 +7,38 @@ import { actionDeletePost as actionDelete, actionTogglePostVisibility, actionApp
 import { postsMessages as messages } from '../../../../data/postsMessages';
 import { getAppPageSettings, getPosts } from 'redux/selectors';
 import { productsTableTitles } from 'data/productsTableTitles';
-import { prepareProductData } from 'data/productsFormData';
+import { prepeareProductData } from 'data/products';
 
 import s from './BlockProductsList.module.scss';
+import { toast } from 'react-toastify';
 const BlockProductsList = props => {
   const { posts } = useSelector(getPosts);
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const { NOT_SELECTED_ID, Deleting, Visibility, Approving, Rejecting } = messages;
+
   function deleteAction(id) {
-    const { NOT_SELECTED_ID, DELETE_CONFIRM, DELETE_DECLINE, DELETE_SUCCESS, DELETE_ERROR } = messages;
-    if (!id) {
-      NOT_SELECTED_ID();
-      return;
-    }
-    const confirm = window.confirm(DELETE_CONFIRM(id));
+    const confirm = window.confirm(Deleting.confirm(id));
     if (!confirm) {
-      DELETE_DECLINE(id);
       return;
     }
     const payload = {
       data: { _id: id },
       onSuccess: () => {
-        DELETE_SUCCESS(id);
+        toast.success(Deleting.success(id));
+        Deleting.success(id);
         navigate(`/products`);
       },
       onError: () => {
-        DELETE_ERROR(id);
+        toast.error(Deleting.error(id));
       },
     };
     dispatch(actionDelete(payload));
   }
   function togglePostVisibility(id) {
-    const { VISIBILITY_CONFIRM, NOT_SELECTED_ID, VISIBILITY_CHANGED, VISIBILITY_ERROR } = messages;
-    const confirm = window.confirm(VISIBILITY_CONFIRM(id));
+    const confirm = window.confirm(Visibility.confirm(id));
     if (!confirm) {
       return;
     }
@@ -52,44 +49,42 @@ const BlockProductsList = props => {
     const payload = {
       data: { _id: id },
       onSuccess: () => {
-        VISIBILITY_CHANGED(id);
+        toast.success(Visibility.success(id));
       },
       onError: () => {
-        VISIBILITY_ERROR(id);
+        toast.error(Visibility.error(id));
       },
     };
     dispatch(actionTogglePostVisibility(payload));
   }
   function approvePostAction(id) {
-    const { APPROVED, STATUS_ERROR, APPROVED_CONFIRM } = messages;
-    const confirm = window.confirm(APPROVED_CONFIRM(id));
+    const confirm = window.confirm(Approving.confirm(id));
     if (!confirm) {
       return;
     }
     const payload = {
       data: { _id: id },
       onSuccess: () => {
-        APPROVED(id);
+        toast.error(Approving.success(id));
       },
       onError: () => {
-        STATUS_ERROR(id);
+        toast.error(Approving.error(id));
       },
     };
     dispatch(actionApprovePost(payload));
   }
   function rejectPostAction(id) {
-    const { REJECTED, STATUS_ERROR, REJECTED_CONFIRM } = messages;
-    const confirm = window.confirm(REJECTED_CONFIRM(id));
+    const confirm = window.confirm(Rejecting.confirm(id));
     if (!confirm) {
       return;
     }
     const payload = {
       data: { _id: id },
       onSuccess: () => {
-        REJECTED(id);
+        toast.error(Rejecting.success(id));
       },
       onError: () => {
-        STATUS_ERROR(id);
+        toast.error(Rejecting.error(id));
       },
     };
     dispatch(actionRejectPost(payload));
@@ -101,7 +96,7 @@ const BlockProductsList = props => {
     className: s[pageGrid],
     tableData: [...posts],
     tableTitles: productsTableTitles,
-    prepeareRowData: prepareProductData,
+    prepeareRowData: prepeareProductData,
     deleteAction,
     togglePostVisibility,
     approvePostAction,
