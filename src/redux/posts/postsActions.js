@@ -6,9 +6,10 @@ export const actionMarkAllCheckboxes = createAction('posts/actionMarkAllCheckbox
 export const actionUnMarkAllCheckboxes = createAction('posts/actionUnMarkAllCheckboxes');
 export const actionUnmarkCheckbox = createAction('posts/actionUnmarkCheckbox');
 export const actionDeletePost = createAction('posts/actionDeletePost');
-export const actionChangePostVisibility = createAction('posts/actionChangePostVisibility');
+export const actionTogglePostVisibility = createAction('posts/actionTogglePostVisibility');
 export const actionApprovePost = createAction('posts/actionApprovePost');
 export const actionRejectPost = createAction('posts/actionRejectPost');
+export const actionTogglePostStatus = createAction('posts/actionTogglePostStatus');
 export const actionSelectPostByClick = createAction('posts/actionSelectPostByClick');
 export const actionChangeSearchParam = createAction('posts/actionChangeSearchParam');
 

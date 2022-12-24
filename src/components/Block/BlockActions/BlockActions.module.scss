@@ -105,6 +105,7 @@
   top: 8px;
   right: 8px;
 
+  // padding: 8px;
   max-width: calc(100% - 16px);
   visibility: hidden;
 
@@ -114,18 +115,14 @@
   border-radius: 4px;
   transition: all var(--timing-function__main);
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) and (orientation: portrait) {
+    flex-direction: column;
     transform: translateY(-200%);
   }
-
-  @media screen and (orientation: portrait) {
-    padding: 8px 0;
-  }
-  @media screen and (min-width: 768px) and (orientation: portrait) {
+  @media screen and (max-width: 768px) and (orientation: landscape) {
     transform: translateX(100%);
   }
-  @media screen and (orientation: landscape) {
+  @media screen and (min-width: 768px) {
     transform: translateX(100%);
-    padding: 0 8px;
   }
 }

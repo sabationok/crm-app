@@ -23,7 +23,7 @@ const Block = props => {
     className = '',
   } = props;
   const [isSearch, setIsSearch] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { isDarkTheme } = useSelector(getAppSettings);
   const [isFullPageMode, setIsFullPageMode] = useState(false);
   const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');

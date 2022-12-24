@@ -31,8 +31,8 @@ const AppRoutes = () => {
           <Route path=":id" element={<PageOrders path="orders" />} errorElement={<PageError />} />
           <Route path="order" element={<PageOrders path="order" />} errorElement={<PageError />} />
           <Route path=":id/order" element={<PageOrders path="order" />} errorElement={<PageError />} />
-          <Route path="ttn" element={<PageOrders path="ttn" />} errorElement={<PageError />} />
-          <Route path=":id/ttn" element={<PageOrders path="ttn" />} errorElement={<PageError />} />
+          <Route path="realizations" element={<PageOrders path="realizations" />} errorElement={<PageError />} />
+          <Route path=":id/realizations" element={<PageOrders path="realizations" />} errorElement={<PageError />} />
           <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
         </Route>
 

@@ -9,7 +9,7 @@ import {
   actionMarkAllCheckboxes,
   actionChangeSearchParam,
   actionUnMarkAllCheckboxes,
-  actionChangePostVisibility,
+  actionTogglePostVisibility,
   actionApprovePost,
   actionRejectPost,
 } from 'redux/posts/postsActions';
@@ -110,7 +110,7 @@ export const postsSlice = createSlice({
     },
     [actionMarkCheckbox](state, action) {},
     [actionUnmarkCheckbox](state, action) {},
-    [actionChangePostVisibility](state, action) {
+    [actionTogglePostVisibility](state, action) {
       const post = state.posts.find(post => post._id === action.payload.data._id);
 
       if (!post) {

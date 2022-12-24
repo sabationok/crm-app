@@ -7,17 +7,17 @@ import { useParams } from 'react-router-dom';
 // import { getOrders } from 'redux/selectors';
 import { getAppPageSettings } from 'redux/selectors';
 
-import s from './BlockOrdeInvoices.module.scss';
+import s from './BlockOrderRealizations.module.scss';
 
-const BlockOrdeInvoices = props => {
+const BlockOrderRealizations = props => {
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
   const { id } = useParams();
   // const { orders } = useSelector(getOrders);
   // const selectedOrder = posts.find(order => order._id === id);
 
   const blockSettings = {
-    title: 'Інвойси',
-    iconId: 'assignment',
+    title: 'Реалізації',
+    iconId: 'assignment-ok',
     actions: 'primary',
     className: s[pageGrid],
     ActionsComp: Actions,
@@ -28,4 +28,4 @@ const BlockOrdeInvoices = props => {
   return <Block {...blockSettings}>{id}</Block>;
 };
 
-export default BlockOrdeInvoices;
+export default BlockOrderRealizations;

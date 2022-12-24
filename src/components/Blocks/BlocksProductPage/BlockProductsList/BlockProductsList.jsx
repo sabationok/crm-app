@@ -1,10 +1,9 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 import TableList from 'components/TableList/BlockTable';
-import Actions from './Actions/Actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { actionDeletePost as actionDelete, actionChangePostVisibility, actionApprovePost, actionRejectPost } from 'redux/posts/postsActions';
+import { actionDeletePost as actionDelete, actionTogglePostVisibility, actionApprovePost, actionRejectPost } from 'redux/posts/postsActions';
 import { postsMessages as messages } from '../postsMessages';
 import { getAppPageSettings, getPosts } from 'redux/selectors';
 import { productsTableTitles } from 'data/productsTableTitles';
@@ -40,8 +39,12 @@ const BlockProductsList = props => {
     };
     dispatch(actionDelete(payload));
   }
-  function changeVisibilityAction(id) {
-    const { NOT_SELECTED_ID, VISIBILITY_CHANGED, VISIBILITY_ERROR } = messages;
+  function togglePostVisibility(id) {
+    const { VISIBILITY_CONFIRM, NOT_SELECTED_ID, VISIBILITY_CHANGED, VISIBILITY_ERROR } = messages;
+    const confirm = window.confirm(VISIBILITY_CONFIRM(id));
+    if (!confirm) {
+      return;
+    }
     if (!id) {
       NOT_SELECTED_ID();
       return;
@@ -55,10 +58,14 @@ const BlockProductsList = props => {
         VISIBILITY_ERROR(id);
       },
     };
-    dispatch(actionChangePostVisibility(payload));
+    dispatch(actionTogglePostVisibility(payload));
   }
   function approvePostAction(id) {
-    const { APPROVED, STATUS_ERROR } = messages;
+    const { APPROVED, STATUS_ERROR, APPROVED_CONFIRM } = messages;
+    const confirm = window.confirm(APPROVED_CONFIRM(id));
+    if (!confirm) {
+      return;
+    }
     const payload = {
       data: { _id: id },
       onSuccess: () => {
@@ -71,7 +78,11 @@ const BlockProductsList = props => {
     dispatch(actionApprovePost(payload));
   }
   function rejectPostAction(id) {
-    const { REJECTED, STATUS_ERROR } = messages;
+    const { REJECTED, STATUS_ERROR, REJECTED_CONFIRM } = messages;
+    const confirm = window.confirm(REJECTED_CONFIRM(id));
+    if (!confirm) {
+      return;
+    }
     const payload = {
       data: { _id: id },
       onSuccess: () => {
@@ -90,10 +101,9 @@ const BlockProductsList = props => {
     className: s[pageGrid],
     tableData: [...posts],
     tableTitles: productsTableTitles,
-    ActionsComp: Actions,
     prepeareRowData: prepareProductData,
     deleteAction,
-    changeVisibilityAction,
+    togglePostVisibility,
     approvePostAction,
     rejectPostAction,
     ...props,

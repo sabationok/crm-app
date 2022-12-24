@@ -14,7 +14,7 @@ export const appNotifySlice = createSlice({
       state.notifications = [action.payload, ...state.notifications];
     },
     [actionClearAllNotify]: (state, action) => {
-      state.notifications = [action.payload];
+      state.notifications = [];
     },
     [actionDeleteNotify]: (state, action) => {
       state.notifications = state.notifications.filter(item => item.id !== action.payload);

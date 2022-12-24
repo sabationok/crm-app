@@ -5,7 +5,7 @@ import BlockChat from './BlockChat';
 import BlockOrderTTN from './BlocksOrderPage/BlockOrderTTN/BlockOrderTTN';
 import BlockOrdersList from './BlocksOrderPage/BlockOrdersList/BlockOrdersList';
 import BlockOrderInfo from './BlocksOrderPage/BlockOrderInfo/BlockOrderInfo';
-import BlockOrdeInvoices from './BlocksOrderPage/BlockOrderInvoices/BlockOrdeInvoices';
+import BlockOrderRealizations from './BlocksOrderPage/BlockOrderRealizations/BlockOrderRealizations';
 import BlockRefundsList from './BlocksRefunds/BlockReturnsList/BlockRefundsList';
 import BlockRefundInspect from './BlocksRefunds/BlockRefundInspect/BlockRefundInspect';
 import BlockRefundInfo from './BlocksRefunds/BlockReturnInfo/BlockRefundInfo';
@@ -22,7 +22,7 @@ export const BlocksMap = {
   BlockOrdersList,
   BlockOrderInfo,
   BlockOrderTTN,
-  BlockOrdeInvoices,
+  BlockOrderRealizations,
   BlockRefundsList,
   BlockRefundInspect,
   BlockRefundInfo,
@@ -54,7 +54,7 @@ export {
   BlockProductStock,
   BlockOrdersList,
   BlockOrderInfo,
-  BlockOrdeInvoices,
+  BlockOrderRealizations,
   BlockOrderTTN,
   BlockRefundsList,
   BlockRefundInfo,

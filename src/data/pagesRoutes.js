@@ -77,9 +77,9 @@ export const mobilePageRoutes = [
     evice: 'mobile',
     parentPath: 'orders',
     path: 'order',
-    iconId: 'assignment-ok',
+    iconId: 'assignment-in',
   },
-  { title: 'ТТН', device: 'mobile', parentPath: 'orders', path: 'ttn', iconId: 'ttn' },
+  { title: 'Реалізації', device: 'mobile', parentPath: 'orders', path: 'realizations', iconId: 'assignment-ok' },
 
   { title: 'Список повернень', device: 'mobile', parentPath: 'refunds', path: '/refunds', navLink: false, iconId: 'list' },
   { title: 'Деталі повернення', device: 'mobile', parentPath: 'refunds', path: 'refund', iconId: 'refund' },

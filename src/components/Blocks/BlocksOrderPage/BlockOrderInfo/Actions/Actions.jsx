@@ -1,46 +1,23 @@
 import React from 'react';
 
-import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
-import BlockSimple from 'components/BlockSimple/BlockSimple';
-import ActionPrimary from 'components/Block/BlockActions/Actions/ActionPrimary';
+import ActionCreate from 'components/Block/BlockActions/Actions/ActionCreate';
+import ActionEdit from 'components/Block/BlockActions/Actions/ActionEdit';
 import { useParams } from 'react-router-dom';
 
-import s from './Actions.module.scss';
+// import s from './Actions.module.scss';
 
 const Actions = () => {
-  const { id = 'Апарметр відсутній' } = useParams();
-  console.log(id);
+  const { id = 'Параметр відсутній' } = useParams();
+
   return (
     <>
-      <ModalOpenLink
-        modalContent={
-          <BlockSimple title="Редагування замовлення" iconId="edit" className={s.modalBlock} headerClassName={s.modalHeader}></BlockSimple>
-        }
-      >
-        <ActionPrimary iconId="edit" title="Змінити" />
-      </ModalOpenLink>
+      <ActionCreate type="order" props={{ id: id }} title="Створення замовлення" />
 
-      <ModalOpenLink
-        modalContent={<BlockSimple title="Створення замовлення" iconId="plus" className={s.modalBlock} headerClassName={s.modalHeader}></BlockSimple>}
-      >
-        <ActionPrimary iconId="plus" title="Створити" />
-      </ModalOpenLink>
+      <ActionEdit type="order" props={{ id: id }} title="Редагування замовлення" />
 
-      <ModalOpenLink
-        modalContent={
-          <BlockSimple title="Створення повернення" iconId="refund" className={s.modalBlock} headerClassName={s.modalHeader}></BlockSimple>
-        }
-      >
-        <ActionPrimary iconId="refund" title="Створити повернення" />
-      </ModalOpenLink>
+      <ActionCreate type="refund" props={{ id: id }} iconId="refund" title="Створення повернення" />
 
-      <ModalOpenLink
-        modalContent={
-          <BlockSimple title="Створення інвойс" iconId="assignment" className={s.modalBlock} headerClassName={s.modalHeader}></BlockSimple>
-        }
-      >
-        <ActionPrimary iconId="assignment" title="Створити інвойс" />
-      </ModalOpenLink>
+      <ActionCreate type="realization" props={{ id: id }} iconId="assignment-ok" title="Створення реалізації" />
     </>
   );
 };

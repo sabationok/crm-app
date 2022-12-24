@@ -14,7 +14,7 @@ import s from './Notifications.module.scss';
 const Notifications = () => {
   const { notifications } = useSelector(getAppNotify);
   const { isDarkTheme } = useSelector(getAppSettings);
-
+  const count = notifications.length;
   return (
     <ModalOpenButton
       className={s.openButton}
@@ -27,13 +27,16 @@ const Notifications = () => {
                 <DeleteAllTotifyBtn />
               </span>
               <span className="">Кількість сповіщень</span>
-              <span className={s.counterGrid}>{notifications.length}</span>
+              <span className={s.counterGrid}>{count}</span>
             </div>
-            <ul className={s.list}>
-              {notifications.map(item => (
-                <Notification key={item.id} {...item} />
-              ))}
-            </ul>
+            {count <= 0 && <div className={s.empty}>{'Сповіщення відсутні'}</div>}
+            {count > 0 && (
+              <ul className={s.list}>
+                {notifications.map(item => (
+                  <Notification key={item.id} {...item} />
+                ))}
+              </ul>
+            )}
           </div>
         </>
       }

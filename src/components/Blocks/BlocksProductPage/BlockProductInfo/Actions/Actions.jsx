@@ -1,58 +1,28 @@
 import React from 'react';
 
-import ModalOpenLink from 'components/ModalCustom/ModalOpenLink/ModalOpenLink';
-import BlockSimple from 'components/BlockSimple/BlockSimple';
-import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
-import FormProductImgs from 'components/Forms/ProductForms/FormProductImgs/FormProductImgs';
-import ActionPrimary from 'components/Block/BlockActions/Actions/ActionPrimary';
+import ActionCreate from 'components/Block/BlockActions/Actions/ActionCreate';
+import ActionEdit from 'components/Block/BlockActions/Actions/ActionEdit';
+import ActionCopy from 'components/Block/BlockActions/Actions/ActionCopy';
+
+import ActionTogglePostVisibility from 'components/Block/BlockActions/Actions/ActionTogglePostVisibility';
 
 import { useParams } from 'react-router-dom';
 
-import s from './Actions.module.scss';
+// import s from './Actions.module.scss';
 
 const Actions = () => {
   const { id } = useParams();
   return (
     <>
-      <ModalOpenLink
-        modalContent={
-          <BlockSimple title="Редагування товару" iconId="edit" className={s.modalBlock} headerClassName={s.modalHeader}>
-            <FormProductInfo edit id={id} />
-          </BlockSimple>
-        }
-      >
-        <ActionPrimary iconId="edit" title="Змінити" />
-      </ModalOpenLink>
+      <ActionCreate type="product" props={{ id: id }} title="Створення продукту" />
 
-      <ModalOpenLink
-        modalContent={
-          <BlockSimple title="Керувати зображеннями" iconId="gallery" className={s.modalBlock} headerClassName={s.modalHeader}>
-            <FormProductImgs id={id} />
-          </BlockSimple>
-        }
-      >
-        <ActionPrimary iconId="gallery" title="Редагувати зображення" />
-      </ModalOpenLink>
+      <ActionEdit type="product" props={{ id: id }} title="Редагування продукту" />
 
-      <ModalOpenLink
-        modalContent={
-          <BlockSimple title="Створення товару" iconId="plus" className={s.modalBlock} headerClassName={s.modalHeader}>
-            <FormProductInfo create />
-          </BlockSimple>
-        }
-      >
-        <ActionPrimary iconId="plus" title="Створити новий" />
-      </ModalOpenLink>
+      <ActionCopy type="product" props={{ id: id }} title="Копіювати продукт" />
 
-      <ModalOpenLink
-        modalContent={
-          <BlockSimple title="Копія товару" iconId="copy" className={s.modalBlock} headerClassName={s.modalHeader}>
-            <FormProductInfo copy id={id} />
-          </BlockSimple>
-        }
-      >
-        <ActionPrimary iconId="copy" title="Створити копію" />
-      </ModalOpenLink>
+      <ActionEdit type="productImgs" props={{ id: id }} iconId="gallery" title="Керувати зображеннями" />
+
+      <ActionTogglePostVisibility />
     </>
   );
 };

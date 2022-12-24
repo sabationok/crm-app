@@ -23,15 +23,15 @@ const AppNotifyProvider = props => {
   const dispatchDeleteNotify = id => {
     dispatch(actionDeleteNotify(id));
   };
-  const dispatchDeleteAllNotify = id => {
-    const newNotify = {
-      id: nanoid(5),
-      type: INFO,
-      title: 'Очищено всі сповіщення',
-      text: '',
-      createdAt: String(new Date()),
-    };
-    dispatch(actionClearAllNotify(newNotify));
+  const dispatchDeleteAllNotify = () => {
+    // const newNotify = {
+    //   id: nanoid(5),
+    //   type: INFO,
+    //   title: 'Усі сповіщення очищено',
+    //   text: '',
+    //   createdAt: String(new Date()),
+    // };
+    dispatch(actionClearAllNotify());
   };
   const appNotify = {
     delete: id => {

@@ -43,7 +43,7 @@ const BlockOrderInfo = props => {
 
   const blockSettings = {
     title: 'Деталі',
-    iconId: 'assignment-ok',
+    iconId: 'assignment-in',
     actions: 'primary',
     className: s[pageGrid],
     ActionsComp: Actions,

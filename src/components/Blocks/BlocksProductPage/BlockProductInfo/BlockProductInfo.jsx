@@ -1,8 +1,6 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 import TopInfo from './TopInfo/TopInfo';
-import TableProductInfo from './TableProductInfo/TableProductInfo';
-import TableProductImgs from './TableProductImgs/TableProductImgs';
 import Actions from './Actions/Actions';
 import BlockEmpty from '../../BlockEmpty/BlockEmpty';
 import { getAppPageSettings, getPosts } from 'redux/selectors';
@@ -65,10 +63,6 @@ const BlockProductInfo = props => {
       {selectedPost?._id && <TopInfo />}
 
       {!selectedPost?._id && <BlockEmpty title="Оберіть пост зі списку" />}
-
-      <TableProductInfo></TableProductInfo>
-
-      <TableProductImgs></TableProductImgs>
     </Block>
   );
 };

@@ -14,6 +14,7 @@ import ActionDelete from '../Actions/ActionDelete';
 import ActionRefresh from '../Actions/ActionRefresh';
 import ActionPrimary from '../Actions/ActionPrimary';
 import ActionFulLPageMode from '../Actions/ActionFullPageMode';
+import ActionTogglePostVisibility from '../Actions/ActionTogglePostVisibility';
 
 // import s from './ActionsList.module.scss';
 
@@ -32,6 +33,7 @@ const BlockActionsList = ({ arr = [] }) => {
     create: ActionCreate,
     refresh: ActionRefresh,
     zoom: ActionFulLPageMode,
+    togglePostVisibility: ActionTogglePostVisibility,
   };
   let Action = <></>;
   return (

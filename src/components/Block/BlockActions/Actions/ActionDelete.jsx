@@ -1,6 +1,7 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
 import { useBlock } from 'components/Block/BlockContext';
+import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 
 const ActionDelete = ({ action }) => {
@@ -8,9 +9,9 @@ const ActionDelete = ({ action }) => {
   const { id } = useParams();
 
   function handleDeleteAction() {
-    deleteAction ? deleteAction(id) : console.log('error');
+    deleteAction ? deleteAction(action?.id ?? id) : toast.error('ERROR DELETE');
   }
-  return deleteAction && <ActionPrimary {...action} onClick={handleDeleteAction} />;
+  return deleteAction && <ActionPrimary onClick={handleDeleteAction} {...action} />;
 };
 
 export default ActionDelete;

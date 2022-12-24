@@ -6,7 +6,7 @@ import { useBlock } from 'components/Block/BlockContext';
 import s from './TableCells.module.scss';
 const CellActions = ({ title, idx, className = '', onClick }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { deleteAction, changeVisibilityAction, approvePostAction, rejectPostAction } = useBlock();
+  const { deleteAction, togglePostVisibility, approvePostAction, rejectPostAction } = useBlock();
   const { rowData } = useRow();
   const classNames = [s.actions, className].join(' ');
   const disabledApproveBtn = rowData?.approvedStatus === 'success';
@@ -19,8 +19,8 @@ const CellActions = ({ title, idx, className = '', onClick }) => {
   function handleDeleteAction() {
     deleteAction ? deleteAction(rowData._id) : console.log('error');
   }
-  function handleCchangeVisibilityAction() {
-    changeVisibilityAction ? changeVisibilityAction(rowData._id) : console.log('error');
+  function handletogglePostVisibility() {
+    togglePostVisibility ? togglePostVisibility(rowData._id) : console.log('error');
   }
   function handleApprove() {
     approvePostAction ? approvePostAction(rowData._id) : console.log('error');
@@ -38,14 +38,14 @@ const CellActions = ({ title, idx, className = '', onClick }) => {
           </div>
         )}
 
-        {changeVisibilityAction && (
+        {togglePostVisibility && (
           <div className={s.listItem}>
             <ButtonIcon
               size="40px"
               iconSize="24px"
               iconId={rowData?.visibilityStatus ? 'visibility-on' : 'visibility-off'}
               className={s.actionsBtn}
-              onClick={handleCchangeVisibilityAction}
+              onClick={handletogglePostVisibility}
             />
             <span className={s.actionTitle}>Змінити видимість</span>
           </div>
