@@ -103,30 +103,30 @@ button {
   overflow: hidden;
 }
 /* ----------------- SCROLLBAR */
-// @media screen and (min-width: 1000px) {
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+@media screen and (min-width: 1000px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  ::-webkit-scrollbar-button {
+    height: 0;
+    width: 0;
+    overflow: hidden;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    background-color: var(--brand_clr__1);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--brand_clr__1);
+  }
 }
-::-webkit-scrollbar-track {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-::-webkit-scrollbar-button {
-  height: 0;
-  width: 0;
-  overflow: hidden;
-}
-::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 6px;
-}
-::-webkit-scrollbar-thumb:active {
-  background-color: var(--brand_clr__1);
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--brand_clr__1);
-}
-// }
 
 .Dark {
   color: #fff;
