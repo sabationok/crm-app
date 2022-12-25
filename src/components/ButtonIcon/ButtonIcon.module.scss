@@ -15,7 +15,7 @@
   overflow: hidden;
   border: 1px solid transparent;
 
-  cursor: pointer;
+  cursor: default;
 
   transition: all var(--timing-function__main);
   &:disabled {

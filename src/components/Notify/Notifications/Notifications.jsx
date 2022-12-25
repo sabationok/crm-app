@@ -1,9 +1,7 @@
 import React from 'react';
-
-import ModalOpenButton from 'components/ModalCustom/ModalOpenButton/ModalOpenButton.jsx';
-import SvgIcon from 'components/SvgIcon/SvgIcon.jsx';
+import ModalContent from 'components/ModalCustom/ModalContent/ModalContent.jsx';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon.jsx';
 import DeleteAllTotifyBtn from './Notification/DeleteAllTotifyBtn.jsx';
-
 import Notification from './Notification/Notification';
 
 import { getAppNotify, getAppSettings } from 'redux/selectors';
@@ -16,10 +14,10 @@ const Notifications = () => {
   const { isDarkTheme } = useSelector(getAppSettings);
   const count = notifications.length;
   return (
-    <ModalOpenButton
-      className={s.openButton}
-      modalChildren={
+    <>
+      <ModalContent trigger={props => <ButtonIcon iconId="notifications" size="28px" iconSize="100%" {...props} />}>
         <>
+          {' '}
           <div className={[s.Notifications, isDarkTheme ? s.Dark : s.Light].join(' ')}>
             <div className={s.headerGrid}>
               <span className={s.titleGrid}>Історія сповіщень</span>
@@ -39,10 +37,8 @@ const Notifications = () => {
             )}
           </div>
         </>
-      }
-    >
-      <SvgIcon iconId="notifications" size="28px" iconSize="100%" />
-    </ModalOpenButton>
+      </ModalContent>
+    </>
   );
 };
 

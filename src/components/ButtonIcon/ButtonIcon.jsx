@@ -35,9 +35,11 @@ const ButtonIcon = ({
   };
   return (
     <button type={type} className={classNames} disabled={disabled} style={style} title={title && title} onClick={onClick} {...props}>
-      <svg className={iconClassNames} style={iconStyle}>
-        <use href={`${sprite}#icon-${iconId}`}></use>
-      </svg>
+      {iconId && (
+        <svg className={iconClassNames} style={iconStyle}>
+          <use href={`${sprite}#icon-${iconId}`}></use>
+        </svg>
+      )}
       {children}
     </button>
   );

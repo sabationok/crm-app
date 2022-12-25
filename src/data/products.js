@@ -1,4 +1,5 @@
 import { userInfo } from './users';
+import { nanoid } from 'nanoid';
 
 export const postStatus = {
   APPROVED: 'approved',
@@ -22,8 +23,8 @@ const { APPROVED, REJECTED, PENDING, AVAILABLE, NOT_AVAILABLE, AWAITING_ON_STOCK
 export const initialFormState = {
   // ???!!! seting by server ????
   // createdAt: '', // * date
+  // _id: nanoid(14)// * string
   // updatedAt: '', // * date
-  // _id: '', // * string
   // ? seting by author manualy or by randomizator
   sku: '', // * string
   // ? seting by author
@@ -207,8 +208,8 @@ export const incomeData = {
 export const productsArrTest = [
   {
     ...incomeData,
+    _id: nanoid(14),
     sku: 'fdg6b51656df2g',
-    _id: '65165sd1dc65sd1',
     approvedStatus: APPROVED,
     visibilityStatus: false,
     availabilityInfo: {
@@ -221,8 +222,8 @@ export const productsArrTest = [
   },
   {
     ...incomeData,
+    _id: nanoid(14),
     sku: 'sdf1b6s1d3s2ff',
-    _id: '65153sd1dc65sd1',
     approvedStatus: PENDING,
     visibilityStatus: false,
     availabilityInfo: {
@@ -235,8 +236,8 @@ export const productsArrTest = [
   },
   {
     ...incomeData,
+    _id: nanoid(14),
     sku: 'sd21fv32d1f32s',
-    _id: '651655165125sd5',
     approvedStatus: APPROVED,
     visibilityStatus: true,
     availabilityInfo: {
@@ -258,8 +259,8 @@ export const productsArrTest = [
   },
   {
     ...incomeData,
+    _id: nanoid(14),
     sku: 'fdg6b51656dsfs',
-    _id: '65sdfbbdsd1dc65',
     approvedStatus: REJECTED,
     visibilityStatus: false,
     availabilityInfo: {
@@ -272,9 +273,9 @@ export const productsArrTest = [
   },
   {
     ...incomeData,
+    _id: nanoid(14),
     sku: 'fdg6bas656dsfs',
-    _id: '65sdfb58sd1dc65',
-    approvedStatus: 'pending',
+    approvedStatus: PENDING,
     availabilityInfo: {
       availability: AVAILABLE,
       order: false,
@@ -285,8 +286,8 @@ export const productsArrTest = [
   },
   {
     ...incomeData,
+    _id: nanoid(14),
     sku: 'fdg6sd1656dsfs',
-    _id: '65sdfbb45d1dc65',
     approvedStatus: REJECTED,
     visibilityStatus: true,
     availabilityInfo: {

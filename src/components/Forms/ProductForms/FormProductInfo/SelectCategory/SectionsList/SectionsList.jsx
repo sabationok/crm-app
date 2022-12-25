@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
 import SectionItem from '../SectionItem/SectionItem';
 import Block from 'components/Block/Block';
+import BlockSimple from 'components/BlockSimple/BlockSimple';
 
 import s from './SectionsList.module.scss';
 
@@ -42,7 +43,7 @@ const SectionsList = () => {
   return (
     <>
       <SectionsListContext.Provider value={{ handleSelectCategory, selectedCategory }}>
-        <Block
+        <BlockSimple
           title="Оберіть категорію"
           headerClassName={s.header}
           className={s.selectCategoryModal}
@@ -62,7 +63,7 @@ const SectionsList = () => {
               <SectionItem key={item.sectionId} item={item} />
             ))}
           </ul>
-        </Block>
+        </BlockSimple>
       </SectionsListContext.Provider>
     </>
   );

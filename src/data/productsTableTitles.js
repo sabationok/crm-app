@@ -1,25 +1,5 @@
 // import { nanoid } from 'nanoid';
 export const productsTableTitles = [
-  // {
-  //   id: 1,
-  //   name: 'Дії',
-  //   dataTitle: 'actions',
-  //   action: 'actions',
-  //   search: false,
-  //   filter: false,
-  //   visible: true,
-  //   width: '40px',
-  // },
-  // {
-  //   id: 1,
-  //   name: 'checkbox',
-  //   dataTitle: 'checkbox',
-  //   action: 'checkbox',
-  //   search: false,
-  //   filter: false,
-  //   visible: true,
-  //   width: '40px',
-  // },
   {
     id: 1,
     name: 'Артикул (SKU)',
@@ -183,56 +163,4 @@ export const productsTableTitles = [
     visible: true,
     width: '125px',
   },
-  // {
-  //   id: 1,
-  //   name: 'Оновлено',
-  //   dataTitle: '_updatedAt',
-  //   action: 'date',
-  //   search: true,
-  //   filter: true,
-  //   visible: true,
-  //   width: '100px',
-  // },
-  // {
-  //   id: 1,
-  //   name: 'Секція',
-  //   dataTitle: 'section',
-  //   action: 'category',
-  //   search:true,filter: true,
-  //   visible: true,
-  //
-  // width: '100px',
-  // },
-  // {
-  //   id: 1,
-  //   name: 'Батьківська Категорія',
-  //   dataTitle: 'parentCategory',
-  //   action: 'category',
-  //   search:true,filter: true,
-  //   visible: true,
-  //
-  // width: '100px',
-  // },
-
-  // {
-  //   id: 1,
-  //   name: 'Термін виг-ня, дні',
-  //   dataTitle: 'manufacturingTime',
-  //   action: 'number',
-  //   search:true,filter: true,
-  //   visible: true,
-  //
-  // width: '100px',
-  // },
-  // {
-  //   id: 1,
-  //   name: '',
-  //   dataTitle: '',
-  //   action: 'string',
-  //   search: true,
-  //   filter: false,
-  //   visible: true,
-  //
-  // width: '100px',
-  // },
 ];
