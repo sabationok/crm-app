@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo, useState } from 'react';
+
 // import { nanoid } from 'nanoid';
 import { useTable } from './TableContext';
 
@@ -9,14 +10,18 @@ import { nanoid } from 'nanoid';
 
 const TableBody = () => {
   const { tableData, prepeareRowData } = useTable();
+  const [data, setData] = useState([]);
 
-  const newData = [...tableData, ...tableData, ...tableData, ...tableData].map(el => {
-    return { ...el, _id: nanoid(16) };
-  });
+  useMemo(() => {
+    let newData = [...tableData, ...tableData, ...tableData, ...tableData].map(el => {
+      return { ...el, _id: nanoid(8) };
+    });
+    setData(newData);
+  }, [tableData]);
 
   return (
     <div className={s.tBody}>
-      {newData.map((rowData, idx) => {
+      {data.map((rowData, idx) => {
         return <TableRow key={rowData._id} rowData={prepeareRowData ? prepeareRowData(rowData) : rowData} idx={idx} />;
       })}
     </div>
