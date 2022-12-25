@@ -3,7 +3,7 @@ import Block from 'components/Block/Block';
 
 import Actions from './Actions/Actions';
 import BlockEmpty from 'components/Blocks/BlockEmpty/BlockEmpty';
-import TableOrderRealiazations from 'components/TableOrderRealiazations/TableOrderRealiazations';
+import TableOrderRealiazations from 'components/TableOrderDeliveries/TableOrderDeliveries';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getOrders } from 'redux/selectors';

@@ -1,17 +1,18 @@
 import React, { useState, createContext, useContext } from 'react';
+import SectionItem from '../SectionItem/SectionItem';
+import BlockSimple from 'components/BlockSimple/BlockSimple';
 
 import { useModal } from 'components/ModalCustom/ModalCustom';
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
 import { categoriesArr } from '../categoriesArr';
 import { useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
-import SectionItem from '../SectionItem/SectionItem';
-import BlockSimple from 'components/BlockSimple/BlockSimple';
 
 import s from './SectionsList.module.scss';
 
 export const SectionsListContext = createContext();
 export const useSectionsList = () => useContext(SectionsListContext);
+
 const SectionsList = () => {
   const { isDarkTheme } = useSelector(getAppSettings);
   const { onFormStateChange } = useForm();

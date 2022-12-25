@@ -29,6 +29,7 @@ export const orderStatus = {
   DEL_STANDART: 'standart',
   DEL_EXPRESS: 'express',
   DEL_DIST_TO_DIS: 'dis2dis',
+  DEL_IN_ROAD: 'inRoad',
 };
 const {
   ARCHIVED,
@@ -53,6 +54,7 @@ const {
   DEL_DIST_TO_DIS,
   FOR_REFUND,
   REFUNDED,
+  DEL_IN_ROAD,
 } = orderStatus;
 export function prepeareOrderData({
   _id,
@@ -92,16 +94,25 @@ export const initialOrderState = {
   createdBy: { _id: '', name: '' },
   updatedAt: '',
   updatedBy: { _id: '', name: '' },
-  receiver: '',
+  receiver: { _id: '', name: '', email: '', phone: '' },
   customer: { _id: '', name: '', email: '', phone: '' },
   payment: {
     status: '',
     type: '',
   },
-  invoices: [],
+  deliveries: [],
 };
-export const initialInvoceState = {
+export const initialDeliveryState = {
   _id: '',
+  owner: '',
+  ttn: '',
+  transporter: '',
+  status: '',
+  type: '',
+  cost: '',
+  receiver: { _id: '', name: '', email: '', phone: '' },
+  destination: '',
+  comment: '',
   content: [],
   payment: {
     type: '',
@@ -109,33 +120,47 @@ export const initialInvoceState = {
     total: '',
     blockedFunds: '',
   },
-  delivery: {
-    _id: '',
-    owner: '',
-    ttn: '',
-    transporter: '',
-    status: '',
-    type: '',
-    cost: '',
-    receiver: { _id: '', name: '', email: '', phone: '' },
-    destination: '',
-    comment: '',
-  },
 };
 export const testOrdersArr = [
   {
-    _id: nanoid(8),
+    _id: '1651354531',
     createdAt: '05.12.2022 12:50',
     updatedAt: '',
     orderType: IS_STANDART,
     orderStatus: REJECTED,
-    orderNumber: nanoid(8),
+    orderNumber: '123456789',
     paymentType: PAY_BY_IBAN,
     paymentStatus: PAYED,
-    deliveryType: DEL_COURIER,
+    payment: {
+      type: PAY_BY_IBAN,
+      status: PENNDING,
+      total: 0,
+      blockedFunds: 256,
+    },
+    deliveries: [
+      {
+        _id: 's6df51b6sd5f1',
+        owner: '123456789',
+        ttn: nanoid(8),
+        transporter: 'Укрпошта',
+        status: DEL_IN_ROAD,
+        type: DEL_DIST_TO_DIS,
+        cost: 256,
+        receiver: { _id: '', name: '', email: '', phone: '' },
+        destination: '',
+        comment: '',
+        content: [],
+        payment: {
+          type: '',
+          status: '',
+          total: '',
+          blockedFunds: '',
+        },
+      },
+    ],
   },
   {
-    _id: nanoid(8),
+    _id: 'asfd5bs6d5f1',
     createdAt: '06.10.2022 12:50',
     updatedAt: '',
     orderType: IS_MIXED,
@@ -146,7 +171,7 @@ export const testOrdersArr = [
     deliveryType: DEL_DIST_TO_DIS,
   },
   {
-    _id: nanoid(8),
+    _id: '6516v51f656',
     createdAt: '12.05.2022 12:50',
     updatedAt: '',
     orderType: IS_STANDART,

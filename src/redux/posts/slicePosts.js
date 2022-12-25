@@ -14,13 +14,18 @@ import {
   actionApprovePost,
   actionRejectPost,
 } from 'redux/posts/postsActions';
+import { nanoid } from 'nanoid';
 
 import { productsArrTest } from 'data/products';
 import { postStatus } from 'data/products';
 const { ARCHIVED, REJECTED, APPROVED } = postStatus;
 
+const newData = [...productsArrTest, ...productsArrTest, ...productsArrTest].map(el => {
+  return { ...el, _id: nanoid(8) };
+});
+
 const initialState = {
-  posts: [...productsArrTest],
+  posts: newData,
   isLoading: false,
   lastEditedId: null,
   error: null,

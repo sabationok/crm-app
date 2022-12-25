@@ -15,8 +15,12 @@ import {
 
 import { orderStatus } from 'data/orders';
 import { testOrdersArr } from 'data/orders';
+import { nanoid } from 'nanoid';
+const newData = [...testOrdersArr, ...testOrdersArr, ...testOrdersArr].map(el => {
+  return { ...el, _id: nanoid(8) };
+});
 const initialState = {
-  orders: [...testOrdersArr],
+  orders: newData,
   isLoading: false,
   lastEditedId: null,
   error: null,

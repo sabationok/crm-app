@@ -24,7 +24,7 @@ const BlockOrderInfo = props => {
   const navigate = useNavigate();
 
   const selectedOrder = orders.find(order => order._id === id);
-
+  console.log(selectedOrder);
   function deleteOrderAction(id) {
     const { Deleting } = messages;
     if (!id) {
@@ -55,7 +55,13 @@ const BlockOrderInfo = props => {
     ...props,
   };
 
-  return <Block {...blockSettings}>{selectedOrder ? <TableOrderInfo /> : <BlockEmpty title={'Оберіть замовлення'} />}</Block>;
+  return (
+    <Block {...blockSettings}>
+      {selectedOrder?._id && <TableOrderInfo />}
+
+      {!selectedOrder?._id && <BlockEmpty title={'Оберіть замовлення'} />}
+    </Block>
+  );
 };
 
 export default BlockOrderInfo;
