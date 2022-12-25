@@ -20,8 +20,12 @@ const TableHeadRow = () => {
   let Cell = CellTitle;
   return (
     <div style={styles} className={s.thRow}>
-      {/* <CellTitle title={{ name: 'sdfbsdfb' }} /> */}
-      {/* <CellCheckBoxHead /> */}
+      <div className={s.rowStickyEl}>
+        <CellTitle title={{ name: 'Дії' }} />
+
+        <CellCheckBoxHead />
+      </div>
+
       {tableTitles.map((title, idx) => {
         if (CellsMap[title.action]) {
           Cell = CellsMap[title.action];

@@ -1,5 +1,6 @@
 @import './sass/utils/root';
 @import './sass/utils/breakPoints';
+@import './sass/utils/theme';
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
@@ -137,6 +138,11 @@ button {
     fill: #fff;
     background-color: var(--brand_clr__2);
   }
+  & .listRow {
+    color: #fff;
+    fill: #fff;
+    background-color: var(--brand_clr__4);
+  }
 }
 .Light {
   color: var(--brand_clr__2);
@@ -146,6 +152,11 @@ button {
     color: var(--brand_clr__2);
     fill: var(--brand_clr__2);
     background-color: var(--brand_clr__2_light);
+  }
+  & .listRow {
+    color: var(--brand_clr__2);
+    fill: var(--brand_clr__2);
+    background-color: #fff;
   }
   & .slick-prev:before,
   & .slick-next:before {

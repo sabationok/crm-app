@@ -1,5 +1,5 @@
-import { useTable } from '../TableContext';
 import RowContext from './RowContext';
+import RowActions from './RowActions/RowActions';
 import CellText from '../TebleCells/CellText';
 import CellCategory from '../TebleCells/CellCategory';
 import CellStatusApprove from '../TebleCells/CellStatusApprove';
@@ -11,19 +11,22 @@ import CellDate from '../TebleCells/CellDate';
 import CellStatus from '../TebleCells/CellStatus';
 import CellCheckBox from '../TebleCells/CellCheckBox';
 import CellActions from '../TebleCells/CellActions';
+import { useState } from 'react';
+import { useTable } from '../TableContext';
 import { useSelector } from 'react-redux';
 import { getIndexPage } from 'redux/selectors';
-// import { useDispatch } from 'react-redux';
-// import { actionSelectPostByClick } from 'redux/posts/postsActions';
-
 import { useNavigate } from 'react-router-dom';
-import s from './TableRow.module.scss';
 
+import s from './TableRow.module.scss';
 const TableRow = props => {
-  // const dispatch = useDispatch();
+  const [isActionsOpen, setIsActionsOpen] = useState();
   const indexPage = useSelector(getIndexPage);
   const navigate = useNavigate();
   const { tableTitles = [], rowGrid = {} } = useTable();
+
+  function handleActionsOpen() {
+    setIsActionsOpen(!isActionsOpen);
+  }
 
   const styles = {
     ...rowGrid,
@@ -46,26 +49,37 @@ const TableRow = props => {
   let Cell = CellText;
 
   function handleOnRowClick(ev) {
-    // const { target, currentTarget } = ev;
-
     const { rowData } = props;
     if (rowData?._id) {
-      // dispatch(actionSelectPostByClick(rowData?._id));
       navigate(`/${indexPage}/${rowData?._id}`);
     }
   }
+  const ctxValue = {
+    ...props,
+    isActionsOpen,
+    handleActionsOpen,
+  };
   return (
-    <RowContext value={props}>
-      <div style={styles} className={s.row}>
-        {tableTitles.map((title, idx) => {
-          if (CellsMap[title.action]) {
-            Cell = CellsMap[title.action];
+    <RowContext value={ctxValue}>
+      <div className={s.rowContainer}>
+        <RowActions />
 
+        <div style={styles} className={s.row}>
+          <div className={[s.rowStickyEl, 'listRow'].join(' ')}>
+            <CellActions />
+            <CellCheckBox />
+          </div>
+
+          {tableTitles.map((title, idx) => {
+            if (CellsMap[title.action]) {
+              Cell = CellsMap[title.action];
+
+              return <Cell key={title.name} title={title} idx={idx} onClick={handleOnRowClick} />;
+            }
+            Cell = CellsMap.string;
             return <Cell key={title.name} title={title} idx={idx} onClick={handleOnRowClick} />;
-          }
-          Cell = CellsMap.string;
-          return <Cell key={title.name} title={title} idx={idx} onClick={handleOnRowClick} />;
-        })}
+          })}
+        </div>
       </div>
     </RowContext>
   );

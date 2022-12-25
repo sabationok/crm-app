@@ -1,58 +1,61 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 
-import s from './BlockOrderInfo.module.scss';
 import Actions from './Actions/Actions';
+import TableOrderInfo from 'components/TableOrderInfo/TableOrderInfo';
+import BlockEmpty from 'components/Blocks/BlockEmpty/BlockEmpty';
+
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getAppPageSettings } from 'redux/selectors';
+import { getAppPageSettings, getOrders } from 'redux/selectors';
 import { actionDeleteOrder } from 'redux/orders/ordersActions';
 import { useNavigate } from 'react-router-dom';
-import { ordersMessages as deleteMessages } from '../../../../data/ordersMessages';
+import { ordersMessages as messages } from 'data';
+
+import s from './BlockOrderInfo.module.scss';
 
 const BlockOrderInfo = props => {
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const { orders } = useSelector(getOrders);
   const { id } = useParams();
 
-  function deleteAction(id) {
-    const { NOT_SELECTED_ID, DELETE_CONFIRM, DELETE_DECLINE, DELETE_SUCCESS, DELETE_ERROR } = deleteMessages;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const selectedOrder = orders.find(order => order._id === id);
+
+  function deleteOrderAction(id) {
+    const { Deleting } = messages;
     if (!id) {
-      NOT_SELECTED_ID();
       return;
     }
-    const confirm = window.confirm(DELETE_CONFIRM(id));
+    const confirm = window.confirm(Deleting.confirm(id));
     if (!confirm) {
-      DELETE_DECLINE(id);
       return;
     }
     const payload = {
       data: { _id: id },
       onSuccess: () => {
-        DELETE_SUCCESS(id);
         navigate(`/orders`);
       },
-      onError: () => {
-        DELETE_ERROR(id);
-      },
+      onError: () => {},
     };
     dispatch(actionDeleteOrder(payload));
   }
 
   const blockSettings = {
-    title: 'Деталі',
+    title: 'Деталі замовлення',
     iconId: 'assignment-in',
     actions: 'primary',
     className: s[pageGrid],
+    deleteAction: deleteOrderAction,
     ActionsComp: Actions,
-    deleteAction,
-    order: {},
+    order: selectedOrder,
     ...props,
   };
 
-  return <Block {...blockSettings}>{id}</Block>;
+  return <Block {...blockSettings}>{selectedOrder ? <TableOrderInfo /> : <BlockEmpty title={'Оберіть замовлення'} />}</Block>;
 };
 
 export default BlockOrderInfo;

@@ -25,7 +25,7 @@
   }
 }
 .blockDark {
-  background-color: #2b2b2b;
+  background-color: var(--brand_clr__4);
   color: #fff;
   & .title {
     line-height: 1.3;

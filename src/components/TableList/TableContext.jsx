@@ -19,7 +19,7 @@ const TableContext = ({ children, value }) => {
 
   const rowGrid = {
     display: 'grid',
-    gridTemplateColumns: tableCollWidth.join(' '),
+    gridTemplateColumns: `80px ${tableCollWidth.join(' ')}`,
   };
 
   // useEffect(() => {

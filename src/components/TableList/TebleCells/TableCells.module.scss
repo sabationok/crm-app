@@ -1,7 +1,6 @@
 .title,
 .checkboxColl,
 .checkboxCollHead,
-// .actions,
 .coll {
   display: flex;
   align-items: center;
@@ -22,6 +21,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  background-color: inherit;
 }
 .coll {
   &:hover {
@@ -42,124 +43,26 @@
   justify-content: center;
 
   padding: 0;
+
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
 }
 .actionsBtn {
-  // transition: all var(--timing-function__main);
+  padding: 0;
   &:hover {
-    background-color: rgba(238, 238, 238, 0.4);
+    background-color: rgba(238, 238, 238, 0.5);
     fill: var(--brand_clr__1);
   }
   &:active {
-    background-color: rgba(238, 238, 238, 0.2);
+    background-color: rgba(238, 238, 238, 0.4);
   }
 }
-.actions,
-.actionsOpen {
-  position: relative;
+.actions {
   justify-content: center;
 
   padding: 0;
 
   height: 100%;
-
-  // overflow: hidden;
-}
-.actionsOpen {
-  // transform: scaleY(1.1);
-
-  // & .rowActions {
-  //   max-width: fit-content;
-
-  //   box-shadow: 0 0 5px gray;
-
-  //   transform: translateX(40px);
-  // }
-}
-.rowActions,
-.rowActionsVisible {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  // gap: 8px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 5;
-
-  height: fit-content;
-  max-height: 100%;
-
-  border-radius: 4px;
-  fill: #fff;
-  background-color: rgba(50, 50, 50, 1);
-
-  transition: all var(--timing-function__main);
-}
-.rowActions {
-  transform: translateX(-100%);
-}
-.rowActionsVisible {
-  max-width: fit-content;
-
-  box-shadow: 0 0 5px gray;
-  box-shadow: 0 0 5px rgb(222, 222, 222);
-
-  transform: translateX(0);
-}
-.listItem {
-  position: relative;
-
-  max-height: 100%;
-  // width: 36px;
-  // height: 36px;
-  &:hover {
-    & .actionTitle {
-      opacity: 1;
-      pointer-events: all;
-      z-index: 200;
-      visibility: visible;
-      transform: translateX(-50%) scale(1);
-    }
-  }
-}
-.actionTitle {
-  position: absolute;
-  bottom: calc(100% + 3px);
-  left: 50%;
-
-  padding: 4px 6px;
-
-  min-width: 100%;
-
-  font-size: 11px;
-  color: #fff;
-
-  transform-origin: top center;
-  transform: translateX(-50%) scale(0.2);
-
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.8);
-
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-
-  white-space: nowrap;
-
-  transition: all var(--timing-function__main);
-  &::after {
-    top: 100%;
-    left: 50%;
-    border: solid transparent;
-    content: '';
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border-top-color: rgba(0, 0, 0, 0.8);
-    border-width: 5px;
-    margin-left: -5px;
-  }
 }
 
 .cellInnerWrap {

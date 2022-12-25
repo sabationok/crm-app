@@ -18,7 +18,7 @@ const BlockHeaderSearch = () => {
     headerStyles,
     headerClassName,
     isFullPageMode,
-    actionToglleFullPageMode,
+    handleToglleFullPageMode,
     handleToggleAction,
     isActionsOpen,
   } = useBlock();
@@ -41,7 +41,7 @@ const BlockHeaderSearch = () => {
             iconId={isFullPageMode ? 'zoomMinus' : 'zoomPlus'}
             size="30px"
             iconSize={isFullPageMode ? '85%' : '90%'}
-            onClick={actionToglleFullPageMode}
+            onClick={handleToglleFullPageMode}
             className={s.btn}
           />
         }

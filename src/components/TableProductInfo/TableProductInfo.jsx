@@ -7,9 +7,9 @@ import { useBlock } from 'components/Block/BlockContext';
 
 import RowSimple from './RowSimple/RowSimple';
 
-import s from './TopInfo.module.scss';
+import s from './TableProductInfo.module.scss';
 
-const TopInfo = () => {
+const TableProductInfo = () => {
   const {
     post,
     post: { createdBy, updatedBy, categoryInfo, availabilityInfo, priceInfo },
@@ -17,7 +17,7 @@ const TopInfo = () => {
 
   return (
     <>
-      <div className={s.topInfo}>
+      <div className={s.table}>
         <RowSimple title="Статус" data={<Status status={post?.approvedStatus} />} info="Статус огляду менеджером" />
         <RowSimple
           title="Видимість"
@@ -75,4 +75,4 @@ const TopInfo = () => {
   );
 };
 
-export default TopInfo;
+export default TableProductInfo;

@@ -1,0 +1,47 @@
+.Dark {
+  color: #fff;
+  fill: #fff;
+
+  & .theme {
+    color: #fff;
+    fill: #fff;
+    background-color: var(--brand_clr__2);
+  }
+  & .listRow {
+    color: #fff;
+    fill: #fff;
+    background-color: var(--brand_clr__4);
+  }
+  & .blockAcion,
+  & .listRowActions {
+    color: var(--brand_clr__2);
+    fill: var(--brand_clr__2);
+    background-color: #fff;
+  }
+}
+.Light {
+  color: var(--brand_clr__2);
+  fill: var(--brand_clr__2);
+  background-color: #fff;
+  & .theme {
+    color: var(--brand_clr__2);
+    fill: var(--brand_clr__2);
+    background-color: var(--brand_clr__2_light);
+  }
+  & .listRow {
+    color: var(--brand_clr__2);
+    fill: var(--brand_clr__2);
+    background-color: #fff;
+  }
+  & .blockAcion,
+  & .listRowActions {
+    color: #fff;
+    fill: #fff;
+    background-color: var(--brand_clr__4);
+  }
+
+  & .slick-prev:before,
+  & .slick-next:before {
+    color: var(--brand_clr__2);
+  }
+}

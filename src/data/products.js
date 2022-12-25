@@ -6,15 +6,17 @@ export const postStatus = {
   ACCEPTED: 'accepted',
   REJECTED: 'rejected',
   PENDING: 'pending',
+  RESOLVING: 'resolving',
 
   AVAILABLE: 'available',
   NOT_AVAILABLE: 'notAvailable',
   AWAITING_ON_STOCK: 'awaitingOnStock',
 
   VISIBLE: 'visible',
-  HIDDEN: 'notVisible',
+  HIDDEN: 'hidden',
+
   IS_COMMISSION: 'isCommission',
-  COMMISSION: 'isStandart',
+  IS_STANDART: 'isStandart',
 };
 const { APPROVED, REJECTED, PENDING, AVAILABLE, NOT_AVAILABLE, AWAITING_ON_STOCK } = postStatus;
 export const initialFormState = {

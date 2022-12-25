@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 // import PropTypes from 'prop-types';
 import BlockContext from './BlockContext';
 import BlockHeaderSearch from './BlockHeaderSearch/BlockHeaderSearch';
-import BlockModal from './BlockModal/BlockModal';
+// import BlockModal from './BlockModal/BlockModal';
 import BlockActions from './BlockActions/BlockActions';
 
 import { useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
 
-import { toast } from 'react-toastify';
 import s from './Block.module.scss';
 
 const Block = props => {
@@ -35,18 +34,16 @@ const Block = props => {
   function handleToggleBlockSearch() {
     setIsSearch(!isSearch);
   }
-
   function handleToggleModal() {
     setIsModalOpen(!isModalOpen);
   }
   function handleToggleAction() {
     setIsActionsOpen(!isActionsOpen);
   }
-
-  function actionToglleFullPageMode() {
+  function handleToglleFullPageMode() {
     setIsFullPageMode(!isFullPageMode);
-    toast.info(`Вигляд блоку змінено ${isFullPageMode}`);
   }
+
   const state = {
     isSearch,
     isDarkTheme,
@@ -54,10 +51,11 @@ const Block = props => {
     isFullPageMode,
     isActionsOpen,
   };
+
   const stateHandlers = {
     handleToggleBlockSearch,
     handleToggleModal,
-    actionToglleFullPageMode,
+    handleToglleFullPageMode,
     handleToggleAction,
   };
 
@@ -72,7 +70,7 @@ const Block = props => {
           <div className={s.content} id={iconId}>
             <BlockActions />
 
-            <div className={!isActionsOpen ? s.overflow : s.hidden}>
+            <div className={s.overflow}>
               {children}
 
               {!children && (
@@ -82,7 +80,7 @@ const Block = props => {
               )}
             </div>
 
-            <BlockModal title={`Додаткові дії блоку "${title}"`}></BlockModal>
+            {/* <BlockModal title={`Додаткові дії блоку "${title}"`}></BlockModal> */}
           </div>
 
           {footer && <div className={s.footer}>{footerChildren}</div>}
