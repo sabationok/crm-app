@@ -7,23 +7,20 @@ import BlockEmpty from 'components/Blocks/BlockEmpty/BlockEmpty';
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { getAppPageSettings, getOrders } from 'redux/selectors';
+import { getAppPageSettings } from 'redux/selectors';
 import { actionDeleteOrder } from 'redux/orders/ordersActions';
 import { useNavigate } from 'react-router-dom';
 import { ordersMessages as messages } from 'data';
+import { usePage } from 'components/AppPages/PageProvider';
 
 import s from './BlockOrderInfo.module.scss';
 
 const BlockOrderInfo = props => {
+  const page = usePage();
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
-  const { orders } = useSelector(getOrders);
-  const { id } = useParams();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const selectedOrder = orders.find(order => order._id === id);
 
   function deleteOrderAction(id) {
     const { Deleting } = messages;
@@ -45,21 +42,18 @@ const BlockOrderInfo = props => {
   }
 
   const blockSettings = {
-    title: 'Деталі замовлення',
-    iconId: 'assignment-in',
-    actions: 'primary',
     className: s[pageGrid],
     deleteAction: deleteOrderAction,
     ActionsComp: Actions,
-    order: selectedOrder,
+    order: page.order,
     ...props,
   };
 
   return (
     <Block {...blockSettings}>
-      {selectedOrder?._id && <TableOrderInfo />}
+      {page.order?._id && <TableOrderInfo />}
 
-      {!selectedOrder?._id && <BlockEmpty title={'Оберіть замовлення'} />}
+      {!page.order?._id && <BlockEmpty title={'Оберіть замовлення'} />}
     </Block>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useBlock } from 'components/Block/BlockContext';
-import Delivery from './Delivery';
+import Delivery from './Delivery/Delivery';
 
 import s from './TableOrderDeliveries.module.scss';
 

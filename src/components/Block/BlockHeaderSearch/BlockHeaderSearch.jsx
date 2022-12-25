@@ -13,18 +13,18 @@ const BlockHeaderSearch = () => {
     title = 'Title',
     iconId = 'info',
     isSearch,
-    isDarkTheme,
     actions,
     headerStyles,
     headerClassName,
     isFullPageMode,
     handleToglleFullPageMode,
+    fullPageMode,
     handleToggleAction,
     isActionsOpen,
   } = useBlock();
 
   return (
-    <div className={[!isSearch ? s.header : s.headerWithSearch, isDarkTheme ? s.Dark : s.Light, headerClassName].join(' ')} style={headerStyles}>
+    <div className={[s.header, 'theme', headerClassName].join(' ')} style={headerStyles}>
       <SvgIcon iconId={iconId} size={'24px'} />
 
       {isSearch && <BlockSearch />}
@@ -35,17 +35,17 @@ const BlockHeaderSearch = () => {
         </span>
       )}
 
-      <MinTabletXl>
-        {
+      {fullPageMode && (
+        <MinTabletXl>
           <ButtonIcon
             iconId={isFullPageMode ? 'zoomMinus' : 'zoomPlus'}
             size="30px"
-            iconSize={isFullPageMode ? '85%' : '90%'}
+            iconSize={'90%'}
             onClick={handleToglleFullPageMode}
             className={s.btn}
           />
-        }
-      </MinTabletXl>
+        </MinTabletXl>
+      )}
 
       {actions && (
         <ButtonIcon iconId={isActionsOpen ? 'close' : 'actions-h'} size="30px" iconSize="100%" className={s.btn} onClick={handleToggleAction} />

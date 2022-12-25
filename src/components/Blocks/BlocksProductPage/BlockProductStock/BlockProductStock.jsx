@@ -1,35 +1,31 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 
-// import FormProductStock from 'components/Forms/ProductForms/FormProductStock/FormProductStock';
 import BlockEmpty from '../../BlockEmpty/BlockEmpty';
 import Actions from './Actions/Actions';
 import TableDinamic from 'components/TableDinamic/TableDinamic';
-import { useSelector } from 'react-redux';
-import { getAppPageSettings, getPosts } from 'redux/selectors';
-import { useParams } from 'react-router-dom';
 import { stockData } from 'data';
+import { usePage } from 'components/AppPages/PageProvider';
+import { getAppPageSettings } from 'redux/selectors';
+import { useSelector } from 'react-redux';
+// import { useParams } from 'react-router-dom';
 
 import s from './BlockProductStock.module.scss';
 
 const BlockProductStock = props => {
-  const { id } = useParams();
-  const { posts } = useSelector(getPosts);
+  const page = usePage();
+  // const { id } = useParams();
+
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
 
-  const selectedPost = posts.find(post => post?._id === id);
-
   const blockSettings = {
-    title: 'Склад',
-    iconId: 'storage',
-    actions: 'primary',
     className: s[pageGrid],
     ActionsComp: Actions,
-    post: selectedPost,
+    post: page.post,
     stockData: stockData,
     ...props,
   };
 
-  return <Block {...blockSettings}>{id ? <TableDinamic disabled /> : <BlockEmpty title="Оберіть пост зі списку" />}</Block>;
+  return <Block {...blockSettings}>{page.post?._id ? <TableDinamic disabled /> : <BlockEmpty title="Оберіть пост зі списку" />}</Block>;
 };
 export default BlockProductStock;

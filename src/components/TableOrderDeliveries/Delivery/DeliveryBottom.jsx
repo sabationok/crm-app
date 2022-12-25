@@ -1,19 +1,9 @@
 import React from 'react';
 import Status from 'components/TableProductInfo/Status/Status';
 
-import s from './Delivery.module.scss';
-const titles = {
-  owner: 'Замовлення',
-  transporter: 'Перевізник',
-  status: 'Статус',
-  type: 'Тип',
-  ttn: 'Номер ТТН',
-  cost: 'Вартість доставки',
-  comment: 'Коментар',
-};
-const Delivery = ({ data }) => {
+const DeliveryBottom = ({ data, titles, s }) => {
   return (
-    <div className={s.delivery}>
+    <div className={s.bottom}>
       <div className={s.owner}>
         <div className={s.title}>{titles.owner}</div>
         <div className={s.inner}>{data?.owner}</div>
@@ -52,18 +42,8 @@ const Delivery = ({ data }) => {
         <div className={s.title}>{titles.comment}</div>
         <div className={s.inner}>{data?.comment}</div>
       </div>
-
-      {/* <div className={''}>
-        <div>{data?.owner}</div>
-        <div>{titles.owner}</div>
-      </div>
-
-      <div className={''}>
-        <div>{data?.owner}</div>
-        <div>{titles.owner}</div>
-      </div> */}
     </div>
   );
 };
 
-export default Delivery;
+export default DeliveryBottom;

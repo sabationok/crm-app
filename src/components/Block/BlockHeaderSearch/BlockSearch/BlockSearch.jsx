@@ -69,48 +69,50 @@ const BlockSearch = props => {
     }
   }, [searchParam]);
   return (
-    <div className={scss.filterContainer}>
-      <form
-        className={scss.filterForm}
-        onSubmit={evt => {
-          handleFormSubmit(evt);
-        }}
-      >
-        <div className={classOpen} onClick={handleToggleOpenSelect}>
-          <input className={scss.inputParam} type="text" placeholder="Параметр" value={searchParam.name} onChange={handleChangeSearchParamInput} />
-          <ul className={scss.selectList}>
-            {foundedData.map(item => (
-              <li
-                key={item.id}
-                className={scss.selectItem}
-                data-title={item.dataTitle}
-                onClick={evt => {
-                  onSearchParamClick({ evt, item });
-                }}
-              >
-                {item.name}
-              </li>
-            ))}
-          </ul>
-        </div>
+    <div className={scss.searchContainer}>
+      <div className={scss.wrapper}>
+        <form
+          className={scss.form}
+          onSubmit={evt => {
+            handleFormSubmit(evt);
+          }}
+        >
+          <div className={classOpen} onClick={handleToggleOpenSelect}>
+            <input className={scss.inputParam} type="text" placeholder="Параметр" value={searchParam.name} onChange={handleChangeSearchParamInput} />
+            <ul className={scss.selectList}>
+              {foundedData.map(item => (
+                <li
+                  key={item.id}
+                  className={scss.selectItem}
+                  data-title={item.dataTitle}
+                  onClick={evt => {
+                    onSearchParamClick({ evt, item });
+                  }}
+                >
+                  {item.name}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <div className={scss.customFounder}>
-          <input
-            className={scss.inputFounder}
-            type="text"
-            name="searchQuery"
-            value={searchQuery}
-            placeholder="Пошук"
-            onChange={evt => {
-              onInputChange(evt);
-            }}
-          />
-        </div>
+          <div className={scss.customFounder}>
+            <input
+              className={scss.inputFounder}
+              type="text"
+              name="searchQuery"
+              value={searchQuery}
+              placeholder="Пошук"
+              onChange={evt => {
+                onInputChange(evt);
+              }}
+            />
+          </div>
 
-        <button className={scss.button} type="submit">
-          <SvgIcon iconId="search" size="24px" />
-        </button>
-      </form>
+          <button className={scss.button} type="submit">
+            <SvgIcon iconId="search" size="24px" />
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

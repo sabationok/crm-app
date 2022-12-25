@@ -18,8 +18,7 @@ const Row = ({ row = {}, plusBtn = false }) => {
           Рядок
         </ButtonIcon>
       )}
-
-      {!plusBtn && <SelectHead arr={rowOptions} item={row} disabled={disabled} />}
+      <div className={s.stickyInRow}>{!plusBtn && <SelectHead arr={rowOptions} item={row} disabled={disabled} />}</div>
 
       {collumns.map((coll, idx) => (
         <React.Fragment key={coll.id}>

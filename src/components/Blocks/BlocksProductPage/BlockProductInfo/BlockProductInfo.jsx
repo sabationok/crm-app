@@ -3,24 +3,25 @@ import Block from 'components/Block/Block';
 import TableProductInfo from 'components/TableProductInfo/TableProductInfo';
 import Actions from './Actions/Actions';
 import BlockEmpty from '../../BlockEmpty/BlockEmpty';
-import { getAppPageSettings, getPosts } from 'redux/selectors';
+import { postsMessages as messages } from 'data';
+import { getAppPageSettings } from 'redux/selectors';
 import { prepeareProductData, prepeareProductSubmitData } from 'data/products';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { usePage } from 'components/AppPages/PageProvider';
 import { actionDeletePost as actionDelete } from 'redux/posts/postsActions';
-import { postsMessages as messages } from 'data';
-
-import s from './BlockProductInfo.module.scss';
+// import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+import s from './BlockProductInfo.module.scss';
+
 const BlockProductInfo = props => {
-  const { id } = useParams();
-  const { posts } = useSelector(getPosts);
+  // const { id } = useParams();
+
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const selectedPost = posts.find(post => post._id === id);
+  const page = usePage();
 
   const { NOT_SELECTED_ID, Deleting } = messages;
 
@@ -45,25 +46,21 @@ const BlockProductInfo = props => {
     };
     dispatch(actionDelete(payload));
   }
-
   const blockSettings = {
-    title: 'Деталі',
-    iconId: 'info',
-    actions: 'primary',
     className: s[pageGrid],
     ActionsComp: Actions,
     prepareRowData: prepeareProductData,
     prepareSubmitData: prepeareProductSubmitData,
     deleteAction,
-    post: selectedPost,
+    post: page.post,
     ...props,
   };
 
   return (
     <Block {...blockSettings}>
-      {selectedPost?._id && <TableProductInfo />}
+      {page.post?._id && <TableProductInfo />}
 
-      {!selectedPost?._id && <BlockEmpty title="Оберіть пост зі списку" />}
+      {!page.post?._id && <BlockEmpty title="Оберіть пост зі списку" />}
     </Block>
   );
 };

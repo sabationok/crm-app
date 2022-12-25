@@ -1,16 +1,16 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 import TableList from 'components/TableList/BlockTable';
+import { postsMessages as messages } from 'data';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { actionDeletePost, actionTogglePostVisibility, actionApprovePost, actionRejectPost, actionArchivePost } from 'redux/posts/postsActions';
-import { postsMessages as messages } from 'data';
 import { getAppPageSettings, getPosts } from 'redux/selectors';
 import { productsTableTitles } from 'data/productsTableTitles';
 import { prepeareProductData } from 'data/products';
+import { toast } from 'react-toastify';
 
 import s from './BlockProductsList.module.scss';
-import { toast } from 'react-toastify';
 const BlockProductsList = props => {
   const { posts } = useSelector(getPosts);
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
@@ -108,13 +108,10 @@ const BlockProductsList = props => {
   }
 
   const blockSettings = {
-    title: 'Список товарів',
-    iconId: 'list',
-    actions: 'withFilter',
     className: s[pageGrid],
-    tableData: [...posts],
+    tableData: posts,
     tableTitles: productsTableTitles,
-    prepeareRowData: prepeareProductData,
+    prepeareProductData,
     togglePostVisibility,
     deletePostAction,
     approvePostAction,

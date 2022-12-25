@@ -2,6 +2,7 @@ import React from 'react';
 import Block from 'components/Block/Block';
 import TableList from 'components/TableList/BlockTable';
 
+import { ordersMessages as messages } from 'data';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getAppPageSettings, getOrders } from 'redux/selectors';
@@ -9,12 +10,11 @@ import { ordersTableTitles } from 'data/ordersTableTitles';
 import { prepeareOrderData } from 'data/orders';
 import { actionDeleteOrder, actionArchiveOrder, actionAcceptOrder, actionDeclineOrder } from 'redux/orders/ordersActions';
 import { useNavigate } from 'react-router-dom';
-import { ordersMessages as messages } from 'data';
-
-import s from './BlockOrdersList.module.scss';
 import { toast } from 'react-toastify';
 
-const BlockOrderList = props => {
+import s from './BlockOrdersList.module.scss';
+
+const BlockOrdersList = props => {
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
   const { orders } = useSelector(getOrders);
   const navigate = useNavigate();
@@ -112,9 +112,6 @@ const BlockOrderList = props => {
   }
 
   const blockSettings = {
-    title: 'Список замовлень',
-    iconId: 'list',
-    actions: 'withFilter',
     className: s[pageGrid],
     order: selectedOrder,
     tableTitles: ordersTableTitles,
@@ -134,4 +131,4 @@ const BlockOrderList = props => {
   );
 };
 
-export default BlockOrderList;
+export default BlockOrdersList;

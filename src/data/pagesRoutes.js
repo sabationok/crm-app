@@ -79,7 +79,7 @@ export const mobilePageRoutes = [
     path: 'order',
     iconId: 'assignment-in',
   },
-  { title: 'Реалізації', device: 'mobile', parentPath: 'orders', path: 'realizations', iconId: 'assignment-ok' },
+  { title: 'Відвантаження', device: 'mobile', parentPath: 'orders', path: 'deliveries', iconId: 'ttn' },
 
   { title: 'Список повернень', device: 'mobile', parentPath: 'refunds', path: '/refunds', navLink: false, iconId: 'list' },
   { title: 'Деталі повернення', device: 'mobile', parentPath: 'refunds', path: 'refund', iconId: 'refund' },

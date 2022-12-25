@@ -45,3 +45,10 @@
     color: var(--brand_clr__2);
   }
 }
+
+.theme,
+.listRow,
+.blockAcion,
+.listRowActions {
+  transition: var(--timing-function__main);
+}

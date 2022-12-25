@@ -1,8 +1,9 @@
 .header,
 .headerWithSearch {
-  display: grid;
+  display: flex;
 
-  grid-template-rows: 30px;
+  height: 30px;
+  // grid-template-rows: 30px;
   align-content: center;
   align-items: center;
   gap: 8px;
@@ -10,45 +11,36 @@
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 6;
+  z-index: 50;
 
   width: 100%;
   padding: 0 8px;
 
   overflow: visible;
 }
+
+// .header {
+//   grid-template-columns: min-content 1fr 30px;
+
+//   @media screen and (min-width: 768px) {
+//     grid-template-columns: min-content 1fr 30px 30px;
+//   }
+// }
+// .headerWithSearch {
+//   grid-template-columns: min-content 1fr 30px;
+//   @media screen and (min-width: 768px) {
+//     grid-template-columns: min-content 1fr 30px 30px;
+//   }
+// }
 .Light {
   background-color: var(--brand_clr__2_light);
   color: var(--brand_clr__2);
   fill: var(--brand_clr__2);
-  // border-bottom-color: var(--brand_clr__2_light);
-  // box-shadow: var(--block-shadow);
 }
 .Dark {
   background-color: var(--brand_clr__2);
   color: #f0f0f0;
   fill: #f0f0f0;
-  // border-bottom-color: var(--brand_clr__2);
-}
-.header {
-  grid-template-columns: min-content 1fr 30px;
-
-  @media screen and (min-width: 768px) {
-    grid-template-columns: min-content 1fr 30px 30px;
-  }
-}
-.headerWithSearch {
-  grid-template-columns: min-content 1fr 30px;
-  @media screen and (min-width: 768px) {
-    grid-template-columns: min-content 1fr 30px 30px;
-  }
-}
-.blockLink {
-  white-space: nowrap;
-
-  color: #fff;
-
-  color: var(--brand_clr__1);
 }
 .link {
   &:hover,
@@ -57,6 +49,8 @@
   }
 }
 .title {
+  flex-grow: 1;
+
   padding: 4px;
 
   white-space: nowrap;

@@ -29,7 +29,7 @@ const Block = props => {
   const { isDarkTheme } = useSelector(getAppSettings);
 
   const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');
-  const fullPageGrid = isFullPageMode ? { gridColumn: '1/11', gridRow: '1/11', zIndex: '50' } : {};
+  const fullPageGrid = isFullPageMode ? { gridColumn: '1/11', gridRow: '1/11', zIndex: '60' } : {};
 
   function handleToggleBlockSearch() {
     setIsSearch(!isSearch);
@@ -83,7 +83,7 @@ const Block = props => {
             {/* <BlockModal title={`Додаткові дії блоку "${title}"`}></BlockModal> */}
           </div>
 
-          {footer && <div className={s.footer}>{footerChildren}</div>}
+          {footer && <div className={[s.footer, 'theme'].join(' ')}>{footerChildren}</div>}
         </div>
       </BlockContext>
     </>

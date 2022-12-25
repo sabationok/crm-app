@@ -12,7 +12,6 @@ const PageStatistics = lazy(() => import('./PageStatistics'));
 const PageManager = lazy(() => import('./PageManager'));
 const PageVendor = lazy(() => import('./PageVendor'));
 const PageAdmin = lazy(() => import('./PageAdmin'));
-const AppMobilePage = lazy(() => import('./AppMobilePage/AppMobilePage'));
 export const AppPages = {
   PageMain,
   PageNotFound,
@@ -25,7 +24,6 @@ export const AppPages = {
   PageDirectories,
   PageStatistics,
   PageAdmin,
-  AppMobilePage,
   PageVendor,
   PageManager,
 };

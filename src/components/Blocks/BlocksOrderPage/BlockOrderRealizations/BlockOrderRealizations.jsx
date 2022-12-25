@@ -3,32 +3,27 @@ import Block from 'components/Block/Block';
 
 import Actions from './Actions/Actions';
 import BlockEmpty from 'components/Blocks/BlockEmpty/BlockEmpty';
-import TableOrderRealiazations from 'components/TableOrderDeliveries/TableOrderDeliveries';
+import TableOrderDeliveries from 'components/TableOrderDeliveries/TableOrderDeliveries';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { getOrders } from 'redux/selectors';
+// import { useParams } from 'react-router-dom';
 import { getAppPageSettings } from 'redux/selectors';
+import { usePage } from 'components/AppPages/PageProvider';
 
 import s from './BlockOrderRealizations.module.scss';
 
 const BlockOrderRealizations = props => {
+  const page = usePage();
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
-  const { id } = useParams();
-  const { orders } = useSelector(getOrders);
-
-  const selectedOrder = orders.find(order => order._id === id);
+  // const { id } = useParams();
 
   const blockSettings = {
-    title: 'Реалізації',
-    iconId: 'assignment-ok',
-    actions: 'primary',
     className: s[pageGrid],
     ActionsComp: Actions,
-    order: selectedOrder,
+    order: page.order,
     ...props,
   };
 
-  return <Block {...blockSettings}>{selectedOrder ? <TableOrderRealiazations /> : <BlockEmpty title={'Оберіть замовлення'} />}</Block>;
+  return <Block {...blockSettings}>{page.order?._id ? <TableOrderDeliveries /> : <BlockEmpty title={'Оберіть замовлення'} />}</Block>;
 };
 
 export default BlockOrderRealizations;
