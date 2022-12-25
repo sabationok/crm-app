@@ -21,7 +21,7 @@ import { postStatus } from 'data/products';
 const { ARCHIVED, REJECTED, APPROVED } = postStatus;
 
 const newData = [...productsArrTest, ...productsArrTest, ...productsArrTest].map(el => {
-  return { ...el, _id: nanoid(8) };
+  return { ...el, _id: nanoid(8), sku: nanoid(10) };
 });
 
 const initialState = {

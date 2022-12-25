@@ -121,9 +121,47 @@ export const initialDeliveryState = {
     blockedFunds: '',
   },
 };
+export const incomeOrderData = {
+  _id: '6df1b6sd5f',
+  createdAt: '05.12.2022 12:50',
+  updatedAt: '',
+  orderType: IS_STANDART,
+  orderStatus: REJECTED,
+  orderNumber: '123456789',
+  paymentType: PAY_BY_IBAN,
+  paymentStatus: PAYED,
+  payment: {
+    type: PAY_BY_IBAN,
+    status: PENNDING,
+    total: 0,
+    blockedFunds: 256,
+  },
+  deliveries: [
+    {
+      _id: 'd6fb1s6d5f',
+      owner: '123456789',
+      ttn: nanoid(8),
+      transporter: 'Укрпошта',
+      status: DEL_IN_ROAD,
+      type: DEL_DIST_TO_DIS,
+      cost: 256,
+      receiver: { _id: '', name: '', email: '', phone: '' },
+      destination: '',
+      comment: '',
+      content: [],
+      payment: {
+        type: '',
+        status: '',
+        total: '',
+        blockedFunds: '',
+      },
+    },
+  ],
+};
 export const testOrdersArr = [
   {
-    _id: '1651354531',
+    ...incomeOrderData,
+    _id: '6df1b6sd5f',
     createdAt: '05.12.2022 12:50',
     updatedAt: '',
     orderType: IS_STANDART,
@@ -139,7 +177,7 @@ export const testOrdersArr = [
     },
     deliveries: [
       {
-        _id: 's6df51b6sd5f1',
+        _id: 'd6fb1s6d5f',
         owner: '123456789',
         ttn: nanoid(8),
         transporter: 'Укрпошта',
@@ -148,7 +186,7 @@ export const testOrdersArr = [
         cost: 256,
         receiver: { _id: '', name: '', email: '', phone: '' },
         destination: '',
-        comment: '',
+        comment: 'Коментрі який залишив замовник',
         content: [],
         payment: {
           type: '',
@@ -160,6 +198,7 @@ export const testOrdersArr = [
     ],
   },
   {
+    ...incomeOrderData,
     _id: 'asfd5bs6d5f1',
     createdAt: '06.10.2022 12:50',
     updatedAt: '',
@@ -171,6 +210,7 @@ export const testOrdersArr = [
     deliveryType: DEL_DIST_TO_DIS,
   },
   {
+    ...incomeOrderData,
     _id: '6516v51f656',
     createdAt: '12.05.2022 12:50',
     updatedAt: '',
@@ -182,6 +222,7 @@ export const testOrdersArr = [
     deliveryType: DEL_COURIER,
   },
   {
+    ...incomeOrderData,
     _id: nanoid(8),
     createdAt: '12.05.2022 12:50',
     updatedAt: '',
@@ -193,6 +234,7 @@ export const testOrdersArr = [
     deliveryType: DEL_STANDART,
   },
   {
+    ...incomeOrderData,
     _id: nanoid(8),
     createdAt: '12.05.2022 12:50',
     updatedAt: '',
@@ -215,6 +257,7 @@ export const testOrdersArr = [
     deliveryType: DEL_EXPRESS,
   },
   {
+    ...incomeOrderData,
     _id: nanoid(8),
     createdAt: '12.05.2022 12:50',
     updatedAt: '',
@@ -226,6 +269,7 @@ export const testOrdersArr = [
     deliveryType: DEL_EXPRESS,
   },
   {
+    ...incomeOrderData,
     _id: nanoid(8),
     createdAt: '12.05.2022 12:50',
     updatedAt: '',

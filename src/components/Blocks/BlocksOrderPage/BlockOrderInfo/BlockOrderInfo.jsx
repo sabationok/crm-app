@@ -24,7 +24,7 @@ const BlockOrderInfo = props => {
   const navigate = useNavigate();
 
   const selectedOrder = orders.find(order => order._id === id);
-  console.log(selectedOrder);
+
   function deleteOrderAction(id) {
     const { Deleting } = messages;
     if (!id) {

@@ -1,25 +1,36 @@
 import React from 'react';
 import { useBlock } from 'components/Block/BlockContext';
+import Delivery from './Delivery';
 
 import s from './TableOrderDeliveries.module.scss';
 
 const TableOrderDeliveries = () => {
   const { order = {} } = useBlock();
 
-  console.log(order?.deliveries);
   return (
-    <div className={s.table}>
-      <div>{order?._id}</div>
-      <div>
-        <div>
-          <div></div>
+    <>
+      {!order?.deliveries && <div>Відвантаження відсутні</div>}
 
-          <div></div>
+      {order?.deliveries && (
+        <div className={s.list}>
+          {order?.deliveries.map(del => (
+            <Delivery key={del._id} data={del} />
+          ))}
 
-          <div></div>
+          {order?.deliveries.map(del => (
+            <Delivery key={del._id} data={del} />
+          ))}
+
+          {order?.deliveries.map(del => (
+            <Delivery key={del._id} data={del} />
+          ))}
+
+          {order?.deliveries.map(del => (
+            <Delivery key={del._id} data={del} />
+          ))}
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
