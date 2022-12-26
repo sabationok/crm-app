@@ -20,7 +20,7 @@ import { productsArrTest } from 'data/products';
 import { postStatus } from 'data/products';
 const { ARCHIVED, REJECTED, APPROVED } = postStatus;
 
-const newData = [...productsArrTest, ...productsArrTest, ...productsArrTest].map(el => {
+const newData = productsArrTest.map(el => {
   return { ...el, _id: nanoid(8), sku: nanoid(10) };
 });
 

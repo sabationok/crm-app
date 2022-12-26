@@ -13,12 +13,17 @@ const Row = ({ row = {}, plusBtn = false }) => {
 
   return (
     <div className={s.row} style={rowGrid}>
-      {plusBtn && (
-        <ButtonIcon className={s.plusBtn} iconId="plus" disabled={disablePlusBtn} onClick={handleAddRow}>
-          Рядок
-        </ButtonIcon>
-      )}
-      <div className={s.stickyInRow}>{!plusBtn && <SelectHead arr={rowOptions} item={row} disabled={disabled} />}</div>
+      <div className={s.stickyInRow}>
+        {plusBtn && (
+          <div className={s.tableCorner}>
+            <ButtonIcon className={s.plusBtn} iconId="plus" disabled={disablePlusBtn} onClick={handleAddRow}>
+              Рядок
+            </ButtonIcon>
+          </div>
+        )}
+
+        {!plusBtn && <SelectHead arr={rowOptions} item={row} disabled={disabled} />}
+      </div>
 
       {collumns.map((coll, idx) => (
         <React.Fragment key={coll.id}>

@@ -7,7 +7,7 @@ import { useModal } from 'components/ModalCustom/ModalCustom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAddPost, fetchEditPost } from 'redux/posts/postsThunks';
 import { getPosts } from 'redux/selectors';
-
+import { useParams } from 'react-router-dom';
 import FormPrimary from '../../FormPrimary/FormPrimary';
 import PriceField from './PriceField/PriceField';
 import InputTextarea from 'components/Forms/Inputs/InputTextarea/InputTextarea';
@@ -18,8 +18,9 @@ import SelectCategory from './SelectCategory/SelectCategory';
 
 // import s from './FormProductInfo.module.scss';
 
-const FormProductInfo = ({ edit = false, create = false, copy = false, id }) => {
+const FormProductInfo = ({ edit = false, create = false, copy = false }) => {
   // const { user } = useSelector(getUserData);
+  const { id } = useParams();
   const { prepareRowData, prepareSubmitData } = useBlock();
   const { posts } = useSelector(getPosts);
   const { handleToggleModal } = useModal();

@@ -13,7 +13,7 @@ export const productsTableTitles = [
   {
     id: 1,
     name: 'Створено/Оновлено',
-    dataTitle: 'createdAt',
+    dataTitle: 'createdAt/apdatedAt',
     action: 'date',
     search: false,
     filter: true,
@@ -49,7 +49,6 @@ export const productsTableTitles = [
     search: true,
     filter: false,
     visible: true,
-
     width: '125px',
   },
   {
@@ -60,7 +59,6 @@ export const productsTableTitles = [
     search: true,
     filter: false,
     visible: true,
-
     width: '125px',
   },
   {

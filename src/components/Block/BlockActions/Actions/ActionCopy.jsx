@@ -1,9 +1,10 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
-import ModalOpenTrigger from 'components/ModalCustom/ModalOpenTrigger/ModalOpenTrigger';
 import BlockSimple from 'components/BlockSimple/BlockSimple';
 import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
+import ModalContent from 'components/ModalCustom/ModalContent/ModalContent';
 import { useParams } from 'react-router-dom';
+
 import s from './Action.module.scss';
 
 const ActionCopy = ({ action, props, type = 'product', iconId = 'copy', title = 'Копіювання' }) => {
@@ -16,15 +17,13 @@ const ActionCopy = ({ action, props, type = 'product', iconId = 'copy', title = 
   };
   let Children = ActionMap[type];
   return (
-    <ModalOpenTrigger
-      trigger={props => <ActionPrimary title={title} iconId={iconId} {...action} status={!!id} {...props} />}
-      disabled={!id}
-      modalContent={
+    <>
+      <ModalContent trigger={props => <ActionPrimary title={title} iconId={iconId} {...action} status={!!id} {...props} />}>
         <BlockSimple title={title} iconId={iconId} className={s.modalBlock} headerClassName={s.modalHeader}>
           {ActionMap[type] && <Children {...props} />}
         </BlockSimple>
-      }
-    />
+      </ModalContent>
+    </>
   );
 };
 

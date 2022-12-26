@@ -10,14 +10,20 @@ const RowHead = () => {
   const disablePlusBtn = collumns.length >= collOptions.length;
   return (
     <div className={s.tableHRow} style={rowGrid}>
-      <div className={s.coll}>Параметри</div>
+      <div className={s.stickyInRow}>
+        <div className={[s.coll, s.tableCorner].join(' ')}>Параметри</div>
+      </div>
+
       {collumns.map(coll => (
         <SelectHead key={coll.id} className={s.select} item={coll} arr={collOptions} disabled={disabled} />
       ))}
+
       {!disabled && (
-        <ButtonIcon iconId="plus" className={s.plusBtn} disabled={disablePlusBtn} onClick={handleAddCollumn}>
-          Додати
-        </ButtonIcon>
+        <div className={s.tableCorner}>
+          <ButtonIcon iconId="plus" className={s.plusBtn} disabled={disablePlusBtn} onClick={handleAddCollumn}>
+            Додати
+          </ButtonIcon>
+        </div>
       )}
     </div>
   );

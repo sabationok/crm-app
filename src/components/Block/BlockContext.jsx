@@ -1,13 +1,12 @@
 import { useContext, createContext } from 'react';
-import blockActions from './blockActions';
 
-export const BlockProvider = createContext();
-export const useBlock = () => useContext(BlockProvider);
+export const BlockCTX = createContext();
+export const useBlock = () => useContext(BlockCTX);
 
 const BlockContext = props => {
   return (
     <>
-      <BlockProvider.Provider value={{ ...props, ...blockActions }}>{props.children}</BlockProvider.Provider>
+      <BlockCTX.Provider value={{ ...props }}>{props.children}</BlockCTX.Provider>
     </>
   );
 };

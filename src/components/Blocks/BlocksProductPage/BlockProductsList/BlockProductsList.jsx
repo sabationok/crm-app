@@ -19,7 +19,7 @@ const BlockProductsList = props => {
 
   const { NOT_SELECTED_ID, Deleting, Visibility, Approving, Rejecting, Archivating } = messages;
 
-  function deletePostAction(id) {
+  function deleteAction(id) {
     const confirm = window.confirm(Deleting.confirm(id));
     if (!confirm) {
       return;
@@ -111,9 +111,9 @@ const BlockProductsList = props => {
     className: s[pageGrid],
     tableData: posts,
     tableTitles: productsTableTitles,
-    prepeareProductData,
+    prepeareRowData: prepeareProductData,
     togglePostVisibility,
-    deletePostAction,
+    deleteAction,
     approvePostAction,
     rejectPostAction,
     archivePostAction,

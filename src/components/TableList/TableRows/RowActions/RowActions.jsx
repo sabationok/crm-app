@@ -1,14 +1,13 @@
 import React from 'react';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { useRow } from '../RowContext';
 import { useBlock } from 'components/Block/BlockContext';
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { postStatus } from 'data/products';
 import { orderStatus } from 'data/orders';
-import { toast } from 'react-toastify';
 
 import s from './RowActions.module.scss';
 
-const RowActions = ({ className }) => {
+const RowActions = () => {
   const { isActionsOpen, handleActionsOpen, rowData } = useRow();
   const { deleteAction, togglePostVisibility, approvePostAction, rejectPostAction, rejectOrderAction, archiveOrderAction, approveOrderAction } =
     useBlock();
@@ -20,36 +19,23 @@ const RowActions = ({ className }) => {
   const disableApproveOrderBtn = rowData?.orderStatus === orderStatus.ACCEPTED;
   const disableRejectOrderBtn = rowData?.orderStatus === orderStatus.REJECTED;
 
-  function handleDeleteAction() {
-    deleteAction ? deleteAction(rowData._id) : toast.error('deleteAction');
-  }
-  function handletogglePostVisibility() {
-    togglePostVisibility ? togglePostVisibility(rowData._id) : toast.error('togglePostVisibility');
-  }
-  function handlePostApprove() {
-    approvePostAction ? approvePostAction(rowData._id) : toast.error('approvePostAction');
-  }
-  function handlePostReject() {
-    rejectPostAction ? rejectPostAction(rowData._id) : toast.error('rejectPostAction');
-  }
-  function handleOrderApprove() {
-    approveOrderAction ? approveOrderAction(rowData._id) : toast.error('approveOrderAction');
-  }
-  function handleOrderReject() {
-    rejectOrderAction ? rejectOrderAction(rowData._id) : toast.error('rejectOrderAction');
-  }
-  function handleOrderArchive() {
-    archiveOrderAction ? archiveOrderAction(rowData._id) : toast.error('archiveOrderAction');
-  }
   return (
     <div className={[isActionsOpen ? s.rowActionsVisible : s.rowActions, 'listRowActions'].join(' ')}>
       <div className={s.listItem}>
-        <ButtonIcon size="100%" iconSize="80%" iconId={'close'} className={s.actionsBtn} onClick={handleActionsOpen} />
+        <ButtonIcon size="100%" iconSize="80%" iconId="close" className={s.actionsBtn} onClick={handleActionsOpen} />
       </div>
 
       {deleteAction && (
         <div className={s.listItem}>
-          <ButtonIcon size="100%" iconSize="80%" iconId="delete" className={s.actionsBtn} onClick={handleDeleteAction} />
+          <ButtonIcon
+            size="100%"
+            iconSize="80%"
+            iconId="delete"
+            className={s.actionsBtn}
+            onClick={() => {
+              deleteAction(rowData._id);
+            }}
+          />
           <span className={s.actionTitle}>Видалити</span>
         </div>
       )}
@@ -61,7 +47,9 @@ const RowActions = ({ className }) => {
             iconSize="80%"
             iconId={rowData?.visibilityStatus ? 'visibility-on' : 'visibility-off'}
             className={s.actionsBtn}
-            onClick={handletogglePostVisibility}
+            onClick={() => {
+              togglePostVisibility(rowData._id);
+            }}
           />
           <span className={s.actionTitle}>Змінити видимість</span>
         </div>
@@ -75,14 +63,25 @@ const RowActions = ({ className }) => {
             iconId="success"
             className={s.actionsBtn}
             disabled={disableApprovePostBtn}
-            onClick={handlePostApprove}
-          />{' '}
+            onClick={() => {
+              approvePostAction(rowData._id);
+            }}
+          />
           <span className={s.actionTitle}>Затвердити</span>
         </div>
       )}
       {rejectPostAction && (
         <div className={s.listItem}>
-          <ButtonIcon size="100%" iconSize="80%" iconId="clear" className={s.actionsBtn} disabled={disableRejectPostBtn} onClick={handlePostReject} />{' '}
+          <ButtonIcon
+            size="100%"
+            iconSize="80%"
+            iconId="clear"
+            className={s.actionsBtn}
+            disabled={disableRejectPostBtn}
+            onClick={() => {
+              rejectPostAction(rowData._id);
+            }}
+          />{' '}
           <span className={s.actionTitle}>Відхилити</span>
         </div>
       )}
@@ -95,7 +94,9 @@ const RowActions = ({ className }) => {
             iconId="success"
             className={s.actionsBtn}
             disabled={disableApproveOrderBtn}
-            onClick={handleOrderApprove}
+            onClick={() => {
+              approveOrderAction(rowData._id);
+            }}
           />{' '}
           <span className={s.actionTitle}>Прийняти</span>
         </div>
@@ -108,7 +109,9 @@ const RowActions = ({ className }) => {
             iconId="clear"
             className={s.actionsBtn}
             disabled={disableRejectOrderBtn}
-            onClick={handleOrderReject}
+            onClick={() => {
+              rejectOrderAction(rowData._id);
+            }}
           />{' '}
           <span className={s.actionTitle}>Відхилити</span>
         </div>
@@ -121,7 +124,9 @@ const RowActions = ({ className }) => {
             iconId="archive"
             className={s.actionsBtn}
             disabled={disableArchiveOrderBtn}
-            onClick={handleOrderArchive}
+            onClick={() => {
+              archiveOrderAction(rowData._id);
+            }}
           />{' '}
           <span className={s.actionTitle}>Архівувати</span>
         </div>

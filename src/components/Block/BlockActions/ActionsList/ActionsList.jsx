@@ -13,12 +13,14 @@ import ActionCreate from '../Actions/ActionCreate';
 import ActionDelete from '../Actions/ActionDelete';
 import ActionRefresh from '../Actions/ActionRefresh';
 import ActionPrimary from '../Actions/ActionPrimary';
-import ActionFulLPageMode from '../Actions/ActionFullPageMode';
 import ActionTogglePostVisibility from '../Actions/ActionTogglePostVisibility';
 
 // import s from './ActionsList.module.scss';
 
 const BlockActionsList = ({ arr = [] }) => {
+  if (typeof arr !== 'object') {
+    return;
+  }
   const actionsMap = {
     link: ActionLink,
     search: ActionSearch,
@@ -32,21 +34,19 @@ const BlockActionsList = ({ arr = [] }) => {
     delete: ActionDelete,
     create: ActionCreate,
     refresh: ActionRefresh,
-    zoom: ActionFulLPageMode,
     togglePostVisibility: ActionTogglePostVisibility,
   };
-  let Action = <></>;
+
   return (
     <>
-      {/* <ul className={s.actionsList}></ul> */}
       {arr.map(action => {
         if (actionsMap[action.name]) {
-          Action = actionsMap[action.name];
+          let Action = actionsMap[action.name];
 
-          return <Action key={action.name} action={action} {...action} />;
+          return <Action key={action.iconId} action={action} {...action} />;
         }
 
-        return <ActionPrimary key={action.name} {...action} />;
+        return <ActionPrimary key={action.iconId} {...action} />;
       })}
     </>
   );

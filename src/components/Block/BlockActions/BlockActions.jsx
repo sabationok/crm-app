@@ -1,17 +1,13 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import BlockActionsList from './ActionsList/ActionsList';
-
-// import BlockModalPortal from '../BlockModal/BlockModalPortal';
-
-import blockActions from '../blockActions';
 
 import { useBlock } from '../BlockContext';
 
 import s from './BlockActions.module.scss';
 
 const BlockActions = () => {
-  const { actions, ActionsComp, handleToggleAction, isActionsOpen } = useBlock();
+  const { actions, handleToggleAction, isActionsOpen } = useBlock();
 
   function onBackdropClick(ev) {
     const { target, currentTarget } = ev;
@@ -21,26 +17,14 @@ const BlockActions = () => {
     handleToggleAction();
   }
 
-  const memoizedActionsArr = useMemo(() => {
-    switch (actions) {
-      case 'primary':
-        return blockActions.actionsPrimary;
-
-      case 'withFilter':
-        return blockActions.actionsWithFilter;
-
-      default:
-        return [];
-    }
-  }, [actions]);
-
+  if (typeof actions !== 'object') {
+    return;
+  }
   return (
     <>
       <div className={[s.actionsBackdrop, isActionsOpen && s.isOpen].join(' ')} onClick={onBackdropClick}>
         <div className={s.actionsList} onClick={onBackdropClick}>
-          {ActionsComp && <ActionsComp />}
-
-          {memoizedActionsArr.length > 0 && <BlockActionsList arr={memoizedActionsArr} />}
+          {actions && actions.length > 0 && <BlockActionsList arr={actions} />}
         </div>
       </div>
     </>

@@ -16,13 +16,14 @@
   }
 
   @media screen and (max-height: 480px) {
-    min-height: 480px;
+    min-height: 270px;
     height: 100vh;
-    max-height: 140vh;
+    max-height: 100vh;
   }
   @media screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: 1fr;
+    height: 100vh;
     grid-template-rows: max-content 1fr max-content;
   }
   @media screen and (min-width: 1100px) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { useSearchParams } from 'react-router-dom';
+import PageProvider from './PageProvider';
 
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings } from 'components/Blocks/BlocksMap';
@@ -15,33 +15,18 @@ const PageAdmin = ({ path }) => {
     settings: <BlockAdminSettings />,
   };
 
-  // const [searchParams, setSearchParams] = useSearchParams();
-
-  // console.log(allSearchParams());
-  // useEffect(() => {
-  //   let arr = [];
-  //   const allSearchParams = () => {
-  //     searchParams.forEach((value, key) => {
-  //       arr.push({ [key]: value });
-  //     });
-  //     return arr;
-  //   };
-
-  //   if (allSearchParams().length !== 0) {
-  //     setSearchParams({ set: 'sdvsfv' });
-  //   }
-  // }, [searchParams, setSearchParams]);
-
   return (
     <>
-      <MinTabletXl>
-        <BlockAdmin />
-        <BlockManagers />
-        <BlockVendors />
-        <BlockAdminRules />
-        <BlockAdminSettings />
-      </MinTabletXl>
-      <MaxToTablet>{path ? blocksMap[path] : blocksMap.admin}</MaxToTablet>
+      <PageProvider>
+        <MinTabletXl>
+          <BlockAdmin />
+          <BlockManagers />
+          <BlockVendors />
+          <BlockAdminRules />
+          <BlockAdminSettings />
+        </MinTabletXl>
+        <MaxToTablet>{path ? blocksMap[path] : blocksMap.admin}</MaxToTablet>
+      </PageProvider>
     </>
   );
 };

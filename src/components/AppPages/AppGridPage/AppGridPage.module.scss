@@ -1,6 +1,6 @@
-.admin,
-// .products,
 // .refunds,
+// .products,
+// .admin,
 // .orders,
 .pageGrid {
   height: 100%;
@@ -20,9 +20,9 @@
 }
 // .products,
 // .refunds,
-// .orders
+// .orders,
 .pageGrid {
-  grid-template-rows: repeat(10, minmax(55px, 1fr));
+  grid-template-rows: repeat(10, 1fr);
 }
 .admin {
   grid-auto-rows: 60px;

@@ -6,13 +6,13 @@
   align-items: center;
 
   min-width: 100px;
-  width: 100%;
-  max-width: 200px;
+  // width: 100%;
+  max-width: 100%;
   @media screen and (min-width: 480px) {
-    max-width: 250px;
+    // max-width: 250px;
   }
   @media screen and (min-width: 768px) {
-    max-width: 350px;
+    // max-width: 350px;
   }
 }
 .form {
@@ -26,14 +26,17 @@
 .customFounder {
   min-width: 50px;
 }
-.inputFounder {
-  width: 100%;
+.inputFounder,
+.inputParam {
+  position: relative;
 
+  width: 100%;
   min-height: 30px;
+  padding: 2px 4px;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 2px 4px;
 
   border: 2px solid transparent;
   transition: all var(--timing-function__main);
@@ -42,40 +45,24 @@
     outline-style: none;
     border-color: var(--brand_clr__1);
 
+    z-index: 50;
+
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 }
+
 .customSelect {
   position: relative;
   max-height: 30px;
   min-width: 50px;
   &.isOpen {
     & .selectList {
-      z-index: 10;
-      max-height: 150px;
+      z-index: 30;
+      max-height: 50vh;
     }
   }
 }
-.inputParam {
-  min-height: 30px;
 
-  width: 100%;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 2px 4px;
-
-  border: 2px solid transparent;
-  transition: all var(--timing-function__main);
-  &:hover,
-  &:focus-visible {
-    outline-style: none;
-    border-color: var(--brand_clr__1);
-
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-}
 .selectList {
   min-width: 100%;
   width: fit-content;
@@ -88,7 +75,6 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   transition: all var(--timing-function__main);
 }
-
 .selectItem {
   padding: 4px;
 
@@ -99,6 +85,7 @@
     background-color: rgb(203, 203, 203);
   }
 }
+
 .button {
   display: flex;
   align-items: center;

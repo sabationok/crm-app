@@ -24,10 +24,6 @@ const TableRow = props => {
   const navigate = useNavigate();
   const { tableTitles = [], rowGrid = {} } = useTable();
 
-  function handleActionsOpen() {
-    setIsActionsOpen(!isActionsOpen);
-  }
-
   const styles = {
     ...rowGrid,
   };
@@ -46,13 +42,14 @@ const TableRow = props => {
     status: CellStatus,
   };
 
-  let Cell = CellText;
-
   function handleOnRowClick(ev) {
     const { rowData } = props;
     if (rowData?._id) {
       navigate(`/${indexPage}/${rowData?._id}`);
     }
+  }
+  function handleActionsOpen() {
+    setIsActionsOpen(!isActionsOpen);
   }
   const ctxValue = {
     ...props,
@@ -67,16 +64,20 @@ const TableRow = props => {
         <div style={styles} className={s.row}>
           <div className={[s.rowStickyEl, 'listRow'].join(' ')}>
             <CellActions />
+
             <CellCheckBox />
           </div>
 
           {tableTitles.map((title, idx) => {
+            let Cell = CellText;
+
             if (CellsMap[title.action]) {
               Cell = CellsMap[title.action];
 
               return <Cell key={title.name} title={title} idx={idx} onClick={handleOnRowClick} />;
             }
-            Cell = CellsMap.string;
+
+            Cell = CellText;
             return <Cell key={title.name} title={title} idx={idx} onClick={handleOnRowClick} />;
           })}
         </div>

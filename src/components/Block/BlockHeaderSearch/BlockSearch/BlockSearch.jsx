@@ -5,7 +5,7 @@ import { applyFounder } from '../../BlockUtils/founder';
 import { useBlock } from 'components/Block/BlockContext';
 import { toast } from 'react-toastify';
 
-import scss from './BlockSearch.module.scss';
+import s from './BlockSearch.module.scss';
 
 const BlockSearch = props => {
   const { tableTitles = [] } = useBlock();
@@ -15,7 +15,7 @@ const BlockSearch = props => {
   const [foundedData, setFoundedData] = useState([]);
   // const dispatch = useDispatch();
 
-  const classOpen = [scss.customSelect, isSelectOpen && scss.isOpen].join(' ');
+  const classOpen = [s.customSelect, isSelectOpen && s.isOpen].join(' ');
 
   function onInputChange(evt) {
     let { target } = evt;
@@ -69,21 +69,21 @@ const BlockSearch = props => {
     }
   }, [searchParam]);
   return (
-    <div className={scss.searchContainer}>
-      <div className={scss.wrapper}>
+    <div className={s.searchContainer}>
+      <div className={s.wrapper}>
         <form
-          className={scss.form}
+          className={s.form}
           onSubmit={evt => {
             handleFormSubmit(evt);
           }}
         >
           <div className={classOpen} onClick={handleToggleOpenSelect}>
-            <input className={scss.inputParam} type="text" placeholder="Параметр" value={searchParam.name} onChange={handleChangeSearchParamInput} />
-            <ul className={scss.selectList}>
+            <input className={s.inputParam} type="text" placeholder="Параметр" value={searchParam.name} onChange={handleChangeSearchParamInput} />
+            <ul className={s.selectList}>
               {foundedData.map(item => (
                 <li
-                  key={item.id}
-                  className={scss.selectItem}
+                  key={item.name}
+                  className={s.selectItem}
                   data-title={item.dataTitle}
                   onClick={evt => {
                     onSearchParamClick({ evt, item });
@@ -95,9 +95,9 @@ const BlockSearch = props => {
             </ul>
           </div>
 
-          <div className={scss.customFounder}>
+          <div className={s.customFounder}>
             <input
-              className={scss.inputFounder}
+              className={s.inputFounder}
               type="text"
               name="searchQuery"
               value={searchQuery}
@@ -108,7 +108,7 @@ const BlockSearch = props => {
             />
           </div>
 
-          <button className={scss.button} type="submit">
+          <button className={s.button} type="submit">
             <SvgIcon iconId="search" size="24px" />
           </button>
         </form>

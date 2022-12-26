@@ -9,7 +9,7 @@ export const pagesRoutes = [
     title: 'Замовлення',
     path: 'orders',
     device: 'desktop',
-    iconId: 'addtoCart',
+    iconId: 'assignment-in',
   },
   {
     title: 'Повернення',
