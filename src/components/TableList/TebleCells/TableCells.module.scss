@@ -42,13 +42,16 @@
 .checkboxCollHead {
   justify-content: center;
 
+  width: 40px;
+  height: 100%;
   padding: 0;
 
   border-left: 1px solid gray;
   border-right: 1px solid gray;
 }
 .actionsBtn {
-  padding: 0;
+  width: 40px;
+  height: 100%;
   &:hover {
     background-color: rgba(238, 238, 238, 0.5);
     fill: var(--brand_clr__1);

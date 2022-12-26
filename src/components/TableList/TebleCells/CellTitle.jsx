@@ -8,7 +8,7 @@ const CellTitle = ({ title, idx, className = '', onClick }) => {
   const classNames = [s.title, s[title?.action], ...className].join(' ');
 
   return (
-    <div className={classNames} title={title?.name || 'Empty'} onClick={onClick}>
+    <div style={{ width: title?.width }} className={classNames} title={title?.name || 'Empty'} onClick={onClick}>
       {title?.name || 'Empty'}
     </div>
   );

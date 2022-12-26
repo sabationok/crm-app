@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 // import PropTypes from 'prop-types';
 import BlockContext from './BlockContext';
 import BlockHeaderSearch from './BlockHeaderSearch/BlockHeaderSearch';
@@ -27,6 +27,7 @@ const Block = props => {
   const [isFullPageMode, setIsFullPageMode] = useState(false);
   const [isActionsOpen, setIsActionsOpen] = useState(false);
   const { isDarkTheme } = useSelector(getAppSettings);
+  const printRef = useRef();
 
   const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');
   const fullPageGrid = isFullPageMode ? { gridColumn: '1/11', gridRow: '1/11', zIndex: '60' } : {};
@@ -50,6 +51,7 @@ const Block = props => {
     isModalOpen,
     isFullPageMode,
     isActionsOpen,
+    printRef,
   };
 
   const stateHandlers = {
@@ -63,7 +65,7 @@ const Block = props => {
 
   return (
     <>
-      <BlockContext {...props} {...stateHandlers} {...state}>
+      <BlockContext {...props} state={state} stateHandlers={stateHandlers} {...stateHandlers} {...state}>
         <div className={blockClassName} style={{ ...style, ...fullPageGrid }} id="test">
           {header && <BlockHeaderSearch style={headerStyles} />}
 

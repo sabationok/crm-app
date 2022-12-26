@@ -1,4 +1,4 @@
-import { useContext, createContext, useState } from 'react';
+import { useContext, createContext } from 'react';
 // import cloneDeep from 'lodash.clonedeep';
 // import { useSelector } from 'react-redux';
 // import { selectPosts } from 'redux/selectors';
@@ -11,16 +11,26 @@ export const useTable = () => useContext(TableCNTXT);
 
 const TableContext = ({ children, value }) => {
   const { tableTitles = [], tableData = [], prepeareRowData } = useBlock();
-  const [selectedAll, setSelectedAll] = useState(false);
-  const tableCollWidth = tableTitles.map(el => el.width);
-  // const { searchQuery, searchParam } = useSelector(selectPosts);
-  // const [tableDataCloned, setTableDateCloned] = useState([]);
-  // const [foundedPosts, setFoundedPosts] = useState([]);
 
   const rowGrid = {
     display: 'grid',
-    gridTemplateColumns: `80px ${tableCollWidth.join(' ')}`,
+
+    gridTemplateColumns: `min-content repeat(${tableTitles.length}, min-content)`,
   };
+
+  // function createRowGrid(tableTitles, print) {
+  //   const tableCollWidth = tableTitles.map(el => el.width);
+  //   const rowGrid = {
+  //     display: 'grid',
+  //     gridTemplateColumns: `min-content ${tableCollWidth.join(' ')}`,
+  //     // gridTemplateColumns: `min-content repeat(${tableTitles.length}, 1fr)}`,
+  //   };
+  //   return rowGrid;
+  // }
+  // ! ${!print && '80px'}
+  // const { searchQuery, searchParam } = useSelector(selectPosts);
+  // const [tableDataCloned, setTableDateCloned] = useState([]);
+  // const [foundedPosts, setFoundedPosts] = useState([]);
 
   // useEffect(() => {
   //   if (tableData.length !== 0) {
@@ -43,11 +53,9 @@ const TableContext = ({ children, value }) => {
     <TableCNTXT.Provider
       value={{
         ts,
-        rowGrid,
+        rowGrid: rowGrid,
         tableData,
         tableTitles,
-        setSelectedAll: setSelectedAll,
-        selectedAll: selectedAll,
         prepeareRowData,
         ...value,
       }}

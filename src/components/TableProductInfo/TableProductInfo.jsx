@@ -11,13 +11,17 @@ import s from './TableProductInfo.module.scss';
 
 const TableProductInfo = () => {
   const {
+    printRef,
     post,
     post: { createdBy, updatedBy, categoryInfo, availabilityInfo, priceInfo },
   } = useBlock();
+  const block = useBlock();
+
+  console.log(block);
 
   return (
     <>
-      <div className={s.table}>
+      <div className={s.table} ref={printRef}>
         <RowSimple title="Статус" data={<Status status={post?.approvedStatus} />} info="Статус огляду менеджером" />
         <RowSimple
           title="Видимість"

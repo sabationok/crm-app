@@ -26,6 +26,12 @@ const BlockProductStock = props => {
     ...props,
   };
 
-  return <Block {...blockSettings}>{page.post?._id ? <TableDinamic /> : <BlockEmpty title="Оберіть пост зі списку" />}</Block>;
+  return (
+    <Block {...blockSettings}>
+      <></>
+
+      {page.post?._id ? <TableDinamic disabled /> : <BlockEmpty title="Оберіть пост зі списку" />}
+    </Block>
+  );
 };
 export default BlockProductStock;

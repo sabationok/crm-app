@@ -5,7 +5,7 @@ import CellCheckBoxHead from '../TebleCells/CellCheckBoxHead';
 import { useTable } from '../TableContext';
 import s from './TableRow.module.scss';
 const TableHeadRow = () => {
-  const { tableTitles = [], rowGrid = {} } = useTable();
+  const { tableTitles = [], rowGrid } = useTable();
 
   const styles = {
     ...rowGrid,

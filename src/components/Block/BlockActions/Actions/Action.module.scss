@@ -31,8 +31,11 @@
 }
 .listItem {
   position: relative;
-  background-color: #fff;
+
   border-radius: 50%;
+
+  width: fit-content;
+  height: fit-content;
   &:hover {
     & .actionTitle {
       opacity: 1;

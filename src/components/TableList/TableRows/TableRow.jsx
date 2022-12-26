@@ -11,6 +11,7 @@ import CellDate from '../TebleCells/CellDate';
 import CellStatus from '../TebleCells/CellStatus';
 import CellCheckBox from '../TebleCells/CellCheckBox';
 import CellActions from '../TebleCells/CellActions';
+import Cell from '../TebleCells/Cell';
 import { useState } from 'react';
 import { useTable } from '../TableContext';
 import { useSelector } from 'react-redux';
@@ -22,7 +23,7 @@ const TableRow = props => {
   const [isActionsOpen, setIsActionsOpen] = useState();
   const indexPage = useSelector(getIndexPage);
   const navigate = useNavigate();
-  const { tableTitles = [], rowGrid = {} } = useTable();
+  const { tableTitles = [], rowGrid } = useTable();
 
   const styles = {
     ...rowGrid,
@@ -60,7 +61,6 @@ const TableRow = props => {
     <RowContext value={ctxValue}>
       <div className={s.rowContainer}>
         <RowActions />
-
         <div style={styles} className={s.row}>
           <div className={[s.rowStickyEl, 'listRow'].join(' ')}>
             <CellActions />
@@ -69,16 +69,24 @@ const TableRow = props => {
           </div>
 
           {tableTitles.map((title, idx) => {
-            let Cell = CellText;
+            let CellComp = CellText;
 
             if (CellsMap[title.action]) {
-              Cell = CellsMap[title.action];
+              CellComp = CellsMap[title.action];
 
-              return <Cell key={title.name} title={title} idx={idx} onClick={handleOnRowClick} />;
+              return (
+                <Cell key={title.name} title={title} idx={idx}>
+                  <CellComp title={title} idx={idx} onClick={handleOnRowClick} />
+                </Cell>
+              );
             }
 
-            Cell = CellText;
-            return <Cell key={title.name} title={title} idx={idx} onClick={handleOnRowClick} />;
+            CellComp = CellText;
+            return (
+              <Cell key={title.name} title={title} idx={idx}>
+                <CellComp key={title.name} title={title} idx={idx} onClick={handleOnRowClick} />
+              </Cell>
+            );
           })}
         </div>
       </div>

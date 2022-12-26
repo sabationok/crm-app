@@ -1,6 +1,6 @@
 import React from 'react';
 import Block from 'components/Block/Block';
-import TableList from 'components/TableList/BlockTable';
+import TableList from 'components/TableList/TableList';
 import { postsMessages as messages } from 'data';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

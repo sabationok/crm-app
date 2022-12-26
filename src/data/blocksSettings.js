@@ -16,7 +16,7 @@ export const blocksNames = {
   BlockAdminSettings: 'BlockAdminSettings',
 };
 const actions_P_E_I = [
-  { name: 'print', title: 'Друк', iconId: 'print', status: false },
+  { name: 'print', title: 'Друк', iconId: 'print' },
   { name: 'export', title: 'Експорт', iconId: 'upload', status: false },
   { name: 'import', title: 'Імпорт', iconId: 'download', status: false },
 ];

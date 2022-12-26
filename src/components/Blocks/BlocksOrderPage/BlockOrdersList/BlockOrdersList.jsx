@@ -1,6 +1,6 @@
 import React from 'react';
 import Block from 'components/Block/Block';
-import TableList from 'components/TableList/BlockTable';
+import TableList from 'components/TableList/TableList';
 
 import { ordersMessages as messages } from 'data';
 import { useSelector, useDispatch } from 'react-redux';
