@@ -1,7 +1,7 @@
 export const pagesRoutes = [
   {
     title: 'Головна',
-    path: 'tasks',
+    path: 'home',
     device: 'desktop',
     iconId: 'home',
   },

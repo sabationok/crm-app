@@ -12,7 +12,9 @@ const PageStatistics = lazy(() => import('./PageStatistics'));
 const PageManager = lazy(() => import('./PageManager'));
 const PageVendor = lazy(() => import('./PageVendor'));
 const PageAdmin = lazy(() => import('./PageAdmin'));
+const PageHome = lazy(() => import('./PageHome/PageHome'));
 export const AppPages = {
+  PageHome,
   PageMain,
   PageNotFound,
   PageError,
