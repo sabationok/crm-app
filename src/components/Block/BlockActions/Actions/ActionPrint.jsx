@@ -22,9 +22,9 @@ const ActionPrint = ({ action }) => {
   //   content: () => printModalRef.current,
   //   documentTitle: block?.printDocTitle || 'Це для друку',
   // });
-  console.log('print action', block);
 
   function handlePrintAction() {
+    console.log('print action', block);
     if (block?.printRef?.current) {
       print();
       return;
