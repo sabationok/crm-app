@@ -3,18 +3,16 @@
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: min-content 1fr;
 
   width: fit-content;
   height: 100%;
-
-  overflow: auto;
 }
 .tHead {
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 50;
+  z-index: 31;
 }
 .tBody {
   display: grid;
