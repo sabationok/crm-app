@@ -11,7 +11,7 @@ const NavMenuHomePage = ({ size = '30px' }) => {
 
   return (
     <div className={s.menu}>
-      <ul className={[s.navList, 'theme'].join(' ')}>
+      <ul className={[s.navList].join(' ')}>
         {pagesRoutesArr.map(link => (
           <NavLinkHomePage key={link.path} item={link} />
         ))}

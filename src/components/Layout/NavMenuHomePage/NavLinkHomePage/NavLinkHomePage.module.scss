@@ -16,12 +16,15 @@
 
   padding: 8px;
 
-  background-color: inherit;
+  border-radius: 6px;
+
+  background-color: rgba(122, 122, 122, 0.2);
   border-style: none;
   border: 1px solid transparent;
-  // transition: all var(--timing-function__main);
+  transition: all var(--timing-function__main);
   &:hover {
     background-color: var(--brand_clr__1);
+    transform: scale(1.15);
   }
 }
 .navLinkActive {
