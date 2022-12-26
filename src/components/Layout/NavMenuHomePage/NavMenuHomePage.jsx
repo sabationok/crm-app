@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import NavLinkHomePage from './NavLinkHomePage/NavLinkHomePage';
 
@@ -6,7 +6,7 @@ import { pagesRoutes } from 'data/pagesRoutes';
 
 import s from './NavMenuHomePage.module.scss';
 
-const NavMenuHomePage = ({ size = '30px' }) => {
+const NavMenuHomePage = () => {
   const pagesRoutesArr = pagesRoutes.length > 0 ? pagesRoutes : [];
 
   return (
