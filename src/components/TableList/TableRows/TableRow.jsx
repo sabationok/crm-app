@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 
 import s from './TableRow.module.scss';
 const TableRow = props => {
-  const [isActionsOpen, setIsActionsOpen] = useState();
+  const [isActionsOpen, setIsActionsOpen] = useState(false);
   const indexPage = useSelector(getIndexPage);
   const navigate = useNavigate();
   const { tableTitles = [], rowGrid } = useTable();
@@ -49,13 +49,14 @@ const TableRow = props => {
       navigate(`/${indexPage}/${rowData?._id}`);
     }
   }
-  function handleActionsOpen() {
+  function handleToggleActions() {
     setIsActionsOpen(!isActionsOpen);
   }
+
   const ctxValue = {
     ...props,
     isActionsOpen,
-    handleActionsOpen,
+    handleToggleActions,
   };
   return (
     <RowContext value={ctxValue}>
@@ -67,7 +68,6 @@ const TableRow = props => {
 
             <CellCheckBox />
           </div>
-
           {tableTitles.map((title, idx) => {
             let CellComp = CellText;
 

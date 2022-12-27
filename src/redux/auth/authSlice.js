@@ -1,31 +1,51 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { actionLogInUser, actionLogOutUser, actionSetCurrentUser } from './authActions';
 import { userCurrent, userLogIn, userLogOut, userRegister } from './authThunks';
+import { users, initialUserInfo } from 'data/users';
 
-const initialState = {
-  user: {
-    createdAt: '', // * date
-    id: '21651asv165s1fv', // * string
-    name: 'Valeria Baranovka', // * string
-    type: 'manager', // * string
-    email: 'valeria@mail.com', // * string
-    phone: '+3806543218', // * string
-    // !! only for VENDORS
-    companyName: '', // * stringF
-    brandsList: [], // * array of string
-    mangerId: [], // * array of string
-    // !! only for MANAGERS
-    vendorslist: [], // * array of string },
-  },
-  token: null,
-  isLoggedIn: false,
-  error: null,
-  isLoading: false,
-};
+const initialState = initialUserInfo;
 
 export const userAuthSlice = createSlice({
   name: 'userAuth',
-  initialState,
+  initialState: initialState,
   extraReducers: {
+    // ? ТЕСТОВІ
+    [actionLogInUser]: (state, { payload }) => {
+      state.isLoading = false;
+
+      const user = users.find(user => user.login === payload.data.login);
+
+      console.log(user);
+
+      if (!user) {
+        payload.onError(404);
+        return;
+      }
+
+      if (user.password !== payload.data.password) {
+        payload.onError(400);
+        return;
+      }
+
+      state.user = user;
+      state.isLoggedIn = true;
+      state.token = user.email;
+      payload.onSuccess();
+    },
+    [actionLogOutUser]: (state, { payload }) => {
+      state.isLoading = false;
+      state.isLoggedIn = false;
+      state.token = null;
+      state.user = initialState;
+      payload.onSuccess();
+    },
+    [actionSetCurrentUser]: (state, { payload }) => {
+      state.isLoading = false;
+      state.isLoggedIn = true;
+      const user = users.find(user => user.email === state.token);
+      state.user = user;
+    },
+
     //* РЕЄСТРАЦІЯ
     [userRegister.fulfilled]: (state, { payload }) => {
       state.isLoading = false;

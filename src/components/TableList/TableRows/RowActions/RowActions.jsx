@@ -8,7 +8,7 @@ import { orderStatus } from 'data/orders';
 import s from './RowActions.module.scss';
 
 const RowActions = () => {
-  const { isActionsOpen, handleActionsOpen, rowData } = useRow();
+  const { isActionsOpen, handleToggleActions, rowData } = useRow();
   const { deleteAction, togglePostVisibility, approvePostAction, rejectPostAction, rejectOrderAction, archiveOrderAction, approveOrderAction } =
     useBlock();
 
@@ -22,7 +22,7 @@ const RowActions = () => {
   return (
     <div className={[isActionsOpen ? s.rowActionsVisible : s.rowActions, 'listRowActions'].join(' ')}>
       <div className={s.listItem}>
-        <ButtonIcon size="100%" iconSize="80%" iconId="close" className={s.actionsBtn} onClick={handleActionsOpen} />
+        <ButtonIcon size="100%" iconSize="80%" iconId="close" className={s.actionsBtn} onClick={handleToggleActions} />
       </div>
 
       {deleteAction && (

@@ -14,10 +14,10 @@ import { ordersMessages } from './ordersMessages';
 
 import { postsMessages } from './postsMessages';
 
-import { userInfo } from './users';
+import { initialUserInfo } from './users';
 
 export {
-  userInfo,
+  initialUserInfo,
   productsTableTitles,
   pagesRoutes,
   mobilePageRoutes,

@@ -1,0 +1,19 @@
+.pageAuth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.formAuth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 8px;
+
+  width: 200px;
+  height: 200px;
+}

@@ -1,4 +1,4 @@
-import { userInfo } from './users';
+import { initialUserInfo as userInfo } from './users';
 import { nanoid } from 'nanoid';
 
 export const postStatus = {

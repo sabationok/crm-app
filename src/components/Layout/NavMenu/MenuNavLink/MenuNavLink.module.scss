@@ -24,9 +24,11 @@
   }
 }
 .navLinkActive {
+  fill: #fff;
+  color: #fff;
   background-color: var(--brand_clr__1);
 }
-.navItem{
+.navItem {
   display: grid;
   grid-template-columns: 1fr;
 }
@@ -39,7 +41,8 @@
   transform: scaleY(0);
 
   // transition: all var(--timing-function__main);
-  &.isOpen { transform: scaleY(1);
+  &.isOpen {
+    transform: scaleY(1);
     height: fit-content;
     & .btnArrow {
       transform: rotate(0);
@@ -54,5 +57,5 @@
 }
 .openBtn {
   padding: 4px 8px;
-  border-bottom-color: rgba(122,122,122,0.8);
+  border-bottom-color: rgba(122, 122, 122, 0.8);
 }

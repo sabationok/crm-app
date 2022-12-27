@@ -13,6 +13,7 @@ const PageManager = lazy(() => import('./PageManager'));
 const PageVendor = lazy(() => import('./PageVendor'));
 const PageAdmin = lazy(() => import('./PageAdmin'));
 const PageHome = lazy(() => import('./PageHome/PageHome'));
+const PageAuth = lazy(() => import('./PageAuth/PageAuth'));
 export const AppPages = {
   PageHome,
   PageMain,
@@ -28,6 +29,7 @@ export const AppPages = {
   PageAdmin,
   PageVendor,
   PageManager,
+  PageAuth,
 };
 // export let PagesMap = {
 //   Main: PageMain,

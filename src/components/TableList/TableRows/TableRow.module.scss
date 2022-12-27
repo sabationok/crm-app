@@ -9,6 +9,14 @@
   height: 100%;
 
   background-color: inherit;
+
+  &:hover {
+    background-color: rgba(103, 202, 255, 0.15);
+  }
+
+  &.selected {
+    background-color: rgba(103, 202, 255, 0.3);
+  }
 }
 .thRow,
 .row {
@@ -34,15 +42,7 @@
 
   background-color: inherit;
   border-bottom: 1px solid rgb(160, 160, 160);
-  transition: all var(--timing-function__main);
-
-  // &:hover {
-  //   background-color: rgba(103, 202, 255, 0.15);
-  // }
-
-  &.selected {
-    background-color: rgba(103, 202, 255, 0.3);
-  }
+  // transition: all var(--timing-function__main);
 }
 .rowStickyEl {
   display: grid;

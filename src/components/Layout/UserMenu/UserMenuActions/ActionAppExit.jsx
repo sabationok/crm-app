@@ -1,18 +1,24 @@
 import React from 'react';
 
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { actionLogOutUser } from 'redux/auth/authActions';
+import { toast } from 'react-toastify';
 
 import s from './UserMenuActions.module.scss';
 
 const ActionAppExit = () => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  function handleExitApp(params) {
+  function handleExitApp() {
     const result = window.confirm('Бажаєте вийти?');
-
+    const payload = {
+      onSuccess: () => {
+        toast.success('Вдалого вам дня');
+      },
+    };
     if (result) {
-      navigate('logout');
+      dispatch(actionLogOutUser(payload));
     }
   }
 

@@ -1,37 +1,11 @@
-export const users = [
-  {
-    id: 217,
-    name: 'vitalii',
-    type: 'admin',
-    nickName: 'goodcat',
-    email: 'goodcat1994@gmail.com',
-    password: '456123789',
-  },
-  {
-    id: 653,
-    name: 'Volodymyr',
-    type: 'manager',
-    nickName: 'vova',
-    email: 'test1@gmail.com',
-    password: '123123123',
-  },
-  {
-    id: 185,
-    name: 'Kateryna',
-    type: 'vendor',
-    nickName: 'katia',
-    email: 'test2@gmail.com',
-    password: '123456789',
-  },
-];
-export const userInfo = {
+export const initialUserInfo = {
   createdAt: '', // * date
   updatedAt: '', // * date
-  id: '21651asv165s1fv', // * string
-  name: 'Valeria Baranovka', // * string
-  type: 'manager', // * string
-  email: 'valeria@mail.com', // * string
-  phone: '+3806543218', // * string
+  _id: '', // * string
+  name: '', // * string
+  type: '', // * string
+  email: '', // * string
+  phone: '', // * string
   // !! only for VENDORS
   companyName: '', // * stringF
   brandsList: [], // * array of string
@@ -39,3 +13,48 @@ export const userInfo = {
   // !! only for MANAGERS
   vendorslist: [], // * array of string
 };
+export const users = [
+  {
+    ...initialUserInfo,
+    id: 'sd5f1g3sd2f1g3sd21',
+    name: 'vitalii',
+    type: 'admin',
+    login: 'goodcat',
+    email: 'tester3@m.com',
+    password: '456123789',
+  },
+  {
+    ...initialUserInfo,
+    _id: 'er5g1s65f13ds2f1',
+    name: 'Volodymyr',
+    type: 'manager',
+    login: 'vova',
+    email: 'Volodymyr@m.com',
+    password: '123123123',
+  },
+  {
+    ...initialUserInfo,
+    _id: 'sdf3ds1fg32d1s32',
+    name: 'Kateryna',
+    type: 'vendor',
+    login: 'katia',
+    email: 'Kateryna@m.com',
+    password: '123456789',
+  },
+  {
+    ...initialUserInfo,
+    createdAt: '', // * date
+    updatedAt: '', // * date
+    _id: '21651asv165s1fv', // * string
+    name: 'Valeria Baranovka', // * string
+    type: 'vendor', // * string
+    email: 'valeria@mail.com', // * string
+    phone: '+3806543218', // * string
+    // !! only for VENDORS
+    companyName: '', // * stringF
+    brandsList: [], // * array of string
+    mangerId: [], // * array of string
+    // !! only for MANAGERS
+    vendorslist: [], // * array of string
+  },
+];
