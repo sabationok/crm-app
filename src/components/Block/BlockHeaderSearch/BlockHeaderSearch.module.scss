@@ -19,19 +19,6 @@
   overflow: visible;
 }
 
-// .header {
-//   grid-template-columns: min-content 1fr 30px;
-
-//   @media screen and (min-width: 768px) {
-//     grid-template-columns: min-content 1fr 30px 30px;
-//   }
-// }
-// .headerWithSearch {
-//   grid-template-columns: min-content 1fr 30px;
-//   @media screen and (min-width: 768px) {
-//     grid-template-columns: min-content 1fr 30px 30px;
-//   }
-// }
 .Light {
   background-color: var(--brand_clr__2_light);
   color: var(--brand_clr__2);
@@ -66,5 +53,10 @@
   &:active {
     fill: var(--brand_clr__1);
     background-color: rgba(254, 254, 254, 0.1);
+  }
+  @media screen and (min-width: 768px) {
+    & .svg {
+      transform: rotate(90deg);
+    }
   }
 }

@@ -4,13 +4,25 @@ import { useRow } from '../RowContext';
 import { useBlock } from 'components/Block/BlockContext';
 import { postStatus } from 'data/products';
 import { orderStatus } from 'data/orders';
+import { useSelector } from 'react-redux';
+import { getAppPageSettings } from 'redux/selectors';
+import { useNavigate } from 'react-router-dom';
 
 import s from './RowActions.module.scss';
-
+import { toast } from 'react-toastify';
+const baseRoutes = {
+  products: 'product',
+  refunds: 'refund',
+  orders: 'order',
+};
 const RowActions = () => {
+  const { indexPage } = useSelector(getAppPageSettings);
+  const navigate = useNavigate();
   const { isActionsOpen, handleToggleActions, rowData } = useRow();
   const { deleteAction, togglePostVisibility, approvePostAction, rejectPostAction, rejectOrderAction, archiveOrderAction, approveOrderAction } =
     useBlock();
+  const path = `/${indexPage}/${rowData._id}/${baseRoutes[indexPage]}`;
+  let LINK = `${window.location.origin}/crm-app${path}`;
 
   const disableApprovePostBtn = rowData?.approvedStatus === postStatus.ACCEPTED;
   const disableRejectPostBtn = rowData?.approvedStatus === postStatus.REJECTED;
@@ -19,6 +31,27 @@ const RowActions = () => {
   const disableApproveOrderBtn = rowData?.orderStatus === orderStatus.ACCEPTED;
   const disableRejectOrderBtn = rowData?.orderStatus === orderStatus.REJECTED;
 
+  function navigateById() {
+    navigate(path);
+  }
+  async function copyLink() {
+    await navigator.clipboard.writeText(LINK);
+
+    toast.info(`Посилання скопійоване до буферу обміну`);
+  }
+  async function handleShareBtnClick() {
+    const shareData = {
+      title: `Поділитись`,
+      text: `Прошу переглянути`,
+      url: LINK,
+    };
+    try {
+      await navigator.share(shareData);
+    } catch (err) {
+      console.log(err);
+      toast.error(`Помилка: ${err}`);
+    }
+  }
   return (
     <div className={[isActionsOpen ? s.rowActionsVisible : s.rowActions, 'listRowActions'].join(' ')}>
       <div className={s.listItem}>
@@ -133,11 +166,18 @@ const RowActions = () => {
       )}
 
       <div className={s.listItem}>
-        <ButtonIcon size="100%" iconSize="80%" iconId="share" className={s.actionsBtn} /> <span className={s.actionTitle}>Поділитись</span>
+        <ButtonIcon size="100%" iconSize="80%" iconId="share" className={s.actionsBtn} onClick={handleShareBtnClick} />
+        <span className={s.actionTitle}>Поділитись</span>
       </div>
 
       <div className={s.listItem}>
-        <ButtonIcon size="100%" iconSize="80%" iconId="link" className={s.actionsBtn} /> <span className={s.actionTitle}>Посилання</span>
+        <ButtonIcon size="100%" iconSize="80%" iconId="link" className={s.actionsBtn} onClick={copyLink} />
+        <span className={s.actionTitle}>Посилання</span>
+      </div>
+
+      <div className={s.listItem}>
+        <ButtonIcon size="100%" iconSize="80%" iconId="dblArrowRight" className={s.actionsBtn} onClick={navigateById} />
+        <span className={s.actionTitle}>Перейти</span>
       </div>
     </div>
   );

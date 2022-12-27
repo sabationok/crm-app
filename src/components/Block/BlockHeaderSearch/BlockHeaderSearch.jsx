@@ -47,8 +47,15 @@ const BlockHeaderSearch = () => {
         </MinTabletXl>
       )}
 
-      {typeof actions === 'object' && (
-        <ButtonIcon iconId={isActionsOpen ? 'close' : 'actions-h'} size="30px" iconSize="100%" className={s.btn} onClick={handleToggleAction} />
+      {actions && (
+        <ButtonIcon
+          iconId={isActionsOpen ? 'close' : 'actions-v'}
+          size="30px"
+          iconSize="100%"
+          iconClassName={s.svg}
+          className={s.btn}
+          onClick={handleToggleAction}
+        />
       )}
     </div>
   );

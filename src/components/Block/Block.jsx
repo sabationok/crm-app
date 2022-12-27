@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, memo } from 'react';
 // import PropTypes from 'prop-types';
 import BlockContext from './BlockContext';
 import BlockHeaderSearch from './BlockHeaderSearch/BlockHeaderSearch';
@@ -94,4 +94,4 @@ const Block = props => {
 
 Block.propTypes = {};
 
-export default Block;
+export default memo(Block);

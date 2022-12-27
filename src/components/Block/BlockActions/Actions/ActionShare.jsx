@@ -4,8 +4,6 @@ import ActionPrimary from './ActionPrimary';
 import { toast } from 'react-toastify';
 import { useNotify } from 'components/Notify/NotifyProvider';
 import { useParams } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
-// import { getPosts } from 'redux/selectors';
 
 const ActionShare = ({ action }) => {
   const { appNotify } = useNotify();
@@ -20,7 +18,7 @@ const ActionShare = ({ action }) => {
       url: LINK,
     };
     try {
-      navigator.share(shareData);
+      await navigator.share(shareData);
       appNotify.success(shareData.title, `${shareData.text}, ${shareData.url}`);
     } catch (err) {
       console.log(err);
