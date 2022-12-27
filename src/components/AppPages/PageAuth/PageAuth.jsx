@@ -42,12 +42,14 @@ const PageAuth = props => {
   }
   return (
     <div className={s.pageAuth} onSubmit={loginUser}>
-      <form className={s.formAuth}>
+      <form className={[s.formAuth, 'theme'].join(' ')}>
         <PrimaryInput label="Логін або емейл" name="login" required onChange={onChange} />
 
         <PrimaryInput label="Пароль" name="password" type="password" required onChange={onChange} />
 
-        <Button type="submit">Увійти</Button>
+        <Button variant="" type="submit">
+          Увійти
+        </Button>
       </form>
     </div>
   );

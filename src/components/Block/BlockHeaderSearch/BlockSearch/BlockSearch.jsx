@@ -31,12 +31,15 @@ const BlockSearch = props => {
     // dispatch(searchQueryAction(searchQuery.trim()));
     // dispatch(searchParamAction(searchParam));
   }
-  function handleToggleOpenSelect() {
+  function handleToggleSelect() {
     seIsSelectOpen(!isSelectOpen);
   }
+  // function handleCloseSelect() {
+  //   seIsSelectOpen(false);
+  // }
   function onSearchParamClick({ evt, item }) {
     setSearchParam(item);
-    handleToggleOpenSelect();
+    handleToggleSelect();
   }
   function handleChangeSearchParamInput(evt) {
     let { target } = evt;
@@ -77,7 +80,7 @@ const BlockSearch = props => {
             handleFormSubmit(evt);
           }}
         >
-          <div className={classOpen} onClick={handleToggleOpenSelect}>
+          <div className={classOpen} onClick={handleToggleSelect}>
             <input className={s.inputParam} type="text" placeholder="Параметр" value={searchParam.name} onChange={handleChangeSearchParamInput} />
             <ul className={s.selectList}>
               {foundedData.map(item => (

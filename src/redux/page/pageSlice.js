@@ -1,6 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { actionSetPage, actionSetDevice, actionSetIndexPage, actionSetPageGrid, actionSetSearchParams, actionSetPageGridChange } from './pageActions';
+import {
+  actionSetPage,
+  actionSetDevice,
+  actionSetIndexPage,
+  actionSetPageGrid,
+  actionSetSearchParams,
+  actionSetPageGridChange,
+  actionResetPageSettings,
+} from './pageActions';
 
 const initialState = {
   page: {
@@ -13,7 +21,7 @@ const initialState = {
   searchParams: {
     product: null,
     order: null,
-    return: null,
+    refund: null,
   },
   pageGridChange: false,
   pageGrid: 'gridFirst',
@@ -26,6 +34,9 @@ export const appPageSlice = createSlice({
   extraReducers: {
     [actionSetPage]: (state, action) => {
       state.page = action.payload;
+    },
+    [actionResetPageSettings]: (state, action) => {
+      state = initialState;
     },
     [actionSetDevice]: (state, action) => {
       state.isMobile = action.payload;
