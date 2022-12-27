@@ -18,14 +18,12 @@
 
   border-radius: 6px;
 
-  // background-color: rgba(122, 122, 122, 0.2);
   border-style: none;
-  border: 1px solid var(--brand_clr__1);
 
+  border: 2px solid var(--brand_clr__1);
   transition: all var(--timing-function__main);
+
   &:hover {
-    // background-color: var(--brand_clr__1);
-    // background-color: rgba(122, 122, 122, 0.2);
     transform: scale(1.15);
   }
 }
@@ -35,8 +33,11 @@
   background-color: var(--brand_clr__1);
 }
 .navItem {
-  display: grid;
-  grid-template-columns: 1fr;
+  border-radius: 6px;
+
+  overflow: visible;
+
+  transition: all var(--timing-function__main);
 }
 .subNavList {
   display: grid;

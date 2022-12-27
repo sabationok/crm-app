@@ -7,7 +7,7 @@ import s from './NavLinkHomePage.module.scss';
 const NavLinkHomePage = ({ item }) => {
   return (
     <>
-      <li>
+      <li className={s.navItem}>
         <NavLink to={`/${item.path}`} className={({ isActive }) => (isActive ? s.navLinkActive : s.navLink)}>
           {item.iconId && <SvgIcon iconId={item.iconId} size="65%" />}
           <span>{item.title}</span>
