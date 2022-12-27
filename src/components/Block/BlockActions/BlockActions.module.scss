@@ -47,8 +47,8 @@
     flex-direction: row-reverse;
     flex-wrap: wrap;
     width: 100%;
-    max-height: fit-content;
-
+    max-height: 100%;
+    overflow: auto;
     transform: translateX(100%);
   }
 }
