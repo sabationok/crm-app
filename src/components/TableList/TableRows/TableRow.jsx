@@ -12,7 +12,7 @@ import CellStatus from '../TebleCells/CellStatus';
 import CellCheckBox from '../TebleCells/CellCheckBox';
 import CellActions from '../TebleCells/CellActions';
 import Cell from '../TebleCells/Cell';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTable } from '../TableContext';
 import { useSelector } from 'react-redux';
 import { getIndexPage } from 'redux/selectors';
@@ -52,15 +52,35 @@ const TableRow = props => {
   function handleToggleActions() {
     setIsActionsOpen(!isActionsOpen);
   }
+  function handleCloseActions() {
+    setIsActionsOpen(false);
+  }
 
   const ctxValue = {
     ...props,
     isActionsOpen,
     handleToggleActions,
+    handleCloseActions,
   };
+  // currentTarget
+  useEffect(() => {
+    function CloseRowActions(ev) {
+      const { target } = ev;
+
+      if (!target.closest(`#row${props.idx}`)) {
+        console.log(`row${props.idx}`);
+        setIsActionsOpen(false);
+        window.removeEventListener('click', CloseRowActions);
+      }
+    }
+    window.addEventListener('click', CloseRowActions);
+    return () => {
+      window.removeEventListener('click', CloseRowActions);
+    };
+  }, [isActionsOpen, props.idx]);
   return (
     <RowContext value={ctxValue}>
-      <div className={s.rowContainer}>
+      <div className={s.rowContainer} id={`row${props.idx}`}>
         <RowActions />
         <div style={styles} className={s.row}>
           <div className={[s.rowStickyEl, 'listRow'].join(' ')}>

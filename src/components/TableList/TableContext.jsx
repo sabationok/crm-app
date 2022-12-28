@@ -1,4 +1,4 @@
-import { useContext, createContext } from 'react';
+import { useContext, createContext, useRef } from 'react';
 // import cloneDeep from 'lodash.clonedeep';
 // import { useSelector } from 'react-redux';
 // import { selectPosts } from 'redux/selectors';
@@ -11,7 +11,7 @@ export const useTable = () => useContext(TableCNTXT);
 
 const TableContext = ({ children, value }) => {
   const { tableTitles = [], tableData = [], prepeareRowData } = useBlock();
-
+  const prevRowRef = useRef();
   const rowGrid = {
     display: 'grid',
 
@@ -57,6 +57,7 @@ const TableContext = ({ children, value }) => {
         tableData,
         tableTitles,
         prepeareRowData,
+        prevRowRef,
         ...value,
       }}
     >

@@ -21,8 +21,9 @@ const RowActions = () => {
   const { isActionsOpen, handleToggleActions, rowData } = useRow();
   const { deleteAction, togglePostVisibility, approvePostAction, rejectPostAction, rejectOrderAction, archiveOrderAction, approveOrderAction } =
     useBlock();
+
   const path = `/${indexPage}/${rowData._id}/${baseRoutes[indexPage]}`;
-  let LINK = `${window.location.origin}/crm-app${path}`;
+  const LINK = `${window.location.origin}/crm-app${path}`;
 
   const disableApprovePostBtn = rowData?.approvedStatus === postStatus.ACCEPTED;
   const disableRejectPostBtn = rowData?.approvedStatus === postStatus.REJECTED;
@@ -52,6 +53,7 @@ const RowActions = () => {
       toast.error(`Помилка: ${err}`);
     }
   }
+
   return (
     <div className={[isActionsOpen ? s.rowActionsVisible : s.rowActions, 'listRowActions'].join(' ')}>
       <div className={s.listItem}>
@@ -176,7 +178,7 @@ const RowActions = () => {
       </div>
 
       <div className={s.listItem}>
-        <ButtonIcon size="100%" iconSize="80%" iconId="dblArrowRight" className={s.actionsBtn} onClick={navigateById} />
+        <ButtonIcon size="100%" iconSize="80%" iconId="openInNew" className={s.actionsBtn} onClick={navigateById} />
         <span className={s.actionTitle}>Перейти</span>
       </div>
     </div>
