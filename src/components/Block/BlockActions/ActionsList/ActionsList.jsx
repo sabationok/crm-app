@@ -40,7 +40,6 @@ const BlockActionsList = ({ arr = [] }) => {
   return (
     <>
       {arr.map(action => {
-        console.log(action.iconId);
         if (actionsMap[action.name]) {
           let Action = actionsMap[action.name];
 

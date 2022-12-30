@@ -23,7 +23,7 @@ const BlockProductStock = props => {
     stockData: stockData,
     ...props,
   };
-  console.log(page.post);
+
   return (
     <Block {...blockSettings}>
       <></>
