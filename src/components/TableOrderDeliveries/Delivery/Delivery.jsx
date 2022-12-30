@@ -19,7 +19,7 @@ const titles = {
 const Delivery = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  function handleOpenDel(ev) {
+  function handleOpenDelivery(ev) {
     setIsOpen(!isOpen);
   }
   function handleDelete(ev) {
@@ -35,19 +35,22 @@ const Delivery = ({ data }) => {
 
       <div className={s.actions}>
         <div className={s.wrapper}>
-          <ModalContent
-            trigger={props => (
-              <ButtonIcon className={s.btn} iconSize="28px" iconId="edit" {...props}>
-                Змінити
-              </ButtonIcon>
-            )}
-          ></ModalContent>
-          <ButtonIcon className={s.btn} iconSize="28px" iconId="delete" onClick={handleDelete}>
-            Видалити
-          </ButtonIcon>
-          <ButtonIcon className={s.btn} iconSize="28px" iconId="select-arrow" iconClassName={s.icon} onClick={handleOpenDel}>
-            {isOpen ? 'Згорнути' : 'Розгорнути'}
-          </ButtonIcon>
+          <ModalContent trigger={props => <ButtonIcon className={s.btn} iconSize="28px" iconId="edit" {...props} />}></ModalContent>
+
+          <ButtonIcon className={s.btn} iconSize="28px" iconId="delete" onClick={handleDelete} />
+
+          <ButtonIcon
+            className={s.btn}
+            iconSize="28px"
+            iconId="print"
+            onClick={() => {
+              toast.error('Відсутній елемент для друку');
+            }}
+          />
+
+          <ButtonIcon className={s.btn} iconSize="28px" iconId="info" />
+
+          <ButtonIcon className={s.btn} iconSize="28px" iconId="select-arrow" iconClassName={s.icon} onClick={handleOpenDelivery} />
         </div>
       </div>
 

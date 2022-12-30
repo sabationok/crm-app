@@ -14,7 +14,7 @@
 
   border-radius: 4px;
 
-transition: var(--timing-function__main);
+  transition: var(--timing-function__main);
   &:hover {
     opacity: 0.9;
     background-color: var(--brand_clr__1);
@@ -25,7 +25,9 @@ transition: var(--timing-function__main);
     background-color: var(--brand_clr__1);
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   }
-
-
 }
 
+.modal {
+  color: inherit;
+  fill: inherit;
+}

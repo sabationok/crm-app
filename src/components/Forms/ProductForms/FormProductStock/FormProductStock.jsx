@@ -3,9 +3,9 @@ import React from 'react';
 import TableDinamic from 'components/TableDinamic/TableDinamic';
 import FormPrimary from 'components/Forms/FormPrimary/FormPrimary';
 
-const FormProductStock = () => {
+const FormProductStock = ({ blockSettings }) => {
   return (
-    <FormPrimary formTitle="Управління складськими залишками">
+    <FormPrimary blockSettings={blockSettings} formTitle="Управління складськими залишками">
       <div style={{ overflow: 'auto', width: '100%' }}>
         <TableDinamic editable />
       </div>

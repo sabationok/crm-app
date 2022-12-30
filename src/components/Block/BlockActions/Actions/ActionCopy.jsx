@@ -1,30 +1,32 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
-import BlockSimple from 'components/BlockSimple/BlockSimple';
 import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
 import ModalContent from 'components/ModalCustom/ModalContent/ModalContent';
-import { useParams } from 'react-router-dom';
+import { usePage } from 'components/AppPages/PageProvider';
 
 import s from './Action.module.scss';
 
 const ActionCopy = ({ action, props, type = 'product', iconId = 'copy', title = 'Копіювання' }) => {
-  const { id } = useParams();
+  const { formDataObj } = usePage();
   const ActionMap = {
-    product: props => {
-      console.log(props, 'props');
-      return <FormProductInfo {...props} copy />;
-    },
+    product: props => <FormProductInfo {...props} copy />,
     order: () => <div>{props?.id}</div>,
     refund: () => <div>{props?.id}</div>,
     realization: () => <div>{props?.id}</div>,
   };
   let Children = ActionMap[type];
+
+  const blockSettings = {
+    title,
+    iconId,
+    className: s.modalBlock,
+    headerClassName: s.modalHeader,
+  };
+
   return (
     <>
-      <ModalContent trigger={props => <ActionPrimary title={title} iconId={iconId} {...action} status={!!id} {...props} />}>
-        <BlockSimple title={title} iconId={iconId} className={s.modalBlock} headerClassName={s.modalHeader}>
-          {ActionMap[type] && <Children {...props} />}
-        </BlockSimple>
+      <ModalContent trigger={props => <ActionPrimary title={title} iconId={iconId} {...action} status={!!formDataObj} {...props} />}>
+        {ActionMap[type] && <Children {...props} blockSettings={blockSettings} />}
       </ModalContent>
     </>
   );

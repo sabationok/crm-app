@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
-import ModalOpenLink from 'components/ModalCustom/ModalOpenTrigger/ModalOpenTrigger';
+import ModalContent from 'components/ModalCustom/ModalContent/ModalContent';
 
 import s from './InputImg.module.scss';
 
@@ -46,16 +46,13 @@ const InputImg = ({ id, onChange, selectedFile = null, disabled = false, onDelet
         />
         <label htmlFor={id} className={s.inputLabel}>
           {!selectedFile && <SvgIcon iconId="plus" size="40px" />}
+
           {preview && (
-            <ModalOpenLink
-              modalContent={
-                <div className={s.bigModalImgBox}>
-                  <img className={s.bigModalImg} src={preview} alt={selectedFile?.name} />
-                </div>
-              }
-            >
-              <img className={s.labelInnerImg} src={preview} alt={selectedFile?.name} />
-            </ModalOpenLink>
+            <ModalContent trigger={props => <img className={s.labelInnerImg} src={preview} alt={selectedFile?.name} {...props} />}>
+              <div className={s.bigModalImgBox}>
+                <img className={s.bigModalImg} src={preview} alt={selectedFile?.name} />
+              </div>
+            </ModalContent>
           )}
         </label>
       </div>

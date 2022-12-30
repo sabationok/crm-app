@@ -3,14 +3,14 @@ import ActionPrimary from './ActionPrimary';
 
 import { toast } from 'react-toastify';
 import { useNotify } from 'components/Notify/NotifyProvider';
-import { useParams } from 'react-router-dom';
+import { usePage } from 'components/AppPages/PageProvider';
 
 const ActionShare = ({ action }) => {
   const { appNotify } = useNotify();
-  const { id } = useParams();
+  const { formDataObj } = usePage();
 
   async function handleShareBtnClick() {
-    let LINK = `${window.location}/`;
+    let LINK = `${window.location}`;
 
     const shareData = {
       title: `Поділитись`,
@@ -27,7 +27,7 @@ const ActionShare = ({ action }) => {
     }
   }
 
-  return <ActionPrimary {...action} onClick={handleShareBtnClick} status={!!id} />;
+  return <ActionPrimary {...action} onClick={handleShareBtnClick} status={!!formDataObj} />;
 };
 
 export default ActionShare;

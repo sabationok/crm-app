@@ -1,6 +1,5 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
-import BlockSimple from 'components/BlockSimple/BlockSimple';
 import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
 import ModalContent from 'components/ModalCustom/ModalContent/ModalContent';
 
@@ -16,12 +15,17 @@ const ActionCreate = ({ action, props, type = 'product', iconId = 'plus', title 
   };
   let Children = ActionMap[type];
 
+  const blockSettings = {
+    title,
+    iconId,
+    className: s.modalBlock,
+    headerClassName: s.modalHeader,
+  };
+
   return (
     <>
       <ModalContent trigger={props => <ActionPrimary title={title} iconId={iconId} {...action} {...props} />}>
-        <BlockSimple title={title} iconId={iconId} className={s.modalBlock} headerClassName={s.modalHeader}>
-          {ActionMap[type] && <Children {...props} />}
-        </BlockSimple>
+        {ActionMap[type] && <Children {...props} blockSettings={blockSettings} />}
       </ModalContent>
     </>
   );

@@ -1,16 +1,16 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
-import ModalOpenTrigger from 'components/ModalCustom/ModalOpenTrigger/ModalOpenTrigger';
-import BlockSimple from 'components/BlockSimple/BlockSimple';
+import ModalContent from 'components/ModalCustom/ModalContent/ModalContent';
 import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
 import FormProductImgs from 'components/Forms/ProductForms/FormProductImgs/FormProductImgs';
 import FormProductStock from 'components/Forms/ProductForms/FormProductStock/FormProductStock';
-import { useParams } from 'react-router-dom';
+import { usePage } from 'components/AppPages/PageProvider';
 
 import s from './Action.module.scss';
 
-const ActionEdit = ({ action, props, type = 'product', iconId = 'edit', blockProps, modalProps, title = 'Редагування' }) => {
-  const { id } = useParams();
+const ActionEdit = ({ action, props, type = 'product', iconId = 'edit', blockProps, modalProps, title = 'Редагування', ...others }) => {
+  const { formDataObj } = usePage();
+
   const ActionMap = {
     product: props => <FormProductInfo edit {...props} />,
     productImgs: props => <FormProductImgs edit {...props} />,
@@ -20,16 +20,21 @@ const ActionEdit = ({ action, props, type = 'product', iconId = 'edit', blockPro
     realization: () => <div>{props?.id}</div>,
   };
   let Children = ActionMap[type];
+
+  const blockSettings = {
+    title,
+    iconId,
+    className: s.modalBlock,
+    headerClassName: s.modalHeader,
+    ...blockProps,
+  };
+
   return (
-    <ModalOpenTrigger
-      trigger={props => <ActionPrimary title={title} iconId={iconId} {...action} status={!!id} {...props} />}
-      {...modalProps}
-      modalContent={
-        <BlockSimple title={title} iconId={iconId} className={s.modalBlock} headerClassName={s.modalHeader} {...blockProps}>
-          {ActionMap[type] && <Children {...props} />}
-        </BlockSimple>
-      }
-    />
+    <>
+      <ModalContent trigger={props => <ActionPrimary title={title} iconId={iconId} {...action} status={!!formDataObj} {...props} />}>
+        {ActionMap[type] && <Children {...props} blockSettings={blockSettings} />}
+      </ModalContent>
+    </>
   );
 };
 

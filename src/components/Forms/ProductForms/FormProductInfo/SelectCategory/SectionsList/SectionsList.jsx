@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
 
 import s from './SectionsList.module.scss';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 export const SectionsListContext = createContext();
 export const useSectionsList = () => useContext(SectionsListContext);
@@ -49,12 +50,12 @@ const SectionsList = () => {
           className={s.selectCategoryModal}
           footerChildren={
             <div className={s.footer}>
-              <button type="button" className={s.btn} onClick={onAcceptBtnClick} disabled={disabledAcceptBtn}>
+              <ButtonIcon type="button" className={s.btn} onClick={onAcceptBtnClick} disabled={disabledAcceptBtn}>
                 Прийняти
-              </button>
-              <button type="button" className={s.btn} onClick={onDeclineBtnClick}>
+              </ButtonIcon>
+              <ButtonIcon type="button" className={s.btn} onClick={onDeclineBtnClick}>
                 Відхилити
-              </button>
+              </ButtonIcon>
             </div>
           }
         >

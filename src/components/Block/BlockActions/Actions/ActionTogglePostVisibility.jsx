@@ -3,13 +3,11 @@ import ActionPrimary from './ActionPrimary';
 import { useDispatch } from 'react-redux';
 import { actionTogglePostVisibility } from 'redux/posts/postsActions';
 import { postsMessages as messages } from 'data';
-import { useBlock } from 'components/Block/BlockContext';
 import { toast } from 'react-toastify';
-import { useParams } from 'react-router-dom';
+import { usePage } from 'components/AppPages/PageProvider';
 
 const ActionTogglePostVisibility = ({ action }) => {
-  const { post } = useBlock();
-  const { id } = useParams();
+  const { formDataObj } = usePage();
   const dispatch = useDispatch();
   const { Visibility, NOT_SELECTED_ID } = messages;
 
@@ -37,11 +35,11 @@ const ActionTogglePostVisibility = ({ action }) => {
   return (
     <ActionPrimary
       onClick={() => {
-        togglePostVisibility(post._id);
+        togglePostVisibility(formDataObj?._id);
       }}
-      iconId={post?.visibilityStatus ? 'visibility-on' : 'visibility-off'}
+      iconId={formDataObj?.visibilityStatus ? 'visibility-on' : 'visibility-off'}
       {...action}
-      status={!!id}
+      status={!!formDataObj}
     />
   );
 };

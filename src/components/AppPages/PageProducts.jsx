@@ -12,7 +12,7 @@ import { getPostById } from 'redux/selectors';
 const PageProducts = ({ path = 'products', ...props }) => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const post = useSelector(getPostById(id));
+  const formDataObj = useSelector(getPostById(id));
 
   const BlockProductInfoSet = blocksSettings.find(el => el.name === blocksNames.BlockProductInfo);
   const BlockProductsListSet = blocksSettings.find(el => el.name === blocksNames.BlockProductsList);
@@ -34,7 +34,8 @@ const PageProducts = ({ path = 'products', ...props }) => {
 
   const ctx = {
     path,
-    post,
+    post: formDataObj,
+    formDataObj,
   };
 
   return (

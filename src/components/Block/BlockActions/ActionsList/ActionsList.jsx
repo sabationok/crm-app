@@ -40,15 +40,16 @@ const BlockActionsList = ({ arr = [] }) => {
   return (
     <>
       {arr.map(action => {
+        console.log(action.iconId);
         if (actionsMap[action.name]) {
           let Action = actionsMap[action.name];
 
           action.style = { width: '80px', height: '60px' };
 
-          return <Action key={action.iconId} action={action} {...action} />;
+          return <Action key={action.id} action={action} {...action} />;
         }
 
-        return <ActionPrimary key={action.iconId} {...action} />;
+        return <ActionPrimary key={action.id} {...action} />;
       })}
     </>
   );

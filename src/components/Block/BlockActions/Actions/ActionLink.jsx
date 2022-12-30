@@ -1,10 +1,11 @@
 import React from 'react';
 import ActionPrimary from './ActionPrimary';
 import { toast } from 'react-toastify';
-import { useParams } from 'react-router-dom';
+import { usePage } from 'components/AppPages/PageProvider';
 
 const ActionLink = ({ action }) => {
-  const { id } = useParams();
+  const { formdataObj } = usePage();
+
   async function handleCopyBtnClick() {
     let LINK = `${window.location}`;
 
@@ -12,7 +13,8 @@ const ActionLink = ({ action }) => {
 
     toast.info(`Посилання скопійоване до буферу обміну`);
   }
-  return <ActionPrimary {...action} onClick={handleCopyBtnClick} status={!!id} />;
+
+  return <ActionPrimary {...action} onClick={handleCopyBtnClick} status={!!formdataObj} />;
 };
 
 export default ActionLink;

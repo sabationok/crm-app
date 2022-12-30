@@ -2,7 +2,7 @@
   border-radius: 4px;
   overflow: hidden;
 
-  border: 1px solid rgba(122, 122, 122, 0.8);
+  // border: 1px solid rgba(122, 122, 122, 0.8);
 
   transition: all var(--timing-function__main);
   &:hover {
@@ -11,14 +11,25 @@
   &.open {
     & .bottom {
       max-height: 200px;
+      visibility: visible;
+
+      border: 1px solid rgba(122, 122, 122, 0.15);
     }
     & .icon {
       transform: rotate(-180deg);
     }
   }
+  & .icon {
+    transition: all var(--timing-function__main);
+  }
   & .top {
     display: flex;
     flex-wrap: wrap;
+
+    border-radius: 4px 4px 0 0;
+    overflow: hidden;
+
+    border: 1px solid rgba(122, 122, 122, 0.15);
   }
   & .actions {
     display: flex;
@@ -26,18 +37,17 @@
     justify-content: center;
 
     background-color: rgba(122, 122, 122, 0.15);
-    & .wrapper {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+  }
+  & .wrapper {
+    display: flex;
+    justify-content: center;
 
-      min-width: 250px;
-      width: 100%;
-      justify-content: center;
-    }
-    & .btn {
-      padding: 4px;
-      width: 100%;
-    }
+    min-width: 200px;
+    width: 100%;
+  }
+  & .btn {
+    padding: 4px;
+    width: 100%;
   }
   & .bottom {
     display: flex;
@@ -45,6 +55,7 @@
     overflow: hidden;
 
     max-height: 0;
+    visibility: hidden;
 
     transition: all var(--timing-function__main);
   }
@@ -60,13 +71,22 @@
   gap: 4px;
 
   flex-grow: 1;
-  flex-basis: 110px;
+  flex-basis: 125px;
   min-height: 40px;
 
   min-width: fit-content;
 
   padding: 4px;
-  outline: 1px solid rgba(122, 122, 122, 0.4);
+  border: 1px solid rgba(122, 122, 122, 0.15);
+}
+.owner,
+.ttn {
+  flex-grow: 5;
+  flex-basis: 150px;
+}
+.comment {
+  flex-grow: 5;
+  flex-basis: 320px;
 }
 .title {
   font-size: 10px;

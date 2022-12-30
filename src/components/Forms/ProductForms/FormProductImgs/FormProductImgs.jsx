@@ -11,7 +11,7 @@ import s from './FormProductImgs.module.scss';
 
 const imageMimeType = /image\/(png|jpg|jpeg|webp)/i;
 
-const FormProductImgs = ({ formTitle = 'Form title' }) => {
+const FormProductImgs = ({ formTitle = 'Form title', blockSettings }) => {
   const dispatch = useDispatch();
   const initialState = [];
   const { appNotify } = useNotify();
@@ -82,7 +82,13 @@ const FormProductImgs = ({ formTitle = 'Form title' }) => {
   }, [selectedFiles, selectedFiles.length]);
 
   return (
-    <FormPrimary formTitle="Фото товару" onSubmit={handleFormSubmit} onReset={handleFormReset} enctype="multipart/form-data">
+    <FormPrimary
+      blockSettings={blockSettings}
+      formTitle="Фото товару"
+      onSubmit={handleFormSubmit}
+      onReset={handleFormReset}
+      enctype="multipart/form-data"
+    >
       <div className={s.inputs}>
         {formData.length > 0 &&
           formData.map((file, idx) => (

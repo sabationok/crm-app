@@ -25,6 +25,7 @@ const SelectCategory = () => {
           return <PrimaryInput key={input.name} {...input} value={formData[input.name]} onChange={onChange} disabled />;
         })}
         <ModalContent
+          className={s.modal}
           trigger={props => (
             <ButtonIcon {...props} className={s.button}>
               Обрати категорію

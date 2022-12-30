@@ -9,7 +9,7 @@ import s from './Header.module.scss';
 const Header = () => {
   return (
     <header className={[s.header, 'theme'].join(' ')}>
-      <Link to="/" className={s.logoLink}>
+      <Link to="/home" className={s.logoLink}>
         <span className={s.logoText}>LOGO</span>
       </Link>
 

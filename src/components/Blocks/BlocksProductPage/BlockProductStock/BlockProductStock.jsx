@@ -2,7 +2,6 @@ import React from 'react';
 import Block from 'components/Block/Block';
 
 import BlockEmpty from '../../BlockEmpty/BlockEmpty';
-import Actions from './Actions/Actions';
 import TableDinamic from 'components/TableDinamic/TableDinamic';
 import { stockData } from 'data';
 import { usePage } from 'components/AppPages/PageProvider';
@@ -20,17 +19,26 @@ const BlockProductStock = props => {
 
   const blockSettings = {
     className: s[pageGrid],
-    ActionsComp: Actions,
     post: page.post,
     stockData: stockData,
     ...props,
   };
-
+  console.log(page.post);
   return (
     <Block {...blockSettings}>
       <></>
 
-      {page.post?._id ? <TableDinamic disabled /> : <BlockEmpty title="Оберіть пост зі списку" />}
+      {page.post?._id ? (
+        <>
+          {page.post?.availabilityInfo?.availability === 'available' ? (
+            <TableDinamic disabled />
+          ) : (
+            <BlockEmpty title="Товар відсутній або очікується у наявності" />
+          )}
+        </>
+      ) : (
+        <BlockEmpty title="Оберіть пост зі списку" />
+      )}
     </Block>
   );
 };

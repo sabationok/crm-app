@@ -2,25 +2,21 @@ import React, { useContext, createContext } from 'react';
 import { useBlock } from 'components/Block/BlockContext';
 // import { useNotify } from 'components/Notify/NotifyProvider';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
-
+import BlockSimple from 'components/BlockSimple/BlockSimple';
 import s from './FormPrimary.module.scss';
 
 export const FormProvider = createContext();
 export const useForm = () => useContext(FormProvider);
 
-const FormPrimary = ({ children, onSubmit, onCancel, onReset, formTitle = 'Form title', id, ...props }) => {
+const FormPrimary = ({ children, onSubmit, onCancel, onReset, formTitle = 'Form title', id, blockSettings, ...props }) => {
   const { isFormDisabled } = useBlock();
 
   return (
     <FormProvider.Provider value={{ ...props, formTitle }}>
-      <div className={s.formContainer}>
-        <form onSubmit={onSubmit} onReset={onReset} id={id}>
-          <fieldset disabled={isFormDisabled} className={!isFormDisabled ? s.form : s.notActiveForm}>
-            <legend className={s.formTitle}>
-              <span>{formTitle}</span>
-            </legend>
-            {children ?? <div className={s.inputs}></div>}
-            <span>Далі буде ...</span>
+      <form onSubmit={onSubmit} onReset={onReset} id={id}>
+        <BlockSimple
+          {...blockSettings}
+          footerChildren={
             <div className={s.buttons}>
               <ButtonIcon
                 iconId="doneAll"
@@ -28,7 +24,6 @@ const FormPrimary = ({ children, onSubmit, onCancel, onReset, formTitle = 'Form 
                 type="submit"
                 styles={{ width: 'fit-content', minHeight: 'fit-content' }}
                 iconSize="26px"
-                disabled={isFormDisabled}
               >
                 <span className={s.btnName}>Прийняти</span>
               </ButtonIcon>
@@ -39,7 +34,6 @@ const FormPrimary = ({ children, onSubmit, onCancel, onReset, formTitle = 'Form 
                   type="reset"
                   styles={{ width: 'fit-content', minHeight: 'fit-content' }}
                   iconSize="26px"
-                  disabled={isFormDisabled}
                 >
                   <span className={s.btnName}>Очистити</span>
                 </ButtonIcon>
@@ -50,16 +44,25 @@ const FormPrimary = ({ children, onSubmit, onCancel, onReset, formTitle = 'Form 
                   styleType="DeclineBtn"
                   styles={{ width: 'fit-content', minHeight: 'fit-content' }}
                   iconSize="26px"
-                  disabled={isFormDisabled}
                   onClick={onCancel}
                 >
                   <span className={s.btnName}>Відхилити</span>
                 </ButtonIcon>
               )}
             </div>
-          </fieldset>
-        </form>
-      </div>
+          }
+        >
+          <div className={s.formContainer}>
+            <fieldset disabled={isFormDisabled} className={!isFormDisabled ? s.form : s.notActiveForm}>
+              <legend className={s.formTitle}>
+                <span>{formTitle}</span>
+              </legend>
+              {children ?? <div className={s.inputs}></div>}
+              <span>Далі буде ...</span>
+            </fieldset>
+          </div>
+        </BlockSimple>
+      </form>
     </FormProvider.Provider>
   );
 };
