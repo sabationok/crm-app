@@ -10,7 +10,10 @@ import s from './Action.module.scss';
 const ActionCopy = ({ action, props, type = 'product', iconId = 'copy', title = 'Копіювання' }) => {
   const { id } = useParams();
   const ActionMap = {
-    product: props => <FormProductInfo {...props} copy />,
+    product: props => {
+      console.log(props, 'props');
+      return <FormProductInfo {...props} copy />;
+    },
     order: () => <div>{props?.id}</div>,
     refund: () => <div>{props?.id}</div>,
     realization: () => <div>{props?.id}</div>,

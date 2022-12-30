@@ -25,12 +25,14 @@ const ButtonIcon = ({
     width: size,
     height: size,
     minWidth: size,
+    miHeight: size,
     ...styles,
   };
   let iconStyle = {
     width: iconSize,
     height: iconSize,
     minWidth: iconSize,
+    minHeight: iconSize,
     ...iconStyles,
   };
   return (

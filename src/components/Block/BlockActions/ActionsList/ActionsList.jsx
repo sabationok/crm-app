@@ -34,7 +34,7 @@ const BlockActionsList = ({ arr = [] }) => {
     delete: ActionDelete,
     create: ActionCreate,
     refresh: ActionRefresh,
-    togglePostVisibility: ActionTogglePostVisibility,
+    visibility: ActionTogglePostVisibility,
   };
 
   return (
@@ -42,6 +42,8 @@ const BlockActionsList = ({ arr = [] }) => {
       {arr.map(action => {
         if (actionsMap[action.name]) {
           let Action = actionsMap[action.name];
+
+          action.style = { width: '80px', height: '60px' };
 
           return <Action key={action.iconId} action={action} {...action} />;
         }

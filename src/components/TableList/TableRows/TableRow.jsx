@@ -14,16 +14,16 @@ import CellActions from '../TebleCells/CellActions';
 import Cell from '../TebleCells/Cell';
 import { useState, useEffect } from 'react';
 import { useTable } from '../TableContext';
-import { useSelector } from 'react-redux';
-import { getIndexPage } from 'redux/selectors';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { getAppPageSettings } from 'redux/selectors';
 
 import s from './TableRow.module.scss';
 const TableRow = props => {
-  const [isActionsOpen, setIsActionsOpen] = useState(false);
-  const indexPage = useSelector(getIndexPage);
-  const navigate = useNavigate();
   const { tableTitles = [], rowGrid } = useTable();
+  const [isActionsOpen, setIsActionsOpen] = useState(false);
+  const { indexPage } = useSelector(getAppPageSettings);
+  const navigate = useNavigate();
 
   const styles = {
     ...rowGrid,
@@ -49,10 +49,10 @@ const TableRow = props => {
       navigate(`/${indexPage}/${rowData?._id}`);
     }
   }
-  function handleToggleActions() {
+  function handleToggleActions(ev) {
     setIsActionsOpen(!isActionsOpen);
   }
-  function handleCloseActions() {
+  function handleCloseActions(ev) {
     setIsActionsOpen(false);
   }
 

@@ -33,21 +33,23 @@ const actionsWithFilter = [
 ];
 const actionsBlockProductInfo = [
   { name: 'create', type: 'product', title: 'Створити продукт', iconId: 'plus' },
-  { name: 'create', type: 'product', title: 'Змінити продукт', iconId: 'edit' },
-  { name: 'create', type: 'delivery', title: 'Створити ТТН', iconId: 'assignment-ok' },
-  { name: 'create', type: 'refund', title: 'Створити повернення', iconId: 'refund' },
+  { name: 'edit', type: 'product', title: 'Змінити продукт', iconId: 'edit' },
   { name: 'copy', type: 'product', title: 'Копіювати продукт', iconId: 'copy' },
   { name: 'delete', title: 'Видалити', iconId: 'delete' },
+  { name: 'visibility', title: 'Змінити видимість' },
   ...actionsShare,
 ];
 const actionsBlockProductStock = [
-  { name: 'edit', type: 'stock', title: 'Керувати складськими залишками', iconId: 'edit', blockProps: { style: { width: '95vw' } } },
+  { name: 'edit', type: 'stock', title: 'Змінити залишки', iconId: 'edit', blockProps: { style: { width: '95vw' } } },
   { name: 'delete', title: 'Видалити дані', iconId: 'delete' },
   ...actionsShare,
 ];
 const actionsBlockOrderInfo = [
   { name: 'create', type: 'order', title: 'Створити замовлення', iconId: 'plus' },
+  { name: 'edit', type: 'order', title: 'Змінити замовлення', iconId: 'edit' },
   { name: 'delete', title: 'Видалити', iconId: 'delete' },
+  { name: 'create', type: 'delivery', title: 'Створити ТТН', iconId: 'assignment-ok' },
+  { name: 'create', type: 'refund', title: 'Створити повернення', iconId: 'refund' },
   ...actionsShare,
 ];
 const actionsBlockOrderDelivery = [

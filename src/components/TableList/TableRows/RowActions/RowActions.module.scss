@@ -3,7 +3,6 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  // gap: 8px;
 
   position: sticky;
   top: 0;
@@ -42,6 +41,8 @@
   height: 40px;
 
   &:hover {
+    fill: var(--brand_clr__1);
+
     & .actionTitle {
       opacity: 1;
       pointer-events: all;
@@ -55,7 +56,7 @@
   position: absolute;
   bottom: calc(100% + 3px);
   left: 50%;
-  z-index: 20;
+  z-index: 35;
   padding: 4px 6px;
 
   min-width: 100%;
@@ -90,6 +91,6 @@
     margin-left: -5px;
   }
 }
-.actionsbtn {
+.actionsBtn {
   border-radius: 4px;
 }

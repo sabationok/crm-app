@@ -52,6 +52,8 @@
 .actionsBtn {
   width: 40px;
   height: 100%;
+
+  transition: none;
   &:hover {
     background-color: rgba(238, 238, 238, 0.5);
     fill: var(--brand_clr__1);

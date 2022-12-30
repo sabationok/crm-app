@@ -3,12 +3,22 @@ import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 import s from './Action.module.scss';
 
-const ActionPrimary = ({ status = true, size = '40px', iconId = 'close', title = 'title', onClick }) => {
+const ActionPrimary = ({ status = true, size, iconSize = '35%', iconId = 'close', title = 'title', onClick, ...props }) => {
   return (
     <>
-      <div className={[s.listItem, 'blockAcion'].join(' ')}>
-        <ButtonIcon iconId={iconId} iconSize="80%" size={size} className={s.actionBtn} onClick={onClick} disabled={!status} title={title} />
-        <span className={s.actionTitle}>{title}</span>
+      <div className={[s.listItem, 'blockAction'].join(' ')}>
+        <ButtonIcon
+          iconId={iconId}
+          iconSize={iconSize}
+          size={size}
+          className={s.actionBtn}
+          onClick={onClick}
+          disabled={!status}
+          title={title}
+          {...props}
+        >
+          <span className={s.actionTitle}>{title}</span>
+        </ButtonIcon>
       </div>
     </>
   );

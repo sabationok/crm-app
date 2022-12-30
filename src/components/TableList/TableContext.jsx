@@ -12,6 +12,7 @@ export const useTable = () => useContext(TableCNTXT);
 const TableContext = ({ children, value }) => {
   const { tableTitles = [], tableData = [], prepeareRowData } = useBlock();
   const prevRowRef = useRef();
+
   const rowGrid = {
     display: 'grid',
 
@@ -27,7 +28,7 @@ const TableContext = ({ children, value }) => {
   //   };
   //   return rowGrid;
   // }
-  // ! ${!print && '80px'}
+
   // const { searchQuery, searchParam } = useSelector(selectPosts);
   // const [tableDataCloned, setTableDateCloned] = useState([]);
   // const [foundedPosts, setFoundedPosts] = useState([]);

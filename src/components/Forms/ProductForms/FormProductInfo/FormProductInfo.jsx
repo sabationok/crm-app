@@ -53,23 +53,23 @@ const FormProductInfo = ({ edit = false, create = false, copy = false }) => {
   function handleFormSubmit(ev) {
     ev.preventDefault();
 
-    const submitData = prepareSubmitData(formData);
-
-    console.log(submitData);
-
-    const onSuccess = () => {
-      toast.success('Форму відправлено');
+    const payload = {
+      data: prepareSubmitData(formData),
+      onSuccess: () => {
+        toast.success('Форму відправлено');
+      },
+      onError: () => {
+        toast.error('Форму не відправлено');
+      },
     };
-    const onError = () => {
-      toast.error('Форму не відправлено');
-    };
 
+    console.log(payload);
     if (edit && id) {
-      dispatch(fetchEditPost({ submitData, onSuccess, onError }));
+      dispatch(fetchEditPost(payload));
       return;
     }
     if (create || (copy && id)) {
-      dispatch(fetchAddPost({ submitData, onSuccess, onError }));
+      dispatch(fetchAddPost(payload));
       return;
     }
     setFormData(initialState);
@@ -82,6 +82,8 @@ const FormProductInfo = ({ edit = false, create = false, copy = false }) => {
     handleToggleModal();
   }
 
+  console.log(edit, 'edit', create, 'create', copy, 'copy');
+
   useEffect(() => {
     if (edit && id) {
       const selectedPost = posts.find(post => post?._id === id);
@@ -93,8 +95,6 @@ const FormProductInfo = ({ edit = false, create = false, copy = false }) => {
     }
     if (create) {
       setFormData(initialState);
-
-      console.log(create, 'create form');
 
       return;
     }

@@ -32,9 +32,14 @@ const PageProducts = ({ path = 'products', ...props }) => {
     };
   }, [dispatch]);
 
+  const ctx = {
+    path,
+    post,
+  };
+
   return (
     <>
-      <PageProvider indexPath={path} post={post}>
+      <PageProvider {...ctx}>
         <MinTabletXl>
           <BlockProductsList {...BlockProductsListSet} />
           <BlockProductInfo {...BlockProductInfoSet} />
