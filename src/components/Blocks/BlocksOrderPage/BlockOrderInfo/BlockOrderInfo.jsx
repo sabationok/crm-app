@@ -1,7 +1,6 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 
-import Actions from './Actions/Actions';
 import TableOrderInfo from 'components/TableOrderInfo/TableOrderInfo';
 import BlockEmpty from 'components/Blocks/BlockEmpty/BlockEmpty';
 
@@ -44,8 +43,6 @@ const BlockOrderInfo = props => {
   const blockSettings = {
     className: s[pageGrid],
     deleteAction: deleteOrderAction,
-    ActionsComp: Actions,
-    order: page.order,
     ...props,
   };
 

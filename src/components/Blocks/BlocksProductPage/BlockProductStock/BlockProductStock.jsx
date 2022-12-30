@@ -7,19 +7,16 @@ import { stockData } from 'data';
 import { usePage } from 'components/AppPages/PageProvider';
 import { getAppPageSettings } from 'redux/selectors';
 import { useSelector } from 'react-redux';
-// import { useParams } from 'react-router-dom';
 
 import s from './BlockProductStock.module.scss';
 
 const BlockProductStock = props => {
   const page = usePage();
-  // const { id } = useParams();
 
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
 
   const blockSettings = {
     className: s[pageGrid],
-    post: page.post,
     stockData: stockData,
     ...props,
   };
@@ -28,9 +25,9 @@ const BlockProductStock = props => {
     <Block {...blockSettings}>
       <></>
 
-      {page.post?._id ? (
+      {page.formDataObj?._id ? (
         <>
-          {page.post?.availabilityInfo?.availability === 'available' ? (
+          {page.formDataObj?.availabilityInfo?.availability === 'available' ? (
             <TableDinamic disabled />
           ) : (
             <BlockEmpty title="Товар відсутній або очікується у наявності" />

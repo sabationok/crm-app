@@ -1,7 +1,6 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 import TableProductInfo from 'components/TableProductInfo/TableProductInfo';
-import Actions from './Actions/Actions';
 import BlockEmpty from '../../BlockEmpty/BlockEmpty';
 import { postsMessages as messages } from 'data';
 import { getAppPageSettings } from 'redux/selectors';
@@ -10,14 +9,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { usePage } from 'components/AppPages/PageProvider';
 import { actionDeletePost as actionDelete } from 'redux/posts/postsActions';
-// import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import s from './BlockProductInfo.module.scss';
 
 const BlockProductInfo = props => {
-  // const { id } = useParams();
-
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -48,11 +44,9 @@ const BlockProductInfo = props => {
   }
   const blockSettings = {
     className: s[pageGrid],
-    ActionsComp: Actions,
     prepareRowData: prepeareProductData,
     prepareSubmitData: prepeareProductSubmitData,
     deleteAction,
-    post: page.post,
     ...props,
   };
 

@@ -8,16 +8,13 @@ import { useBlock } from 'components/Block/BlockContext';
 import RowSimple from './RowSimple/RowSimple';
 
 import s from './TableProductInfo.module.scss';
+import { usePage } from 'components/AppPages/PageProvider';
 
 const TableProductInfo = () => {
-  const {
-    printRef,
-    post,
-    post: { createdBy, updatedBy, categoryInfo, availabilityInfo, priceInfo },
-  } = useBlock();
-  const block = useBlock();
-
-  console.log(block);
+  const { formDataObj } = usePage();
+  const { printRef } = useBlock();
+  const post = formDataObj;
+  const { createdBy, updatedBy, categoryInfo, availabilityInfo, priceInfo } = post;
 
   return (
     <>
