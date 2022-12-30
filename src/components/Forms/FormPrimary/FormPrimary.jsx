@@ -1,5 +1,5 @@
 import React, { useContext, createContext } from 'react';
-import { useBlock } from 'components/Block/BlockContext';
+// import { useBlock } from 'components/Block/BlockContext';
 // import { useNotify } from 'components/Notify/NotifyProvider';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import BlockSimple from 'components/BlockSimple/BlockSimple';
@@ -9,7 +9,7 @@ export const FormProvider = createContext();
 export const useForm = () => useContext(FormProvider);
 
 const FormPrimary = ({ children, onSubmit, onCancel, onReset, formTitle = 'Form title', id, blockSettings, ...props }) => {
-  const { isFormDisabled } = useBlock();
+  // const { isFormDisabled } = useBlock();
 
   return (
     <FormProvider.Provider value={{ ...props, formTitle }}>
@@ -53,13 +53,13 @@ const FormPrimary = ({ children, onSubmit, onCancel, onReset, formTitle = 'Form 
           }
         >
           <div className={s.formContainer}>
-            <fieldset disabled={isFormDisabled} className={!isFormDisabled ? s.form : s.notActiveForm}>
+            {/* <fieldset disabled={isFormDisabled} className={!isFormDisabled ? s.form : s.notActiveForm}>
               <legend className={s.formTitle}>
                 <span>{formTitle}</span>
               </legend>
-              {children ?? <div className={s.inputs}></div>}
               <span>Далі буде ...</span>
-            </fieldset>
+            </fieldset> */}
+            {children ?? <div className={s.inputs}></div>}
           </div>
         </BlockSimple>
       </form>

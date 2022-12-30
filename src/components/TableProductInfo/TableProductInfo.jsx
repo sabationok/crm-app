@@ -3,12 +3,11 @@ import React from 'react';
 
 import DateInfo from './DateInfo/DateInfo';
 import Status from './Status/Status';
-import { useBlock } from 'components/Block/BlockContext';
-
 import RowSimple from './RowSimple/RowSimple';
+import { useBlock } from 'components/Block/BlockContext';
+import { usePage } from 'components/AppPages/PageProvider';
 
 import s from './TableProductInfo.module.scss';
-import { usePage } from 'components/AppPages/PageProvider';
 
 const TableProductInfo = () => {
   const { formDataObj } = usePage();
