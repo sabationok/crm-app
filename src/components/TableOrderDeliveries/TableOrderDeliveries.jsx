@@ -1,15 +1,17 @@
 import React from 'react';
-import { useBlock } from 'components/Block/BlockContext';
 import Delivery from './Delivery/Delivery';
+import BlockEmpty from 'components/Blocks/BlockEmpty/BlockEmpty';
+import { useSelector } from 'react-redux';
+import { getPageObjData } from 'redux/selectors';
 
 import s from './TableOrderDeliveries.module.scss';
 
 const TableOrderDeliveries = () => {
-  const { order = {} } = useBlock();
-
+  const pageObjData = useSelector(getPageObjData);
+  const order = pageObjData;
   return (
     <>
-      {!order?.deliveries && <div>Відвантаження відсутні</div>}
+      {!order?.deliveries && <BlockEmpty title={'Відвантаження відсутні'} />}
 
       {order?.deliveries && (
         <div className={s.list}>

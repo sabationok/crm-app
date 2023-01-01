@@ -1,18 +1,17 @@
 import React from 'react';
-// import { useBlock } from 'components/Block/BlockContext';
-
-import DateInfo from './DateInfo/DateInfo';
-import Status from './Status/Status';
-import RowSimple from './RowSimple/RowSimple';
+import DateInfo from 'components/TableInfoComponents/DateInfo/DateInfo';
+import Status from 'components/TableInfoComponents/Status/Status';
+import RowSimple from 'components/TableInfoComponents//RowSimple/RowSimple';
 import { useBlock } from 'components/Block/BlockContext';
-import { usePage } from 'components/AppPages/PageProvider';
+import { useSelector } from 'react-redux';
+import { getPageObjData } from 'redux/selectors';
 
 import s from './TableProductInfo.module.scss';
 
 const TableProductInfo = () => {
-  const { formDataObj } = usePage();
+  const post = useSelector(getPageObjData);
   const { printRef } = useBlock();
-  const post = formDataObj;
+
   const { createdBy, updatedBy, categoryInfo, availabilityInfo, priceInfo } = post;
 
   return (

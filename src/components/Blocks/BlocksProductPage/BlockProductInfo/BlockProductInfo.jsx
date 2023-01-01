@@ -3,11 +3,10 @@ import Block from 'components/Block/Block';
 import TableProductInfo from 'components/TableProductInfo/TableProductInfo';
 import BlockEmpty from '../../BlockEmpty/BlockEmpty';
 import { postsMessages as messages } from 'data';
-import { getAppPageSettings } from 'redux/selectors';
+import { getAppPageSettings, getPageObjData } from 'redux/selectors';
 import { prepeareProductData, prepeareProductSubmitData } from 'data/products';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { usePage } from 'components/AppPages/PageProvider';
 import { actionDeletePost as actionDelete } from 'redux/posts/postsActions';
 import { toast } from 'react-toastify';
 
@@ -17,7 +16,7 @@ const BlockProductInfo = props => {
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const page = usePage();
+  const post = useSelector(getPageObjData);
 
   const { NOT_SELECTED_ID, Deleting } = messages;
 
@@ -52,9 +51,9 @@ const BlockProductInfo = props => {
 
   return (
     <Block {...blockSettings}>
-      {page.post?._id && <TableProductInfo />}
+      {post?._id && <TableProductInfo />}
 
-      {!page.post?._id && <BlockEmpty title="Оберіть пост зі списку" />}
+      {!post?._id && <BlockEmpty title="Оберіть пост зі списку" />}
     </Block>
   );
 };

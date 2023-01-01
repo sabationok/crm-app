@@ -32,19 +32,20 @@ const actionsWithFilter = [
   ...actions_P_E_I,
 ];
 const actionsBlockProductInfo = [
-  { id: 8, name: 'create', type: 'product', title: 'Створити продукт' },
-  { id: 9, name: 'edit', type: 'product', title: 'Змінити продукт' },
+  { id: 8, name: 'create', type: 'product', title: 'Створити продукт', iconId: 'plus' },
+  { id: 9, name: 'edit', type: 'product', title: 'Змінити продукт', iconId: 'edit' },
   { id: 10, name: 'edit', type: 'productImgs', title: 'Керувати зображеннями', iconId: 'gallery' },
-  { id: 11, name: 'visibility', title: 'Змінити видимість' },
+  { id: 11, name: 'visibility', title: 'Змінити видимість', iconId: 'visibility-on' },
   { id: 12, name: 'copy', type: 'product', title: 'Копіювати продукт', iconId: 'copy' },
   { id: 13, name: 'delete', title: 'Видалити', iconId: 'delete' },
   ...actionsShare,
 ];
 const actionsBlockProductStock = [
-  { id: 14, name: 'edit', type: 'stock', title: 'Змінити залишки', iconId: 'edit', blockProps: { style: { width: '95vw' } } },
+  { id: 14, name: 'edit', type: 'stock', title: 'Змінити залишки', iconId: 'edit' },
   { id: 15, name: 'delete', title: 'Видалити дані', iconId: 'delete' },
   ...actionsShare,
 ];
+// blockProps: { style: { width: '95vw' } } }
 const actionsBlockOrderInfo = [
   { id: 16, name: 'create', type: 'order', title: 'Створити замовлення', iconId: 'plus' },
   { id: 17, name: 'edit', type: 'order', title: 'Змінити замовлення', iconId: 'edit' },

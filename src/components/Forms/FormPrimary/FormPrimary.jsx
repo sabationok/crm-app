@@ -8,12 +8,12 @@ import s from './FormPrimary.module.scss';
 export const FormProvider = createContext();
 export const useForm = () => useContext(FormProvider);
 
-const FormPrimary = ({ children, onSubmit, onCancel, onReset, formTitle = 'Form title', id, blockSettings, ...props }) => {
+const FormPrimary = ({ children, onSubmit, onCancel, onReset, className, formTitle = 'Form title', id, blockSettings, ...props }) => {
   // const { isFormDisabled } = useBlock();
 
   return (
     <FormProvider.Provider value={{ ...props, formTitle }}>
-      <form onSubmit={onSubmit} onReset={onReset} id={id}>
+      <form onSubmit={onSubmit} onReset={onReset} id={id} className={className}>
         <BlockSimple
           {...blockSettings}
           footerChildren={
@@ -52,15 +52,7 @@ const FormPrimary = ({ children, onSubmit, onCancel, onReset, formTitle = 'Form 
             </div>
           }
         >
-          <div className={s.formContainer}>
-            {/* <fieldset disabled={isFormDisabled} className={!isFormDisabled ? s.form : s.notActiveForm}>
-              <legend className={s.formTitle}>
-                <span>{formTitle}</span>
-              </legend>
-              <span>Далі буде ...</span>
-            </fieldset> */}
-            {children ?? <div className={s.inputs}></div>}
-          </div>
+          <div className={s.formContainer}>{children ?? <div className={s.inputs}></div>}</div>
         </BlockSimple>
       </form>
     </FormProvider.Provider>

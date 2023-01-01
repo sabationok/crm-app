@@ -124,29 +124,38 @@ export const initialDeliveryState = {
 export const incomeOrderData = {
   _id: '6df1b6sd5f',
   createdAt: '05.12.2022 12:50',
-  updatedAt: '',
-  orderType: IS_STANDART,
-  orderStatus: REJECTED,
-  orderNumber: '123456789',
-  paymentType: PAY_BY_IBAN,
-  paymentStatus: PAYED,
+  updatedAt: '15.12.2022 12:50',
+  type: IS_STANDART,
+  status: REJECTED,
+  number: '123456789',
   payment: {
     type: PAY_BY_IBAN,
     status: PENNDING,
     total: 0,
     blockedFunds: 256,
   },
+  content: [],
   deliveries: [
     {
       _id: 'd6fb1s6d5f',
+      createdAt: '2019-11-12T17:21:49',
+      updatedAt: '2019-11-12T17:21:49',
       owner: '123456789',
       ttn: nanoid(8),
+
       transporter: 'Укрпошта',
       status: DEL_IN_ROAD,
       type: DEL_DIST_TO_DIS,
       cost: 256,
-      receiver: { _id: '', name: '', email: '', phone: '' },
-      destination: '',
+      postcode: '07401',
+      region: 'Київська',
+      district: 'Київський',
+      city: 'Бровари',
+      street: 'Котляревського',
+      houseNumber: '12',
+
+      receiver: { _id: 'sdf513sd2f1b3s2d', name: 'Петро Іванович Багранець', email: 'petro@m.com', phone: '+380679865632' },
+      destination: 'Львів, Шевченка 3/65, 81-005',
       comment: '',
       content: [],
       payment: {
@@ -157,6 +166,23 @@ export const incomeOrderData = {
       },
     },
   ],
+};
+const infoUkrPoshta = {
+  id: 50302113,
+  postcode: '07401',
+  region: 'Київська',
+  district: 'Київський',
+  city: 'Бровари',
+  street: 'Котляревського',
+  houseNumber: '12',
+  apartmentNumber: '33',
+  description: null,
+  countryside: false,
+  foreignStreetHouseApartment: null,
+  detailedInfo: 'Україна, 07401, Київська, Київський, Бровари, Котляревського 12, 33',
+  created: '2019-11-12T17:21:49',
+  lastModified: '2019-11-12T17:21:49',
+  country: 'UA',
 };
 export const testOrdersArr = [
   {

@@ -46,6 +46,7 @@ const TableRow = props => {
   function handleOnRowClick(ev) {
     const { rowData } = props;
     if (rowData?._id) {
+      console.log(rowData);
       navigate(`/${indexPage}/${rowData?._id}`);
     }
   }

@@ -22,7 +22,6 @@ const TableDinamic = props => {
 
   function handleAddRow() {
     setTableRows([...tableRows, { ...stockData.emptyRow, title: 'Оберіть', id: nanoid(5) }]);
-    console.log(tableRows);
   }
   function handleAddCollumn() {
     setTableCollumns([...tableCollumns, { ...stockData.emptyCollumn, id: nanoid(5) }]);

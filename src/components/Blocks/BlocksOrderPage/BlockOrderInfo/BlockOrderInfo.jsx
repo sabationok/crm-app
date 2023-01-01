@@ -6,7 +6,7 @@ import BlockEmpty from 'components/Blocks/BlockEmpty/BlockEmpty';
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getAppPageSettings } from 'redux/selectors';
+import { getAppPageSettings, getPageObjData } from 'redux/selectors';
 import { actionDeleteOrder } from 'redux/orders/ordersActions';
 import { useNavigate } from 'react-router-dom';
 import { ordersMessages as messages } from 'data';
@@ -15,7 +15,7 @@ import { usePage } from 'components/AppPages/PageProvider';
 import s from './BlockOrderInfo.module.scss';
 
 const BlockOrderInfo = props => {
-  const page = usePage();
+  const order = useSelector(getPageObjData);
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
 
   const dispatch = useDispatch();
@@ -48,9 +48,9 @@ const BlockOrderInfo = props => {
 
   return (
     <Block {...blockSettings}>
-      {page.order?._id && <TableOrderInfo />}
+      {order?._id && <TableOrderInfo />}
 
-      {!page.order?._id && <BlockEmpty title={'Оберіть замовлення'} />}
+      {!order?._id && <BlockEmpty title={'Оберіть замовлення'} />}
     </Block>
   );
 };

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { BlockRefundsList, BlockRefundInspect, BlockRefundInfo } from 'components/Blocks/BlocksMap';
+import { BlockRefundsList, BlockRefundInspect, BlockRefundInfo } from 'components/Blocks';
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 import { useDispatch } from 'react-redux';
 import { actionSetPageGridChange } from 'redux/page/pageActions';

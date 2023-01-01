@@ -1,5 +1,5 @@
 import React from 'react';
-import Status from 'components/TableProductInfo/Status/Status';
+import Status from 'components/TableInfoComponents/Status/Status';
 
 const DeliveryTop = ({ data, titles, s }) => {
   return (

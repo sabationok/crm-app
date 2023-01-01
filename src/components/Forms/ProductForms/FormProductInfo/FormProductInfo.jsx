@@ -16,7 +16,7 @@ import OptionalInputs from './OptionalInputs/OptionalInputs';
 import SelectAvailibility from './SelectAvailibility/SelectAvailibility';
 import SelectCategory from './SelectCategory/SelectCategory';
 
-// import s from './FormProductInfo.module.scss';
+import s from './FormProductInfo.module.scss';
 
 const FormProductInfo = ({ edit = false, create = false, copy = false, blockSettings }) => {
   // const { user } = useSelector(getUserData);
@@ -118,6 +118,7 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, blockSett
       onCancel={handleFormCancel}
       formData={formData}
       id="productForm"
+      className={s.form}
     >
       <StaticInputs />
 

@@ -5,10 +5,10 @@ import BlockChat from './BlockChat';
 import BlockOrderTTN from './BlocksOrderPage/BlockOrderTTN/BlockOrderTTN';
 import BlockOrdersList from './BlocksOrderPage/BlockOrdersList/BlockOrdersList';
 import BlockOrderInfo from './BlocksOrderPage/BlockOrderInfo/BlockOrderInfo';
-import BlockOrderRealizations from './BlocksOrderPage/BlockOrderRealizations/BlockOrderRealizations';
 import BlockRefundsList from './BlocksRefunds/BlockReturnsList/BlockRefundsList';
 import BlockRefundInspect from './BlocksRefunds/BlockRefundInspect/BlockRefundInspect';
 import BlockRefundInfo from './BlocksRefunds/BlockReturnInfo/BlockRefundInfo';
+import BlockCategories from './BlocksPageRepositories/BlockCategories';
 import { BlockRaportsList, BlockRaportInfo, BlockStatistics, BlockProblems } from 'components/Blocks/RaportBlocks';
 import { BlockCounterPartysList, BlockCounterPartyInfo, BlockCounterPartyChat } from 'components/Blocks/CounterPartyBlocks';
 import { BlockMainTasks, BlockMainTask, BlockMainNotify } from 'components/Blocks/MainBlocks';
@@ -22,7 +22,6 @@ export const BlocksMap = {
   BlockOrdersList,
   BlockOrderInfo,
   BlockOrderTTN,
-  BlockOrderRealizations,
   BlockRefundsList,
   BlockRefundInspect,
   BlockRefundInfo,
@@ -38,6 +37,7 @@ export const BlocksMap = {
   BlockMainNotify,
   BlockSettings,
   BlockDirectories,
+  BlockCategories,
   BlockSetProfile,
   BlockAdmin,
   BlockManagers,
@@ -54,7 +54,6 @@ export {
   BlockProductStock,
   BlockOrdersList,
   BlockOrderInfo,
-  BlockOrderRealizations,
   BlockOrderTTN,
   BlockRefundsList,
   BlockRefundInfo,
@@ -71,6 +70,7 @@ export {
   BlockMainNotify,
   BlockSettings,
   BlockDirectories,
+  BlockCategories,
   BlockSetProfile,
   BlockAdmin,
   BlockManagers,

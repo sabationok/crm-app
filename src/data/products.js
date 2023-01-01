@@ -208,7 +208,7 @@ export const incomeData = {
 export const productsArrTest = [
   {
     ...incomeData,
-    _id: nanoid(14),
+    _id: 'fdg6b51656df2g',
     sku: 'fdg6b51656df2g',
     approvedStatus: APPROVED,
     visibilityStatus: false,
@@ -222,7 +222,7 @@ export const productsArrTest = [
   },
   {
     ...incomeData,
-    _id: nanoid(14),
+    _id: 'sdf1b6s1d3s2ff',
     sku: 'sdf1b6s1d3s2ff',
     approvedStatus: PENDING,
     visibilityStatus: false,
@@ -236,7 +236,7 @@ export const productsArrTest = [
   },
   {
     ...incomeData,
-    _id: nanoid(14),
+    _id: 'sd21fv32d1f32s',
     sku: 'sd21fv32d1f32s',
     approvedStatus: APPROVED,
     visibilityStatus: true,
@@ -259,7 +259,7 @@ export const productsArrTest = [
   },
   {
     ...incomeData,
-    _id: nanoid(14),
+    _id: 'fdg6b51656dsfs',
     sku: 'fdg6b51656dsfs',
     approvedStatus: REJECTED,
     visibilityStatus: false,
@@ -273,7 +273,7 @@ export const productsArrTest = [
   },
   {
     ...incomeData,
-    _id: nanoid(14),
+    _id: 'fdg6bas656dsfs',
     sku: 'fdg6bas656dsfs',
     approvedStatus: PENDING,
     availabilityInfo: {
@@ -286,7 +286,7 @@ export const productsArrTest = [
   },
   {
     ...incomeData,
-    _id: nanoid(14),
+    _id: 'fdg6sd1656dsfs',
     sku: 'fdg6sd1656dsfs',
     approvedStatus: REJECTED,
     visibilityStatus: true,

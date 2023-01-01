@@ -1,13 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from '@reduxjs/toolkit';
-import { filterReducer } from './slices/sliceFilter';
+
 import { userReducer } from './auth/authSlice';
-import { postsReducer } from './posts/slicePosts';
+import { postsReducer } from './posts/postsSlice';
 import { ordersReducer } from './orders/ordersSlice';
 import { appPageReducer } from './page/pageSlice';
-// import { postsBlockReducer } from './slices/slicePostsBlock';
+import { categoriesReducer } from './categories/categoriesSlice';
 import { appSettingsReducer } from './appSettings/appSettingsSlice';
 import { appNotifyReducer } from './notifications/notificationsSlice';
+
 import { persistStore, persistReducer } from 'redux-persist';
 // import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -39,14 +40,13 @@ const persistAppNotifyConfig = {
 const persistedAppNotifyReducer = persistReducer(persistAppNotifyConfig, appNotifyReducer);
 
 const rootReducer = combineReducers({
-  // postsBlock: postsBlockReducer,
   posts: postsReducer,
   orders: ordersReducer,
-  filter: filterReducer,
   auth: persistedUserReducer,
   appNotify: persistedAppNotifyReducer,
   appSettings: persistedAppSettingsReducer,
   appPage: persistedAppPageReducer,
+  categories: categoriesReducer,
 });
 
 export const store = configureStore({

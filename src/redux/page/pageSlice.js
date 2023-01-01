@@ -8,6 +8,7 @@ import {
   actionSetSearchParams,
   actionSetPageGridChange,
   actionResetPageSettings,
+  actionSetPageObjData,
 } from './pageActions';
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
     iconId: '',
   },
   indexPage: 'orders',
+  pageObjData: null,
   searchParams: {
     product: null,
     order: null,
@@ -52,6 +54,9 @@ export const appPageSlice = createSlice({
     },
     [actionSetPageGridChange]: (state, action) => {
       state.pageGridChange = action.payload;
+    },
+    [actionSetPageObjData]: (state, action) => {
+      state.pageObjData = action.payload;
     },
   },
 });

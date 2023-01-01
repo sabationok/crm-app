@@ -4,14 +4,13 @@ import Block from 'components/Block/Block';
 import BlockEmpty from '../../BlockEmpty/BlockEmpty';
 import TableDinamic from 'components/TableDinamic/TableDinamic';
 import { stockData } from 'data';
-import { usePage } from 'components/AppPages/PageProvider';
-import { getAppPageSettings } from 'redux/selectors';
+import { getAppPageSettings, getPageObjData } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 
 import s from './BlockProductStock.module.scss';
 
 const BlockProductStock = props => {
-  const page = usePage();
+  const post = useSelector(getPageObjData);
 
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
 
@@ -25,9 +24,9 @@ const BlockProductStock = props => {
     <Block {...blockSettings}>
       <></>
 
-      {page.formDataObj?._id ? (
+      {post?._id ? (
         <>
-          {page.formDataObj?.availabilityInfo?.availability === 'available' ? (
+          {post?.availabilityInfo?.availability === 'available' ? (
             <TableDinamic disabled />
           ) : (
             <BlockEmpty title="Товар відсутній або очікується у наявності" />

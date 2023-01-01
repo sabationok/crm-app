@@ -7,3 +7,5 @@ export const actionSetSearchParams = createAction('appPage/actionSetSearchParams
 export const actionSetPageGrid = createAction('appPage/actionSetPageGrid');
 export const actionSetPageGridChange = createAction('appPage/actionSetPageGridChange');
 export const actionSetDevice = createAction('appPage/actionSetDevice');
+
+export const actionSetPageObjData = createAction('appPage/actionSetPageObjData');
