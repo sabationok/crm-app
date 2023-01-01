@@ -10,7 +10,6 @@ import { getAppPageSettings, getPageObjData } from 'redux/selectors';
 import { actionDeleteOrder } from 'redux/orders/ordersActions';
 import { useNavigate } from 'react-router-dom';
 import { ordersMessages as messages } from 'data';
-import { usePage } from 'components/AppPages/PageProvider';
 
 import s from './BlockOrderInfo.module.scss';
 

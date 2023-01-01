@@ -167,23 +167,23 @@ export const incomeOrderData = {
     },
   ],
 };
-const infoUkrPoshta = {
-  id: 50302113,
-  postcode: '07401',
-  region: 'Київська',
-  district: 'Київський',
-  city: 'Бровари',
-  street: 'Котляревського',
-  houseNumber: '12',
-  apartmentNumber: '33',
-  description: null,
-  countryside: false,
-  foreignStreetHouseApartment: null,
-  detailedInfo: 'Україна, 07401, Київська, Київський, Бровари, Котляревського 12, 33',
-  created: '2019-11-12T17:21:49',
-  lastModified: '2019-11-12T17:21:49',
-  country: 'UA',
-};
+// const infoUkrPoshta = {
+//   id: 50302113,
+//   postcode: '07401',
+//   region: 'Київська',
+//   district: 'Київський',
+//   city: 'Бровари',
+//   street: 'Котляревського',
+//   houseNumber: '12',
+//   apartmentNumber: '33',
+//   description: null,
+//   countryside: false,
+//   foreignStreetHouseApartment: null,
+//   detailedInfo: 'Україна, 07401, Київська, Київський, Бровари, Котляревського 12, 33',
+//   created: '2019-11-12T17:21:49',
+//   lastModified: '2019-11-12T17:21:49',
+//   country: 'UA',
+// };
 export const testOrdersArr = [
   {
     ...incomeOrderData,
