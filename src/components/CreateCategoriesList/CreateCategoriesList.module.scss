@@ -18,7 +18,8 @@
   justify-content: space-between;
 
   padding: 8px;
-  height: 100%;
+
+  min-height: 100%;
   width: 100%;
 }
 .sectionsList {
@@ -53,6 +54,8 @@
 .addBtn {
   width: fit-content;
   padding: 8px 16px;
+
+  // background-color: transparent;
 }
 .addForm {
   display: grid;

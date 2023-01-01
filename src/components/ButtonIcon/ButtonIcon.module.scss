@@ -32,11 +32,16 @@
   background-color: var(--brand_clr__1);
   color: #fff;
   fill: #fff;
+
+  border-radius: 4px;
+  // box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   &:hover {
     background-color: var(--brand_clr__1-hover);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   }
   &:active {
     background-color: var(--brand_clr__1-active);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   }
 }
 .PrimaryBtn {

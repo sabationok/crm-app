@@ -49,19 +49,24 @@ const CreateCategoriesList = () => {
 
   const ctx = {
     categoriesArr: categories.filter(el => !el.isSection),
+    sectionsArr: categories.filter(el => el.isSection),
   };
   return (
     <>
       <SectionsListContext.Provider value={{ ...ctx }}>
         <div className={s.container}>
-          <ul className={[s.sectionsList, isDarkTheme ? s.Dark : s.Light].join(' ')}>
-            {categories.map(item => {
-              return <SectionItem key={item._id} item={item} />;
-            })}
-          </ul>
+          {ctx.sectionsArr.length > 0 && (
+            <ul className={[s.sectionsList, isDarkTheme ? s.Dark : s.Light].join(' ')}>
+              {ctx.sectionsArr.map(item => {
+                return <SectionItem key={item._id} item={item} />;
+              })}
+            </ul>
+          )}
+
           <form className={s.addForm} onSubmit={handleAddSection}>
             <PrimaryInput label="Назва секції" value={sectionName} onChange={onInputChange} />
-            <ButtonIcon className={s.addBtn} type="submit">
+
+            <ButtonIcon className={s.addBtn} type="submit" styleType="ColoredBtn" disabled={!sectionName}>
               Добавити секцію
             </ButtonIcon>
           </form>
