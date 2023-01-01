@@ -1,5 +1,5 @@
 import React, { useState, createContext, useContext } from 'react';
-import SectionItem from '../SectionItem/SectionItem';
+import SectionItem from './SectionItem/SectionItem';
 import BlockSimple from 'components/BlockSimple/BlockSimple';
 
 import { useModal } from 'components/ModalCustom/ModalCustom';
@@ -14,18 +14,19 @@ import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 export const SectionsListContext = createContext();
 export const useSectionsList = () => useContext(SectionsListContext);
 
+const initialState = {
+  sectionId: '',
+  section: '',
+  parentCategoryId: '',
+  parentCategory: '',
+  categoryId: '',
+  category: '',
+};
+
 const SectionsList = () => {
   const { isDarkTheme } = useSelector(getAppSettings);
   const { onFormStateChange } = useForm();
   const { handleToggleModal } = useModal();
-  const initialState = {
-    sectionId: '',
-    section: '',
-    parentCategoryId: '',
-    parentCategory: '',
-    categoryId: '',
-    category: '',
-  };
   const [selectedCategory, setSelectedCategory] = useState(initialState);
   const [disabledAcceptBtn, setDisabledAcceptBtn] = useState(true);
 
@@ -40,10 +41,13 @@ const SectionsList = () => {
     setSelectedCategory(category);
     setDisabledAcceptBtn(false);
   }
-
+  const ctx = {
+    handleSelectCategory,
+    selectedCategory,
+  };
   return (
     <>
-      <SectionsListContext.Provider value={{ handleSelectCategory, selectedCategory }}>
+      <SectionsListContext.Provider value={{ ...ctx }}>
         <BlockSimple
           title="Оберіть категорію"
           headerClassName={s.header}

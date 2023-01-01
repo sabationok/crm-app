@@ -18,7 +18,6 @@ export const categoriesSlice = createSlice({
   extraReducers: {
     [fetchAllCategories.fulfilled]: (state, action) => {
       state.isLoading = false;
-      console.log(action);
 
       state.categories = action.payload.data;
     },
@@ -34,9 +33,17 @@ export const categoriesSlice = createSlice({
     [fetchCategoriesByParentId.pending]: (state, action) => {},
     [fetchCategoriesByParentId.rejected]: (state, action) => {},
 
-    [fetchAddCategory.fulfilled]: (state, action) => {},
-    [fetchAddCategory.pending]: (state, action) => {},
-    [fetchAddCategory.rejected]: (state, action) => {},
+    [fetchAddCategory.fulfilled]: (state, action) => {
+      state.isloading = false;
+      state.categories.push(action.payload.data);
+    },
+    [fetchAddCategory.pending]: (state, action) => {
+      state.isloading = true;
+    },
+    [fetchAddCategory.rejected]: (state, action) => {
+      state.isloading = false;
+      state.error = action.payload;
+    },
 
     [fetchDeleteCategory.fulfilled]: (state, action) => {},
     [fetchDeleteCategory.pending]: (state, action) => {},

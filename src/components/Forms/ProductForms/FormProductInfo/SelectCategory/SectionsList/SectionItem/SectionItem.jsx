@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import CategoriesList from '../CategoriesList/CategoriesList';
-import { useSectionsList } from '../SectionsList/SectionsList';
+import { useSectionsList } from '../SectionsList';
 
 import s from './SectionItem.module.scss';
 

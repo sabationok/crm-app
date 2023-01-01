@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CategoryList from '../CategoriesList/CategoriesList';
 // import SvgIcon from 'components/SvgIcon/SvgIcon';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
-import { useSectionsList } from '../SectionsList/SectionsList';
+import { useSectionsList } from '../SectionsList';
 import s from './Category.module.scss';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
 
