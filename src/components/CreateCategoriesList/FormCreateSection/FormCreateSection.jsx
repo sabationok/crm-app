@@ -61,7 +61,7 @@ const FormCreateSection = () => {
           </Button>
         </form>
       )}
-      {!formOpen && <Button onClick={handleOpenForm}>Добавити секцію</Button>}
+      {!formOpen && <Button onClick={handleOpenForm}>Додати секцію</Button>}
     </>
   );
 };

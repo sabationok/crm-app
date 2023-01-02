@@ -73,9 +73,8 @@ export const fetchDeleteCategory = createAsyncThunk('categories/fetchDeleteCateg
 export const fetchEditCategory = createAsyncThunk('categories/fetchEditCategory', async (obj, thunkAPI) => {
   try {
     const response = await localHostApi.patch(`/category/${obj.submitData.id}`, obj.submitData.updateData);
-    console.log(response.data);
 
-    obj.onSuccess();
+    obj.onSuccess(response.data.data);
 
     return response.data;
   } catch (error) {

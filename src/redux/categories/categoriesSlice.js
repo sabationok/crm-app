@@ -49,7 +49,14 @@ export const categoriesSlice = createSlice({
     [fetchDeleteCategory.pending]: (state, action) => {},
     [fetchDeleteCategory.rejected]: (state, action) => {},
 
-    [fetchEditCategory.fulfilled]: (state, action) => {},
+    [fetchEditCategory.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      const index = state.categories.findIndex(el => el._id === payload.data._id);
+
+      state.categories[index] = { ...payload.data };
+
+      console.log(index, state.categories[index].isArchived);
+    },
     [fetchEditCategory.pending]: (state, action) => {},
     [fetchEditCategory.rejected]: (state, action) => {},
   },

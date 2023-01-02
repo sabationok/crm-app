@@ -9,7 +9,7 @@ import { Button } from '@mui/material';
 
 import s from './FormCreateCategory.module.scss';
 
-const FormCreateCategory = ({ owner }) => {
+const FormCreateCategory = ({ owner, section }) => {
   const [categoryName, setCategoryName] = useState('');
   const [showForm, setShowForm] = useState(false);
   const dispatch = useDispatch();
@@ -29,6 +29,8 @@ const FormCreateCategory = ({ owner }) => {
         name: categoryName,
         owner: owner._id,
         ownerName: owner.name,
+        section: section._id,
+        sectionName: section.name,
       },
       onSuccess: () => {
         toast.success(`Створено під-категорію "${categoryName}"`);

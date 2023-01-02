@@ -25,7 +25,7 @@ const CreateCategoriesList = () => {
           {ctx.sectionsArr.length > 0 && (
             <ul className={[s.sectionsList, isDarkTheme ? s.Dark : s.Light].join(' ')}>
               {ctx.sectionsArr.map(item => {
-                return <SectionItem key={item._id} item={item} />;
+                return <SectionItem key={item._id} section={item} />;
               })}
             </ul>
           )}

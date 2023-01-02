@@ -6,7 +6,7 @@ import FormCreateCategory from '../FormCreateCategory/FormCreateCategory';
 
 import s from './SectionItem.module.scss';
 
-const SectionItem = ({ item }) => {
+const SectionItem = ({ section }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function handleShowBtnClick() {
@@ -16,15 +16,15 @@ const SectionItem = ({ item }) => {
   return (
     <li className={[s.sectionItemContainer, isOpen && s.isOpen].join(' ')}>
       <div className={s.sectionItem}>
-        <span>{`Секція: ${item?.name} (${item?._id})`}</span>
+        <span>{`Секція: ${section?.name} (${section?._id})`}</span>
         <ButtonIcon iconClassName={s.icon} iconId="select-arrow" className={s.openBtn} onClick={handleShowBtnClick} />
       </div>
 
       {isOpen && (
         <>
-          <CategoriesList owner={item} />
+          <CategoriesList owner={section} section={section} />
 
-          <FormCreateCategory owner={item} />
+          <FormCreateCategory owner={section} section={section} />
         </>
       )}
     </li>

@@ -17,7 +17,7 @@
 }
 .children {
   display: grid;
-  grid-template-columns: 1fr min-content;
+  grid-template-columns: 1fr min-content min-content;
   align-items: center;
   gap: 8px;
 
@@ -90,4 +90,19 @@
 .input {
   width: 24px;
   height: 24px;
+}
+.actionBtn {
+  min-height: 32px;
+  min-width: 32px;
+
+  border-radius: 4px;
+  &:hover {
+    fill: var(--brand_clr__1-hover);
+  }
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
 }

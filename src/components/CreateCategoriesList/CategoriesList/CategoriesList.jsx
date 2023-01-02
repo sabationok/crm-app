@@ -4,7 +4,7 @@ import { useSectionsList } from '../CreateCategoriesList';
 
 import s from './CategoriesList.module.scss';
 
-const CategoriesList = ({ owner }) => {
+const CategoriesList = ({ owner, section }) => {
   const { categoriesArr } = useSectionsList();
 
   const myCategoiesArr = categoriesArr.filter(el => el.owner === owner?._id);
@@ -14,9 +14,9 @@ const CategoriesList = ({ owner }) => {
     <>
       {categoriesCount > 0 && (
         <div className={s.categoriesListContainer}>
-          <fieldset className={s.categoriesList}>
-            {myCategoiesArr.length !== 0 && myCategoiesArr.map(item => <Category key={item._id} item={item} owner={item} />)}
-          </fieldset>
+          <div className={s.categoriesList}>
+            {myCategoiesArr.length !== 0 && myCategoiesArr.map(item => <Category key={item._id} category={item} owner={owner} section={section} />)}
+          </div>
         </div>
       )}
     </>
