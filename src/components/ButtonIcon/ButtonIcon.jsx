@@ -6,20 +6,26 @@ const ButtonIcon = ({
   children,
   type = 'button',
   disabled = false,
-  iconId = '',
-  styles = {},
-  iconStyles = {},
   size = '',
-  className = '',
-  iconSize = '18px',
-  iconClassName = '',
   title = '',
-  styleType = 'PrimaryBtn',
-  onClick = null,
+  styles = {},
+  styleType = '',
+  className = '',
+  iconId = '',
+  iconSize = '18px',
+  iconStyles = {},
+  iconClassName = '',
+  endIconId = '',
+  endIconSize = '18px',
+  endIconStyles = {},
+  endIconClassName = '',
+  // PrimaryBtn
+  onClick,
   ...props
 }) => {
   const classNames = [s.Button, s[styleType], className].join(' ');
   const iconClassNames = [s.iconSvg, iconClassName].join(' ');
+  const endIconClassNames = [s.iconSvg, endIconClassName].join(' ');
 
   let style = {
     width: size,
@@ -35,14 +41,28 @@ const ButtonIcon = ({
     minHeight: iconSize,
     ...iconStyles,
   };
+  let endIconStyle = {
+    width: endIconSize,
+    height: endIconSize,
+    minWidth: endIconSize,
+    minHeight: endIconSize,
+    ...endIconStyles,
+  };
   return (
     <button type={type} className={classNames} disabled={disabled} style={style} title={title && title} onClick={onClick} {...props}>
       {iconId && (
         <svg className={iconClassNames} style={iconStyle}>
-          <use href={`${sprite}#icon-${iconId}`}></use>
+          <use href={`${sprite}#icon-${iconId}`} />
         </svg>
       )}
+
       {children}
+
+      {endIconId && (
+        <svg className={endIconClassNames} style={endIconStyle}>
+          <use href={`${sprite}#icon-${endIconId}`}></use>
+        </svg>
+      )}
     </button>
   );
 };

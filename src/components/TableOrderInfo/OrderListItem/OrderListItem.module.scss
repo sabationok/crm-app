@@ -1,0 +1,43 @@
+.OrderListItem {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content minmax(100px, max-content) max-content;
+
+  width: max-content;
+  min-width: 100%;
+  height: max-content;
+
+  padding: 0 4px;
+  border-radius: 4px;
+
+  overflow: hidden;
+
+  cursor: default;
+
+  transition: all var(--timing-function__main);
+
+  border: 1px solid var(--table-row-brdr-clr__primary);
+  &:hover {
+    box-shadow: var(--row_shadow__hover);
+  }
+}
+.top {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  padding: 4px 0;
+}
+.middle {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 8px;
+
+  border-top: 1px solid var(--table-row-brdr-clr__primary);
+  border-bottom: 1px solid var(--table-row-brdr-clr__primary);
+}
+.bottom {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+  padding: 4px 0;
+}

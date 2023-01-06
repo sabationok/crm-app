@@ -1,0 +1,35 @@
+.cell {
+  padding: 4px;
+  &.title {
+    color: rgb(122, 122, 122);
+    font-size: 12px;
+  }
+  &.name {
+    text-align: start;
+    width: 140px;
+  }
+  &.sku {
+    text-align: start;
+    width: 140px;
+  }
+  &.quantity {
+    text-align: center;
+    width: 80px;
+  }
+  &.price {
+    text-align: end;
+    width: 80px;
+  }
+  &.sale {
+    text-align: end;
+    width: 80px;
+  }
+  &.summ {
+    text-align: end;
+    width: 80px;
+  }
+  &.saleSumm {
+    text-align: end;
+    width: 125px;
+  }
+}

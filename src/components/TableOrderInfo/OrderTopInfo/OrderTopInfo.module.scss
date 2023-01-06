@@ -1,0 +1,42 @@
+.topInfoContainer {
+  position: relative;
+  padding: 4px 0;
+  min-width: 100%;
+  &.isOpen {
+    & .topInfo {
+      max-height: 400px;
+      padding: 4px 0;
+    }
+    & .icon {
+      transform: rotate(180deg);
+    }
+  }
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  padding: 0 8px;
+
+  width: max-content;
+}
+.topInfo {
+  display: grid;
+  grid-template-columns: 250px;
+
+  overflow: hidden;
+  width: max-content;
+
+  max-height: 0;
+
+  transition: all var(--timing-function__main);
+}
+.icon {
+  transition: transform var(--timing-function__main);
+}
+.btn {
+  justify-content: flex-start;
+  width: 250px;
+  padding: 8px 16px;
+}

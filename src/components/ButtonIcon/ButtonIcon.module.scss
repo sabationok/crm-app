@@ -17,7 +17,17 @@
 
   cursor: default;
 
+  background-color: var(--btn_bckgrnd-color);
+
   transition: all var(--timing-function__main);
+
+  &:hover {
+    background-color: var(--btn_bckgrnd-color-hover);
+  }
+  &:active {
+    background-color: var(--btn_bckgrnd-color-active);
+  }
+
   &:disabled {
     pointer-events: none;
     opacity: 0.5;
@@ -44,16 +54,7 @@
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   }
 }
-.PrimaryBtn {
-  // color: #fff;
-  background-color: var(--btn_bckgrnd-color);
-  &:hover {
-    background-color: var(--btn_bckgrnd-color-hover);
-  }
-  &:active {
-    background-color: var(--btn_bckgrnd-color-active);
-  }
-}
+
 .BorderBtn {
   border: 2px solid var(--brand_clr__1);
   background-color: transparent;

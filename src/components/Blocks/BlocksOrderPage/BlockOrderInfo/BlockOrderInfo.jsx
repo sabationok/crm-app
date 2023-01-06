@@ -1,8 +1,8 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 
-import TableOrderInfo from 'components/TableOrderInfo/TableOrderInfo';
 import BlockEmpty from 'components/Blocks/BlockEmpty/BlockEmpty';
+import OrderInfo from 'components/TableOrderInfo/OrderInfo';
 
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -47,7 +47,7 @@ const BlockOrderInfo = props => {
 
   return (
     <Block {...blockSettings}>
-      {order?._id && <TableOrderInfo />}
+      {order?._id && <OrderInfo />}
 
       {!order?._id && <BlockEmpty title={'Оберіть замовлення'} />}
     </Block>

@@ -3,11 +3,12 @@ import ActionPrimary from './ActionPrimary';
 
 import { toast } from 'react-toastify';
 import { useNotify } from 'components/Notify/NotifyProvider';
-import { usePage } from 'components/AppPages/PageProvider';
+import { useSelector } from 'react-redux';
+import { getPageObjData } from 'redux/selectors';
 
 const ActionShare = ({ action }) => {
   const { appNotify } = useNotify();
-  const { formDataObj } = usePage();
+  const pageDataObj = useSelector(getPageObjData);
 
   async function handleShareBtnClick() {
     let LINK = `${window.location}`;
@@ -27,7 +28,7 @@ const ActionShare = ({ action }) => {
     }
   }
 
-  return <ActionPrimary {...action} onClick={handleShareBtnClick} status={!!formDataObj} />;
+  return <ActionPrimary {...action} onClick={handleShareBtnClick} status={!!pageDataObj} />;
 };
 
 export default ActionShare;

@@ -2,16 +2,26 @@ import React from 'react';
 import ActionPrimary from './ActionPrimary';
 import { useBlock } from 'components/Block/BlockContext';
 import { toast } from 'react-toastify';
-import { usePage } from 'components/AppPages/PageProvider';
+import { useSelector } from 'react-redux';
+import { getPageObjData } from 'redux/selectors';
+import { useNotify } from 'components/Notify/NotifyProvider';
 
 const ActionDelete = ({ action }) => {
+  const pageDataObj = useSelector(getPageObjData);
+  const { appNotify } = useNotify();
   const { deleteAction } = useBlock();
-  const { formDataObj } = usePage();
 
   function handleDeleteAction() {
-    deleteAction ? deleteAction(formDataObj?._id) : toast.error('DELETE ERROR');
+    if (deleteAction) {
+      deleteAction(pageDataObj?._id);
+      appNotify.success(`Видалення успішне`, `ID: ${pageDataObj?._id}`);
+      toast.success('DELETE SUCCESS');
+    } else {
+      appNotify.error(`Помилка при видаленні`, `ID: ${pageDataObj?._id}`);
+      toast.error('DELETE ERROR');
+    }
   }
-  return deleteAction && <ActionPrimary onClick={handleDeleteAction} {...action} status={!!formDataObj} />;
+  return deleteAction && <ActionPrimary onClick={handleDeleteAction} {...action} status={!!pageDataObj} />;
 };
 
 export default ActionDelete;

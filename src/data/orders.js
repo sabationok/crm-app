@@ -1,5 +1,37 @@
 //  ! масив обєктів аля з бази даних
 import { nanoid } from 'nanoid';
+
+import imgs from 'img/photo';
+const countRowData = data => {
+  let newData = { ...data };
+
+  if (data?.price && data?.quantity) {
+    newData.summ = data.price * data.quantity;
+  }
+
+  if (data?.sale && newData?.summ) {
+    newData.saleSumm = (newData.summ * (100 - data.sale)) / 100;
+  }
+
+  return newData;
+};
+const testComplect = [
+  { _id: '45fdb16156d2g52453', sku: 'f3hn13fg2h', quantity: 2, price: 500, sale: 5 },
+  { _id: '45f6512156d2g52453', sku: 'z3v1xc32v2', quantity: 1, price: 2650, sale: 0 },
+];
+const orderContent = [
+  {
+    _id: '45345452453',
+    name: 'Сукня рожева шовкова',
+    sku: 'd5fb1s3d5g1',
+    imgUrl: imgs.rozeva,
+    ttn: '651684621684621',
+    ttnCost: '437 грн.',
+    complect: testComplect.map(el => countRowData(el)),
+  },
+  { _id: '45454534524', name: 'Сукня синя шовкова', sku: 'd5fb1s3d5g1', imgUrl: imgs.synia },
+  { _id: '77827575575', name: 'Сукня зелена шовкова', sku: 'd5fb1s3d5g1', imgUrl: imgs.zelena },
+];
 export const orderStatus = {
   NEW: 'new',
   ARCHIVED: 'archived',
@@ -68,6 +100,7 @@ export function prepeareOrderData({
   updatedBy = {},
   payment = {},
   invoices = {},
+  ...others
 }) {
   let data = {
     _id,
@@ -81,6 +114,7 @@ export function prepeareOrderData({
     payment,
     invoices,
     comment,
+    ...others,
   };
   return data;
 }
@@ -201,6 +235,7 @@ export const testOrdersArr = [
       total: 0,
       blockedFunds: 256,
     },
+    orderContent: orderContent,
     deliveries: [
       {
         _id: 'd6fb1s6d5f',

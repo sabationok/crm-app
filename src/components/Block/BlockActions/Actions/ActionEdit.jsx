@@ -4,12 +4,13 @@ import ModalContent from 'components/ModalCustom/ModalContent/ModalContent';
 import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
 import FormProductImgs from 'components/Forms/ProductForms/FormProductImgs/FormProductImgs';
 import FormProductStock from 'components/Forms/ProductForms/FormProductStock/FormProductStock';
-import { usePage } from 'components/AppPages/PageProvider';
+import { useSelector } from 'react-redux';
+import { getPageObjData } from 'redux/selectors';
 
 import s from './Action.module.scss';
 
 const ActionEdit = ({ action, props, type = 'product', iconId = 'edit', blockProps, modalProps, title = 'Редагування', ...others }) => {
-  const { formDataObj } = usePage();
+  const pageDataObj = useSelector(getPageObjData);
 
   const ActionMap = {
     product: props => <FormProductInfo edit {...props} />,
@@ -31,7 +32,7 @@ const ActionEdit = ({ action, props, type = 'product', iconId = 'edit', blockPro
 
   return (
     <>
-      <ModalContent trigger={props => <ActionPrimary title={title} iconId={iconId} {...action} status={!!formDataObj} {...props} />}>
+      <ModalContent trigger={props => <ActionPrimary title={title} iconId={iconId} {...action} status={!!pageDataObj} {...props} />}>
         {ActionMap[type] && <Children {...props} blockSettings={blockSettings} />}
       </ModalContent>
     </>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DateInfo = ({ dateString }) => {
+const DateInfo = ({ dateString, date = true, time = true }) => {
   let year, month, day, hours, minutes, seconds;
   if (dateString) {
     const date = new Date(dateString);
@@ -15,8 +15,10 @@ const DateInfo = ({ dateString }) => {
 
   return (
     <>
-      <span>{dateString ? `${day}.${month}.${year}` : `00.00.0000`}</span>
-      <span>{dateString ? `(${hours}:${minutes}:${seconds})` : `(00:00:00)`}</span>
+      {date && (
+        <span title={`${day}.${month}.${year} (${hours}:${minutes}:${seconds})`}>{dateString ? `${day}.${month}.${year}` : `00.00.0000`}</span>
+      )}
+      {time && <span>{dateString ? `(${hours}:${minutes}:${seconds})` : `(00:00:00)`}</span>}
     </>
   );
 };

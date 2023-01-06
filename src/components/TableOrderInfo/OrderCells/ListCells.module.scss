@@ -1,0 +1,40 @@
+.cellImg {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+  padding: 4px;
+
+  overflow: hidden;
+  border-right: 1px solid var(--table-row-brdr-clr__primary);
+  & .imgBox {
+    max-width: 100%;
+    height: fit-content;
+  }
+}
+.cellFlex {
+  display: flex;
+  & .title {
+    color: rgb(122, 122, 122);
+
+    padding: 4px;
+  }
+  & .text {
+    padding: 4px;
+  }
+}
+.cellGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+
+  & .title {
+    color: rgb(122, 122, 122);
+
+    padding: 4px;
+  }
+  & .text {
+    padding: 4px;
+  }
+}
