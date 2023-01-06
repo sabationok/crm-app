@@ -28,19 +28,19 @@ const OrderTopInfo = () => {
     { name: 'К-ть ТТН', inner: order?.deliveries.length },
   ];
   return (
-    <div className={[s.topInfoContainer, isOpen && s.isOpen].join(' ')}>
-      <div className={s.sticky}>
-        <ButtonIcon iconId="select-arrow" className={s.btn} iconClassName={s.icon} onClick={handleToggleInfo}>
-          Розгорнути інформацію
-        </ButtonIcon>
+    <>
+      <ButtonIcon iconId="select-arrow" className={isOpen ? s.btnOpen : s.btn} iconClassName={s.icon} onClick={handleToggleInfo}>
+        {isOpen ? 'Згорнути' : 'Розгорнути'} інформацію
+      </ButtonIcon>
 
+      <div className={[s.topInfoContainer, isOpen && s.isOpen].join(' ')}>
         <div className={s.topInfo}>
           {mapData.map((el, idx) => (
             <CellGrid key={idx} name={el.name} text={el.inner} title={el?.title} />
           ))}
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default OrderTopInfo;

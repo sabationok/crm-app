@@ -1,26 +1,26 @@
 .topInfoContainer {
   position: relative;
-  padding: 4px 0;
+
   min-width: 100%;
+
+  width: 100%;
+
   &.isOpen {
     & .topInfo {
       max-height: 400px;
-      padding: 4px 0;
-    }
-    & .icon {
-      transform: rotate(180deg);
+      padding: 8px 0;
     }
   }
 }
-.sticky {
-  position: sticky;
-  top: 0;
-  left: 0;
+// .sticky {
+//   position: sticky;
+//   top: 0;
+//   left: 0;
 
-  padding: 0 8px;
+//   padding: 0 8px;
 
-  width: max-content;
-}
+//   width: max-content;
+// }
 .topInfo {
   display: grid;
   grid-template-columns: 250px;
@@ -35,8 +35,17 @@
 .icon {
   transition: transform var(--timing-function__main);
 }
-.btn {
+.btn,
+.btnOpen {
   justify-content: flex-start;
-  width: 250px;
+  width: 100%;
   padding: 8px 16px;
+}
+.btnOpen {
+  color: var(--brand_clr__1);
+  fill: var(--brand_clr__1);
+  background-color: var(--btn_bckgrnd-color-active);
+  & .icon {
+    transform: rotate(180deg);
+  }
 }

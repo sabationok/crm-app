@@ -74,6 +74,8 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+
+  outline-color: var(--brand_clr__1);
 }
 /* АДРЕСИ */
 address {
@@ -88,7 +90,11 @@ img {
 /* КНОПКИ */
 button {
   user-select: none;
-  cursor: pointer;
+
+  &:focus,
+  &:focus-visible {
+    outline-color: var(--brand_clr__1);
+  }
 }
 /* ----------------- СКРИТІ ЕЛЕМЕНТИ */
 .visually-hidden {

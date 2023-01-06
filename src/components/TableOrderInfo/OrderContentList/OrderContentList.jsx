@@ -15,27 +15,25 @@ const OrderContentList = () => {
   }
 
   return (
-    <div className={isOpen && s.isOpen}>
-      <div className={s.relative}>
-        <div className={s.sticky}>
-          <ButtonIcon iconId="select-arrow" className={s.btn} iconClassName={s.icon} onClick={handleToggleList}>
-            Розгорнути список
-          </ButtonIcon>
+    <>
+      <ButtonIcon iconId="select-arrow" className={isOpen ? s.btnOpen : s.btn} iconClassName={s.icon} onClick={handleToggleList}>
+        {isOpen ? 'Згорнути' : 'Розгорнути'} вміст
+      </ButtonIcon>
+
+      <div className={[s.OrderContentList, isOpen && s.isOpen].join(' ')}>
+        <div className={s.listContainer}>
+          <ul className={s.list}>
+            {order.orderContent && (
+              <>
+                {order.orderContent.map(data => (
+                  <OrderListItem key={data._id} {...{ data }} />
+                ))}
+              </>
+            )}
+          </ul>
         </div>
       </div>
-
-      <div className={s.listContainer}>
-        <ul className={s.list}>
-          {order.orderContent && (
-            <>
-              {order.orderContent.map(data => (
-                <OrderListItem key={data._id} {...{ data }} />
-              ))}
-            </>
-          )}
-        </ul>
-      </div>
-    </div>
+    </>
   );
 };
 

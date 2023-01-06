@@ -8,6 +8,8 @@ import s from './ComplectTable.module.scss';
 const ComplectTable = ({ data = [] }) => {
   const titlesArr = [
     { title: 'SKU', dataKey: 'sku', action: 'Text' },
+    { title: 'Атрибут 1', dataKey: 'atribute_1', action: 'Atribute' },
+    { title: 'Фтрибут 2', dataKey: 'atribute_2', action: 'Atribute' },
     { title: 'Кількість', dataKey: 'quantity', action: 'Qty' },
     { title: 'Ціна', dataKey: 'price', action: 'Number' },
     { title: 'Знижка, %', dataKey: 'sale', action: 'Number' },

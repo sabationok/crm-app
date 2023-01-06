@@ -1,22 +1,23 @@
-.listContainer {
-  gap: 4px;
+.OrderContentList {
+  width: 100%;
+  height: 100%;
 
-  padding: 4px 0;
+  overflow: auto;
+  max-height: 0;
+
+  transition: all var(--timing-function__main);
+  &.isOpen {
+    max-height: 2000px;
+  }
+}
+.listContainer {
+  padding: 8px 0;
 
   min-width: 100%;
   height: 100%;
   min-height: max-content;
 }
-.isOpen {
-  & .icon {
-    transform: rotate(180deg);
-  }
-  & .list {
-    max-height: 2000px;
-    overflow: auto;
-    // width: 100%;
-  }
-}
+
 .list {
   display: grid;
   grid-template-columns: 1fr;
@@ -26,11 +27,6 @@
   padding: 0 8px;
 
   width: 100%;
-  overflow: hidden;
-  max-height: 0;
-  // width: 0;
-
-  transition: all var(--timing-function__main);
 }
 .icon {
   transition: transform var(--timing-function__main);
@@ -48,11 +44,19 @@
   left: 0;
 
   padding: 0 8px;
-
-  width: max-content;
+  width: 100%;
 }
-.btn {
+.btn,
+.btnOpen {
   justify-content: flex-start;
-  width: 250px;
+  width: 100%;
   padding: 8px 16px;
+}
+.btnOpen {
+  color: var(--brand_clr__1);
+  fill: var(--brand_clr__1);
+  background-color: var(--btn_bckgrnd-color-active);
+  & .icon {
+    transform: rotate(180deg);
+  }
 }
