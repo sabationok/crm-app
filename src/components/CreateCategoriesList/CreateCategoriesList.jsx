@@ -32,24 +32,6 @@ const CreateCategoriesList = () => {
 
           <FormCreateSection />
         </div>
-
-        {/* <BlockSimple
-          title="Оберіть категорію"
-          headerClassName={s.header}
-          className={s.selectCategoryModal}
-          footerChildren={
-            <div className={s.footer}>
-              <ButtonIcon type="button" className={s.btn} onClick={onAcceptBtnClick} disabled={disabledAcceptBtn}>
-                Прийняти
-              </ButtonIcon>
-              <ButtonIcon type="button" className={s.btn} onClick={onDeclineBtnClick}>
-                Відхилити
-              </ButtonIcon>
-            </div>
-          }
-        >
-
-        </BlockSimple> */}
       </SectionsListContext.Provider>
     </>
   );

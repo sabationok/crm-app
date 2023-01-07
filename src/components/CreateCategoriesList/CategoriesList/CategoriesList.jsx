@@ -10,7 +10,6 @@ const CategoriesList = ({ owner, section }) => {
   const myCategoiesArr = categoriesArr.filter(el => el.owner === owner?._id);
   const categoriesCount = myCategoiesArr.length;
 
-  console.log(section);
   return (
     <>
       {categoriesCount > 0 && (

@@ -16,7 +16,6 @@
       transform: rotate(0);
     }
     & .openBtn {
-      border-color: var(--brand_clr__1);
       fill: var(--brand_clr__1);
     }
   }
@@ -35,11 +34,17 @@
   transition: var(--timing-function__main);
 }
 .openBtn {
-  width: 100%;
-  height: 100%;
-
   border-radius: 4px;
 
   background-color: transparent;
-  border: 2px solid var(--table-row-brdr-clr__primary);
+}
+.name {
+}
+.id {
+  font-size: 11px;
+}
+.nameWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }

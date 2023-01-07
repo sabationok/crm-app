@@ -1,5 +1,5 @@
 import PrimaryInput from 'components/Forms/Inputs/PrimaryInput/PrimaryInput';
-// import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 import { useDispatch } from 'react-redux';
 import { fetchAddCategory } from 'redux/categories/categoriesThunks';
@@ -49,16 +49,13 @@ const FormCreateSection = () => {
         <form className={s.addForm} onSubmit={handleAddSection}>
           <PrimaryInput label="Назва секції" value={sectionName} onChange={onInputChange} size="small" />
 
-          {/* <ButtonIcon className={s.addBtn} iconId="plus" type="submit" styleType="ColoredBtn" disabled={!sectionName}>
-            Добавити 
-          </ButtonIcon> */}
-          <Button variant="contained" color="success" type="submit" disabled={!sectionName}>
+          <ButtonIcon className={s.addBtn} iconId="plus" type="submit" styleType="BrandClrBtn" disabled={!sectionName}>
             Додати
-          </Button>
+          </ButtonIcon>
 
-          <Button variant="outlined" color="error" onClick={handleOpenForm}>
+          <ButtonIcon className={s.addBtn} iconId="close" type="submit" styleType="ErrorClrBtn" onClick={handleOpenForm}>
             Відміна
-          </Button>
+          </ButtonIcon>
         </form>
       )}
       {!formOpen && <Button onClick={handleOpenForm}>Додати секцію</Button>}

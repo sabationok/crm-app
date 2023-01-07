@@ -49,20 +49,26 @@ const Category = ({ category, owner, section }) => {
       <div className={categoryClassList}>
         <div className={categoryOwnerClassList}>
           <div>
-            <div className={s.name}>{`${category.name} (${categoriesCount}) `}</div>
-            <div className={s.name}>{`(${category._id}) ${category.isArchived ? '(АРХІВ)' : ''} (sectionId: ${section?._id})`}</div>
+            <div className={s.name}>{`${category.name} (${categoriesCount}) (sectionId: ${section?._id})`}</div>
+            <div className={s.name}>{`(${category._id}) `}</div>
           </div>
 
           <div className={s.actions}>
-            <ButtonIcon iconId="archive" className={s.actionBtn} onClick={handleArchiveCategory} />
+            <ButtonIcon
+              iconId={!category.isArchived ? 'archive' : 'unArchive'}
+              size="32px"
+              iconSize="100%"
+              className={[s.actionBtn, category.isArchived && s.filled].join(' ')}
+              onClick={handleArchiveCategory}
+            />
           </div>
 
-          <ButtonIcon iconId="select-arrow" className={s.showBtn} iconClassName={s.icon} onClick={handleShowBtnClick} />
+          <ButtonIcon iconId="select-arrow" size="32px" className={s.showBtn} iconClassName={s.icon} onClick={handleShowBtnClick} />
         </div>
 
         {renderList && (
           <div className={s.listContainer}>
-            <CategoryList owner={category} />
+            <CategoryList owner={category} section={section} />
           </div>
         )}
 

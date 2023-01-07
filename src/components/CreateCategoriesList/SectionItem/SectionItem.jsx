@@ -16,8 +16,12 @@ const SectionItem = ({ section }) => {
   return (
     <li className={[s.sectionItemContainer, isOpen && s.isOpen].join(' ')}>
       <div className={s.sectionItem}>
-        <span>{`Секція: ${section?.name} (${section?._id})`}</span>
-        <ButtonIcon iconClassName={s.icon} iconId="select-arrow" className={s.openBtn} onClick={handleShowBtnClick} />
+        <div className={s.nameWrapper}>
+          <span className={s.name}>{`Секція: ${section?.name}`}</span>
+          <span className={s.id}>{`(${section?._id})`}</span>
+        </div>
+
+        <ButtonIcon iconClassName={s.icon} iconId="select-arrow" size="32px" className={s.openBtn} onClick={handleShowBtnClick} />
       </div>
 
       {isOpen && (
