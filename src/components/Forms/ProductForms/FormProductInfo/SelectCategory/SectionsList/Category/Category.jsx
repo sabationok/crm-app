@@ -9,9 +9,12 @@ import SvgIcon from 'components/SvgIcon/SvgIcon';
 const Category = ({ item, toggleParentCategory, name }) => {
   const [isShow, setIsShow] = useState(false);
   const [isSelected, setSelected] = useState(false);
-  const { handleSelectCategory, selectedCategory } = useSectionsList();
-  const categoriesCount = item?.categories.length > 0;
-  const renderList = isShow && categoriesCount;
+  const { handleSelectCategory, selectedCategory, categoriesArr } = useSectionsList();
+
+  const myCategoriesList = categoriesArr.filter(el => el?.owner === item._id);
+
+  const categoriesCount = myCategoriesList.length;
+  const renderList = isShow && categoriesCount > 0;
 
   const categoryClassList = [s.childrenContainer, isShow && ''].join(' ');
   const categoryBtnClassList = [s.children, isShow && s.isShow].join(' ');
@@ -23,47 +26,49 @@ const Category = ({ item, toggleParentCategory, name }) => {
   function onChange(ev) {
     setSelected(!isSelected);
     const itemData = {
-      category: item?.category,
-      categoryId: item?.categoryId,
-      parentCategory: item?.parentCategory,
-      parentCategoryId: item?.parentCategoryId,
+      sectionName: item?.sectionName,
       section: item?.section,
-      sectionId: item?.sectionId,
+      ownerName: item?.ownerName,
+      owner: item?.owner,
+      name: item?.name,
+      _id: item?._id,
     };
     handleSelectCategory(itemData);
-    console.log(selectedCategory);
   }
   useEffect(() => {
-    if (selectedCategory?.categoryId === undefined) {
+    if (selectedCategory?._id === undefined) {
       return;
     }
-    if (selectedCategory?.categoryId !== item?.categoryId) {
+    if (selectedCategory?._id !== item?._id) {
       setSelected(false);
       return;
     }
-    // if (selectedCategory?.categoryId === item?.categoryId) {
-    //   setSelected(true);
-    //   return;
-    // }
-  }, [item.categoryId, selectedCategory.categoryId]);
+    if (selectedCategory?._id === item?._id) {
+      setSelected(true);
+      return;
+    }
+  }, [item?._id, selectedCategory?._id]);
   return (
     <>
       <div className={categoryClassList}>
         <div className={categoryBtnClassList}>
-          <label htmlFor={item?.categoryId} className={s.input}>
-            <input className="visually-hidden" type="radio" id={item?.categoryId} value={item?.categoryId} onChange={onChange} checked={isSelected} />
+          <label htmlFor={item?._id} className={s.input}>
+            <input className="visually-hidden" type="radio" id={item?._id} value={item?._id} onChange={onChange} checked={isSelected} />
             <SvgIcon size="24px" iconId={isSelected ? 'checkBoxOn' : 'checkBoxOff'} />
           </label>
 
-          <span className={s.name}>{item.category}</span>
-          <span className={s.id}>{item.categoryId}</span>
+          <div className={s.nameWrapper}>
+            <span className={s.name}>{`Категорія: ${item?.name} (${categoriesCount})`}</span>
+
+            <span className={s.id}>{`(${item?._id})`}</span>
+          </div>
 
           {<ButtonIcon iconId="select-arrow" className={s.showBtn} iconClassName={s.icon} disabled={!categoriesCount} onClick={handleShowBtnClick} />}
         </div>
 
         {renderList && (
           <div className={s.listContainer}>
-            <CategoryList categoriesList={item?.categories} inputName={item.category} />
+            <CategoryList categoriesList={myCategoriesList} inputName={item?._id} />
           </div>
         )}
       </div>

@@ -16,8 +16,8 @@ const countRowData = data => {
   return newData;
 };
 const testComplect = [
-  { _id: '45fdb16156d2g52453', sku: 'f3hn13fg2h', quantity: 2, price: 500, sale: 5 },
-  { _id: '45f6512156d2g52453', sku: 'z3v1xc32v2', quantity: 1, price: 2650, sale: 0 },
+  { _id: '45fdb16156d2g52453', sku: 'f3hn13fg2h', quantity: 2, price: 500 },
+  { _id: '45f6512156d2g52453', sku: 'z3v1xc32v2', quantity: 1, price: 2650 },
 ];
 const orderContent = [
   {

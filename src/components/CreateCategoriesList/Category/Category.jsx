@@ -40,7 +40,6 @@ const Category = ({ category, owner, section }) => {
         toast.error('Помилка архівації');
       },
     };
-    console.log(payload);
 
     dispatch(fetchEditCategory(payload));
   }
@@ -51,7 +50,7 @@ const Category = ({ category, owner, section }) => {
         <div className={categoryOwnerClassList}>
           <div>
             <div className={s.name}>{`${category.name} (${categoriesCount}) `}</div>
-            <div className={s.name}>{`(${category._id}) ${category.isArchived ? '(АРХІВ)' : ''}`}</div>
+            <div className={s.name}>{`(${category._id}) ${category.isArchived ? '(АРХІВ)' : ''} (sectionId: ${section?._id})`}</div>
           </div>
 
           <div className={s.actions}>
@@ -66,6 +65,7 @@ const Category = ({ category, owner, section }) => {
             <CategoryList owner={category} />
           </div>
         )}
+
         {isShow && <FormCreateCategory owner={category} section={section} />}
       </div>
     </>

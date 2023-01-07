@@ -1,12 +1,12 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, { useState, createContext, useContext, useEffect } from 'react';
 import SectionItem from './SectionItem/SectionItem';
 import BlockSimple from 'components/BlockSimple/BlockSimple';
 
 import { useModal } from 'components/ModalCustom/ModalCustom';
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
-import { categoriesArr } from '../categoriesArr';
+// import { categoriesArr } from '../categoriesArr';
 import { useSelector } from 'react-redux';
-import { getAppSettings } from 'redux/selectors';
+import { getAllCategories, getAppSettings } from 'redux/selectors';
 
 import s from './SectionsList.module.scss';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
@@ -15,16 +15,17 @@ export const SectionsListContext = createContext();
 export const useSectionsList = () => useContext(SectionsListContext);
 
 const initialState = {
-  sectionId: '',
+  sectionName: '',
   section: '',
-  parentCategoryId: '',
-  parentCategory: '',
-  categoryId: '',
-  category: '',
+  ownerName: '',
+  owner: '',
+  name: '',
+  _id: '',
 };
 
 const SectionsList = () => {
   const { isDarkTheme } = useSelector(getAppSettings);
+  const { categories } = useSelector(getAllCategories);
   const { onFormStateChange } = useForm();
   const { handleToggleModal } = useModal();
   const [selectedCategory, setSelectedCategory] = useState(initialState);
@@ -41,10 +42,18 @@ const SectionsList = () => {
     setSelectedCategory(category);
     setDisabledAcceptBtn(false);
   }
+
+  const sectionsArr = categories.filter(el => el.isSection && !el.isArchived);
+  const categoriesArr = categories.filter(el => !el.isSection && !el.isArchived);
+
   const ctx = {
     handleSelectCategory,
     selectedCategory,
+    categoriesArr,
   };
+
+  useEffect(() => {}, []);
+
   return (
     <>
       <SectionsListContext.Provider value={{ ...ctx }}>
@@ -64,8 +73,8 @@ const SectionsList = () => {
           }
         >
           <ul className={[s.sectionsList, isDarkTheme ? s.Dark : s.Light].join(' ')}>
-            {categoriesArr.map(item => (
-              <SectionItem key={item.sectionId} item={item} />
+            {sectionsArr.map(item => (
+              <SectionItem key={item?._id} {...{ item }} />
             ))}
           </ul>
         </BlockSimple>

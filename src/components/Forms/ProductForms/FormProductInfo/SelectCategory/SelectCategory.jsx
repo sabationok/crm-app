@@ -9,10 +9,10 @@ import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
 
 import s from './SelectCategory.module.scss';
 
-const seletsArr = [
-  { label: 'Секція', name: 'section' }, // * sectionId: ''
-  { label: 'Батьківська категорія', name: 'parentCategory' }, // * parentCategoryId: ''
-  { label: 'Категорія', name: 'category' }, // * categoryId: ''
+const selectsArr = [
+  { label: 'Секція', name: 'sectionName' }, // * sectionId: ''
+  { label: 'Батьківська категорія', name: 'ownerName' }, // * parentCategoryId: ''
+  { label: 'Категорія', name: 'name' }, // * categoryId: ''
 ];
 
 const SelectCategory = () => {
@@ -21,9 +21,10 @@ const SelectCategory = () => {
   return (
     <>
       <Fieldset legend="Оберіть категорію">
-        {seletsArr.map(input => {
+        {selectsArr.map(input => {
           return <PrimaryInput key={input.name} {...input} value={formData[input.name]} onChange={onChange} disabled />;
         })}
+
         <ModalContent
           className={s.modal}
           trigger={props => (

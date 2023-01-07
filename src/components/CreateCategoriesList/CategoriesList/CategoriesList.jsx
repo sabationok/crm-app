@@ -10,12 +10,19 @@ const CategoriesList = ({ owner, section }) => {
   const myCategoiesArr = categoriesArr.filter(el => el.owner === owner?._id);
   const categoriesCount = myCategoiesArr.length;
 
+  console.log(section);
   return (
     <>
       {categoriesCount > 0 && (
         <div className={s.categoriesListContainer}>
           <div className={s.categoriesList}>
-            {myCategoiesArr.length !== 0 && myCategoiesArr.map(item => <Category key={item._id} category={item} owner={owner} section={section} />)}
+            {myCategoiesArr.length !== 0 && (
+              <>
+                {myCategoiesArr.map(item => (
+                  <Category key={item._id} category={item} owner={owner} section={section} />
+                ))}
+              </>
+            )}
           </div>
         </div>
       )}

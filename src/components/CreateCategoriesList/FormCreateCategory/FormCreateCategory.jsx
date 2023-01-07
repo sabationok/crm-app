@@ -16,6 +16,7 @@ const FormCreateCategory = ({ owner, section }) => {
 
   function handleOpenForm(ev) {
     setShowForm(!showForm);
+    console.log(owner, section);
   }
   function onInputChange(ev) {
     const { value } = ev.target;
@@ -39,7 +40,7 @@ const FormCreateCategory = ({ owner, section }) => {
         toast.error('Помилка створення під-категорії');
       },
     };
-    console.log(payload);
+    // console.log(payload);
     if (!categoryName) {
       payload.onError();
       return;

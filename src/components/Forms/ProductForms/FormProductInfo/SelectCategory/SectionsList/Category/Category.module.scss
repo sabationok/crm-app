@@ -5,7 +5,7 @@
 }
 .children {
   display: grid;
-  grid-template-columns: min-content 1fr 1fr min-content;
+  grid-template-columns: min-content 1fr min-content;
   align-items: center;
   gap: 8px;
 
@@ -35,6 +35,11 @@
     & .showBtn {
       border-color: var(--brand_clr__1);
     }
+  }
+  .nameWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
   .showBtn {
     // padding: 8px;
@@ -72,6 +77,9 @@
 }
 .name {
   color: inherit;
+}
+.id {
+  font-size: 10px;
 }
 .listContainer {
 }

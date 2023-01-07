@@ -44,12 +44,12 @@ export const initialFormState = {
     updatorType: '', // * string // * userInfo.id
   },
   categoryInfo: {
-    sectionId: '', // * string
     section: '', // * string
-    parentCategoryId: '', // * string
-    parentCategory: '', // * string
-    categoryId: '', // * string
-    category: '', // * string
+    sectionName: '', // * string
+    owner: '', // * string
+    ownerName: '', // * string
+    name: '', // * string
+    _id: '', // * string
   },
   availabilityInfo: {
     // ? availability
@@ -178,12 +178,12 @@ export const incomeData = {
   approvedStatus: 'success',
   visibilityStatus: false,
   categoryInfo: {
-    sectionId: '54951',
-    section: 'Одяг',
-    parentCategoryId: '6151',
-    parentCategory: 'Жінкам',
-    categoryId: '651',
-    category: 'Сукні, вечірні',
+    sectionName: 'Одяг',
+    section: '54951',
+    ownerName: 'Жінкам',
+    owner: '6151',
+    name: 'Сукні, вечірні',
+    _id: '651',
   },
   availabilityInfo: {
     availability: '',

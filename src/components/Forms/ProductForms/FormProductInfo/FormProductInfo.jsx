@@ -19,7 +19,6 @@ import SelectCategory from './SelectCategory/SelectCategory';
 import s from './FormProductInfo.module.scss';
 
 const FormProductInfo = ({ edit = false, create = false, copy = false, blockSettings }) => {
-  // const { user } = useSelector(getUserData);
   const { post } = usePage();
   const { id } = useParams();
   const { prepareRowData, prepareSubmitData } = useBlock();
@@ -82,7 +81,7 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, blockSett
     handleToggleModal();
   }
 
-  console.log(edit, 'edit', create, 'create', copy, 'copy');
+  // console.log(edit, 'edit', create, 'create', copy, 'copy');
 
   useEffect(() => {
     if (edit && post) {
@@ -104,22 +103,22 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, blockSett
     }
   }, [create, edit, copy, post, id, prepareRowData]);
 
+  const formSettings = {
+    blockSettings: blockSettings,
+    onSubmit: handleFormSubmit,
+    onReset: handleFormReset,
+    onFormStateChange: handleChangeFormState,
+    onChange: handleChangeInput,
+    onChangeCheckbox: handleChangeCheckbox,
+    onAvailabilityChange: handleAvailabilityChange,
+    onOrderTypeChange: handleOrderTypeChange,
+    onCancel: handleFormCancel,
+    formData: formData,
+    id: 'productForm',
+    className: s.form,
+  };
   return (
-    <FormPrimary
-      blockSettings={blockSettings}
-      formTitle="Деталі товару"
-      onSubmit={handleFormSubmit}
-      onReset={handleFormReset}
-      onFormStateChange={handleChangeFormState}
-      onChange={handleChangeInput}
-      onChangeCheckbox={handleChangeCheckbox}
-      onAvailabilityChange={handleAvailabilityChange}
-      onOrderTypeChange={handleOrderTypeChange}
-      onCancel={handleFormCancel}
-      formData={formData}
-      id="productForm"
-      className={s.form}
-    >
+    <FormPrimary {...formSettings}>
       <StaticInputs />
 
       <SelectCategory />
