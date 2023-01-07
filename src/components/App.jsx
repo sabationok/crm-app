@@ -19,11 +19,10 @@ export const App = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const locationRef = useRef();
-
   const { isDarkTheme } = useSelector(getAppSettings);
   const user = useSelector(getUserData);
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  console.log(window.location.hostname);
+
   useEffect(() => {
     dispatch(actionSetDevice(isMobile));
     if (user.token) {

@@ -23,6 +23,7 @@ const PriceField = () => {
       <div className={s.flex}>
         <div className={s.grid}>
           <span>Що будемо рахувати?</span>
+
           <div className={s.btnsGroup}>
             <ButtonIcon
               className={[!isCommission ? s.activeBtn : s.btn, s.l].join(' ')}
@@ -33,6 +34,7 @@ const PriceField = () => {
             >
               Собівартість
             </ButtonIcon>
+
             <ButtonIcon
               className={[isCommission ? s.activeBtn : s.btn, s.r].join(' ')}
               iconId={isCommission ? 'checkBoxOn' : 'checkBoxOff'}
@@ -44,6 +46,7 @@ const PriceField = () => {
             </ButtonIcon>
           </div>
         </div>
+
         <PriceCommissionCounter />
       </div>
     </Fieldset>

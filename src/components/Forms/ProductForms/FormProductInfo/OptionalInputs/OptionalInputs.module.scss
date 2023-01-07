@@ -7,33 +7,3 @@
 
   background-color: inherit;
 }
-.button {
-  display: flex;
-  justify-content: center;
-  padding: 8px 16px;
-
-  border-style: none;
-
-  // max-width: 70%;
-  color: #212121;
-  fill: #212121;
-  font-size: 14px;
-  font-weight: 700;
-  background-color: var(--brand_clr__1);
-
-  border-radius: 4px;
-
-transition: var(--timing-function__main);
-  &:hover {
-    opacity: 0.9;
-    background-color: var(--brand_clr__1);
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-  }
-  &:active {
-    opacity: 0.8;
-    background-color: var(--brand_clr__1);
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  }
-
-
-}

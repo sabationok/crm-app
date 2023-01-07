@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { nanoid } from 'nanoid';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import PrimaryInput from 'components/Forms/Inputs/PrimaryInput/PrimaryInput';
+import { nanoid } from 'nanoid';
 import { inputsOptional } from './inputsOptional';
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
 
@@ -19,9 +20,9 @@ const OptionalInputs = () => {
         <PrimaryInput key={input.name} {...input} onChange={onChange} />
       ))}
 
-      <button className={s.button} onClick={handleAddOptionalinput} type="button">
-        Додати інпут
-      </button>
+      <ButtonIcon styleType="BrandClrBtn" onClick={handleAddOptionalinput} type="button">
+        Додати поле
+      </ButtonIcon>
     </>
   );
 };

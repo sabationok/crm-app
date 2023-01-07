@@ -6,6 +6,7 @@ import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
 import ButtonText from 'components/ButtonText/ButtonText';
 
 import s from './PriceCommissionCounter.module.scss';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 // todo { label: 'Валюта', name: 'currency', action: 'text' },
 // todo { label: 'Cashback ID', name: 'cashbackId', action: 'cashbackID' },
 const commissionInputs = [
@@ -52,9 +53,10 @@ const PriceCommissionCounter = () => {
           commissionInputs.map(input => <PrimaryInput key={input.name} onChange={onChange} value={formData[input.name]} {...input} />)}
         {isCommission && costInputs.map(input => <PrimaryInput key={input.name} onChange={onChange} value={formData[input.name]} {...input} />)}
       </div>
-      <ButtonText className={s.btnToCount} data="cost" onClick={handleCountPrice}>
+
+      <ButtonIcon data="cost" styleType="BrandClrBtn" onClick={handleCountPrice}>
         Розрахувати
-      </ButtonText>
+      </ButtonIcon>
     </>
   );
 };

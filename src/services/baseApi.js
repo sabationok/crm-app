@@ -18,6 +18,7 @@ export const token = {
     baseApi.defaults.headers.Authorization = ``;
   },
 };
+
 export const baseURL = {
   setLocalhost() {
     baseApi.defaults.baseURL = `http://localhost:${PORT}/api/`;

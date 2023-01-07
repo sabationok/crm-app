@@ -28,7 +28,7 @@ const SelectCategory = () => {
         <ModalContent
           className={s.modal}
           trigger={props => (
-            <ButtonIcon {...props} className={s.button}>
+            <ButtonIcon {...props} styleType="BrandClrBtn">
               Обрати категорію
             </ButtonIcon>
           )}
