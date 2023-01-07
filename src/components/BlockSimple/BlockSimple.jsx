@@ -7,6 +7,7 @@ import { getAppSettings } from 'redux/selectors';
 import { useSelector } from 'react-redux';
 
 import s from './BlockSimple.module.scss';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 const BlockSimple = props => {
   let {
@@ -22,6 +23,7 @@ const BlockSimple = props => {
     className = '',
     footerClassName = '',
     headerClassName = '',
+    closeModalAction = false,
   } = props;
   const { isDarkTheme } = useSelector(getAppSettings);
   const blockClassName = [isDarkTheme ? s.blockDark : s.block, className].join(' ');
@@ -46,6 +48,8 @@ const BlockSimple = props => {
                   <span title={title}>{title}</span>
                 </span>
               )}
+
+              {closeModalAction && <ButtonIcon iconId="close" size="100%" onClick={closeModalAction} />}
             </div>
           )}
 

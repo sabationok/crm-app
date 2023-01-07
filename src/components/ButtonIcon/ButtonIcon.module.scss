@@ -6,7 +6,6 @@
 
   text-align: center;
   font-size: 14px;
-  font-weight: 700;
 
   padding: 0;
   color: inherit;
@@ -57,12 +56,14 @@
 }
 .BrandClrBtn {
   padding: 8px 16px;
+  font-weight: 700;
 
   background-color: var(--brand_clr__1);
   color: #fff;
   fill: #fff;
 
   border-radius: 4px;
+  border: 2px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   &:hover {
     background-color: var(--brand_clr__1-hover);
@@ -75,11 +76,13 @@
 }
 .ErrorClrBtn {
   padding: 8px 16px;
+  font-weight: 700;
 
   color: var(--clr-error);
   fill: var(--clr-error);
 
   border-radius: 4px;
+  border: 2px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   &:hover {
     border-color: var(--clr-error);
@@ -92,7 +95,8 @@
 }
 
 .BorderBtn {
-  border: 2px solid var(--brand_clr__1);
+  border-radius: 4px;
+  border: 2px solid transparent;
   background-color: transparent;
   &:hover {
     border-color: var(--brand_clr__1-hover);
@@ -100,6 +104,7 @@
     fill: var(--brand_clr__1-hover);
   }
   &:active {
+    background-color: var(--brand_clr__1-01);
     border-color: var(--brand_clr__1-active);
     color: var(--brand_clr__1-active);
     fill: var(--brand_clr__1-active);

@@ -14,6 +14,7 @@ export const blocksNames = {
   BlockVendors: 'BlockVendors',
   BlockAdminRules: 'BlockAdminRules',
   BlockAdminSettings: 'BlockAdminSettings',
+  BlockCategories: 'BlockCategories',
 };
 const actions_P_E_I = [
   { id: 1, name: 'print', title: 'Друк', iconId: 'print' },
@@ -78,4 +79,6 @@ export const blocksSettings = [
   { name: blocksNames.BlockVendors, fullPageMode: true, title: 'Вендори', iconId: 'partners', actions: actionsShare },
   { name: blocksNames.BlockAdminRules, fullPageMode: true, title: 'Права доступу', iconId: 'personLock', actions: actionsShare },
   { name: blocksNames.BlockAdminSettings, fullPageMode: true, title: 'Налаштування адмін панелі', iconId: 'settings', actions: actionsShare },
+
+  { name: blocksNames.BlockCategories, fullPageMode: true, title: 'Управління категоріями', iconId: 'folder' },
 ];

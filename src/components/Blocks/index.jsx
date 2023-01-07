@@ -8,12 +8,13 @@ import BlockOrderInfo from './BlocksOrderPage/BlockOrderInfo/BlockOrderInfo';
 import BlockRefundsList from './BlocksRefunds/BlockReturnsList/BlockRefundsList';
 import BlockRefundInspect from './BlocksRefunds/BlockRefundInspect/BlockRefundInspect';
 import BlockRefundInfo from './BlocksRefunds/BlockReturnInfo/BlockRefundInfo';
-import BlockCategories from './BlocksPageRepositories/BlockCategories';
+import BlockMenageCategories from './BlocksPageRepositories/BlockMenageCategories/BlockMenageCategories';
+
 import { BlockRaportsList, BlockRaportInfo, BlockStatistics, BlockProblems } from 'components/Blocks/RaportBlocks';
 import { BlockCounterPartysList, BlockCounterPartyInfo, BlockCounterPartyChat } from 'components/Blocks/CounterPartyBlocks';
 import { BlockMainTasks, BlockMainTask, BlockMainNotify } from 'components/Blocks/MainBlocks';
 import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings } from 'components/Blocks/AdminBlocks';
-import { BlockSettings, BlockDirectories, BlockSetProfile } from 'components/Blocks/SettingsBlocks';
+import { BlockSettings, BlockSetProfile } from 'components/Blocks/SettingsBlocks';
 import { BlockProfile, BlockBrands } from 'components/Blocks/BlocksVendor';
 export const BlocksMap = {
   BlockProductsList,
@@ -36,8 +37,7 @@ export const BlocksMap = {
   BlockMainTask,
   BlockMainNotify,
   BlockSettings,
-  BlockDirectories,
-  BlockCategories,
+  BlockMenageCategories,
   BlockSetProfile,
   BlockAdmin,
   BlockManagers,
@@ -69,8 +69,7 @@ export {
   BlockMainTask,
   BlockMainNotify,
   BlockSettings,
-  BlockDirectories,
-  BlockCategories,
+  BlockMenageCategories,
   BlockSetProfile,
   BlockAdmin,
   BlockManagers,

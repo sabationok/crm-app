@@ -50,7 +50,7 @@ const Category = ({ category, owner, section }) => {
         <div className={categoryOwnerClassList}>
           <div>
             <div className={s.name}>{`${category.name} (${categoriesCount})`}</div>
-            <div className={s.name}>{`(${category._id}) `}</div>
+            <div className={s.id}>{`(${category._id}) `}</div>
           </div>
 
           <div className={s.actions}>
@@ -66,11 +66,7 @@ const Category = ({ category, owner, section }) => {
           <ButtonIcon iconId="select-arrow" size="32px" className={s.showBtn} iconClassName={s.icon} onClick={handleShowBtnClick} />
         </div>
 
-        {renderList && (
-          <div className={s.listContainer}>
-            <CategoryList owner={category} section={section} />
-          </div>
-        )}
+        {renderList && <CategoryList owner={category} section={section} />}
 
         {isShow && <FormCreateCategory owner={category} section={section} />}
       </div>

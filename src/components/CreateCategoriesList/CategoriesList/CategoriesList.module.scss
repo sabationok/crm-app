@@ -5,20 +5,20 @@
 
   height: 100%;
 
-  margin-left: 5px;
-  @media screen and (min-width: 480px) {
-    margin-left: 10px;
-  }
+  margin-left: 4px;
+  // @media screen and (min-width: 480px) {
+  //   margin-left: 10px;
+  // }
 }
 .categoriesList {
-  appearance: none;
-  padding: 0;
-  margin: 0;
-  border-style: none;
   display: flex;
   flex-direction: column;
   align-self: flex-end;
   gap: 8px;
+
+  padding: 0;
+  margin: 0;
+  border-style: none;
 
   // height: 100%;
 

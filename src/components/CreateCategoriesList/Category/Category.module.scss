@@ -21,7 +21,7 @@
   align-items: center;
   gap: 8px;
 
-  height: 48px;
+  height: 40px;
   padding: 2px 8px;
 
   font-size: 12px;
@@ -29,11 +29,11 @@
   font-family: sans-serif;
 
   border-style: none;
-  border-radius: 4px;
 
   fill: inherit;
   color: inherit;
 
+  border-radius: 4px;
   border: 2px solid rgba(139, 139, 139, 0.5);
   box-shadow: 0 0 1px rgba(254, 254, 254, 1);
 
@@ -69,6 +69,9 @@
 }
 .name {
   color: inherit;
+}
+.id {
+  font-size: 10px;
 }
 .listContainer {
 }

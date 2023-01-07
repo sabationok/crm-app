@@ -1,12 +1,8 @@
-import React from 'react';
 import PrimaryInput from 'components/Forms/Inputs/PrimaryInput/PrimaryInput';
-
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
-// import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
-import ButtonText from 'components/ButtonText/ButtonText';
 
 import s from './PriceCommissionCounter.module.scss';
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 // todo { label: 'Валюта', name: 'currency', action: 'text' },
 // todo { label: 'Cashback ID', name: 'cashbackId', action: 'cashbackID' },
 const commissionInputs = [
@@ -31,19 +27,6 @@ const PriceCommissionCounter = () => {
     formData: { isCommission },
     onChange,
   } = useForm();
-
-  // const inialState = {
-  //   price: 0,
-  //   cost: 0,
-  //   sale: 0,
-  //   commission: 0,
-  //   currency: '',
-  //   cashbackId: '',
-  // };
-
-  // useEffect(() => {
-  //   onPriceChange(formData);
-  // }, [formData, onPriceChange]);
 
   function handleCountPrice() {}
   return (

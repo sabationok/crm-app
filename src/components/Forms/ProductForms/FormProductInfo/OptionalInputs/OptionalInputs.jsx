@@ -5,7 +5,7 @@ import { nanoid } from 'nanoid';
 import { inputsOptional } from './inputsOptional';
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
 
-import s from './OptionalInputs.module.scss';
+// import s from './OptionalInputs.module.scss';
 const OptionalInputs = () => {
   const [formOptionalInputs, setFormOptionalInputs] = useState([...inputsOptional]);
   const { onChange } = useForm();

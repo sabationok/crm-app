@@ -99,8 +99,8 @@ export const mobilePageRoutes = [
   { title: 'Чат', device: 'mobile', parentPath: 'chat', path: 'chat', iconId: 'chat' },
 
   { title: 'Довідники', device: 'mobile', parentPath: 'directories', path: '/directories', navLink: false, iconId: 'folder' },
-  { title: 'Категорії', device: 'mobile', parentPath: 'directories', path: '/categories', iconId: 'folder' },
-  { title: 'Інше', device: 'mobile', parentPath: 'directories', path: '/others', iconId: 'folder' },
+  { title: 'Категорії', device: 'mobile', parentPath: 'directories', path: 'categories', iconId: 'folder' },
+  { title: 'Інше', device: 'mobile', parentPath: 'directories', path: 'others', iconId: 'folder' },
 
   { title: 'Профіль', device: 'mobile', parentPath: 'vendor', path: '/vendor', navLink: false, iconId: 'person' },
   { title: 'Бренди', device: 'mobile', parentPath: 'vendor', path: 'brands', iconId: 'brand' },
