@@ -10,10 +10,10 @@
   border-left: 2px solid transparent;
 
   transition: all var(--timing-function__main);
-  // &.isShow {
-  //   padding: 4px 0 4px 4px;
-  //   border-color: var(--brand_clr__1);
-  // }
+  &.isShow {
+    // padding: 4px 0 4px 4px;
+    border-bottom-color: var(--brand_clr__1);
+  }
 }
 .children {
   display: grid;
