@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import localHostApi from '../../services/localHostApi';
-// import { token } from '../../services/localHostApi';
+import baseApi from '../../services/baseApi';
+// import { token } from '../../services/baseApi';
 
 export const fetchAllPosts = createAsyncThunk('posts/fetchPosts', async (obj, thunkAPI) => {
   try {
-    const response = await localHostApi.get(`/product/getAll`);
+    const response = await baseApi.get(`/product/getAll`);
     console.log(response.data);
 
     obj.onSuccess();
@@ -22,7 +22,7 @@ export const fetchAllPosts = createAsyncThunk('posts/fetchPosts', async (obj, th
 
 export const fetchAddPost = createAsyncThunk('posts/fetchAddPost', async (obj, thunkAPI) => {
   try {
-    const response = await localHostApi.post(`/product/create`, obj.submitData);
+    const response = await baseApi.post(`/product/create`, obj.submitData);
 
     obj.onSuccess();
 
@@ -38,7 +38,7 @@ export const fetchAddPost = createAsyncThunk('posts/fetchAddPost', async (obj, t
 
 export const fetchDeletePost = createAsyncThunk('posts/fetchDeletePost', async (postID, thunkAPI) => {
   try {
-    const response = await localHostApi.delete(`/product/${postID}`);
+    const response = await baseApi.delete(`/product/${postID}`);
 
     return response.data;
   } catch (error) {
@@ -50,7 +50,7 @@ export const fetchDeletePost = createAsyncThunk('posts/fetchDeletePost', async (
 export const fetchEditPost = createAsyncThunk('posts/fetchEditPost', async (editedPost, thunkAPI) => {
   console.log(editedPost);
   try {
-    const response = await localHostApi.patch(`/product/${editedPost.id}`, editedPost.data);
+    const response = await baseApi.patch(`/product/${editedPost.id}`, editedPost.data);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -60,7 +60,7 @@ export const fetchEditPost = createAsyncThunk('posts/fetchEditPost', async (edit
 
 export const fetchAddPostImgs = createAsyncThunk('posts/fetchAddPost', async (obj, thunkAPI) => {
   try {
-    const response = await localHostApi.post(`/files/upload`, obj.submitData, { headers: { 'Content-Type': 'multipart/form-data' } });
+    const response = await baseApi.post(`/files/upload`, obj.submitData, { headers: { 'Content-Type': 'multipart/form-data' } });
 
     obj.onSuccess();
 
