@@ -49,7 +49,7 @@ const Category = ({ category, owner, section }) => {
       <div className={categoryClassList}>
         <div className={categoryOwnerClassList}>
           <div>
-            <div className={s.name}>{`${category.name} (${categoriesCount}) (sectionId: ${section?._id})`}</div>
+            <div className={s.name}>{`${category.name} (${categoriesCount})`}</div>
             <div className={s.name}>{`(${category._id}) `}</div>
           </div>
 
