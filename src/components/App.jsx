@@ -11,6 +11,7 @@ import { useMediaQuery } from 'react-responsive';
 import { getUserData } from 'redux/selectors';
 import { actionSetCurrentUser } from 'redux/auth/authActions';
 import { useLocation } from 'react-router-dom';
+import { baseURL } from 'services/baseApi';
 
 import s from './App.module.scss';
 
@@ -22,12 +23,15 @@ export const App = () => {
   const { isDarkTheme } = useSelector(getAppSettings);
   const user = useSelector(getUserData);
   const isMobile = useMediaQuery({ maxWidth: 768 });
-
+  console.log(window.location.hostname);
   useEffect(() => {
     dispatch(actionSetDevice(isMobile));
     if (user.token) {
       locationRef.current = location.pathname;
       dispatch(actionSetCurrentUser());
+    }
+    if (window.location.hostname === 'localhost') {
+      baseURL.setLocalhost();
     }
   }, [dispatch, isMobile, location.pathname, user.token]);
 
