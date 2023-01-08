@@ -9,7 +9,7 @@ import BlockRefundsList from './BlocksRefunds/BlockReturnsList/BlockRefundsList'
 import BlockRefundInspect from './BlocksRefunds/BlockRefundInspect/BlockRefundInspect';
 import BlockRefundInfo from './BlocksRefunds/BlockReturnInfo/BlockRefundInfo';
 import BlockMenageCategories from './BlocksPageRepositories/BlockMenageCategories/BlockMenageCategories';
-
+import BlockUsers from './BlocksAdmin/BlockUsers/BlockUsers';
 import { BlockRaportsList, BlockRaportInfo, BlockStatistics, BlockProblems } from 'components/Blocks/RaportBlocks';
 import { BlockCounterPartysList, BlockCounterPartyInfo, BlockCounterPartyChat } from 'components/Blocks/CounterPartyBlocks';
 import { BlockMainTasks, BlockMainTask, BlockMainNotify } from 'components/Blocks/MainBlocks';
@@ -47,6 +47,7 @@ export const BlocksMap = {
   BlockProfile,
   BlockBrands,
   BlockChat,
+  BlockUsers,
 };
 export {
   BlockProductsList,
@@ -79,4 +80,5 @@ export {
   BlockProfile,
   BlockBrands,
   BlockChat,
+  BlockUsers,
 };

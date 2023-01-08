@@ -102,7 +102,7 @@ const FormAuth = props => {
 
       <PrimaryInput label="Пароль" name="password" type="password" required onChange={onChange} />
 
-      <Button variant="contained" type="submit">
+      <Button variant="outlined" type="submit">
         {admin && <span>Створити користувача</span>}
 
         {!admin && <span>{signUp ? 'Реєстрація' : 'Увійти'}</span>}

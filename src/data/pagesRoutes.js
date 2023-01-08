@@ -112,6 +112,7 @@ export const mobilePageRoutes = [
   { title: 'Налаштування', device: 'mobile', parentPath: 'manager', path: 'settings', iconId: 'settings' },
 
   { title: 'Адмін', device: 'mobile', parentPath: 'admin', path: '/admin', navLink: false, iconId: 'admin' },
+  { title: 'Користувачі', device: 'mobile', parentPath: 'admin', path: 'users', iconId: 'persons' },
   { title: 'Менеджери', device: 'mobile', parentPath: 'admin', path: 'managers', iconId: 'persons' },
   { title: 'Вендори', device: 'mobile', parentPath: 'admin', path: 'vendors', iconId: 'partners' },
   { title: 'Права доступу', device: 'mobile', parentPath: 'admin', path: 'roles', iconId: 'lockPerson' },

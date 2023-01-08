@@ -3,16 +3,15 @@ import PropTypes from 'prop-types';
 import PageProvider from './PageProvider';
 
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
-import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings } from 'components/Blocks';
-import BlockAuth from 'components/Blocks/BlocksAdmin/BlockAuth/BlockAuth';
+import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings, BlockUsers } from 'components/Blocks';
 
 const PageAdmin = ({ path }) => {
-  const BlockAuthSet = { signUp: true, admin: true, title: 'Керування користувачами' };
+  const BlockAuthSet = { iconId: 'persons', title: 'Керування користувачами' };
   const blocksMap = {
     admin: <BlockAdmin />,
     managers: <BlockManagers />,
     vendors: <BlockVendors />,
-    users: <BlockAuth {...BlockAuthSet} />,
+    users: <BlockUsers {...BlockAuthSet} />,
     roles: <BlockAdminRules />,
     settings: <BlockAdminSettings />,
   };
@@ -21,12 +20,12 @@ const PageAdmin = ({ path }) => {
     <>
       <PageProvider>
         <MinTabletXl>
-          {/* <BlockAdmin />
+          <BlockAdminSettings />
+          <BlockAdmin />
           <BlockManagers />
           <BlockVendors />
           <BlockAdminRules />
-          <BlockAdminSettings /> */}
-          <BlockAuth {...BlockAuthSet} />
+          <BlockUsers {...BlockAuthSet} />
         </MinTabletXl>
         <MaxToTablet>{path ? blocksMap[path] : blocksMap.admin}</MaxToTablet>
       </PageProvider>

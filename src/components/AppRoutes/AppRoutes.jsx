@@ -72,6 +72,7 @@ const AppRoutes = ({ locationRef }) => {
 
           <Route path="admin" element={<AppGridPage path="admin" />} errorElement={<PageError />}>
             <Route index element={<PageAdmin />} errorElement={<PageError />}></Route>
+            <Route path="users" element={<PageAdmin path="users" />} errorElement={<PageError />} />
             <Route path="managers" element={<PageAdmin path="managers" />} errorElement={<PageError />} />
             <Route path="vendors" element={<PageAdmin path="vendors" />} errorElement={<PageError />} />
             <Route path="roles" element={<PageAdmin path="roles" />} errorElement={<PageError />} />
