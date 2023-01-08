@@ -25,6 +25,12 @@ export const userRoles = {
   VENDOR: 'VENDOR',
   GUEST: 'GUEST',
 };
+
+export const userStatus = {
+  ACTIVE: 'ACTIVE',
+  NOT_ACTIVE: 'NOT_ACTIVE',
+  PENDING: 'PENDING',
+};
 export const users = [
   {
     ...initialUserInfo,

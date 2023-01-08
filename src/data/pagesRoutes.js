@@ -1,5 +1,6 @@
-import { userRoles } from './users';
+import { userRoles, userStatus } from './users';
 const { ADMIN, MANAGER, VENDOR, GUEST } = userRoles;
+const { ACTIVE, NOT_ACTIVE, PENDING } = userStatus;
 export const pagesRoutes = [
   {
     title: 'Головна',
@@ -7,6 +8,7 @@ export const pagesRoutes = [
     device: 'desktop',
     iconId: 'home',
     roles: [ADMIN, GUEST],
+    status: [ACTIVE, PENDING],
   },
   {
     title: 'Замовлення',
@@ -14,6 +16,7 @@ export const pagesRoutes = [
     device: 'desktop',
     iconId: 'assignment-in',
     roles: [ADMIN],
+    status: [ACTIVE, PENDING],
   },
   {
     title: 'Повернення',
@@ -21,6 +24,7 @@ export const pagesRoutes = [
     device: 'desktop',
     iconId: 'refund',
     roles: [ADMIN],
+    status: [ACTIVE, PENDING],
   },
   {
     title: 'Товари',
@@ -28,6 +32,7 @@ export const pagesRoutes = [
     device: 'desktop',
     iconId: 'storage',
     roles: [ADMIN],
+    status: [ACTIVE, PENDING],
   },
   {
     title: 'Звіти',
@@ -35,6 +40,7 @@ export const pagesRoutes = [
     device: 'desktop',
     iconId: 'assignment-ok',
     roles: [ADMIN],
+    status: [ACTIVE],
   },
   {
     title: 'Контрагенти',
@@ -42,6 +48,7 @@ export const pagesRoutes = [
     device: 'desktop',
     iconId: 'persons',
     roles: [ADMIN],
+    status: [ACTIVE, PENDING],
   },
   {
     title: 'Довідники',
@@ -49,6 +56,7 @@ export const pagesRoutes = [
     device: 'desktop',
     iconId: 'folder',
     roles: [ADMIN, MANAGER],
+    status: [ACTIVE],
   },
   {
     title: 'Вендор',
@@ -56,6 +64,7 @@ export const pagesRoutes = [
     device: 'desktop',
     iconId: 'partners',
     roles: [ADMIN, VENDOR],
+    status: [ACTIVE, PENDING],
   },
   {
     title: 'Менеджер',
@@ -63,6 +72,7 @@ export const pagesRoutes = [
     device: 'desktop',
     iconId: 'person',
     roles: [ADMIN],
+    status: [ACTIVE, PENDING],
   },
   {
     title: 'Адмін',
@@ -70,6 +80,7 @@ export const pagesRoutes = [
     device: 'desktop',
     iconId: 'admin',
     roles: [ADMIN],
+    status: [ACTIVE],
   },
 ];
 export const mobilePageRoutes = [

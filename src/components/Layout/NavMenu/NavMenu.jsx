@@ -40,10 +40,10 @@ const NavMenu = ({ size = '30px' }) => {
   }
 
   useEffect(() => {
-    const pagesRoutesArr = pagesRoutes.filter(el => el.roles.includes(user.role));
+    const pagesRoutesArr = pagesRoutes.filter(el => el?.roles.includes(user?.role) && el?.status.includes(user?.status));
 
     setNavLinks(pagesRoutesArr);
-  }, [user.role]);
+  }, [user?.role, user?.status]);
   return (
     <div className={isOpen ? s.menuOpen : s.menu}>
       <ButtonIcon
