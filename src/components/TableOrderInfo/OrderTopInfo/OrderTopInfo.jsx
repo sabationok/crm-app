@@ -1,11 +1,12 @@
 import DateInfo from 'components/TableInfoComponents/DateInfo/DateInfo';
 import CellGrid from '../OrderCells/CellGrid';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+import Status from 'components/TableInfoComponents/Status/Status';
 import { useSelector } from 'react-redux';
 import { getPageObjData } from 'redux/selectors';
+import { useState } from 'react';
 
 import s from './OrderTopInfo.module.scss';
-import { useState } from 'react';
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 const OrderTopInfo = () => {
   const order = useSelector(getPageObjData);
@@ -21,16 +22,16 @@ const OrderTopInfo = () => {
     },
     { name: 'Змінено', inner: <DateInfo dateString={order.updatedAt} time={false} /> },
     { name: 'Номер', inner: order.number },
-    { name: 'Статус', inner: order?.status },
-    { name: 'Менеджер', inner: order?.manager },
+    { name: 'Статус', inner: <Status status={order?.status} /> },
+    { name: 'Менеджер', inner: order?.manager || '(ПІП таа Код менеджера)' },
     { name: 'Тип', inner: order?.type },
-    { name: 'Оплата', inner: '' },
-    { name: 'К-ть ТТН', inner: order?.deliveries.length },
+    { name: 'Оплата', inner: '(тут буде унфо про оплату, статус, тощо)' },
+    { name: 'К-ть ТТН', inner: order?.deliveries?.length || 0 },
   ];
   return (
     <>
       <ButtonIcon iconId="select-arrow" className={isOpen ? s.btnOpen : s.btn} iconClassName={s.icon} onClick={handleToggleInfo}>
-        {isOpen ? 'Згорнути' : 'Розгорнути'} інформацію
+        {isOpen ? 'Згорнути інформацію' : 'Розгорнути інформацію'}
       </ButtonIcon>
 
       <div className={[s.topInfoContainer, isOpen && s.isOpen].join(' ')}>

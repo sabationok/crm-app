@@ -7,14 +7,14 @@ import s from './ComplectTable.module.scss';
 
 const ComplectTable = ({ data = [] }) => {
   const titlesArr = [
-    { title: 'SKU', dataKey: 'sku', action: 'Text' },
+    // { title: 'SKU', dataKey: 'sku', action: 'Text' },
     { title: 'Атрибут 1', dataKey: 'atribute_1', action: 'Atribute' },
-    { title: 'Фтрибут 2', dataKey: 'atribute_2', action: 'Atribute' },
+    { title: 'Атрибут 2', dataKey: 'atribute_2', action: 'Atribute' },
     { title: 'Кількість', dataKey: 'quantity', action: 'Qty' },
     { title: 'Ціна', dataKey: 'price', action: 'Number' },
-    { title: 'Знижка, %', dataKey: 'sale', action: 'Number' },
+    // { title: 'Знижка, %', dataKey: 'sale', action: 'Number' },
     { title: 'Сума', dataKey: 'summ', action: 'Summ' },
-    { title: 'Сума зі знижкою', dataKey: 'saleSumm', action: 'SaleSumm' },
+    // { title: 'Сума зі знижкою', dataKey: 'saleSumm', action: 'SaleSumm' },
   ];
 
   return (
