@@ -2,7 +2,7 @@ import React from 'react';
 
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { useDispatch } from 'react-redux';
-import { actionLogOutUser } from 'redux/auth/authActions';
+import { userLogOut } from 'redux/auth/authThunks';
 import { actionResetAppSettings } from 'redux/appSettings/appSettingsActions';
 import { toast } from 'react-toastify';
 
@@ -22,7 +22,7 @@ const ActionAppExit = () => {
     if (result) {
       dispatch(actionResetPageSettings());
       dispatch(actionResetAppSettings());
-      dispatch(actionLogOutUser(payload));
+      dispatch(userLogOut(payload));
     }
   }
 

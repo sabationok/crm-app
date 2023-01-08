@@ -14,8 +14,6 @@ export const useModal = () => useContext(ModalContext);
 const ModalCustom = ({ handleToggle, defaultBtn = true, children, modalStyle }) => {
   const [isOpen, setIsOpen] = useState(true);
 
-  window.addEventListener('keydown', handleToggleModalByEsc);
-
   function handleToggleModal() {
     handleToggle();
     setIsOpen(!isOpen);
@@ -26,27 +24,27 @@ const ModalCustom = ({ handleToggle, defaultBtn = true, children, modalStyle }) 
       handleToggle();
       setIsOpen(!isOpen);
     }
-    window.removeEventListener('keydown', handleToggleModalByEsc);
   }
 
-  function handleToggleModalByEsc(evt) {
-    let { code } = evt;
-    console.log('Escape');
-    if (code === 'Escape') {
-      handleToggle();
-      setIsOpen(!isOpen);
-      console.log('Escape');
-      window.removeEventListener('keydown', handleToggleModalByEsc);
-    }
-  }
   useEffect(() => {
+    window.addEventListener('keydown', handleToggleModalByEsc);
+    function handleToggleModalByEsc(evt) {
+      let { code } = evt;
+      if (code === 'Escape') {
+        handleToggle();
+        setIsOpen(!isOpen);
+        console.log('Escape');
+        window.removeEventListener('keydown', handleToggleModalByEsc);
+      }
+    }
     if (isOpen) {
       document.querySelector('body').classList.add('NotScroll');
     }
     return () => {
       document.querySelector('body').classList.remove('NotScroll');
+      window.removeEventListener('keydown', handleToggleModalByEsc);
     };
-  }, [isOpen]);
+  }, [handleToggle, isOpen]);
 
   return (
     <ModalPortal>

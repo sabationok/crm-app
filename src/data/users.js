@@ -3,15 +3,21 @@ export const initialUserInfo = {
   updatedAt: '', // * date
   _id: '', // * string
   name: '', // * string
+  login: '', // * string
   type: '', // * string
   email: '', // * string
   phone: '', // * string
+  role: '', // * string
   // !! only for VENDORS
-  companyName: '', // * stringF
-  brandsList: [], // * array of string
-  mangerId: [], // * array of string
+  // vendorinfo: {
+  //   brandsList: [], // * array of id
+  //   managerId: '', // * string
+  // },
   // !! only for MANAGERS
-  vendorslist: [], // * array of string
+  // managerInfo: {
+  //   vendors: [], // * array of id
+  //   personalCode: '', // * string
+  // },
 };
 export const users = [
   {

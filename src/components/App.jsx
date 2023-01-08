@@ -6,33 +6,29 @@ import MyDevice from './DeviceTypeInformer/MyDevice';
 import { ToastContainer } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
-import { actionSetDevice } from 'redux/page/pageActions';
 import { useMediaQuery } from 'react-responsive';
 import { getUserData } from 'redux/selectors';
-import { actionSetCurrentUser } from 'redux/auth/authActions';
-import { useLocation } from 'react-router-dom';
+import { userCurrent } from 'redux/auth/authThunks';
 import { baseURL } from 'services/baseApi';
 
 import s from './App.module.scss';
 
 export const App = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
   const locationRef = useRef();
   const { isDarkTheme } = useSelector(getAppSettings);
-  const user = useSelector(getUserData);
+  const auth = useSelector(getUserData);
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   useEffect(() => {
-    dispatch(actionSetDevice(isMobile));
-    if (user.token) {
-      locationRef.current = location.pathname;
-      dispatch(actionSetCurrentUser());
+    if (auth.token) {
+      dispatch(userCurrent());
     }
-    if (window.location.hostname === 'localhost') {
-      baseURL.setLocalhost();
+
+    if (window.location.hostname !== 'localhost') {
+      baseURL.setRailWay();
     }
-  }, [dispatch, isMobile, location.pathname, user.token]);
+  }, [dispatch, isMobile, auth.token]);
 
   return (
     <div className={[isDarkTheme ? s.appDark : s.app, isDarkTheme ? 'Dark' : 'Light'].join(' ')}>

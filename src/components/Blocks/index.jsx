@@ -13,7 +13,7 @@ import BlockMenageCategories from './BlocksPageRepositories/BlockMenageCategorie
 import { BlockRaportsList, BlockRaportInfo, BlockStatistics, BlockProblems } from 'components/Blocks/RaportBlocks';
 import { BlockCounterPartysList, BlockCounterPartyInfo, BlockCounterPartyChat } from 'components/Blocks/CounterPartyBlocks';
 import { BlockMainTasks, BlockMainTask, BlockMainNotify } from 'components/Blocks/MainBlocks';
-import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings } from 'components/Blocks/AdminBlocks';
+import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings } from 'components/Blocks/BlocksAdmin/AdminBlocks';
 import { BlockSettings, BlockSetProfile } from 'components/Blocks/SettingsBlocks';
 import { BlockProfile, BlockBrands } from 'components/Blocks/BlocksVendor';
 export const BlocksMap = {

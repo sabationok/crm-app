@@ -12,17 +12,19 @@ import PublicRoute from './PublicRoute';
 const { PageHome, PageError, PageNotFound, PageProducts, PageOrders, PageRefunds, PageAdmin, PageLogOut, PageAuth, PageDirectories } = AppPages;
 
 const AppRoutes = ({ locationRef }) => {
-  const user = useSelector(getUserData);
+  const auth = useSelector(getUserData);
 
   return (
     <>
       <Routes>
-        <Route index element={<Navigate to={user.isLoggedIn ? 'home' : 'auth'} />} errorElement={<PageError />} />
+        <Route index element={<Navigate to={auth.isLoggedIn ? 'home' : 'auth'} />} errorElement={<PageError />} />
 
-        <Route path="/" element={<PublicRoute redirectTo={locationRef?.current || 'home'} />}>
+        <Route path="/" element={<PublicRoute redirectTo={'home'} />}>
           <Route index element={<Navigate to="auth" />} errorElement={<PageError />} />
           <Route path="auth" element={<AppGridPage path="auth" />} errorElement={<PageError />}>
-            <Route index element={<PageAuth />} errorElement={<PageError />}></Route>
+            <Route index element={<Navigate to="signIn" />} errorElement={<PageError />}></Route>
+            <Route path="signUp" element={<PageAuth path="signUp" />} errorElement={<PageError />}></Route>
+            <Route path="signIn" element={<PageAuth path="signIn" />} errorElement={<PageError />}></Route>
             <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
           </Route>
         </Route>

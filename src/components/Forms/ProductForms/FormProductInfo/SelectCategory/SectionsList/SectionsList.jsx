@@ -1,15 +1,16 @@
-import React, { useState, createContext, useContext, useEffect } from 'react';
+import { useState, createContext, useContext, useEffect } from 'react';
 import SectionItem from './SectionItem/SectionItem';
 import BlockSimple from 'components/BlockSimple/BlockSimple';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 import { useModal } from 'components/ModalCustom/ModalCustom';
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
-// import { categoriesArr } from '../categoriesArr';
+import { useDispatch } from 'react-redux';
+import { fetchAllCategories } from 'redux/categories/categoriesThunks';
 import { useSelector } from 'react-redux';
 import { getAllCategories, getAppSettings } from 'redux/selectors';
 
 import s from './SectionsList.module.scss';
-import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 export const SectionsListContext = createContext();
 export const useSectionsList = () => useContext(SectionsListContext);
@@ -24,12 +25,13 @@ const initialState = {
 };
 
 const SectionsList = () => {
+  const dispatch = useDispatch();
   const { isDarkTheme } = useSelector(getAppSettings);
   const { categories } = useSelector(getAllCategories);
   const { onFormStateChange } = useForm();
   const { handleToggleModal } = useModal();
   const [selectedCategory, setSelectedCategory] = useState(initialState);
-  const [disabledAcceptBtn, setDisabledAcceptBtn] = useState(true);
+  const [disabledAcceptBtn, setDisabledAcceptBtn] = useState(true); // const dispatch = useDispatch();
 
   function onAcceptBtnClick(evt) {
     onFormStateChange(selectedCategory);
@@ -52,7 +54,9 @@ const SectionsList = () => {
     categoriesArr,
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    dispatch(fetchAllCategories());
+  }, [dispatch]);
 
   return (
     <>

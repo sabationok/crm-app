@@ -1,45 +1,78 @@
-import userApi from '../../services/userApi';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { token } from '../../services/userApi';
+import baseApi from 'services/baseApi';
+import { token } from 'services/baseApi';
 
-export const userRegister = createAsyncThunk('auth/register', async (newUser, thunkAPI) => {
+export const userRegister = createAsyncThunk('auth/register', async (obj, thunkAPI) => {
   try {
-    const response = await userApi.post(`/users/signup`, newUser);
-    return response.data;
+    const { data } = await baseApi.post(`/auth/signUp`, obj.submitData);
+    console.log(obj.submitData);
+
+    obj.onSuccess(data.data);
+
+    return data.data;
   } catch (error) {
-    console.log(error);
-    return thunkAPI.rejectWithValue(error.message);
-  }
-});
-export const userLogIn = createAsyncThunk('auth/login', async (user, thunkAPI) => {
-  try {
-    const response = await userApi.post(`/users/login`, user);
-    token.set(response.data.token);
-    return response.data;
-  } catch (error) {
-    console.log(error);
+    obj.onError(error);
+
     return thunkAPI.rejectWithValue(error.message);
   }
 });
 
-export const userLogOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+export const userRegisterByAdmin = createAsyncThunk('auth/registerByAdmin', async (obj, thunkAPI) => {
   try {
-    await userApi.post(`/users/logout`);
-    token.unset();
+    const { data } = await baseApi.post(`/auth/signUpByAdmin`, obj.submitData);
+
+    obj.onSuccess(data.data);
+
+    return data.data;
   } catch (error) {
-    console.log(error);
+    obj.onError(error);
+
     return thunkAPI.rejectWithValue(error.message);
   }
 });
 
-export const userCurrent = createAsyncThunk('auth/current', async (_, thunkAPI) => {
+export const userLogIn = createAsyncThunk('auth/login', async (obj, thunkAPI) => {
+  try {
+    const { data } = await baseApi.post(`/auth/signIn`, obj.submitData);
+
+    obj.onSuccess(data.data);
+
+    return data.data;
+  } catch (error) {
+    obj.onError(error);
+
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const userLogOut = createAsyncThunk('auth/logout', async (obj, thunkAPI) => {
+  token.unset();
+
+  try {
+    // await baseApi.post(`/auth/signOut`);
+
+    obj?.onSuccess();
+  } catch (error) {
+    obj?.onError(error);
+
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const userCurrent = createAsyncThunk('auth/getCurrentUser', async (obj, thunkAPI) => {
   const state = thunkAPI.getState();
+
   token.set(state.auth.token);
+
   try {
-    const { data } = await userApi.get(`/users/current`);
-    return data;
+    const { data } = await baseApi.get(`/auth/getCurrentUser`);
+
+    obj?.onSuccess(data.data);
+
+    return data.data;
   } catch (error) {
-    console.log(error);
+    obj?.onError(error);
+
     return thunkAPI.rejectWithValue(error.message);
   }
 });

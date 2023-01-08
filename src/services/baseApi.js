@@ -6,8 +6,8 @@ import axios from 'axios';
 const PORT = 3030;
 
 const baseApi = axios.create({
-  // baseURL: `http://localhost:${PORT}/api/`,
-  baseURL: `https://web-production-c6e8.up.railway.app/api/`,
+  baseURL: `http://localhost:${PORT}/api/`,
+  // baseURL: `https://web-production-c6e8.up.railway.app/api/`,
 });
 
 export const token = {
