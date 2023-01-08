@@ -74,7 +74,7 @@ export const userAuthSlice = createSlice({
       state.isLoading = false;
       state.isLoggedIn = true;
 
-      state.user.email = payload;
+      state.user = { ...state.user, ...payload };
     },
     [getCurrentUserThunk.pending]: (state, action) => {
       state.isLoading = true;
