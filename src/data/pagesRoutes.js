@@ -1,6 +1,6 @@
 import { userRoles, userStatus } from './users';
 const { ADMIN, MANAGER, VENDOR, GUEST } = userRoles;
-const { ACTIVE, NOT_ACTIVE, PENDING } = userStatus;
+const { ACTIVE, PENDING } = userStatus;
 export const pagesRoutes = [
   {
     title: 'Головна',
