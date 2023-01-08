@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 // import { actionLogInUser, actionLogOutUser, actionSetCurrentUser } from './authActions';
-import { userCurrent, userLogIn, userLogOut, userRegister, userRegisterByAdmin } from './authThunks';
+import { registerUserThunk, registerUserByAdminThunk, logInUserThunk, logOutUserThunk, getCurrentUserThunk } from './authThunks';
 import { initialUserInfo } from 'data/users';
 
 const initialState = {
@@ -8,114 +8,78 @@ const initialState = {
   token: '',
   isLoading: false,
   isLoggedIn: false,
+  error: null,
 };
 
 export const userAuthSlice = createSlice({
   name: 'userAuth',
   initialState: initialState,
   extraReducers: {
-    // ? ТЕСТОВІ
-    // [actionLogInUser]: (state, { payload }) => {
-    //   state.isLoading = false;
-
-    //   const user = users.find(user => user.login === payload.data.login);
-
-    //   console.log(user);
-
-    //   if (!user) {
-    //     payload.onError(404);
-    //     return;
-    //   }
-
-    //   if (user.password !== payload.data.password) {
-    //     payload.onError(400);
-    //     return;
-    //   }
-
-    //   state.user = user;
-    //   state.isLoggedIn = true;
-    //   state.token = user.email;
-    //   payload.onSuccess();
-    // },
-    // [actionLogOutUser]: (state, { payload }) => {
-    //   state.isLoading = false;
-    //   state.isLoggedIn = false;
-    //   state.token = null;
-    //   state.user = initialState;
-    //   payload.onSuccess();
-    // },
-    // [actionSetCurrentUser]: (state, { payload }) => {
-    //   state.isLoading = false;
-    //   state.isLoggedIn = true;
-    //   const user = users.find(user => user.email === state.token);
-    //   state.user = user;
-    // },
-
     //* РЕЄСТРАЦІЯ
-    [userRegister.fulfilled]: (state, { payload }) => {
+    [registerUserThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       state.isLoggedIn = false;
 
       console.log(payload);
     },
-    [userRegister.pending]: (state, action) => {
+    [registerUserThunk.pending]: (state, action) => {
       state.isLoading = true;
     },
-    [userRegister.rejected]: (state, action) => {
+    [registerUserThunk.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload.error;
     },
     // * РЕЄСТРАЦІЯ АДМІНІСТРАТОРОМ
-    [userRegisterByAdmin.fulfilled]: (state, { payload }) => {
+    [registerUserByAdminThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
     },
-    [userRegisterByAdmin.pending]: (state, action) => {
+    [registerUserByAdminThunk.pending]: (state, action) => {
       state.isLoading = true;
     },
-    [userRegisterByAdmin.rejected]: (state, action) => {
+    [registerUserByAdminThunk.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload.error;
     },
     //* ВХІД
-    [userLogIn.fulfilled]: (state, { payload }) => {
+    [logInUserThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       state.isLoggedIn = true;
       state.token = payload.access_token;
     },
-    [userLogIn.pending]: (state, { payload }) => {
+    [logInUserThunk.pending]: (state, { payload }) => {
       state.isLoading = true;
     },
-    [userLogIn.rejected]: (state, action) => {
+    [logInUserThunk.rejected]: (state, action) => {
       state.isLoading = false;
       state.isLoggedIn = false;
       state.error = action.payload.error;
     },
 
     //* ВИХІД
-    [userLogOut.fulfilled]: (state, action) => {
+    [logOutUserThunk.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.isLoggedIn = false;
       state.user = initialState.user;
       state.token = null;
     },
-    [userLogOut.pending]: (state, action) => {
+    [logOutUserThunk.pending]: (state, action) => {
       state.isLoading = true;
     },
-    [userLogOut.rejected]: (state, action) => {
+    [logOutUserThunk.rejected]: (state, action) => {
       state.isLoading = true;
       state.error = action.payload.error;
     },
     //* ПОТОЧНИЙ ЮЗЕР
-    [userCurrent.fulfilled]: (state, { payload }) => {
+    [getCurrentUserThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       state.isLoggedIn = true;
 
       state.user.email = payload;
     },
-    [userCurrent.pending]: (state, action) => {
+    [getCurrentUserThunk.pending]: (state, action) => {
       state.isLoading = true;
     },
-    [userCurrent.rejected]: (state, action) => {
+    [getCurrentUserThunk.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.error;
       state.isLoggedIn = false;

@@ -1,7 +1,7 @@
 import PrimaryInput from 'components/Forms/Inputs/PrimaryInput/PrimaryInput';
 import FormPrimary from '../FormPrimary/FormPrimary';
 import { useDispatch } from 'react-redux';
-import { userRegister, userLogIn, userRegisterByAdmin } from 'redux/auth/authThunks';
+import { registerUserThunk, logInUserThunk, registerUserByAdminThunk } from 'redux/auth/authThunks';
 import { toast } from 'react-toastify';
 import { Button } from '@mui/material';
 import { useState } from 'react';
@@ -20,6 +20,7 @@ const messages = key => {
   };
   return msgs[key];
 };
+
 const FormAuth = props => {
   const dispatch = useDispatch();
   const { signUp = false, signIn = false, admin = false } = props;
@@ -42,7 +43,7 @@ const FormAuth = props => {
       },
     };
 
-    dispatch(userLogIn(payload));
+    dispatch(logInUserThunk(payload));
   }
   function signUpUser(ev) {
     const payload = {
@@ -56,7 +57,7 @@ const FormAuth = props => {
         toast.error(messages(statusCode));
       },
     };
-    dispatch(userRegister(payload));
+    dispatch(registerUserThunk(payload));
   }
   function createUserByAdmin(ev) {
     const payload = {
@@ -70,7 +71,7 @@ const FormAuth = props => {
         toast.error(messages(statusCode));
       },
     };
-    dispatch(userRegisterByAdmin(payload));
+    dispatch(registerUserByAdminThunk(payload));
   }
   function handleFormSubmit(ev) {
     ev.preventDefault();

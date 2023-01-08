@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
 import { useMediaQuery } from 'react-responsive';
 import { getUserData } from 'redux/selectors';
-import { userCurrent } from 'redux/auth/authThunks';
+import { getCurrentUserThunk } from 'redux/auth/authThunks';
 import { baseURL } from 'services/baseApi';
 
 import s from './App.module.scss';
@@ -22,7 +22,7 @@ export const App = () => {
 
   useEffect(() => {
     if (auth.token) {
-      dispatch(userCurrent());
+      dispatch(getCurrentUserThunk());
     }
 
     if (window.location.hostname !== 'localhost') {
@@ -39,6 +39,7 @@ export const App = () => {
       </Layout>
 
       <MyDevice />
+
       <ToastContainer
         position="bottom-left"
         autoClose={2000}

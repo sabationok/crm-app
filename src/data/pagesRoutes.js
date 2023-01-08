@@ -1,63 +1,75 @@
+import { userRoles } from './users';
+const { ADMIN, MANAGER, VENDOR, GUEST } = userRoles;
 export const pagesRoutes = [
   {
     title: 'Головна',
     path: 'home',
     device: 'desktop',
     iconId: 'home',
+    roles: [ADMIN, GUEST],
   },
   {
     title: 'Замовлення',
     path: 'orders',
     device: 'desktop',
     iconId: 'assignment-in',
+    roles: [ADMIN],
   },
   {
     title: 'Повернення',
     path: 'refunds',
     device: 'desktop',
     iconId: 'refund',
+    roles: [ADMIN],
   },
   {
     title: 'Товари',
     path: 'products',
     device: 'desktop',
     iconId: 'storage',
+    roles: [ADMIN],
   },
   {
     title: 'Звіти',
     path: 'raports',
     device: 'desktop',
     iconId: 'assignment-ok',
+    roles: [ADMIN],
   },
   {
     title: 'Контрагенти',
     path: 'counterParty',
     device: 'desktop',
     iconId: 'persons',
+    roles: [ADMIN],
   },
   {
     title: 'Довідники',
     path: 'directories',
     device: 'desktop',
     iconId: 'folder',
+    roles: [ADMIN, MANAGER],
   },
   {
     title: 'Вендор',
     path: 'vendor',
     device: 'desktop',
     iconId: 'partners',
+    roles: [ADMIN, VENDOR],
   },
   {
     title: 'Менеджер',
     path: 'manager',
     device: 'desktop',
     iconId: 'person',
+    roles: [ADMIN],
   },
   {
     title: 'Адмін',
     path: 'admin',
     device: 'desktop',
     iconId: 'admin',
+    roles: [ADMIN],
   },
 ];
 export const mobilePageRoutes = [

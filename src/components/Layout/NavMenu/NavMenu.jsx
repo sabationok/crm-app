@@ -3,14 +3,19 @@ import React, { useState } from 'react';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import MenuNavLink from './MenuNavLink/MenuNavLink';
 
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { getUserData } from 'redux/selectors';
 import { pagesRoutes } from 'data/pagesRoutes';
 
 import s from './NavMenu.module.scss';
 
 const NavMenu = ({ size = '30px' }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [navLinks, setNavLinks] = useState([]);
+  const { user } = useSelector(getUserData);
 
-  const pagesRoutesArr = pagesRoutes.length > 0 ? pagesRoutes : [];
+  // const pagesRoutesArr = pagesRoutes.length > 0 ? pagesRoutes : [];
 
   function handleToggleMenu(ev) {
     if (!isOpen) {
@@ -34,6 +39,11 @@ const NavMenu = ({ size = '30px' }) => {
     }
   }
 
+  useEffect(() => {
+    const pagesRoutesArr = pagesRoutes.filter(el => el.roles.includes(user.role));
+
+    setNavLinks(pagesRoutesArr);
+  }, [user.role]);
   return (
     <div className={isOpen ? s.menuOpen : s.menu}>
       <ButtonIcon
@@ -47,7 +57,7 @@ const NavMenu = ({ size = '30px' }) => {
       />
 
       <ul className={[s.navList, 'theme'].join(' ')}>
-        {pagesRoutesArr.map(link => (
+        {navLinks.map(link => (
           <MenuNavLink key={link.path} item={link} />
         ))}
       </ul>

@@ -19,6 +19,12 @@ export const initialUserInfo = {
   //   personalCode: '', // * string
   // },
 };
+export const userRoles = {
+  ADMIN: 'ADMIN',
+  MANAGER: 'MANAGER',
+  VENDOR: 'VENDOR',
+  GUEST: 'GUEST',
+};
 export const users = [
   {
     ...initialUserInfo,

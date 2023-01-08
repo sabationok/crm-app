@@ -8,6 +8,7 @@ import MobileFooter from 'components/Layout/MobileFooter/MobileFooter';
 import DesktopFooter from 'components/Layout/DesktopFooter/DesktopFooter';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
+import AdminRoute from './AdminRoute';
 
 const { PageHome, PageError, PageNotFound, PageProducts, PageOrders, PageRefunds, PageAdmin, PageLogOut, PageAuth, PageDirectories } = AppPages;
 
@@ -70,6 +71,15 @@ const AppRoutes = ({ locationRef }) => {
             <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
           </Route>
 
+          <Route path="directories" element={<AppGridPage path="directories" />} errorElement={<PageError />}>
+            <Route index element={<PageDirectories />} errorElement={<PageError />}></Route>
+            <Route path="categories" element={<PageDirectories path="categories" />} errorElement={<PageError />} />
+
+            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
+          </Route>
+        </Route>
+
+        <Route path="/" element={<AdminRoute redirectTo={'home'} />}>
           <Route path="admin" element={<AppGridPage path="admin" />} errorElement={<PageError />}>
             <Route index element={<PageAdmin />} errorElement={<PageError />}></Route>
             <Route path="users" element={<PageAdmin path="users" />} errorElement={<PageError />} />
@@ -77,13 +87,6 @@ const AppRoutes = ({ locationRef }) => {
             <Route path="vendors" element={<PageAdmin path="vendors" />} errorElement={<PageError />} />
             <Route path="roles" element={<PageAdmin path="roles" />} errorElement={<PageError />} />
             <Route path="settings" element={<PageAdmin path="settings" />} errorElement={<PageError />} />
-            <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
-          </Route>
-
-          <Route path="directories" element={<AppGridPage path="directories" />} errorElement={<PageError />}>
-            <Route index element={<PageDirectories />} errorElement={<PageError />}></Route>
-            <Route path="categories" element={<PageDirectories path="categories" />} errorElement={<PageError />} />
-
             <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />
           </Route>
         </Route>

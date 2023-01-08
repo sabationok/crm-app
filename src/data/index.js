@@ -6,6 +6,8 @@ import * as stockData from './stockData';
 
 import * as ordersData from './orders';
 
+import { userRoles } from './users';
+
 import { pagesRoutes, mobilePageRoutes } from './pagesRoutes';
 
 import { blocksSettings, blocksNames } from './blocksSettings';
@@ -28,4 +30,5 @@ export {
   ordersData,
   blocksSettings,
   blocksNames,
+  userRoles,
 };

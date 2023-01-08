@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import baseApi from 'services/baseApi';
 import { token } from 'services/baseApi';
 
-export const userRegister = createAsyncThunk('auth/register', async (obj, thunkAPI) => {
+export const registerUserThunk = createAsyncThunk('auth/register', async (obj, thunkAPI) => {
   try {
     const { data } = await baseApi.post(`/auth/signUp`, obj.submitData);
     console.log(obj.submitData);
@@ -17,7 +17,7 @@ export const userRegister = createAsyncThunk('auth/register', async (obj, thunkA
   }
 });
 
-export const userRegisterByAdmin = createAsyncThunk('auth/registerByAdmin', async (obj, thunkAPI) => {
+export const registerUserByAdminThunk = createAsyncThunk('auth/registerByAdmin', async (obj, thunkAPI) => {
   try {
     const { data } = await baseApi.post(`/auth/signUpByAdmin`, obj.submitData);
 
@@ -31,7 +31,7 @@ export const userRegisterByAdmin = createAsyncThunk('auth/registerByAdmin', asyn
   }
 });
 
-export const userLogIn = createAsyncThunk('auth/login', async (obj, thunkAPI) => {
+export const logInUserThunk = createAsyncThunk('auth/signIn', async (obj, thunkAPI) => {
   try {
     const { data } = await baseApi.post(`/auth/signIn`, obj.submitData);
 
@@ -45,13 +45,17 @@ export const userLogIn = createAsyncThunk('auth/login', async (obj, thunkAPI) =>
   }
 });
 
-export const userLogOut = createAsyncThunk('auth/logout', async (obj, thunkAPI) => {
-  token.unset();
+export const logOutUserThunk = createAsyncThunk('auth/signOut', async (obj, thunkAPI) => {
+  const state = thunkAPI.getState();
+
+  token.set(state.auth.token);
 
   try {
-    // await baseApi.post(`/auth/signOut`);
+    await baseApi.post(`/auth/signOut`);
 
     obj?.onSuccess();
+
+    token.unset();
   } catch (error) {
     obj?.onError(error);
 
@@ -59,7 +63,7 @@ export const userLogOut = createAsyncThunk('auth/logout', async (obj, thunkAPI) 
   }
 });
 
-export const userCurrent = createAsyncThunk('auth/getCurrentUser', async (obj, thunkAPI) => {
+export const getCurrentUserThunk = createAsyncThunk('auth/getCurrentUser', async (obj, thunkAPI) => {
   const state = thunkAPI.getState();
 
   token.set(state.auth.token);
