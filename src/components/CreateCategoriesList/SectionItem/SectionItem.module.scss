@@ -6,8 +6,8 @@
 
   padding: 4px;
 
-  border-top: 2px solid var(--table-row-brdr-clr__primary);
-  border-bottom: 2px solid var(--table-row-brdr-clr__primary);
+  border-top: 2px solid var(--tr-brdr-clr__primary);
+  border-bottom: 2px solid var(--tr-brdr-clr__primary);
 
   transition: all var(--timing-function__main);
   &.isOpen {

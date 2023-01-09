@@ -9,23 +9,14 @@ import { useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
 
 import s from './Block.module.scss';
+import BlockActionsProvider from './BlockActions/BlockActionsProvider';
 
 const Block = props => {
-  let {
-    children,
-    footerChildren,
-    title = 'Title',
-    iconId = 'info',
-    footer = true,
-    header = true,
-    style = {},
-    headerStyles = {},
-    className = '',
-  } = props;
+  let { children, footerChildren, title = 'Title', iconId = 'info', footer = true, header = true, style = {}, className = '' } = props;
   const [isSearch, setIsSearch] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFullPageMode, setIsFullPageMode] = useState(false);
-  const [isActionsOpen, setIsActionsOpen] = useState(false);
+  // const [isActionsOpen, setIsActionsOpen] = useState(false);
   const { isDarkTheme } = useSelector(getAppSettings);
   const printRef = useRef();
 
@@ -38,10 +29,10 @@ const Block = props => {
   function handleToggleModal() {
     setIsModalOpen(!isModalOpen);
   }
-  function handleToggleAction() {
-    setIsActionsOpen(!isActionsOpen);
-  }
-  function handleToglleFullPageMode() {
+  // function handleToggleAction() {
+  //   setIsActionsOpen(!isActionsOpen);
+  // }
+  function handleToggleFullPageMode() {
     setIsFullPageMode(!isFullPageMode);
   }
 
@@ -50,43 +41,40 @@ const Block = props => {
     isDarkTheme,
     isModalOpen,
     isFullPageMode,
-    isActionsOpen,
     printRef,
   };
 
   const stateHandlers = {
     handleToggleBlockSearch,
     handleToggleModal,
-    handleToglleFullPageMode,
-    handleToggleAction,
+    handleToggleFullPageMode,
   };
 
   console.log(`block '${title}'inicialize`);
 
   return (
     <>
-      <BlockContext {...props} state={state} stateHandlers={stateHandlers} {...stateHandlers} {...state}>
-        <div className={blockClassName} style={{ ...style, ...fullPageGrid }} id="test">
-          {header && <BlockHeaderSearch style={headerStyles} />}
+      <BlockContext {...{ ...props, ...stateHandlers, ...state }}>
+        <BlockActionsProvider {...props}>
+          <div className={blockClassName} style={{ ...style, ...fullPageGrid }}>
+            {header && <BlockHeaderSearch />}
 
-          <div className={s.content} id={iconId}>
-            <BlockActions />
+            <div className={s.content} id={iconId}>
+              <BlockActions />
 
-            <div className={s.overflow}>
-              {children}
+              <div className={s.overflow}>
+                {children}
 
-              {!children && (
-                <div className={s.inWork}>
-                  <span>In work ...</span>
-                </div>
-              )}
+                {!children && (
+                  <div className={s.inWork}>
+                    <span>In work ...</span>
+                  </div>
+                )}
+              </div>
             </div>
-
-            {/* <BlockModal title={`Додаткові дії блоку "${title}"`}></BlockModal> */}
+            {footer && <div className={[s.footer, 'theme'].join(' ')}>{footerChildren}</div>}
           </div>
-
-          {footer && <div className={[s.footer, 'theme'].join(' ')}>{footerChildren}</div>}
-        </div>
+        </BlockActionsProvider>
       </BlockContext>
     </>
   );

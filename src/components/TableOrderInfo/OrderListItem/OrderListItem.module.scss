@@ -16,7 +16,7 @@
 
   transition: all var(--timing-function__main);
 
-  border: 1px solid var(--table-row-brdr-clr__primary);
+  border: 1px solid var(--tr-brdr-clr__primary);
   &:hover {
     box-shadow: var(--row_shadow__hover);
   }
@@ -32,8 +32,8 @@
   grid-template-columns: 100px 1fr;
   gap: 8px;
 
-  border-top: 1px solid var(--table-row-brdr-clr__primary);
-  border-bottom: 1px solid var(--table-row-brdr-clr__primary);
+  border-top: 1px solid var(--tr-brdr-clr__primary);
+  border-bottom: 1px solid var(--tr-brdr-clr__primary);
 }
 .bottom {
   display: flex;

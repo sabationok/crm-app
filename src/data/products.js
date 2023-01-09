@@ -94,10 +94,10 @@ export function prepeareProductData({
   description,
   innerComment,
   createdAt,
-  createdBy,
+  creator,
   updatedAt,
-  updatedBy,
-  categoryInfo,
+  updator,
+  categoryInfo: { categoryName = '', section = '', sectionName = '', owner = '', ownerName = '' },
   availabilityInfo,
   priceInfo,
   ...others
@@ -109,15 +109,15 @@ export function prepeareProductData({
     brand,
     approvedStatus,
     visibilityStatus,
-    description,
-    innerComment,
     createdAt,
-    ...createdBy,
+    creator,
     updatedAt,
-    ...updatedBy,
-    ...categoryInfo,
+    updator,
+    ...{ categoryName, section, sectionName, owner, ownerName },
     ...availabilityInfo,
     ...priceInfo,
+    description,
+    innerComment,
   };
   return data;
 }
@@ -129,14 +129,16 @@ export function prepeareProductSubmitData(data) {
     brandId: data?.brandId,
     approvedStatus: data?.approvedStatus,
     visibilityStatus: data?.visibilityStatus,
+
     categoryInfo: {
-      sectionId: data?.sectionId,
+      sectionName: data?.sectionName,
       section: data?.section,
-      parentCategoryId: data?.parentCategoryId,
-      parentCategory: data?.parentCategory,
-      categoryId: data?.categoryId,
-      category: data?.category,
+      ownerName: data?.ownerName,
+      owner: data?.owner,
+      categoryName: data?.CategoryName,
+      _id: data?._id,
     },
+
     availabilityInfo: {
       availability: data?.availability,
       order: data?.order,
@@ -144,17 +146,19 @@ export function prepeareProductSubmitData(data) {
       specialOrder: data?.specialOrder,
       specialOrderAwaitingTime: data?.specialOrderAwaitingTime,
     },
-    description: data?.description,
-    innerComment: data?.innerComment,
+
     priceInfo: {
       price: data?.price,
       cost: data?.cost,
       isCommission: data?.isCommission,
       commission: data?.commission,
-      cashbackId: data?.cashbackId,
       sale: data?.sale,
+      cashbackId: data?.cashbackId,
       currency: data?.currency,
     },
+
+    description: data?.description,
+    innerComment: data?.innerComment,
   };
   return submitData;
 }
@@ -164,16 +168,16 @@ export const incomeData = {
   name: 'Сукня синя, шовкова',
   brand: 'Noverra',
   createdAt: '2022.12.10 12:52:20',
-  createdBy: {
-    authorId: userInfo.id,
-    authorName: userInfo.name,
-    authorType: userInfo.type,
+  creator: {
+    _id: userInfo?._id,
+    name: userInfo?.name,
+    role: userInfo?.role,
   },
   updatedAt: '2022.12.15 16:50:10',
-  updatedBy: {
-    updatorId: userInfo.id,
-    updatorName: userInfo.name,
-    updatorType: userInfo.type,
+  updator: {
+    _id: userInfo?._id,
+    name: userInfo?.name,
+    role: userInfo?.role,
   },
   approvedStatus: 'success',
   visibilityStatus: false,
@@ -182,8 +186,7 @@ export const incomeData = {
     section: '54951',
     ownerName: 'Жінкам',
     owner: '6151',
-    name: 'Сукні, вечірні',
-    _id: '651',
+    categoryName: 'Сукні, вечірні',
   },
   availabilityInfo: {
     availability: '',
@@ -192,8 +195,6 @@ export const incomeData = {
     specialOrder: false,
     specialOrderAwaitingTime: 6,
   },
-  description: 'Опис товару',
-  innerComment: 'Коментар',
   priceInfo: {
     price: 500,
     cost: 400,
@@ -203,6 +204,8 @@ export const incomeData = {
     sale: 10,
     currency: 'UAH',
   },
+  description: 'Опис товару',
+  innerComment: 'Коментар',
 };
 export const productsArrTest = [
   {

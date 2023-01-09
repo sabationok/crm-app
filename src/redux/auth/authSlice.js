@@ -7,7 +7,7 @@ const initialState = {
   user: initialUserInfo,
   token: '',
   isLoading: false,
-  isLoggedIn: false,
+  isLoggedIn: true,
   error: null,
 };
 

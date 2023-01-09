@@ -2,12 +2,11 @@ import React from 'react';
 
 import BlockActionsList from './ActionsList/ActionsList';
 
-import { useBlock } from '../BlockContext';
-
+import { useBlockActionsCTX } from './BlockActionsProvider';
 import s from './BlockActions.module.scss';
 
 const BlockActions = () => {
-  const { actions, handleToggleAction, isActionsOpen } = useBlock();
+  const { actions, handleToggleAction, isActionsOpen } = useBlockActionsCTX();
 
   function onBackdropClick(ev) {
     const { target, currentTarget } = ev;

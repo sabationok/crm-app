@@ -1,13 +1,12 @@
 export const initialUserInfo = {
+  _id: 'g56c1n6g1n3c5g1cg5b1', // * string
   createdAt: '', // * date
   updatedAt: '', // * date
-  _id: '', // * string
   name: '', // * string
-  login: '', // * string
-  type: '', // * string
   email: '', // * string
   phone: '', // * string
-  role: '', // * string
+  status: 'ACTIVE', // * string
+  role: 'ADMIN', // * string
   // !! only for VENDORS
   // vendorinfo: {
   //   brandsList: [], // * array of id

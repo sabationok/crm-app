@@ -5,26 +5,16 @@ import SvgIcon from 'components/SvgIcon/SvgIcon';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { MinTabletXl } from 'components/DeviceTypeInformer/DeviceTypeController';
 import { useBlock } from '../BlockContext';
+import { useBlockActionsCTX } from '../BlockActions/BlockActionsProvider';
 
 import s from './BlockHeaderSearch.module.scss';
 
 const BlockHeaderSearch = () => {
-  const {
-    title = 'Title',
-    iconId = 'info',
-    isSearch,
-    actions,
-    headerStyles,
-    headerClassName,
-    isFullPageMode,
-    handleToglleFullPageMode,
-    fullPageMode,
-    handleToggleAction,
-    isActionsOpen,
-  } = useBlock();
+  const { title = 'Title', iconId = 'info', isSearch, isFullPageMode, handleToggleFullPageMode, fullPageMode } = useBlock();
+  const { handleToggleActions, isActionsOpen, actions } = useBlockActionsCTX();
 
   return (
-    <div className={[s.header, 'theme', headerClassName].join(' ')} style={headerStyles}>
+    <div className={[s.header, 'theme'].join(' ')}>
       <SvgIcon iconId={iconId} size={'24px'} />
 
       {isSearch && <BlockSearch />}
@@ -35,17 +25,17 @@ const BlockHeaderSearch = () => {
         </span>
       )}
 
-      {fullPageMode && (
-        <MinTabletXl>
+      <MinTabletXl>
+        {fullPageMode && (
           <ButtonIcon
             iconId={isFullPageMode ? 'zoomMinus' : 'zoomPlus'}
             size="30px"
             iconSize={'90%'}
-            onClick={handleToglleFullPageMode}
+            onClick={handleToggleFullPageMode}
             className={s.btn}
           />
-        </MinTabletXl>
-      )}
+        )}
+      </MinTabletXl>
 
       {actions && (
         <ButtonIcon
@@ -54,7 +44,7 @@ const BlockHeaderSearch = () => {
           iconSize="100%"
           iconClassName={s.svg}
           className={s.btn}
-          onClick={handleToggleAction}
+          onClick={handleToggleActions}
         />
       )}
     </div>

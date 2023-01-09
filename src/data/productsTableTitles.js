@@ -64,7 +64,7 @@ export const productsTableTitles = [
   {
     id: 1,
     name: 'ID автора',
-    dataTitle: 'authorId',
+    dataTitle: 'creator._id',
     action: 'string',
     search: true,
     filter: false,
@@ -144,7 +144,7 @@ export const productsTableTitles = [
   {
     id: 1,
     name: 'Категорія',
-    dataTitle: 'category',
+    dataTitle: 'categoryName',
     action: 'category',
     search: true,
     filter: true,
