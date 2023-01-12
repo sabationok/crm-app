@@ -4,7 +4,7 @@ const CellSumm = ({ item, dataKey, data, idx }) => {
   return (
     <div className={[s.cell, s[dataKey]].join(' ')}>
       <span className={s.inner} title={data?.summ}>
-        {data?.summ || 0}
+        {data?.total || 0}
       </span>
     </div>
   );

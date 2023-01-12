@@ -3,7 +3,7 @@
   align-items: flex-start;
   justify-content: center;
 
-  width: 100%;
+  width: 100px;
   height: 100%;
   padding: 4px;
 
@@ -14,8 +14,9 @@
     height: fit-content;
   }
 }
-.cellFlex {
-  display: flex;
+.cellFlex,
+.cellGrid {
+  padding: 0 4px;
   & .title {
     color: rgb(122, 122, 122);
 
@@ -23,18 +24,21 @@
   }
   & .text {
     padding: 4px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
   }
+  &:not(:last-child) {
+    border-right: 1px solid var(--tr-brdr-clr__primary);
+  }
+}
+.cellFlex {
+  display: flex;
+  justify-content: space-between;
 }
 .cellGrid {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
-
-  & .title {
-    color: rgb(122, 122, 122);
-
-    padding: 4px;
-  }
-  & .text {
-    padding: 4px;
-  }
 }

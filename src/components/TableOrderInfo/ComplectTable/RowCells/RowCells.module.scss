@@ -1,5 +1,8 @@
 .cell {
   padding: 4px;
+  &.index {
+    width: 50px;
+  }
   &.title {
     color: rgb(122, 122, 122);
     font-size: 12px;

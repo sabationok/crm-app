@@ -70,6 +70,7 @@ const SectionsList = () => {
               <ButtonIcon type="button" className={s.btn} onClick={onAcceptBtnClick} disabled={disabledAcceptBtn}>
                 Прийняти
               </ButtonIcon>
+
               <ButtonIcon type="button" className={s.btn} onClick={onDeclineBtnClick}>
                 Відхилити
               </ButtonIcon>

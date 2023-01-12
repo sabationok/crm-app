@@ -23,9 +23,13 @@ const OrderListItem = ({ data }) => {
       <div className={s.top}>
         <CellFlex {...{ title: 'Назва', text: data?.name || 'name' }} />
 
-        <CellFlex {...{ title: 'SKU', text: data?.sku || '0000000000' }} />
+        <CellFlex {...{ title: 'SKU', text: data?.sku || '00000000' }} />
 
-        <CellFlex {...{ title: 'Ціна', text: data?.total || 0 }} />
+        <CellFlex {...{ title: 'К-ть', text: data?.quantity || 0 }} />
+
+        <CellFlex {...{ title: 'Ціна', text: data?.price || 0 }} />
+
+        <CellFlex {...{ title: 'Сума', text: data?.total || 0 }} />
       </div>
 
       <div className={s.middle}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import AccordeonItem from './AccordeonItem/AccordeonItem';
 
 import OrderContentList from './OrderContentList/OrderContentList';
 import OrderTopInfo from './OrderTopInfo/OrderTopInfo';
@@ -9,9 +10,13 @@ const OrderInfo = () => {
   return (
     <>
       <div className={s.OrderInfo}>
-        <OrderTopInfo />
+        <AccordeonItem {...{ title: 'Загальна інформація' }}>
+          <OrderTopInfo />
+        </AccordeonItem>
 
-        <OrderContentList />
+        <AccordeonItem {...{ title: 'Вміст' }}>
+          <OrderContentList />
+        </AccordeonItem>
       </div>
     </>
   );

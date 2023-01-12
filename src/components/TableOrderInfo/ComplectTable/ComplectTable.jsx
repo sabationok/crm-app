@@ -7,13 +7,14 @@ import s from './ComplectTable.module.scss';
 
 const ComplectTable = ({ data = [] }) => {
   const titlesArr = [
-    // { title: 'SKU', dataKey: 'sku', action: 'Text' },
+    { title: '№ п/п', dataKey: 'index', action: 'Index' },
     { title: 'Атрибут 1', dataKey: 'atribute_1', action: 'Atribute' },
     { title: 'Атрибут 2', dataKey: 'atribute_2', action: 'Atribute' },
     { title: 'Кількість', dataKey: 'quantity', action: 'Qty' },
     { title: 'Ціна', dataKey: 'price', action: 'Number' },
-    // { title: 'Знижка, %', dataKey: 'sale', action: 'Number' },
     { title: 'Сума', dataKey: 'summ', action: 'Summ' },
+    // { title: 'SKU', dataKey: 'sku', action: 'Text' },
+    // { title: 'Знижка, %', dataKey: 'sale', action: 'Number' },
     // { title: 'Сума зі знижкою', dataKey: 'saleSumm', action: 'SaleSumm' },
   ];
 
@@ -27,7 +28,14 @@ const ComplectTable = ({ data = [] }) => {
 
       <div className={s.complectTableBody}>
         {data.length === 0 && <TableRow {...{ titlesArr }} />}
-        {data.length > 0 && data.map(el => <TableRow key={el?.sku} {...{ rowData: el, titlesArr }} />)}
+
+        {data.length > 0 && (
+          <>
+            {data.map((el, idx) => (
+              <TableRow key={idx} {...{ rowData: el, titlesArr, idx }} />
+            ))}
+          </>
+        )}
       </div>
     </div>
   );

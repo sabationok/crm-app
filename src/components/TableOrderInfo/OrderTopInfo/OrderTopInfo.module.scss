@@ -1,51 +1,14 @@
-.topInfoContainer {
-  position: relative;
-
-  min-width: 100%;
-
-  width: 100%;
-
-  &.isOpen {
-    & .topInfo {
-      max-height: 400px;
-      padding: 8px 0;
-    }
-  }
-}
-// .sticky {
-//   position: sticky;
-//   top: 0;
-//   left: 0;
-
-//   padding: 0 8px;
-
-//   width: max-content;
-// }
 .topInfo {
   display: grid;
-  grid-template-columns: 250px;
+  grid-template-columns: 1fr;
 
-  overflow: hidden;
   width: max-content;
+  min-width: 250px;
+  max-width: 100%;
 
-  max-height: 0;
+  padding: 8px;
 
-  transition: all var(--timing-function__main);
-}
-.icon {
-  transition: transform var(--timing-function__main);
-}
-.btn,
-.btnOpen {
-  justify-content: flex-start;
-  width: 100%;
-  padding: 8px 16px;
-}
-.btnOpen {
-  color: var(--brand_clr__1);
-  fill: var(--brand_clr__1);
-  background-color: var(--btn_bckgrnd-color-active);
-  & .icon {
-    transform: rotate(180deg);
+  @media screen and (min-width: 480px) and (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
   }
 }

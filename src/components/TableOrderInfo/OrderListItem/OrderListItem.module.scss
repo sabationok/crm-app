@@ -22,15 +22,18 @@
   }
 }
 .top {
-  display: flex;
-  gap: 4px;
+  display: grid;
+  grid-template-columns: 250px 180px 90px repeat(2, 125px);
+
   width: 100%;
   padding: 4px 0;
 }
 .middle {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 8px;
+  // display: grid;
+  // grid-template-columns: 100px 1fr;
+  // gap: 8px;
+  display: flex;
+  justify-content: space-between;
 
   border-top: 1px solid var(--tr-brdr-clr__primary);
   border-bottom: 1px solid var(--tr-brdr-clr__primary);
