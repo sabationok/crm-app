@@ -20,7 +20,7 @@ const ComplectTable = ({ data = [] }) => {
 
   return (
     <div className={s.complectTable}>
-      <div className={s.complectTableHead}>
+      <div className={[s.complectTableHead, s.rowGrid].join(' ')}>
         {titlesArr.map(({ title, dataKey }) => (
           <CellTitle key={dataKey} {...{ title, dataKey }} />
         ))}

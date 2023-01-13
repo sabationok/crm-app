@@ -17,11 +17,11 @@
   }
   &.quantity {
     text-align: center;
-    width: 80px;
+    width: 90px;
   }
   &.price {
     text-align: end;
-    width: 80px;
+    width: 90px;
   }
   &.sale {
     text-align: end;
@@ -29,7 +29,7 @@
   }
   &.summ {
     text-align: end;
-    width: 80px;
+    width: 90px;
   }
   &.saleSumm {
     text-align: end;
@@ -38,6 +38,6 @@
   &.atribute_1,
   &.atribute_2 {
     text-align: end;
-    width: 105px;
+    width: 100%;
   }
 }

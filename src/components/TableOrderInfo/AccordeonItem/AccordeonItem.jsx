@@ -12,7 +12,7 @@ const AccordeonItem = ({ children, title = 'інфромацію' }) => {
   return (
     <div className={isOpen ? s.isOpenItem : s.isCloseItem}>
       <ButtonIcon iconId="select-arrow" className={s.btn} iconClassName={s.icon} onClick={handleToggleOpen}>
-        {isOpen ? `"${title}"` : `"${title}"`}
+        {isOpen ? `${title}` : `${title}`}
       </ButtonIcon>
 
       <div className={s.contentBox}>

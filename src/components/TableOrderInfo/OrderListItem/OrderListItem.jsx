@@ -18,6 +18,7 @@ import s from './OrderListItem.module.scss';
 //   return newData;
 // };
 const OrderListItem = ({ data }) => {
+  const countedTotal = data?.sale ? data?.total - data?.sale : data?.total;
   return (
     <li className={s.OrderListItem}>
       <div className={s.top}>
@@ -29,7 +30,11 @@ const OrderListItem = ({ data }) => {
 
         <CellFlex {...{ title: 'Ціна', text: data?.price || 0 }} />
 
-        <CellFlex {...{ title: 'Сума', text: data?.total || 0 }} />
+        <CellFlex
+          {...{ title: 'Знижка', text: data?.sale ? `${(data?.total * data?.sale) / 100} (${data?.sale} %)` : `${0} (${data?.sale || 0}%)` }}
+        />
+
+        <CellFlex {...{ title: 'Сума', text: countedTotal || 0 }} />
       </div>
 
       <div className={s.middle}>

@@ -21,6 +21,10 @@ export const App = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   useEffect(() => {
+    // if (auth.token && window.location.hostname !== 'localhost') {
+    //   dispatch(getCurrentUserThunk());
+    // }
+
     if (auth.token) {
       dispatch(getCurrentUserThunk());
     }

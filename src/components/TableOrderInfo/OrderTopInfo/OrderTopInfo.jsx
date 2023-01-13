@@ -21,7 +21,7 @@ const OrderTopInfo = () => {
     { name: 'Тип', inner: order?.type },
     { name: 'Оплата', inner: '(тут буде унфо про оплату, статус, тощо)' },
     { name: 'К-ть ТТН', inner: order?.deliveries?.length || 0 },
-    { name: 'Коментар', inner: order?.comment },
+    { name: 'Коментар', inner: order?.comment || '(Тут має бути коментар)' },
   ];
   return (
     <>

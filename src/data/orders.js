@@ -1,7 +1,7 @@
 //  ! масив обєктів аля з бази даних
 import { nanoid } from 'nanoid';
 
-import imgs from 'img/photo';
+import imgs from 'data/photo';
 // const countRowData = data => {
 //   let newData = { ...data };
 
@@ -16,8 +16,25 @@ import imgs from 'img/photo';
 //   return newData;
 // };
 const testComplect = [
-  { _id: '45fdb16156d2g52453', sku: 'f3hn13fg2h', quantity: 2, price: 500, total: 1000 },
-  { _id: '45f6512156d2g52453', sku: 'z3v1xc32v2', quantity: 1, price: 2650, total: 2650 },
+  { _id: '45fdb16156d2g52453', quantity: 2, price: 500, total: 1000 },
+  { _id: '45f6512156d2g52453', quantity: 1, price: 2650, total: 2650 },
+];
+const testComplect2 = [
+  { _id: '45fdb16156d2g52453', quantity: 1, price: 500, total: 500 },
+  { _id: '45f6512156d2g52453', quantity: 1, price: 2650, total: 2650 },
+  { _id: '45f651215612g52453', quantity: 1, price: 1500, total: 1500 },
+  { _id: '45fdb16156d2g52453', quantity: 1, price: 500, total: 500 },
+  { _id: '45f6512156d2g52453', quantity: 1, price: 2650, total: 2650 },
+  { _id: '45f651215612g52453', quantity: 1, price: 1500, total: 1500 },
+  { _id: '45fdb16156d2g52453', quantity: 1, price: 500, total: 500 },
+  { _id: '45f6512156d2g52453', quantity: 1, price: 2650, total: 2650 },
+  { _id: '45f651215612g52453', quantity: 1, price: 1500, total: 1500 },
+  { _id: '45fdb16156d2g52453', quantity: 1, price: 500, total: 500 },
+  { _id: '45f6512156d2g52453', quantity: 1, price: 2650, total: 2650 },
+  { _id: '45f651215612g52453', quantity: 1, price: 1500, total: 1500 },
+  { _id: '45fdb16156d2g52453', quantity: 1, price: 500, total: 500 },
+  { _id: '45f6512156d2g52453', quantity: 1, price: 2650, total: 2650 },
+  { _id: '45f651215612g52453', quantity: 1, price: 1500, total: 1500 },
 ];
 const orderContent = [
   {
@@ -26,14 +43,36 @@ const orderContent = [
     sku: 'd5fb1s3d5g1',
     quantity: 1,
     price: 2650,
+    sale: 5,
     total: 2650,
-    imgUrl: imgs.rozeva,
     ttn: '651684621684621',
     ttnCost: 437,
     complect: testComplect,
+    imgUrl: imgs.rozeva,
   },
-  { _id: '45454534524', name: 'Сукня синя шовкова', sku: 'd5fb1s3d5g1', imgUrl: imgs.synia },
-  { _id: '77827575575', name: 'Сукня зелена шовкова', sku: 'd5fb1s3d5g1', imgUrl: imgs.zelena },
+  {
+    _id: '45454534524',
+    name: 'Сукня синя шовкова',
+    sku: 'd5fb1s3d5g1',
+    quantity: 2,
+    price: 2153,
+    total: 4306,
+    ttn: '651684621684621',
+    ttnCost: 437,
+    complect: testComplect2,
+    imgUrl: imgs.synia,
+  },
+  {
+    _id: '77827575575',
+    name: 'Сукня зелена шовкова',
+    sku: 'd5fb1s3d5g1',
+    quantity: 1,
+    price: 2500,
+    total: 2500,
+    ttn: '651684621684621',
+    ttnCost: 437,
+    imgUrl: imgs.zelena,
+  },
 ];
 export const orderStatus = {
   NEW: 'new',

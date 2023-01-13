@@ -18,27 +18,33 @@
 .cellGrid {
   padding: 0 4px;
   & .title {
+    font-size: 12px;
     color: rgb(122, 122, 122);
 
-    padding: 4px;
+    padding: 0 4px;
   }
   & .text {
-    padding: 4px;
+    padding: 0 4px;
 
+    text-align: end;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 100%;
   }
+}
+.cellFlex {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
   &:not(:last-child) {
     border-right: 1px solid var(--tr-brdr-clr__primary);
   }
 }
-.cellFlex {
-  display: flex;
-  justify-content: space-between;
-}
 .cellGrid {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
+
+  border-right: 1px solid var(--tr-brdr-clr__primary);
 }

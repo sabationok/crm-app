@@ -3,13 +3,13 @@
   grid-template-columns: 1fr;
   grid-template-rows: max-content 1fr;
 
-  padding: 4px;
+  padding: 4px 0;
+}
+.rowGrid {
+  display: grid;
+  grid-template-columns: 50px minmax(125px, 1fr) minmax(125px, 1fr) repeat(3, 90px);
 }
 .complectTableHead {
-  display: grid;
-  grid-template-columns: repeat(6, max-content);
-  gap: 8px;
-
   color: rgba(122, 122, 122);
 }
 .complectTableBody {

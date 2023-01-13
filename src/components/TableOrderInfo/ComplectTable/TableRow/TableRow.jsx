@@ -5,7 +5,8 @@ import CellSumm from '../RowCells/CellSumm';
 import CellNumber from '../RowCells/CellNumber';
 import CellSaleSumm from '../RowCells/CellSaleSumm';
 
-import s from './TableRow.module.scss';
+// import s from './TableRow.module.scss';
+import tableS from '../ComplectTable.module.scss';
 
 const TableRow = ({ idx = 0, rowData = {}, titlesArr = [] }) => {
   const Components = {
@@ -17,7 +18,7 @@ const TableRow = ({ idx = 0, rowData = {}, titlesArr = [] }) => {
     SaleSumm: CellSaleSumm,
   };
   return (
-    <div className={s.tableRow}>
+    <div className={tableS.rowGrid}>
       {titlesArr.map(item => {
         let Component = Components.Text;
 
