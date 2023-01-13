@@ -1,9 +1,9 @@
 .OrderInfo {
-  // display: grid;
-  // grid-template-columns: 1fr;
-  // grid-template-rows: max-content 1fr;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: max-content 1fr;
+  // display: flex;
+  // flex-direction: column;
 
   max-height: 100%;
   max-width: 100%;

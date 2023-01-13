@@ -66,7 +66,13 @@ export const blocksSettings = [
   { name: blocksNames.BlockProductStock, fullPageMode: true, title: 'Склад', iconId: 'storage', actions: actionsBlockProductStock },
 
   { name: blocksNames.BlockOrdersList, fullPageMode: true, title: 'Список замовлень', iconId: 'list', actions: actionsWithFilter },
-  { name: blocksNames.BlockOrderInfo, fullPageMode: true, title: 'Деталі замовлення', iconId: 'assignment-in', actions: actionsBlockOrderInfo },
+  {
+    name: blocksNames.BlockOrderInfo,
+    fullPageMode: true,
+    title: 'Деталі замовлення',
+    iconId: 'assignment-in',
+    actions: actionsBlockOrderInfo,
+  },
   { name: blocksNames.BlockOrderRealizations, fullPageMode: true, title: 'Реалізації', iconId: 'assignment-ok', actions: actionsBlockOrderDelivery },
   { name: blocksNames.BlockOrderDeliveries, fullPageMode: true, title: 'Список відвантажень', iconId: 'ttn', actions: actionsBlockOrderDelivery },
 

@@ -12,7 +12,17 @@ import s from './Block.module.scss';
 import BlockActionsProvider from './BlockActions/BlockActionsProvider';
 
 const Block = props => {
-  let { children, footerChildren, title = 'Title', iconId = 'info', footer = true, header = true, style = {}, className = '' } = props;
+  let {
+    children,
+    footerChildren,
+    title = 'Title',
+    iconId = 'info',
+    footer = true,
+    header = true,
+    style = {},
+    className = '',
+    overflowHidden = false,
+  } = props;
   const [isSearch, setIsSearch] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFullPageMode, setIsFullPageMode] = useState(false);
@@ -62,7 +72,7 @@ const Block = props => {
             <div className={s.content} id={iconId}>
               <BlockActions />
 
-              <div className={s.overflow}>
+              <div className={overflowHidden ? s.overflowHidden : s.overflowAuto}>
                 {children}
 
                 {!children && (

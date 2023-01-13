@@ -7,16 +7,18 @@ import { toast } from 'react-toastify';
 
 import s from './Delivery.module.scss';
 
-const titles = {
-  owner: 'Замовлення',
-  transporter: 'Перевізник',
-  status: 'Статус',
-  type: 'Тип',
-  ttn: 'Номер ТТН',
-  cost: 'Вартість доставки',
-  comment: 'Коментар',
-};
+const titlesArr = [
+  { title: 'Номер ТТН', dataKey: 'ttn' },
+  { title: 'Перевізник', dataKey: 'transporter' },
+  { title: 'Замовлення', dataKey: 'owner' },
+  { title: 'Статус', dataKey: 'status' },
+  { title: 'Тип', dataKey: 'type' },
+  { title: 'Вартість доставки', dataKey: 'cost' },
+  { title: 'Коментар', dataKey: 'comment' },
+];
+
 const Delivery = ({ data }) => {
+  console.log('delivery', data);
   const [isOpen, setIsOpen] = useState(false);
 
   function handleOpenDelivery(ev) {
@@ -31,7 +33,7 @@ const Delivery = ({ data }) => {
   }
   return (
     <div className={[s.delivery, isOpen && s.open].join(' ')}>
-      <DeliveryTop data={data} titles={titles} s={s} />
+      <DeliveryTop {...{ data, titlesArr }} />
 
       <div className={s.actions}>
         <div className={s.wrapper}>
@@ -54,7 +56,7 @@ const Delivery = ({ data }) => {
         </div>
       </div>
 
-      <DeliveryBottom data={data} titles={titles} s={s} />
+      <DeliveryBottom {...{ data, titlesArr }} />
     </div>
   );
 };

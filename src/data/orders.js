@@ -1,6 +1,8 @@
 //  ! масив обєктів аля з бази даних
 import { nanoid } from 'nanoid';
 
+import { customAlphabet } from 'nanoid';
+
 import imgs from 'data/photo';
 // const countRowData = data => {
 //   let newData = { ...data };
@@ -15,23 +17,13 @@ import imgs from 'data/photo';
 
 //   return newData;
 // };
+const nanoTtnId = customAlphabet('1234567890', 16);
+
 const testComplect = [
   { _id: '45fdb16156d2g52453', quantity: 2, price: 500, total: 1000 },
   { _id: '45f6512156d2g52453', quantity: 1, price: 2650, total: 2650 },
 ];
 const testComplect2 = [
-  { _id: '45fdb16156d2g52453', quantity: 1, price: 500, total: 500 },
-  { _id: '45f6512156d2g52453', quantity: 1, price: 2650, total: 2650 },
-  { _id: '45f651215612g52453', quantity: 1, price: 1500, total: 1500 },
-  { _id: '45fdb16156d2g52453', quantity: 1, price: 500, total: 500 },
-  { _id: '45f6512156d2g52453', quantity: 1, price: 2650, total: 2650 },
-  { _id: '45f651215612g52453', quantity: 1, price: 1500, total: 1500 },
-  { _id: '45fdb16156d2g52453', quantity: 1, price: 500, total: 500 },
-  { _id: '45f6512156d2g52453', quantity: 1, price: 2650, total: 2650 },
-  { _id: '45f651215612g52453', quantity: 1, price: 1500, total: 1500 },
-  { _id: '45fdb16156d2g52453', quantity: 1, price: 500, total: 500 },
-  { _id: '45f6512156d2g52453', quantity: 1, price: 2650, total: 2650 },
-  { _id: '45f651215612g52453', quantity: 1, price: 1500, total: 1500 },
   { _id: '45fdb16156d2g52453', quantity: 1, price: 500, total: 500 },
   { _id: '45f6512156d2g52453', quantity: 1, price: 2650, total: 2650 },
   { _id: '45f651215612g52453', quantity: 1, price: 1500, total: 1500 },
@@ -217,7 +209,7 @@ export const incomeOrderData = {
       createdAt: '2019-11-12T17:21:49',
       updatedAt: '2019-11-12T17:21:49',
       owner: '123456789',
-      ttn: nanoid(8),
+      ttn: nanoTtnId(),
 
       transporter: 'Укрпошта',
       status: DEL_IN_ROAD,
@@ -282,7 +274,7 @@ export const testOrdersArr = [
       {
         _id: 'd6fb1s6d5f',
         owner: '123456789',
-        ttn: nanoid(8),
+        ttn: nanoTtnId(),
         transporter: 'Укрпошта',
         status: DEL_IN_ROAD,
         type: DEL_DIST_TO_DIS,
