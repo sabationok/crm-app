@@ -1,0 +1,28 @@
+.deliveryBottom {
+  &.isOpen {
+    max-height: 1000px;
+    visibility: visible;
+  }
+}
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.actions {
+  display: flex;
+  justify-content: flex-end;
+
+  position: sticky;
+  bottom: 0;
+  left: 0;
+
+  min-width: 200px;
+  width: 100%;
+
+  background-color: rgba(122, 122, 122, 0.15);
+}
+.btn {
+  padding: 4px;
+  width: 100%;
+  max-width: 80px;
+}

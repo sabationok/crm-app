@@ -30,6 +30,7 @@
 .isCloseItem {
 }
 .contentBox {
+  position: relative;
   max-height: 0px;
   overflow: hidden;
 
@@ -58,8 +59,6 @@
 
   border-style: none;
   border-bottom: 1px solid var(--tr-brdr-clr__primary);
-
-  transition: all var(--timing-function__main);
 }
 
 .icon {

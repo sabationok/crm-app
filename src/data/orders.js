@@ -17,7 +17,7 @@ import imgs from 'data/photo';
 
 //   return newData;
 // };
-const nanoTtnId = customAlphabet('1234567890', 16);
+const nanoTtnId = customAlphabet('1234567890', 12);
 
 const testComplect = [
   { _id: '45fdb16156d2g52453', quantity: 2, price: 500, total: 1000 },
@@ -174,20 +174,20 @@ export const initialDeliveryState = {
   _id: '',
   owner: '',
   ttn: '',
+  transporterCode: '',
   transporter: '',
   status: '',
   type: '',
   cost: '',
-  receiver: { _id: '', name: '', email: '', phone: '' },
   destination: '',
   comment: '',
-  content: [],
   payment: {
     type: '',
     status: '',
     total: '',
     blockedFunds: '',
   },
+  content: [],
 };
 export const incomeOrderData = {
   _id: '6df1b6sd5f',
@@ -235,23 +235,23 @@ export const incomeOrderData = {
     },
   ],
 };
-// const infoUkrPoshta = {
-//   id: 50302113,
-//   postcode: '07401',
-//   region: 'Київська',
-//   district: 'Київський',
-//   city: 'Бровари',
-//   street: 'Котляревського',
-//   houseNumber: '12',
-//   apartmentNumber: '33',
-//   description: null,
-//   countryside: false,
-//   foreignStreetHouseApartment: null,
-//   detailedInfo: 'Україна, 07401, Київська, Київський, Бровари, Котляревського 12, 33',
-//   created: '2019-11-12T17:21:49',
-//   lastModified: '2019-11-12T17:21:49',
-//   country: 'UA',
-// };
+const infoUkrPoshta = {
+  id: 50302113,
+  postcode: '07401',
+  region: 'Київська',
+  district: 'Київський',
+  city: 'Бровари',
+  street: 'Котляревського',
+  houseNumber: '12',
+  apartmentNumber: '33',
+  description: null,
+  countryside: false,
+  foreignStreetHouseApartment: null,
+  detailedInfo: 'Україна, 07401, Київська, Київський, Бровари, Котляревського 12, 33',
+  created: '2019-11-12T17:21:49',
+  lastModified: '2019-11-12T17:21:49',
+  country: 'UA',
+};
 export const testOrdersArr = [
   {
     ...incomeOrderData,
@@ -274,15 +274,32 @@ export const testOrdersArr = [
       {
         _id: 'd6fb1s6d5f',
         owner: '123456789',
+        createdAt: infoUkrPoshta.created,
+        creator: 'Вендор 217',
+        updatedAt: infoUkrPoshta.lastModified,
+        updator: 'Менеджер 514',
         ttn: nanoTtnId(),
         transporter: 'Укрпошта',
+        transporterId: '001',
+        transporterInfo: infoUkrPoshta,
         status: DEL_IN_ROAD,
         type: DEL_DIST_TO_DIS,
         cost: 256,
         receiver: { _id: '', name: '', email: '', phone: '' },
-        destination: '',
-        comment: 'Коментрі який залишив замовник',
-        content: [],
+        from: '',
+        destination: {
+          country: infoUkrPoshta.country,
+          postcode: infoUkrPoshta.postcode,
+          region: infoUkrPoshta.region,
+          district: infoUkrPoshta.district,
+          city: infoUkrPoshta.city,
+          street: infoUkrPoshta.street,
+          houseNumber: infoUkrPoshta.houseNumber,
+          apartmentNumber: infoUkrPoshta.apartmentNumber,
+          detailedInfo: infoUkrPoshta.detailedInfo,
+        },
+        comment: 'Коментарі який залишив замовник',
+        content: ['sdfbdbdfgbs', 'asfvsdfbdsda', 'asfbsdffzda'],
         payment: {
           type: '',
           status: '',

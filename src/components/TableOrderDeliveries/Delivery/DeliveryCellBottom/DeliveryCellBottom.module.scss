@@ -1,0 +1,44 @@
+.owner,
+.transporter,
+.status,
+.type,
+.ttn,
+.cost,
+.comment,
+.createdAt,
+.updatedAt,
+.creator,
+.updator {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 4px;
+
+  min-height: 50px;
+  max-height: 60px;
+
+  min-width: fit-content;
+
+  padding: 8px;
+  border: 1px solid rgba(122, 122, 122, 0.15);
+}
+
+.inner {
+  min-height: 16px;
+}
+.owner,
+.ttn {
+}
+.comment {
+  max-height: fit-content;
+  & .inner {
+    min-height: 50px;
+  }
+}
+.title {
+  font-size: 12px;
+
+  white-space: nowrap;
+
+  color: rgba(122, 122, 122, 1);
+}

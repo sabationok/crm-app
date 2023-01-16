@@ -16,11 +16,7 @@ const TableOrderDeliveries = () => {
       {order?.deliveries && (
         <div className={s.list}>
           {order?.deliveries.map(del => (
-            <Delivery key={del._id} data={del} />
-          ))}
-
-          {/* {order?.deliveries.map(del => (
-            <Delivery key={del._id} data={del} />
+            <Delivery key={del._id} data={del}></Delivery>
           ))}
 
           {order?.deliveries.map(del => (
@@ -29,7 +25,11 @@ const TableOrderDeliveries = () => {
 
           {order?.deliveries.map(del => (
             <Delivery key={del._id} data={del} />
-          ))} */}
+          ))}
+
+          {order?.deliveries.map(del => (
+            <Delivery key={del._id} data={del} />
+          ))}
         </div>
       )}
     </>

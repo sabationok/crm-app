@@ -21,9 +21,11 @@ const FormProductImgs = ({ formTitle = 'Form title', blockSettings }) => {
 
   function handleChangeInput(ev) {
     const { files } = ev.target;
+
     if (files.length > filesCount) {
       toast.error(`Ви обрали більше ${filesCount} файлів`);
     }
+
     const filesArr = [...files];
 
     const checkedFiles = filesArr.filter(file => {
