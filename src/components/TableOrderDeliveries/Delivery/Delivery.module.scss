@@ -1,19 +1,32 @@
 .delivery {
 }
-.wrapper {
-  display: flex;
-  justify-content: flex-start;
+.gridWrapper {
+  display: grid;
+  grid-template-columns: 150px 100px 80px;
 
   height: 100%;
-
   width: 100%;
+}
+.flexWrapper {
+  display: flex;
+  flex-direction: column;
+  &:not(:last-child) {
+    border-right: 1px solid var(--tr-brdr-clr__primary);
+  }
 }
 .subtitle {
   display: flex;
   align-items: center;
   height: 100%;
   padding: 0 8px;
-  &:not(:last-child) {
-    border-right: 1px solid var(--tr-brdr-clr__primary);
-  }
+
+  font-size: 12px;
+  font-weight: 400;
+
+  color: rgba(122, 122, 122, 1);
+}
+.text {
+  height: 100%;
+  padding: 0 8px;
+  text-align: start;
 }

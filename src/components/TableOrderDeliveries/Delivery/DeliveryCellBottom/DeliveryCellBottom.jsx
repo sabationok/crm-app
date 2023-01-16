@@ -6,15 +6,7 @@ import s from './DeliveryCellBottom.module.scss';
 const DeliveryCellBottom = ({ item = {}, title = 'title', dataKey = 'dataKey', data = {} }) => {
   const statusCheck = ['status', 'type'].includes(dataKey);
   const dateCheck = ['createdAt', 'updateAt'].includes(dataKey);
-
-  // let Component;
-
-  // const CompMap = {
-  //   status: Status,
-  //   type: Status,
-  //   createdAt: DateInfo,
-  //   updateAt: DateInfo,
-  // };
+  const destinationCheck = dataKey === 'destination';
 
   return (
     <li className={s[dataKey] || ''}>
@@ -24,7 +16,7 @@ const DeliveryCellBottom = ({ item = {}, title = 'title', dataKey = 'dataKey', d
         <>{statusCheck && <Status status={data[dataKey]} />}</>
         <>{dateCheck && <DateInfo dateString={data[dataKey]} />}</>
         <>{!statusCheck && !dateCheck && <>{data[dataKey]}</>}</>
-        {/* <>{statusCheck ? <Status status={data[dataKey]} /> : data[dataKey]}</> */}
+        <>{destinationCheck && <>{data?.destination?.detailedInfo}</>}</>
       </div>
     </li>
   );

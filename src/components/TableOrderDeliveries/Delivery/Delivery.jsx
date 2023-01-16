@@ -19,10 +19,19 @@ const Delivery = ({ data }) => {
     <>
       <AccordeonItem
         title={
-          <div className={s.wrapper}>
-            <span className={s.subtitle}>{data.ttn}</span>
-            <span className={s.subtitle}>{data.content.length}</span>
-            <span className={s.subtitle}>{data.ttn}</span>
+          <div className={s.gridWrapper}>
+            <div className={s.flexWrapper}>
+              <span className={s.subtitle}>{'Номер ТТН'}</span>
+              <span className={s.text}>{data?.ttn}</span>
+            </div>
+            <div className={s.flexWrapper}>
+              <span className={s.subtitle}>{'Вартість'}</span>
+              <span className={s.text}>{data?.cost}</span>
+            </div>
+            <div className={s.flexWrapper}>
+              <span className={s.subtitle}>{'Вміст'}</span>
+              <span className={s.text}>{data?.content.length}</span>
+            </div>
           </div>
         }
       >
