@@ -1,6 +1,8 @@
 import FormPrimary from '../FormPrimary/FormPrimary';
 import Fieldset from '../Fieldset/Fieldset';
 // import PrimaryInput from '../Inputs/PrimaryInput/PrimaryInput';
+import PersonInfo from './PersonInfo';
+import PaymentInfo from './PaymentInfo';
 import { toast } from 'react-toastify';
 import { useModal } from 'components/ModalCustom/ModalCustom';
 
@@ -39,11 +41,19 @@ const FormOrderCreate = () => {
   };
   return (
     <FormPrimary {...formSettings}>
-      <Fieldset legend="Загальна інформація"></Fieldset>
+      {/* <Fieldset legend="Загальна інформація"></Fieldset> */}
 
-      <Fieldset legend="Інформація про замовника"></Fieldset>
+      <Fieldset legend="Інформація про замовника">
+        <PersonInfo />
+      </Fieldset>
 
-      <Fieldset legend="Інформація про оплату"></Fieldset>
+      <Fieldset legend="Інформація про отримувача">
+        <PersonInfo />
+      </Fieldset>
+
+      <Fieldset legend="Інформація про оплату">
+        <PaymentInfo />
+      </Fieldset>
 
       <Fieldset legend="Інформація про відвантаження"></Fieldset>
 
