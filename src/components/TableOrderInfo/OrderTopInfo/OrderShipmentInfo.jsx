@@ -10,11 +10,12 @@ const OrderShipmentInfo = () => {
   const order = useSelector(getPageObjData);
 
   const mapData = [
-    { name: 'Тип', inner: order?.shipmentType || 'selfPickUp' },
+    { name: 'Тип', inner: order?.shipmentType || 'selfPickUp | courier | delivery' },
     { name: 'К-ть відвантажень', inner: order?.deliveries?.length || 0 },
 
-    { name: 'Перевізник', inner: order?.transporter || 'transporter name' },
-    { name: 'Код перевізника', inner: order?.transporterCode || 'transporter code' },
+    { name: 'Перевізник', inner: order?.transporter || '(Тут має бути назва транспортної компанії)' },
+    { name: 'Код перевізника', inner: order?.transporterCode || '(Тут має бути код транспортної компанії)' },
+    { name: 'Коментар', inner: order?.comment || '(Тут має бути коментар)' },
   ];
   return (
     <>

@@ -18,7 +18,7 @@ const OrderMainInfo = () => {
     { name: 'Статус', inner: <Status status={order?.status} /> },
     { name: 'Тип', inner: <Status status={order?.type} /> },
     { name: 'Менеджер', inner: order?.manager || '(ПІП таа Код менеджера)' },
-    { name: 'Коментар', inner: order?.comment || '(Тут має бути коментар)' },
+    // { name: 'Коментар', inner: order?.comment || '(Тут має бути коментар)' },
   ];
   return (
     <>

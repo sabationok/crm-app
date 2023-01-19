@@ -16,10 +16,10 @@ const ActionDelete = ({ action }) => {
       deleteAction(pageDataObj?._id);
       appNotify.success(`Видалення успішне`, `ID: ${pageDataObj?._id}`);
       toast.success('DELETE SUCCESS');
-    } else {
-      appNotify.error(`Помилка при видаленні`, `ID: ${pageDataObj?._id}`);
-      toast.error('DELETE ERROR');
+      return;
     }
+    appNotify.error(`Помилка при видаленні`, `ID: ${pageDataObj?._id}`);
+    toast.error('DELETE ERROR');
   }
   return deleteAction && <ActionPrimary onClick={handleDeleteAction} {...action} status={!!pageDataObj} />;
 };

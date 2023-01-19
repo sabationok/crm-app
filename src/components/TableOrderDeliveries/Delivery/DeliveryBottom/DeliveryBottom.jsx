@@ -18,8 +18,8 @@ const bottomTitlesArr = [
   { title: 'Перевізник', dataKey: 'transporter' },
   { title: 'Вартість доставки', dataKey: 'cost' },
   { title: 'Заявлена вартсіть', dataKey: 'declaredValue' },
-  { title: 'Коментар', dataKey: 'comment' },
-  { title: 'Місце призначення', dataKey: 'destination' },
+  // { title: 'Коментар', dataKey: 'comment' },
+  // { title: 'Місце призначення', dataKey: 'destination' },
   // { title: '', dataKey: '',  },
 ];
 

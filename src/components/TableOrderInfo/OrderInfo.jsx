@@ -17,19 +17,19 @@ const OrderInfo = () => {
           <OrderMainInfo />
         </AccordeonItem>
 
-        <AccordeonItem {...{ title: 'Інформація про замовника' }}>
+        <AccordeonItem {...{ title: 'Замовник' }}>
           <OrderPersonInfo />
         </AccordeonItem>
 
-        <AccordeonItem {...{ title: 'Інформація про отримувача' }}>
+        <AccordeonItem {...{ title: 'Отримувач' }}>
           <OrderPersonInfo />
         </AccordeonItem>
 
-        <AccordeonItem {...{ title: 'Інформація про оплату' }}>
+        <AccordeonItem {...{ title: 'Оплата' }}>
           <OrderPaymentInfo />
         </AccordeonItem>
 
-        <AccordeonItem {...{ title: 'Інформація про відвантаження' }}>
+        <AccordeonItem {...{ title: 'Відвантаження' }}>
           <OrderShipmentInfo />
         </AccordeonItem>
 

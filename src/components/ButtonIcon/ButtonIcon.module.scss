@@ -1,4 +1,4 @@
-.Button {
+.Btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,6 +45,9 @@
   background-color: var(--brand_clr__1);
   color: #fff;
   fill: #fff;
+
+  // font-weight: 700;
+  text-transform: uppercase;
 
   border-radius: 4px;
   // box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);

@@ -8,8 +8,6 @@ const DeliveryCellBottom = ({ item = {}, title = 'title', dataKey = 'dataKey', d
   const dateCheck = ['createdAt', 'updatedAt'].includes(dataKey);
   const destinationCheck = ['destination'].includes(dataKey);
 
-  console.log(data?.destination?.detailedInfo);
-
   return (
     <li className={s[dataKey] || s.cell}>
       <div className={s.title}>{title}</div>

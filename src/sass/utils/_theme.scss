@@ -12,6 +12,10 @@
     fill: #fff;
     background-color: var(--brand_clr__4);
   }
+  & .input {
+    color: #fff;
+    fill: #fff;
+  }
   & .blockAction,
   & .listRowActions {
     color: var(--brand_clr__2);
@@ -39,7 +43,10 @@
     fill: #fff;
     background-color: var(--brand_clr__4);
   }
-
+  & .input {
+    color: var(--brand_clr__2);
+    fill: var(--brand_clr__2);
+  }
   & .slick-prev:before,
   & .slick-next:before {
     color: var(--brand_clr__2);

@@ -1,6 +1,6 @@
 .inputBox {
-display: grid;
-grid-template-columns: 1fr 2fr;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 
   position: relative;
 
@@ -14,7 +14,6 @@ grid-template-columns: 1fr 2fr;
   border-image: none;
 
   border: none;
-
 
   &:hover,
   &:focus,
@@ -56,15 +55,15 @@ grid-template-columns: 1fr 2fr;
   background-color: inherit;
   height: 100%;
 
-    border-bottom: 2px solid rgb(192, 192, 192);
+  border-bottom: 2px solid rgb(192, 192, 192);
 
   transition: all var(--timing-function__main);
 
-  &::placeholder{
+  &::placeholder {
     font-size: 12px;
   }
   @media screen and (min-width: 320px) {
-    &::placeholder{
+    &::placeholder {
       font-size: 14px;
     }
   }
@@ -91,13 +90,16 @@ grid-template-columns: 1fr 2fr;
   letter-spacing: 0.05em;
   padding: 0 4px 0;
   transition: all var(--timing-function__main);
-  &::placeholder{
+  &::placeholder {
     font-size: 12px;
   }
   @media screen and (min-width: 768px) {
     font-size: 12px;
-    &::placeholder{
+    &::placeholder {
       font-size: 14px;
     }
   }
+}
+.dark {
+  color: #fff;
 }

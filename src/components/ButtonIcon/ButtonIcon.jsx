@@ -23,7 +23,7 @@ const ButtonIcon = ({
   onClick,
   ...props
 }) => {
-  const classNames = [s.Button, s[styleType], className].join(' ');
+  const classNames = [s.Btn, s[styleType], className].join(' ');
   const iconClassNames = [s.iconSvg, iconClassName].join(' ');
   const endIconClassNames = [s.iconSvg, endIconClassName].join(' ');
 
