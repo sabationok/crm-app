@@ -11,14 +11,15 @@ const bottomTitlesArr = [
   { title: 'Створив', dataKey: 'creator' },
   { title: 'Оновлено', dataKey: 'updatedAt' },
   { title: 'Оновив', dataKey: 'updator' },
+  { title: 'Тип', dataKey: 'type' },
   { title: 'Номер ТТН', dataKey: 'ttn' },
   { title: 'Статус', dataKey: 'status' },
-  { title: 'Тип', dataKey: 'type' },
   { title: 'Замовлення', dataKey: 'owner' },
   { title: 'Перевізник', dataKey: 'transporter' },
   { title: 'Вартість доставки', dataKey: 'cost' },
-  // { title: 'Місце призначення', dataKey: 'destination' },
+  { title: 'Заявлена вартсіть', dataKey: 'declaredValue' },
   { title: 'Коментар', dataKey: 'comment' },
+  { title: 'Місце призначення', dataKey: 'destination' },
   // { title: '', dataKey: '',  },
 ];
 

@@ -5,17 +5,19 @@ import s from './DeliveryCellBottom.module.scss';
 
 const DeliveryCellBottom = ({ item = {}, title = 'title', dataKey = 'dataKey', data = {} }) => {
   const statusCheck = ['status', 'type'].includes(dataKey);
-  const dateCheck = ['createdAt', 'updateAt'].includes(dataKey);
-  const destinationCheck = dataKey === 'destination';
+  const dateCheck = ['createdAt', 'updatedAt'].includes(dataKey);
+  const destinationCheck = ['destination'].includes(dataKey);
+
+  console.log(data?.destination?.detailedInfo);
 
   return (
-    <li className={s[dataKey] || ''}>
-      <div className={s.title}>{title || ''}</div>
+    <li className={s[dataKey] || s.cell}>
+      <div className={s.title}>{title}</div>
 
       <div className={s.inner}>
         <>{statusCheck && <Status status={data[dataKey]} />}</>
-        <>{dateCheck && <DateInfo dateString={data[dataKey]} />}</>
-        <>{!statusCheck && !dateCheck && <>{data[dataKey]}</>}</>
+        <>{dateCheck && <DateInfo dateString={data[dataKey]} timeClassName={s.time} />}</>
+        <>{!statusCheck && !dateCheck && !destinationCheck && <>{data[dataKey]}</>}</>
         <>{destinationCheck && <>{data?.destination?.detailedInfo}</>}</>
       </div>
     </li>

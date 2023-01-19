@@ -6,7 +6,7 @@ import { useBlockActionsCTX } from './BlockActionsProvider';
 import s from './BlockActions.module.scss';
 
 const BlockActions = () => {
-  const { actions = [], handleToggleActions, isActionsOpen = false } = useBlockActionsCTX();
+  const { actions = [], handleToggleActions, handleCloseActions, isActionsOpen = false } = useBlockActionsCTX();
 
   function onBackdropClick(ev) {
     const { target, currentTarget } = ev;
@@ -19,17 +19,19 @@ const BlockActions = () => {
   }
 
   useEffect(() => {
-    function handleCloseActions(ev) {
+    function closeActions(ev) {
       const { code } = ev;
       if (code === 'Escape') {
-        handleToggleActions();
+        handleCloseActions();
       }
+      window.removeEventListener('keydown', closeActions);
+    }
+    if (isActionsOpen) {
+      window.addEventListener('keydown', closeActions);
     }
 
-    window.addEventListener('keydown', handleCloseActions);
-
-    return () => window.removeEventListener('keydown', handleCloseActions);
-  }, [handleToggleActions]);
+    return () => window.removeEventListener('keydown', closeActions);
+  }, [handleCloseActions, isActionsOpen]);
 
   return (
     <>

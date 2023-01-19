@@ -28,6 +28,10 @@
     max-width: 100%;
   }
 }
+.text {
+  display: flex;
+  gap: 4px;
+}
 .cellFlex {
   display: flex;
   flex-direction: column;
@@ -51,4 +55,10 @@
   padding: 4px;
 
   border-right: 1px solid var(--tr-brdr-clr__primary);
+
+  & .text {
+    @media screen and (max-width: 320px) {
+      flex-direction: column;
+    }
+  }
 }

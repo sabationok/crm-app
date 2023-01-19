@@ -2,8 +2,8 @@ import React from 'react';
 import ActionPrimary from './ActionPrimary';
 import ModalContent from 'components/ModalCustom/ModalContent/ModalContent';
 import FormProductInfo from 'components/Forms/ProductForms/FormProductInfo/FormProductInfo';
-import FormProductImgs from 'components/Forms/ProductForms/FormProductImgs/FormProductImgs';
-import FormProductStock from 'components/Forms/ProductForms/FormProductStock/FormProductStock';
+import FormProductImgs from 'components/Forms/FormProductImgs/FormProductImgs';
+import FormProductStock from 'components/Forms/FormProductStock/FormProductStock';
 import { useSelector } from 'react-redux';
 import { getPageObjData } from 'redux/selectors';
 

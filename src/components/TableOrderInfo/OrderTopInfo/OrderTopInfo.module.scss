@@ -4,11 +4,17 @@
 
   width: max-content;
   min-width: 250px;
+  width: 100%;
   max-width: 100%;
 
   padding: 8px;
 
-  @media screen and (min-width: 480px) and (max-width: 768px) {
-    grid-template-columns: 1fr 1fr;
-  }
+  // @media screen and (min-width: 480px) and (max-width: 768px) {
+  //   grid-template-columns: 1fr 1fr;
+  // }
 }
+// .time {
+//   @media screen and (max-width: 320px) {
+// font-size: 10px;
+//   }
+// }

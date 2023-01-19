@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import InputImg from '../../Inputs/InputImg/InputImg';
-import FormPrimary from '../../FormPrimary/FormPrimary';
+import InputImg from '../Inputs/InputImg/InputImg';
+import FormPrimary from '../FormPrimary/FormPrimary';
 import { toast } from 'react-toastify';
 import { useNotify } from 'components/Notify/NotifyProvider';
 

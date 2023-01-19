@@ -5,15 +5,20 @@ export const useBlockActionsCTX = () => useContext(BlockActionsCTX);
 
 const BlockActionsProvider = props => {
   const [isActionsOpen, setIsActionsOpen] = useState(false);
-  function handleToggleActions() {
+  function handleToggleActions(close) {
     setIsActionsOpen(!isActionsOpen);
   }
+  function handleCloseActions(close) {
+    setIsActionsOpen(false);
+  }
+
   function useActions() {}
 
   const state = {
     isActionsOpen,
   };
   const handlers = {
+    handleCloseActions,
     handleToggleActions,
     useActions,
   };

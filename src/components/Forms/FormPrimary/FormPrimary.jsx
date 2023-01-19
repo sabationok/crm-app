@@ -1,5 +1,4 @@
 import React, { useContext, createContext } from 'react';
-// import { useBlock } from 'components/Block/BlockContext';
 // import { useNotify } from 'components/Notify/NotifyProvider';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import BlockSimple from 'components/BlockSimple/BlockSimple';
@@ -9,7 +8,7 @@ export const FormProvider = createContext();
 export const useForm = () => useContext(FormProvider);
 
 const FormPrimary = ({
-  id,
+  id = '',
   children,
   onSubmit,
   onSubmitBtn,
@@ -17,9 +16,9 @@ const FormPrimary = ({
   onCancelBtn,
   onReset,
   onResetBtn,
-  className,
-  blockSettings,
-  defaultButtons,
+  className = '',
+  blockSettings = {},
+  defaultButtons = true,
   ...props
 }) => {
   return (
@@ -36,9 +35,11 @@ const FormPrimary = ({
                   type="submit"
                   styles={{ width: 'fit-content', minHeight: 'fit-content' }}
                   iconSize="26px"
+                  title="Confirm"
                 >
                   <span className={s.btnName}>Прийняти</span>
                 </ButtonIcon>
+
                 {onReset && (
                   <ButtonIcon
                     iconId="clear"
@@ -46,16 +47,19 @@ const FormPrimary = ({
                     type="reset"
                     styles={{ width: 'fit-content', minHeight: 'fit-content' }}
                     iconSize="26px"
+                    title="Reset form"
                   >
                     <span className={s.btnName}>Очистити</span>
                   </ButtonIcon>
                 )}
+
                 {onCancel && (
                   <ButtonIcon
-                    iconId="removeDone"
+                    iconId="close"
                     styleType="DeclineBtn"
                     styles={{ width: 'fit-content', minHeight: 'fit-content' }}
                     iconSize="26px"
+                    title="Reset form and close"
                     onClick={onCancel}
                   >
                     <span className={s.btnName}>Відхилити</span>

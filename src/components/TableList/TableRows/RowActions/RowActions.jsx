@@ -1,23 +1,21 @@
 import React, { useRef } from 'react';
 import RowActionItem from './RowActionItem';
 import { useRow } from '../RowContext';
-import { useSelector } from 'react-redux';
-import { getAppPageSettings } from 'redux/selectors';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import s from './RowActions.module.scss';
 
 const baseRoutes = {
-  products: 'product',
-  refunds: 'refund',
-  orders: 'order',
+  '/products': 'product',
+  '/refunds': 'refund',
+  '/orders': 'order',
 };
 
 const RowActions = () => {
-  const { indexPage } = useSelector(getAppPageSettings);
+  const location = useLocation();
   const { isActionsOpen, handleToggleActions, rowData } = useRow();
-  const pathRef = useRef(`/${indexPage}/${rowData._id}/${baseRoutes[indexPage]}`);
+  const pathRef = useRef(`${location.pathname}/${rowData._id}/${baseRoutes[location.pathname]}`);
   const linkRef = useRef(`${window.location.origin}/crm-app${pathRef.current}`);
   const navigate = useNavigate();
 

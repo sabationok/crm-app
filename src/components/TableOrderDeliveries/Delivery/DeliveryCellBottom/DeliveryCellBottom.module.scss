@@ -1,3 +1,4 @@
+.cell,
 .owner,
 .transporter,
 .status,
@@ -8,32 +9,34 @@
 .createdAt,
 .updatedAt,
 .creator,
-.updator {
+.updator,
+.destination {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 4px;
 
-  min-height: 50px;
-  max-height: 60px;
+  // min-height: 50px;
+  height: 100%;
+  // max-height: 60px;
 
   min-width: fit-content;
 
-  padding: 8px;
+  padding: 4px;
   border: 1px solid rgba(122, 122, 122, 0.15);
 }
 
 .inner {
+  display: flex;
+  gap: 4px;
   min-height: 16px;
 }
 .owner,
 .ttn {
 }
+.destination,
 .comment {
   max-height: fit-content;
-  & .inner {
-    min-height: 50px;
-  }
 }
 .title {
   font-size: 12px;
@@ -41,4 +44,10 @@
   white-space: nowrap;
 
   color: rgba(122, 122, 122, 1);
+}
+.createdAt,
+.updatedAt {
+  & .time {
+    font-size: 10px;
+  }
 }
