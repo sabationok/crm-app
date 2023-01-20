@@ -1,17 +1,20 @@
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import PageProvider from './PageProvider';
 import { BlockRefundsList, BlockRefundInspect, BlockRefundInfo } from 'components/Blocks';
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
-import { useDispatch } from 'react-redux';
-import { actionSetPageGridChange } from 'redux/page/pageActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { actionSetPageGridChange, actionSetPageObjData } from 'redux/page/pageActions';
 import { blocksSettings, blocksNames } from 'data';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { getRefundById } from 'redux/selectors';
 // import s from './PageRefunds.module.scss';
 
 const PageRefunds = ({ path = 'refunds' }) => {
   const dispatch = useDispatch();
   const { id } = useParams();
-  // const post = useSelector(getPostById(id));
+  const refund = useSelector(getRefundById(id));
 
   const BlockRefundInfoSet = blocksSettings.find(el => el.name === blocksNames.BlockRefundInfo);
   const BlockRefundsListSet = blocksSettings.find(el => el.name === blocksNames.BlockRefundsList);
@@ -25,20 +28,34 @@ const PageRefunds = ({ path = 'refunds' }) => {
 
   useEffect(() => {
     dispatch(actionSetPageGridChange(true));
+    if (!id) {
+      return;
+    } else if (!refund) {
+      toast.error('За таким ID результатів не знайдено');
+      return;
+    }
+    dispatch(actionSetPageObjData(refund));
 
     return () => {
       dispatch(actionSetPageGridChange(false));
+      dispatch(actionSetPageObjData(null));
     };
-  }, [dispatch]);
+  }, [dispatch, id, refund]);
+
+  const ctx = {
+    indexPath: path,
+  };
 
   return (
     <>
-      <MinTabletXl>
-        <BlockRefundsList {...BlockRefundsListSet} />
-        <BlockRefundInfo {...BlockRefundInfoSet} />
-        <BlockRefundInspect {...BlockRefundInspectionSet} />
-      </MinTabletXl>
-      <MaxToTablet>{path ? blocksMap[path] : blocksMap.refunds}</MaxToTablet>
+      <PageProvider {...ctx}>
+        <MinTabletXl>
+          <BlockRefundsList {...BlockRefundsListSet} />
+          <BlockRefundInfo {...BlockRefundInfoSet} />
+          <BlockRefundInspect {...BlockRefundInspectionSet} />
+        </MinTabletXl>
+        <MaxToTablet>{path ? blocksMap[path] : blocksMap.refunds}</MaxToTablet>
+      </PageProvider>
     </>
   );
 };

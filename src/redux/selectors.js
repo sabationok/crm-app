@@ -18,6 +18,12 @@ export const getOrderById =
   ({ orders }) =>
     orders.orders.find(order => order._id === id);
 
+export const getAllRefunds = state => state.orders;
+export const getRefundById =
+  id =>
+  ({ refunds }) =>
+    refunds.refunds.find(refund => refund._id === id);
+
 export const getAllCategories = state => state.categories;
 
 export const getFilter = state => state.filter;

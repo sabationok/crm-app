@@ -1,52 +1,48 @@
+import storage from 'redux-persist/lib/storage';
+import { persistStore, persistReducer } from 'redux-persist';
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from '@reduxjs/toolkit';
-
-import { userReducer } from './auth/authSlice';
-import { postsReducer } from './posts/postsSlice';
-import { ordersReducer } from './orders/ordersSlice';
-import { appPageReducer } from './page/pageSlice';
-import { categoriesReducer } from './categories/categoriesSlice';
-import { appSettingsReducer } from './appSettings/appSettingsSlice';
-import { appNotifyReducer } from './notifications/notificationsSlice';
-
-import { persistStore, persistReducer } from 'redux-persist';
 // import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+
+import { appPageSlice } from './page/pageSlice';
+import { authSlice } from './auth/authSlice';
+import { appSettingsSlice } from './appSettings/appSettingsSlice';
+import { appNotifySlice } from './notifications/notificationsSlice';
+import { categoriesSlice } from './categories/categoriesSlice';
+import { refundsSlice } from './refunds/refundsSlice';
+import { ordersSlice } from './orders/ordersSlice';
+import { postsSlice } from './posts/postsSlice';
 
 const persistUserConfig = {
   key: 'token',
   storage,
   whitelist: ['token'],
 };
-const persistedUserReducer = persistReducer(persistUserConfig, userReducer);
-
 const persistAppSettingsConfig = {
   key: 'appSettings',
   storage,
   whitelist: ['isDarkTheme'],
 };
-const persistedAppSettingsReducer = persistReducer(persistAppSettingsConfig, appSettingsReducer);
 const persistPageSettingsConfig = {
   key: 'appPage',
   storage,
   whitelist: ['pageGrid'],
 };
-const persistedAppPageReducer = persistReducer(persistPageSettingsConfig, appPageReducer);
 const persistAppNotifyConfig = {
   key: 'appNotify',
   storage,
   whitelist: ['notifications'],
 };
-const persistedAppNotifyReducer = persistReducer(persistAppNotifyConfig, appNotifyReducer);
 
 const rootReducer = combineReducers({
-  posts: postsReducer,
-  orders: ordersReducer,
-  auth: persistedUserReducer,
-  appNotify: persistedAppNotifyReducer,
-  appSettings: persistedAppSettingsReducer,
-  appPage: persistedAppPageReducer,
-  categories: categoriesReducer,
+  [authSlice.name]: persistReducer(persistUserConfig, authSlice.reducer),
+  [appNotifySlice.name]: persistReducer(persistAppNotifyConfig, appNotifySlice.reducer),
+  [appSettingsSlice.name]: persistReducer(persistAppSettingsConfig, appSettingsSlice.reducer),
+  [appPageSlice.name]: persistReducer(persistPageSettingsConfig, appPageSlice.reducer),
+  [ordersSlice.name]: ordersSlice.reducer,
+  [postsSlice.name]: postsSlice.reducer,
+  [categoriesSlice.name]: categoriesSlice.reducer,
+  [refundsSlice.name]: refundsSlice.reducer,
 });
 
 export const store = configureStore({

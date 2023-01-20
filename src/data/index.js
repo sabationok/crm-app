@@ -18,6 +18,8 @@ import { postsMessages } from './postsMessages';
 
 import { initialUserInfo } from './users';
 
+import { refundsMessages } from './refundsMessages';
+
 export {
   initialUserInfo,
   productsTableTitles,
@@ -25,9 +27,10 @@ export {
   mobilePageRoutes,
   productData,
   stockData,
+  ordersData,
   ordersMessages,
   postsMessages,
-  ordersData,
+  refundsMessages,
   blocksSettings,
   blocksNames,
   userRoles,

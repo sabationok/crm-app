@@ -11,8 +11,8 @@ const initialState = {
   error: null,
 };
 
-export const userAuthSlice = createSlice({
-  name: 'userAuth',
+export const authSlice = createSlice({
+  name: 'auth',
   initialState: initialState,
   extraReducers: {
     //* РЕЄСТРАЦІЯ
@@ -87,4 +87,4 @@ export const userAuthSlice = createSlice({
   },
 });
 
-export const userReducer = userAuthSlice.reducer;
+export const authReducer = authSlice.reducer;

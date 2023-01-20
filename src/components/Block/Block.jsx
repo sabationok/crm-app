@@ -4,15 +4,14 @@ import BlockContext from './BlockContext';
 import BlockHeaderSearch from './BlockHeaderSearch/BlockHeaderSearch';
 // import BlockModal from './BlockModal/BlockModal';
 import BlockActions from './BlockActions/BlockActions';
+import BlockActionsProvider from './BlockActions/BlockActionsProvider';
 
 import { useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
 
 import s from './Block.module.scss';
-import BlockActionsProvider from './BlockActions/BlockActionsProvider';
 
 const Block = props => {
-  console.log(props);
   let {
     children,
     footerChildren,
