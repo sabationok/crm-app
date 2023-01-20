@@ -14,6 +14,11 @@ const OrderPaymentInfo = ({ paymentInfo }) => {
     { name: 'Статус', inner: <Status status={paymentInfo?.status} /> },
     { name: 'Змінено', inner: <DateInfo dateString={paymentInfo?.updatedAt} /> },
     { name: 'Заблоковані кошти', inner: paymentInfo?.blockedFunds || 0 },
+    { name: 'Отримані кошти', inner: paymentInfo?.receivedFunds || 0 },
+    { name: 'Отримані бонуси', inner: paymentInfo?.receivedBonuses || 0 },
+    { name: 'Документ підтвердження оплати (ID)', inner: paymentInfo?.paymentDocumentID || '<<<--->>>' },
+    { name: 'Інвойс для списання коштів (ID)', inner: paymentInfo?.invoiceId || '<<<--->>>' },
+    { name: 'Інвойс для блокування коштів (ID)', inner: paymentInfo?.holdingInvoiceId || '<<<--->>>' },
   ];
   return (
     <>

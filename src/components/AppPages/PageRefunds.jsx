@@ -4,15 +4,23 @@ import { BlockRefundsList, BlockRefundInspect, BlockRefundInfo } from 'component
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 import { useDispatch } from 'react-redux';
 import { actionSetPageGridChange } from 'redux/page/pageActions';
+import { blocksSettings, blocksNames } from 'data';
+import { useParams } from 'react-router-dom';
 // import s from './PageRefunds.module.scss';
 
 const PageRefunds = ({ path = 'refunds' }) => {
   const dispatch = useDispatch();
+  const { id } = useParams();
+  // const post = useSelector(getPostById(id));
+
+  const BlockRefundInfoSet = blocksSettings.find(el => el.name === blocksNames.BlockRefundInfo);
+  const BlockRefundsListSet = blocksSettings.find(el => el.name === blocksNames.BlockRefundsList);
+  const BlockRefundInspectionSet = blocksSettings.find(el => el.name === blocksNames.BlockRefundInspect);
 
   const blocksMap = {
-    refunds: <BlockRefundsList />,
-    refund: <BlockRefundInfo />,
-    inspection: <BlockRefundInspect />,
+    refunds: <BlockRefundsList {...BlockRefundsListSet} />,
+    refund: <BlockRefundInfo {...BlockRefundInfoSet} />,
+    inspection: <BlockRefundInspect {...BlockRefundInspectionSet} />,
   };
 
   useEffect(() => {
@@ -22,12 +30,13 @@ const PageRefunds = ({ path = 'refunds' }) => {
       dispatch(actionSetPageGridChange(false));
     };
   }, [dispatch]);
+
   return (
     <>
       <MinTabletXl>
-        <BlockRefundsList />
-        <BlockRefundInfo />
-        <BlockRefundInspect />
+        <BlockRefundsList {...BlockRefundsListSet} />
+        <BlockRefundInfo {...BlockRefundInfoSet} />
+        <BlockRefundInspect {...BlockRefundInspectionSet} />
       </MinTabletXl>
       <MaxToTablet>{path ? blocksMap[path] : blocksMap.refunds}</MaxToTablet>
     </>

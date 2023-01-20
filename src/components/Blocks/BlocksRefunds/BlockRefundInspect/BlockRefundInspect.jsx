@@ -1,11 +1,34 @@
 import React from 'react';
 import Block from 'components/Block/Block';
 import FormPrimary from 'components/Forms/FormPrimary/FormPrimary';
+import RefundInspection from 'components/TableRefundInspection/RefundInspection';
+import BlockEmpty from 'components/Blocks/BlockEmpty/BlockEmpty';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { getPageObjData } from 'redux/selectors';
+import { getAppPageSettings } from 'redux/selectors';
 
-const BlockRefundInspect = () => {
+import s from './BlockRefundInspect.module.scss';
+
+const BlockRefundInspect = props => {
+  const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const refund = useSelector(getPageObjData);
+
+  const blockSettings = {
+    className: s[pageGrid],
+    // prepareRowData: prepeareProductData,
+    // prepareSubmitData: prepeareProductSubmitData,
+    // deleteAction,
+    ...props,
+  };
+
   return (
-    <Block title="Інспекція" iconId="inspect" actions="primary" style={{ gridColumn: '5/11', gridRow: '5/11' }}>
-      <FormPrimary formTitle="Інспекція повернення" />
+    <Block {...blockSettings}>
+      {refund?._id && <RefundInspection />}
+
+      {!refund?._id && <BlockEmpty title="Оберіть повернення зі списку" />}
     </Block>
   );
 };

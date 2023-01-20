@@ -1,8 +1,27 @@
 import React from 'react';
 import Block from 'components/Block/Block';
+import { useSelector } from 'react-redux';
+import { getAppPageSettings } from 'redux/selectors';
 
-const BlockRefundsList = () => {
-  return <Block title="Список повернень" iconId="list" actions="withFilter" filter style={{ gridColumn: '1/11', gridRow: '1/5' }}></Block>;
+import s from './BlockRefundsList.module.scss';
+import TableList from 'components/TableList/TableList';
+
+const BlockRefundsList = props => {
+  const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
+
+  const blockSettings = {
+    className: s[pageGrid],
+    // prepareRowData: prepeareProductData,
+    // prepareSubmitData: prepeareProductSubmitData,
+    // deleteAction,
+    ...props,
+  };
+
+  return (
+    <Block {...blockSettings}>
+      <TableList />
+    </Block>
+  );
 };
 
 export default BlockRefundsList;

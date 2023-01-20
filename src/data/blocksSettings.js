@@ -78,7 +78,7 @@ export const blocksSettings = [
 
   { name: blocksNames.BlockRefundsList, fullPageMode: true, title: 'Список повернень', iconId: 'list', actions: actionsWithFilter },
   { name: blocksNames.BlockRefundInfo, fullPageMode: true, title: 'Деталі повернень', iconId: 'assignment', actions: actionsShare },
-  { name: blocksNames.BlockRefundInspect, fullPageMode: true, title: 'Інспекція повернення', iconId: 'incpect', actions: actionsShare },
+  { name: blocksNames.BlockRefundInspect, fullPageMode: true, title: 'Інспекція повернення', iconId: 'inspect', actions: actionsShare },
 
   { name: blocksNames.BlockAdmin, fullPageMode: true, title: 'Адмін', iconId: 'admin', actions: actionsShare },
   { name: blocksNames.BlockManagers, fullPageMode: true, title: 'Менеджери', iconId: 'manager', actions: actionsShare },

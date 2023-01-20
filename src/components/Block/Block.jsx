@@ -12,6 +12,7 @@ import s from './Block.module.scss';
 import BlockActionsProvider from './BlockActions/BlockActionsProvider';
 
 const Block = props => {
+  console.log(props);
   let {
     children,
     footerChildren,
@@ -26,7 +27,6 @@ const Block = props => {
   const [isSearch, setIsSearch] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFullPageMode, setIsFullPageMode] = useState(false);
-  // const [isActionsOpen, setIsActionsOpen] = useState(false);
   const { isDarkTheme } = useSelector(getAppSettings);
   const printRef = useRef();
 

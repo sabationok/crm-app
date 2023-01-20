@@ -65,7 +65,7 @@ const AppRoutes = ({ locationRef }) => {
             <Route path="refunds" element={<PageRefunds path="refunds" />} errorElement={<PageError />} />
             <Route path=":id" element={<PageRefunds path="refunds" />} errorElement={<PageError />} />
             <Route path="refund" element={<PageRefunds path="refund" />} errorElement={<PageError />} />
-            <Route path="inspect" element={<PageRefunds path="inspect" />} errorElement={<PageError />} />
+            <Route path="inspection" element={<PageRefunds path="inspection" />} errorElement={<PageError />} />
             <Route path=":id/refund" element={<PageRefunds path="refund" />} errorElement={<PageError />} />
             <Route path=":id/inspect" element={<PageRefunds path="inspect" />} errorElement={<PageError />} />
             <Route path="*" element={<PageNotFound />} errorElement={<PageError />} />

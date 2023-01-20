@@ -94,6 +94,7 @@ const FormAuth = props => {
   const formSettings = {
     onSubmit: handleFormSubmit,
     className: s.FormAuth,
+    defaultButtons: false,
     ...props,
   };
 
