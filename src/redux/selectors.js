@@ -18,7 +18,7 @@ export const getOrderById =
   ({ orders }) =>
     orders.orders.find(order => order._id === id);
 
-export const getAllRefunds = state => state.orders;
+export const getAllRefunds = state => state.refunds;
 export const getRefundById =
   id =>
   ({ refunds }) =>

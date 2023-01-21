@@ -1,4 +1,5 @@
 // import { nanoid } from 'nanoid';
+
 export const productsTableTitles = [
   {
     id: 1,
@@ -20,7 +21,6 @@ export const productsTableTitles = [
     visible: true,
     width: '160px',
   },
-
   {
     id: 1,
     name: 'Статус',
@@ -162,3 +162,62 @@ export const productsTableTitles = [
     width: '125px',
   },
 ];
+// const transactions = [
+//   {
+//     author: '', // ? хто створив, ID
+//     editor: '', // ? хто змінив, ID
+//     auditor: '', // ? хто перевірив, ID
+//     transactionDate: '20.01.2023', // ?
+//     transactionTime: '20.01.2023', // ?
+//     type: 'Дохід', // ? дохід/витрата/переказ
+//     countId: '_ID', // ?
+//     // countName: 'НАЗВА РАХУНКУ',
+//     subCountId: '_ID', // ?
+//     // subCountName: 'НАЗВА СУБ-РАХУНКУ',
+//     categoryId: '', // ?
+//     // categoryName: '',
+//     subCategoryId: '', // ?
+//     // subCategoryName: '',
+//     document: '', // ? номер документу який підтверджує транзакцію
+//     project: 'ID', // ? прикріпити операція до якогось проекту
+//     provider: 'ID', // ? постачальник
+//     customer: 'ID', // ? клієнт
+//     amount: 'number', // ? сума
+//     status: '', // ? статуси для перевірок
+//     mark: '', // ? мітка
+//     comment: '', // ?
+//     tags: [], // ? на виріст, можливість добавити тег
+//   },
+// ];
+// export const TRANSACTIONS_TITLES = [
+//   {
+//     id: 1,
+//     title: 'Тип (income/expence/transfer)',
+//     dataKey: 'type',
+//     action: 'string',
+//     search: true,
+//     filter: false,
+//     visible: true,
+//     width: '125px',
+//   },
+//   {
+//     id: 1,
+//     title: 'Дата ств',
+//     dataKey: 'transactionDate',
+//     action: 'date',
+//     search: true,
+//     filter: false,
+//     visible: true,
+//     width: '125px',
+//   },
+//   {
+//     id: 1,
+//     title: 'Дата ств',
+//     dataKey: 'transactionTime',
+//     action: 'date',
+//     search: true,
+//     filter: false,
+//     visible: true,
+//     width: '125px',
+//   },
+// ];

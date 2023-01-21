@@ -13,7 +13,7 @@ const initialState = {
 };
 
 export const categoriesSlice = createSlice({
-  name: 'posts',
+  name: 'categories',
   initialState,
   extraReducers: {
     [fetchAllCategories.fulfilled]: (state, action) => {

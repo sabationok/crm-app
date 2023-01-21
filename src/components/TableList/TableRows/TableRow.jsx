@@ -19,7 +19,16 @@ import { useSelector } from 'react-redux';
 import { getAppPageSettings } from 'redux/selectors';
 
 import s from './TableRow.module.scss';
+
 const TableRow = props => {
+  // const { priceIn, priceOut } = props.rowData;
+
+  // const prepearedData = {
+  //   priceIn,
+  //   priceOut,
+  //   difference: priceOut - priceIn,
+  // };
+
   const { tableTitles = [], rowGrid } = useTable();
   const [isActionsOpen, setIsActionsOpen] = useState(false);
   const { indexPage } = useSelector(getAppPageSettings);
@@ -63,7 +72,7 @@ const TableRow = props => {
     handleToggleActions,
     handleCloseActions,
   };
-  // currentTarget
+
   useEffect(() => {
     function CloseRowActions(ev) {
       const { target } = ev;
@@ -83,12 +92,14 @@ const TableRow = props => {
     <RowContext value={ctxValue}>
       <div className={s.rowContainer} id={`row${props.idx}`}>
         <RowActions />
+
         <div style={styles} className={s.row}>
           <div className={[s.rowStickyEl, 'listRow'].join(' ')}>
             <CellActions />
 
             <CellCheckBox />
           </div>
+
           {tableTitles.map((title, idx) => {
             let CellComp = CellText;
 

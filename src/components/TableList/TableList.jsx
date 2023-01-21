@@ -18,6 +18,7 @@ const TableList = props => {
     >
       <div className={[s.table, s.orders]} ref={block.printRef}>
         <TableHead />
+
         <TableBody />
       </div>
     </TableContext>
