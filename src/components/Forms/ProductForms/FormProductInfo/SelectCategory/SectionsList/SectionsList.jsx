@@ -6,7 +6,7 @@ import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { useModal } from 'components/ModalCustom/ModalCustom';
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
 import { useDispatch } from 'react-redux';
-import { fetchAllCategories } from 'redux/categories/categoriesThunks';
+import { getAllCategoriesThunk } from 'redux/categories/categoriesThunks';
 import { useSelector } from 'react-redux';
 import { getAllCategories, getAppSettings } from 'redux/selectors';
 
@@ -55,7 +55,7 @@ const SectionsList = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchAllCategories());
+    dispatch(getAllCategoriesThunk());
   }, [dispatch]);
 
   return (

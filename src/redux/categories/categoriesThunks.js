@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import baseApi from '../../services/baseApi';
 // import { token } from '../../services/baseApi';
 
-export const fetchAllCategories = createAsyncThunk('categories/fetchAllCategories', async (obj, thunkAPI) => {
+export const getAllCategoriesThunk = createAsyncThunk('categories/getAllCategoriesThunk', async (obj, thunkAPI) => {
   try {
     const response = await baseApi.get(`/category/getAll`);
 
@@ -19,7 +19,7 @@ export const fetchAllCategories = createAsyncThunk('categories/fetchAllCategorie
   }
 });
 
-export const fetchCategoriesByParentId = createAsyncThunk('categories/fetchCategoriesByParentId', async (obj, thunkAPI) => {
+export const getCategoriesByParentIdThunk = createAsyncThunk('categories/getCategoriesByParentIdThunk', async (obj, thunkAPI) => {
   try {
     const response = await baseApi.get(`/category/getByOwnerId/${obj.submitData.id}`);
     console.log(response.data);
@@ -36,7 +36,7 @@ export const fetchCategoriesByParentId = createAsyncThunk('categories/fetchCateg
   }
 });
 
-export const fetchAddCategory = createAsyncThunk('categories/fetchAddCategory', async (obj, thunkAPI) => {
+export const addCategoryThunk = createAsyncThunk('categories/addCategoryThunk', async (obj, thunkAPI) => {
   try {
     const response = await baseApi.post(`/category/create`, obj.submitData);
     console.log(response.data);
@@ -53,7 +53,7 @@ export const fetchAddCategory = createAsyncThunk('categories/fetchAddCategory', 
   }
 });
 
-export const fetchDeleteCategory = createAsyncThunk('categories/fetchDeleteCategory', async (obj, thunkAPI) => {
+export const deleteCategoryThunk = createAsyncThunk('categories/deleteCategoryThunk', async (obj, thunkAPI) => {
   try {
     const response = await baseApi.delete(`/category/${obj.submitData.id}`);
     console.log(response.data);
@@ -70,7 +70,7 @@ export const fetchDeleteCategory = createAsyncThunk('categories/fetchDeleteCateg
   }
 });
 
-export const fetchEditCategory = createAsyncThunk('categories/fetchEditCategory', async (obj, thunkAPI) => {
+export const editCategoryThunk = createAsyncThunk('categories/editCategoryThunk', async (obj, thunkAPI) => {
   try {
     const response = await baseApi.patch(`/category/${obj.submitData.id}`, obj.submitData.updateData);
 

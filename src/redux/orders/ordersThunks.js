@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import baseApi from '../../services/baseApi';
 // import { token } from '../../services/baseApi';
 
-export const fetchAllOrders = createAsyncThunk('orders/fetchOrders', async (_, thunkAPI) => {
+export const getAllOrdersThunk = createAsyncThunk('orders/fetchOrders', async (_, thunkAPI) => {
   try {
     const response = await baseApi.get(`/orders`);
     return response.data;
@@ -11,8 +11,7 @@ export const fetchAllOrders = createAsyncThunk('orders/fetchOrders', async (_, t
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-
-export const fetchAddOrder = createAsyncThunk('orders/fetchAddOrder', async (newOrder, thunkAPI) => {
+export const addOrderThunk = createAsyncThunk('orders/addOrderThunk', async (newOrder, thunkAPI) => {
   try {
     const response = await baseApi.post(`/orders`, newOrder);
 
@@ -22,7 +21,7 @@ export const fetchAddOrder = createAsyncThunk('orders/fetchAddOrder', async (new
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-export const fetchDeleteOrder = createAsyncThunk('orders/fetchDeleteOrder', async (orderID, thunkAPI) => {
+export const deleteOrderThunk = createAsyncThunk('orders/deleteOrderThunk', async (orderID, thunkAPI) => {
   try {
     const response = await baseApi.delete(`/orders/${orderID}`);
 
@@ -32,7 +31,7 @@ export const fetchDeleteOrder = createAsyncThunk('orders/fetchDeleteOrder', asyn
     return thunkAPI.rejectWithValue(error.message);
   }
 });
-export const fetchEditOrder = createAsyncThunk('orders/fetchEditOrder', async (editedOrder, thunkAPI) => {
+export const editOrderThunk = createAsyncThunk('orders/editOrderThunk', async (editedOrder, thunkAPI) => {
   console.log(editedOrder);
   try {
     const response = await baseApi.put(`/orders/${editedOrder.id}`, editedOrder.data);

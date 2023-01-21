@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import baseApi from '../../services/baseApi';
 // import { token } from '../../services/baseApi';
 
-export const fetchAllPosts = createAsyncThunk('posts/fetchPosts', async (obj, thunkAPI) => {
+export const getAllPostsThunk = createAsyncThunk('posts/getAllPostsThunk', async (obj, thunkAPI) => {
   try {
     const response = await baseApi.get(`/product/getAll`);
     console.log(response.data);
@@ -20,7 +20,7 @@ export const fetchAllPosts = createAsyncThunk('posts/fetchPosts', async (obj, th
   }
 });
 
-export const fetchAddPost = createAsyncThunk('posts/fetchAddPost', async (obj, thunkAPI) => {
+export const addPostThunk = createAsyncThunk('posts/addPostThunk', async (obj, thunkAPI) => {
   try {
     const response = await baseApi.post(`/product/create`, obj.submitData);
 
@@ -36,7 +36,7 @@ export const fetchAddPost = createAsyncThunk('posts/fetchAddPost', async (obj, t
   }
 });
 
-export const fetchDeletePost = createAsyncThunk('posts/fetchDeletePost', async (postID, thunkAPI) => {
+export const deletePostThunk = createAsyncThunk('posts/deletePostThunk', async (postID, thunkAPI) => {
   try {
     const response = await baseApi.delete(`/product/${postID}`);
 
@@ -47,7 +47,7 @@ export const fetchDeletePost = createAsyncThunk('posts/fetchDeletePost', async (
   }
 });
 
-export const fetchEditPost = createAsyncThunk('posts/fetchEditPost', async (editedPost, thunkAPI) => {
+export const editPostThunk = createAsyncThunk('posts/editPostThunk', async (editedPost, thunkAPI) => {
   console.log(editedPost);
   try {
     const response = await baseApi.patch(`/product/${editedPost.id}`, editedPost.data);
@@ -58,7 +58,7 @@ export const fetchEditPost = createAsyncThunk('posts/fetchEditPost', async (edit
   }
 });
 
-export const fetchAddPostImgs = createAsyncThunk('posts/fetchAddPost', async (obj, thunkAPI) => {
+export const addPostImgsThunk = createAsyncThunk('posts/addPostImgsThunk', async (obj, thunkAPI) => {
   try {
     const response = await baseApi.post(`/files/upload`, obj.submitData, { headers: { 'Content-Type': 'multipart/form-data' } });
 

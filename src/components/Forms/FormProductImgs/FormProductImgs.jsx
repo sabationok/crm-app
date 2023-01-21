@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { useNotify } from 'components/Notify/NotifyProvider';
 
 import { useDispatch } from 'react-redux';
-import { fetchAddPostImgs } from 'redux/posts/postsThunks';
+import { addPostImgsThunk } from 'redux/posts/postsThunks';
 
 import s from './FormProductImgs.module.scss';
 
@@ -62,7 +62,7 @@ const FormProductImgs = ({ formTitle = 'Form title', blockSettings }) => {
     };
     // appNotify.info('Завантаження файлів', `Кількість завантажених файлів: ${formData.length}`);
     console.log(formData);
-    dispatch(fetchAddPostImgs(submitData));
+    dispatch(addPostImgsThunk(submitData));
   }
   function handleFormReset(ev) {
     setFormData(initialState);

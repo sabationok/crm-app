@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllPosts, fetchAddPost, fetchDeletePost, fetchEditPost, fetchAddPostImgs } from 'redux/posts/postsThunks';
+// import { getAllPostsThunk, addPostThunk, deletePostThunk, editPostThunk, addPostImgsThunk } from 'redux/posts/postsThunks';
+import { getAllPostsThunk, addPostThunk, deletePostThunk, editPostThunk, addPostImgsThunk } from './postsThunks';
+
 import {
   actionChangeSearchQuery,
   actionMarkCheckbox,
@@ -35,65 +37,64 @@ export const postsSlice = createSlice({
   name: 'posts',
   initialState,
   extraReducers: {
-    [fetchAllPosts.fulfilled](state, action) {
+    [getAllPostsThunk.fulfilled](state, action) {
       state.isLoading = false;
       state.posts = [...action.payload];
     },
-    [fetchAllPosts.rejected](state, action) {
+    [getAllPostsThunk.rejected](state, action) {
       state.isLoading = false;
       state.error = action.payload;
     },
-    [fetchAllPosts.pending](state, action) {
+    [getAllPostsThunk.pending](state, action) {
       state.isLoading = true;
     },
 
-    [fetchAddPost.fulfilled](state, action) {
+    [addPostThunk.fulfilled](state, action) {
       state.isLoading = false;
       state.posts = [action.payload, ...state.posts];
     },
-    [fetchAddPost.rejected](state, action) {
+    [addPostThunk.rejected](state, action) {
       state.isLoading = false;
       state.error = action.payload;
     },
-    [fetchAddPost.pending](state, action) {
+    [addPostThunk.pending](state, action) {
       state.isLoading = true;
     },
 
-    [fetchAddPostImgs.fulfilled](state, action) {
+    [deletePostThunk.fulfilled](state, action) {
+      state.isLoading = false;
+      state.posts = state.posts.filter(user => user.id !== action.payload.id);
+    },
+    [deletePostThunk.rejected](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    [deletePostThunk.pending](state, action) {
+      state.isLoading = true;
+    },
+
+    [editPostThunk.fulfilled](state, action) {
+      state.isLoading = false;
+      state.lastEditedId = action.payload.id;
+    },
+    [editPostThunk.rejected](state, action) {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    [editPostThunk.pending](state, action) {
+      state.isLoading = true;
+    },
+
+    [addPostImgsThunk.fulfilled](state, action) {
       state.isLoading = false;
       // state.posts = [action.payload, ...state.posts];
       console.log(action.payload);
     },
-    [fetchAddPostImgs.rejected](state, action) {
+    [addPostImgsThunk.rejected](state, action) {
       state.isLoading = false;
       state.error = action.payload;
     },
-    [fetchAddPostImgs.pending](state, action) {
-      state.isLoading = true;
-    },
-
-    [fetchDeletePost.fulfilled](state, action) {
-      state.isLoading = false;
-      state.posts = state.posts.filter(user => user.id !== action.payload.id);
-    },
-    [fetchDeletePost.rejected](state, action) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-    [fetchDeletePost.pending](state, action) {
-      state.isLoading = true;
-    },
-
-    [fetchEditPost.fulfilled](state, action) {
-      state.isLoading = false;
-      state.lastEditedId = action.payload.id;
-    },
-    [fetchEditPost.rejected](state, action) {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-
-    [fetchEditPost.pending](state, action) {
+    [addPostImgsThunk.pending](state, action) {
       state.isLoading = true;
     },
 

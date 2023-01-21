@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllOrders, fetchAddOrder, fetchDeleteOrder, fetchEditOrder } from 'redux/orders/ordersThunks';
+import { getAllOrdersThunk, addOrderThunk, deleteOrderThunk, editOrderThunk } from 'redux/orders/ordersThunks';
 import {
   actionChangeSearchQuery,
   actionMarkCheckbox,
@@ -31,51 +31,51 @@ export const ordersSlice = createSlice({
   name: 'orders',
   initialState,
   extraReducers: {
-    [fetchAllOrders.fulfilled](state, action) {
+    [getAllOrdersThunk.fulfilled](state, action) {
       state.isLoading = false;
       state.orders = [...action.payload];
     },
-    [fetchAllOrders.rejected](state, action) {
+    [getAllOrdersThunk.rejected](state, action) {
       state.isLoading = false;
       state.error = action.payload;
     },
-    [fetchAllOrders.pending](state, action) {
+    [getAllOrdersThunk.pending](state, action) {
       state.isLoading = true;
     },
 
-    [fetchAddOrder.fulfilled](state, action) {
+    [addOrderThunk.fulfilled](state, action) {
       state.isLoading = false;
       state.orders = [action.payload, ...state.orders];
     },
-    [fetchAddOrder.rejected](state, action) {
+    [addOrderThunk.rejected](state, action) {
       state.isLoading = false;
       state.error = action.payload;
     },
-    [fetchAddOrder.pending](state, action) {
+    [addOrderThunk.pending](state, action) {
       state.isLoading = true;
     },
 
-    [fetchDeleteOrder.fulfilled](state, action) {
+    [deleteOrderThunk.fulfilled](state, action) {
       state.isLoading = false;
       state.orders = state.orders.filter(order => order.id !== action.payload.id);
     },
-    [fetchDeleteOrder.rejected](state, action) {
+    [deleteOrderThunk.rejected](state, action) {
       state.isLoading = false;
       state.error = action.payload;
     },
-    [fetchDeleteOrder.pending](state, action) {
+    [deleteOrderThunk.pending](state, action) {
       state.isLoading = true;
     },
 
-    [fetchEditOrder.fulfilled](state, action) {
+    [editOrderThunk.fulfilled](state, action) {
       state.isLoading = false;
       state.lastEditedId = action.payload.id;
     },
-    [fetchEditOrder.rejected](state, action) {
+    [editOrderThunk.rejected](state, action) {
       state.isLoading = false;
       state.error = action.payload;
     },
-    [fetchEditOrder.pending](state, action) {
+    [editOrderThunk.pending](state, action) {
       state.isLoading = true;
     },
 

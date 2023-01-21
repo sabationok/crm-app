@@ -2,7 +2,7 @@ import PrimaryInput from 'components/Forms/Inputs/PrimaryInput/PrimaryInput';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 import { useDispatch } from 'react-redux';
-import { fetchAddCategory } from 'redux/categories/categoriesThunks';
+import { addCategoryThunk } from 'redux/categories/categoriesThunks';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 import { Button } from '@mui/material';
@@ -40,7 +40,7 @@ const FormCreateSection = () => {
       console.log(payload);
       return;
     }
-    dispatch(fetchAddCategory(payload));
+    dispatch(addCategoryThunk(payload));
     setSectionName('');
   }
   return (

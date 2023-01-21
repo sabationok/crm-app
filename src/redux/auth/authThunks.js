@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import baseApi from 'services/baseApi';
 import { token } from 'services/baseApi';
 
-export const registerUserThunk = createAsyncThunk('auth/register', async (obj, thunkAPI) => {
+export const registerUserThunk = createAsyncThunk('auth/registerUserThunk', async (obj, thunkAPI) => {
   try {
     const { data } = await baseApi.post(`/auth/signUp`, obj.submitData);
     console.log(obj.submitData);
@@ -17,7 +17,7 @@ export const registerUserThunk = createAsyncThunk('auth/register', async (obj, t
   }
 });
 
-export const registerUserByAdminThunk = createAsyncThunk('auth/registerByAdmin', async (obj, thunkAPI) => {
+export const registerUserByAdminThunk = createAsyncThunk('auth/registerUserByAdminThunk', async (obj, thunkAPI) => {
   try {
     const { data } = await baseApi.post(`/auth/signUpByAdmin`, obj.submitData);
 
@@ -31,7 +31,7 @@ export const registerUserByAdminThunk = createAsyncThunk('auth/registerByAdmin',
   }
 });
 
-export const logInUserThunk = createAsyncThunk('auth/signIn', async (obj, thunkAPI) => {
+export const logInUserThunk = createAsyncThunk('auth/logInUserThunk', async (obj, thunkAPI) => {
   try {
     const { data } = await baseApi.post(`/auth/signIn`, obj.submitData);
 
@@ -45,7 +45,7 @@ export const logInUserThunk = createAsyncThunk('auth/signIn', async (obj, thunkA
   }
 });
 
-export const logOutUserThunk = createAsyncThunk('auth/signOut', async (obj, thunkAPI) => {
+export const logOutUserThunk = createAsyncThunk('auth/logOutUserThunk', async (obj, thunkAPI) => {
   const state = thunkAPI.getState();
 
   token.set(state.auth.token);
@@ -63,7 +63,7 @@ export const logOutUserThunk = createAsyncThunk('auth/signOut', async (obj, thun
   }
 });
 
-export const getCurrentUserThunk = createAsyncThunk('auth/getCurrentUser', async (obj, thunkAPI) => {
+export const getCurrentUserThunk = createAsyncThunk('auth/getCurrentUserThunk', async (obj, thunkAPI) => {
   const state = thunkAPI.getState();
 
   token.set(state.auth.token);

@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { initialState } from '../../../../data/products';
 import { useModal } from 'components/ModalCustom/ModalCustom';
 import { useDispatch } from 'react-redux';
-import { fetchAddPost, fetchEditPost } from 'redux/posts/postsThunks';
+import { addPostThunk, editPostThunk } from 'redux/posts/postsThunks';
 import { useParams } from 'react-router-dom';
 import { usePage } from 'components/AppPages/PageProvider';
 import FormPrimary from '../../FormPrimary/FormPrimary';
@@ -64,11 +64,11 @@ const FormProductInfo = ({ edit = false, create = false, copy = false, blockSett
 
     console.log(payload);
     if (edit && id) {
-      dispatch(fetchEditPost(payload));
+      dispatch(editPostThunk(payload));
       return;
     }
     if (create || (copy && id)) {
-      dispatch(fetchAddPost(payload));
+      dispatch(addPostThunk(payload));
       return;
     }
     setFormData(initialState);

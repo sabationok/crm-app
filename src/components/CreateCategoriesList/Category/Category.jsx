@@ -6,7 +6,7 @@ import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { useSectionsList } from '../CreateCategoriesList';
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
-import { fetchEditCategory } from 'redux/categories/categoriesThunks';
+import { editCategoryThunk } from 'redux/categories/categoriesThunks';
 import s from './Category.module.scss';
 
 const Category = ({ category, owner, section }) => {
@@ -41,7 +41,7 @@ const Category = ({ category, owner, section }) => {
       },
     };
 
-    dispatch(fetchEditCategory(payload));
+    dispatch(editCategoryThunk(payload));
   }
 
   return (

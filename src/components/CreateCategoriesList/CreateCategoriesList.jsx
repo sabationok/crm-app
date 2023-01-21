@@ -3,7 +3,7 @@ import SectionItem from './SectionItem/SectionItem';
 import FormCreateSection from './FormCreateSection/FormCreateSection';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCategories, getAppSettings } from 'redux/selectors';
-import { fetchAllCategories } from 'redux/categories/categoriesThunks';
+import { getAllCategoriesThunk } from 'redux/categories/categoriesThunks';
 
 import s from './CreateCategoriesList.module.scss';
 
@@ -21,7 +21,7 @@ const CreateCategoriesList = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchAllCategories());
+    dispatch(getAllCategoriesThunk());
   }, [dispatch]);
 
   return (
