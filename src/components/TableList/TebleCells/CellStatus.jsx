@@ -11,7 +11,7 @@ const CellStatus = ({ title, idx, className, onClick }) => {
   // console.log(rowData?.orderStatus);
   return (
     <div className={classNames} onClick={onClick}>
-      <Status status={rowData[title?.dataTitle]} />
+      <Status status={rowData[title?.dataKey]} />
     </div>
   );
 };

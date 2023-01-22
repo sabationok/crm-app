@@ -4,6 +4,7 @@ import ModalContent from 'components/ModalCustom/ModalContent/ModalContent';
 import { Button } from '@mui/material';
 
 import s from './BlockUsers.module.scss';
+import AllUsersList from './AllUsersList';
 
 const BlockUsers = props => {
   const blockSettings = { className: s.gridFirst, ...props };
@@ -27,7 +28,9 @@ const BlockUsers = props => {
               Список користувачів
             </Button>
           )}
-        ></ModalContent>
+        >
+          <AllUsersList />
+        </ModalContent>
       </div>
     </Block>
   );

@@ -5,14 +5,11 @@ import CircularProgress from '@mui/material/CircularProgress';
 import PropTypes from 'prop-types';
 
 const AppLoader = ({ isLoading }) => {
-  if (!isLoading) {
-    return;
-  }
+  // if (!isLoading) {
+  //   return null;
+  // }
   return (
-    <Backdrop
-      sx={{ color: '#fff', zIndex: theme => theme.zIndex.drawer + 1 }}
-      open={isLoading}
-    >
+    <Backdrop sx={{ color: '#fff', zIndex: theme => theme.zIndex.drawer + 1 }} open={isLoading}>
       <CircularProgress color="inherit" />
     </Backdrop>
   );

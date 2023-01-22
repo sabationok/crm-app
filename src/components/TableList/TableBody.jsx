@@ -1,9 +1,6 @@
 import React from 'react';
-
-// import { nanoid } from 'nanoid';
-import { useTable } from './TableContext';
-
 import TableRow from './TableRows/TableRow';
+import { useTable } from './TableContext';
 
 import s from './TableList.module.scss';
 

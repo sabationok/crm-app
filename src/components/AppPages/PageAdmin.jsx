@@ -7,6 +7,7 @@ import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSet
 
 const PageAdmin = ({ path }) => {
   const BlockAuthSet = { iconId: 'persons', title: 'Керування користувачами' };
+
   const blocksMap = {
     admin: <BlockAdmin />,
     managers: <BlockManagers />,

@@ -6,6 +6,7 @@ import { combineReducers } from '@reduxjs/toolkit';
 
 import { appPageSlice } from './page/pageSlice';
 import { authSlice } from './auth/authSlice';
+import { usersSlice } from './users/usersSlice';
 import { appSettingsSlice } from './appSettings/appSettingsSlice';
 import { appNotifySlice } from './notifications/notificationsSlice';
 import { categoriesSlice } from './categories/categoriesSlice';
@@ -36,6 +37,7 @@ const persistAppNotifyConfig = {
 
 const rootReducer = combineReducers({
   [authSlice.name]: persistReducer(persistUserConfig, authSlice.reducer),
+  [usersSlice.name]: usersSlice.reducer,
   [appNotifySlice.name]: persistReducer(persistAppNotifyConfig, appNotifySlice.reducer),
   [appSettingsSlice.name]: persistReducer(persistAppSettingsConfig, appSettingsSlice.reducer),
   [appPageSlice.name]: persistReducer(persistPageSettingsConfig, appPageSlice.reducer),

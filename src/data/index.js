@@ -20,6 +20,8 @@ import { initialUserInfo } from './users';
 
 import { refundsMessages } from './refundsMessages';
 
+import getBlockSettings from './blocksSettings';
+
 export {
   initialUserInfo,
   productsTableTitles,
@@ -35,4 +37,5 @@ export {
   blocksNames,
   userRoles,
   userStatus,
+  getBlockSettings,
 };

@@ -5,9 +5,9 @@ import TableList from 'components/TableList/TableList';
 import { ordersMessages as messages } from 'data';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getAppPageSettings, getOrders } from 'redux/selectors';
+import { getAppPageSettings, getAllOrders } from 'redux/selectors';
 import { ordersTableTitles } from 'data/ordersTableTitles';
-import { prepeareOrderData } from 'data/orders';
+// import { prepeareOrderData } from 'data/orders';
 import { actionDeleteOrder, actionArchiveOrder, actionAcceptOrder, actionDeclineOrder } from 'redux/orders/ordersActions';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -16,7 +16,7 @@ import s from './BlockOrdersList.module.scss';
 
 const BlockOrdersList = props => {
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
-  const { orders } = useSelector(getOrders);
+  const orders = useSelector(getAllOrders);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -114,9 +114,6 @@ const BlockOrdersList = props => {
   const blockSettings = {
     className: s[pageGrid],
     order: selectedOrder,
-    tableTitles: ordersTableTitles,
-    tableData: orders,
-    prepeareRowdata: prepeareOrderData,
     archiveOrderAction: archivatingAction,
     approveOrderAction: acceptingAction,
     rejectOrderAction: declinigAction,
@@ -124,9 +121,15 @@ const BlockOrdersList = props => {
     ...props,
   };
 
+  const tableSettings = {
+    tableData: orders,
+    tableTitles: ordersTableTitles,
+    // prepeareRowData: prepeareOrderData,
+  };
+
   return (
     <Block {...blockSettings}>
-      <TableList />
+      <TableList {...tableSettings} />
     </Block>
   );
 };

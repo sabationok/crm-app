@@ -2,7 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import AppGridPage from 'components/AppPages/AppGridPage/AppGridPage';
 import { useSelector } from 'react-redux';
 import { getUserData } from 'redux/selectors';
-import { AppPages } from 'components/AppPages/AppPagesMap';
+import { AppPages } from 'components/AppPages';
 
 import MobileFooter from 'components/Layout/MobileFooter/MobileFooter';
 import DesktopFooter from 'components/Layout/DesktopFooter/DesktopFooter';

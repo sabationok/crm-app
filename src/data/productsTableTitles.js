@@ -3,8 +3,8 @@
 export const productsTableTitles = [
   {
     id: 1,
-    name: 'Артикул (SKU)',
-    dataTitle: 'sku',
+    title: 'Артикул (SKU)',
+    dataKey: 'sku',
     action: 'string',
     search: true,
     filter: false,
@@ -13,8 +13,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Створено/Оновлено',
-    dataTitle: 'createdAt/apdatedAt',
+    title: 'Створено/Оновлено',
+    dataKey: 'createdAt/apdatedAt',
     action: 'date',
     search: false,
     filter: true,
@@ -23,8 +23,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Статус',
-    dataTitle: 'approvedStatus',
+    title: 'Статус',
+    dataKey: 'approvedStatus',
     action: 'approvedStatus',
     search: false,
     filter: true,
@@ -33,8 +33,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Видимість',
-    dataTitle: 'visibilityStatus',
+    title: 'Видимість',
+    dataKey: 'visibilityStatus',
     action: 'visibilityStatus',
     search: false,
     filter: true,
@@ -43,8 +43,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Назва',
-    dataTitle: 'name',
+    title: 'Назва',
+    dataKey: 'name',
     action: 'string',
     search: true,
     filter: false,
@@ -53,8 +53,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Автор',
-    dataTitle: 'authorName',
+    title: 'Автор',
+    dataKey: 'authorName',
     action: 'string',
     search: true,
     filter: false,
@@ -63,8 +63,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'ID автора',
-    dataTitle: 'creator._id',
+    title: 'ID автора',
+    dataKey: 'authorId',
     action: 'string',
     search: true,
     filter: false,
@@ -73,8 +73,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Ціна',
-    dataTitle: 'price',
+    title: 'Ціна',
+    dataKey: 'price',
     action: 'number',
     search: true,
     filter: true,
@@ -83,8 +83,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Вартість',
-    dataTitle: 'cost',
+    title: 'Вартість',
+    dataKey: 'cost',
     action: 'number',
     search: true,
     filter: true,
@@ -93,8 +93,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Валюта',
-    dataTitle: 'currency',
+    title: 'Валюта',
+    dataKey: 'currency',
     action: 'string',
     search: true,
     filter: true,
@@ -103,8 +103,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Знижка',
-    dataTitle: 'sale',
+    title: 'Знижка',
+    dataKey: 'sale',
     action: 'number',
     search: true,
     filter: true,
@@ -113,8 +113,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Кешбек ID',
-    dataTitle: 'cashbackId',
+    title: 'Кешбек ID',
+    dataKey: 'cashbackId',
     action: 'number',
     search: true,
     filter: true,
@@ -123,8 +123,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Комісія, %',
-    dataTitle: 'commission',
+    title: 'Комісія, %',
+    dataKey: 'commission',
     action: 'number',
     search: true,
     filter: true,
@@ -133,8 +133,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Тип',
-    dataTitle: 'isCommission',
+    title: 'Тип',
+    dataKey: 'isCommission',
     action: 'typeStatus',
     search: false,
     filter: true,
@@ -143,8 +143,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Категорія',
-    dataTitle: 'categoryName',
+    title: 'Категорія',
+    dataKey: 'categoryName',
     action: 'category',
     search: true,
     filter: true,
@@ -153,8 +153,8 @@ export const productsTableTitles = [
   },
   {
     id: 1,
-    name: 'Наявність',
-    dataTitle: 'availability',
+    title: 'Наявність',
+    dataKey: 'availability',
     action: 'availabilityStatus',
     search: true,
     filter: true,
@@ -171,13 +171,13 @@ export const productsTableTitles = [
 //     transactionTime: '20.01.2023', // ?
 //     type: 'Дохід', // ? дохід/витрата/переказ
 //     countId: '_ID', // ?
-//     // countName: 'НАЗВА РАХУНКУ',
+//     // counttitle: 'НАЗВА РАХУНКУ',
 //     subCountId: '_ID', // ?
-//     // subCountName: 'НАЗВА СУБ-РАХУНКУ',
+//     // subCounttitle: 'НАЗВА СУБ-РАХУНКУ',
 //     categoryId: '', // ?
-//     // categoryName: '',
+//     // categorytitle: '',
 //     subCategoryId: '', // ?
-//     // subCategoryName: '',
+//     // subCategorytitle: '',
 //     document: '', // ? номер документу який підтверджує транзакцію
 //     project: 'ID', // ? прикріпити операція до якогось проекту
 //     provider: 'ID', // ? постачальник

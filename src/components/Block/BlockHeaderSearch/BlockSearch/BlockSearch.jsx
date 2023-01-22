@@ -87,7 +87,7 @@ const BlockSearch = props => {
                 <li
                   key={item.name}
                   className={s.selectItem}
-                  data-title={item.dataTitle}
+                  data-title={item.dataKey}
                   onClick={evt => {
                     onSearchParamClick({ evt, item });
                   }}

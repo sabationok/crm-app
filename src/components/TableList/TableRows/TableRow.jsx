@@ -21,15 +21,7 @@ import { getAppPageSettings } from 'redux/selectors';
 import s from './TableRow.module.scss';
 
 const TableRow = props => {
-  // const { priceIn, priceOut } = props.rowData;
-
-  // const prepearedData = {
-  //   priceIn,
-  //   priceOut,
-  //   difference: priceOut - priceIn,
-  // };
-
-  const { tableTitles = [], rowGrid } = useTable();
+  const { tableTitles = [], rowGrid, rowActions = true } = useTable();
   const [isActionsOpen, setIsActionsOpen] = useState(false);
   const { indexPage } = useSelector(getAppPageSettings);
   const navigate = useNavigate();
@@ -78,7 +70,6 @@ const TableRow = props => {
       const { target } = ev;
 
       if (!target.closest(`#row${props.idx}`)) {
-        console.log(`row${props.idx}`);
         setIsActionsOpen(false);
         window.removeEventListener('click', CloseRowActions);
       }
@@ -94,29 +85,33 @@ const TableRow = props => {
         <RowActions />
 
         <div style={styles} className={s.row}>
-          <div className={[s.rowStickyEl, 'listRow'].join(' ')}>
-            <CellActions />
+          {rowActions && (
+            <>
+              <div className={[s.rowStickyEl, 'listRow'].join(' ')}>
+                <CellActions />
 
-            <CellCheckBox />
-          </div>
+                <CellCheckBox />
+              </div>
+            </>
+          )}
 
-          {tableTitles.map((title, idx) => {
+          {tableTitles.map((item, idx) => {
             let CellComp = CellText;
 
-            if (CellsMap[title.action]) {
-              CellComp = CellsMap[title.action];
+            if (CellsMap[item.action]) {
+              CellComp = CellsMap[item.action];
 
               return (
-                <Cell key={title.name} title={title} idx={idx}>
-                  <CellComp title={title} idx={idx} onClick={handleOnRowClick} />
+                <Cell key={item.dataKey} title={item} idx={idx}>
+                  <CellComp title={item} idx={idx} onClick={handleOnRowClick} />
                 </Cell>
               );
             }
 
             CellComp = CellText;
             return (
-              <Cell key={title.name} title={title} idx={idx}>
-                <CellComp key={title.name} title={title} idx={idx} onClick={handleOnRowClick} />
+              <Cell key={item.dataKey} title={item} idx={idx}>
+                <CellComp title={item} idx={idx} onClick={handleOnRowClick} />
               </Cell>
             );
           })}

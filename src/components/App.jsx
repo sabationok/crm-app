@@ -34,8 +34,23 @@ export const App = () => {
     }
   }, [dispatch, isMobile, auth.token]);
 
+  useEffect(() => {
+    const body = document.querySelector('body');
+
+    if (isDarkTheme) {
+      body.classList.remove('Light');
+      body.classList.add('Dark');
+      return;
+    }
+    if (!isDarkTheme) {
+      body.classList.remove('Dark');
+      body.classList.add('Light');
+      return;
+    }
+  }, [isDarkTheme]);
+
   return (
-    <div className={[isDarkTheme ? s.appDark : s.app, isDarkTheme ? 'Dark' : 'Light'].join(' ')}>
+    <div className={isDarkTheme ? s.appDark : s.app}>
       <Layout>
         <Suspense fallback={<AppLoader isLoading={true} />}>
           <AppRoutes locationRef={locationRef} />

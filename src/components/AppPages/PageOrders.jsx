@@ -11,13 +11,14 @@ import { useParams } from 'react-router-dom';
 import { getOrderById } from 'redux/selectors';
 import { actionSetPageObjData } from 'redux/page/pageActions';
 import { toast } from 'react-toastify';
+import getBlockSettings from 'data/blocksSettings';
 
 const PageOrders = ({ path = 'orders' }) => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const order = useSelector(getOrderById(id));
 
-  const BlockOrderInfoSet = blocksSettings.find(el => el.name === blocksNames.BlockOrderInfo);
+  const BlockOrderInfoSet = getBlockSettings(blocksNames.BlockOrderInfo);
   const BlockOrdersListSet = blocksSettings.find(el => el.name === blocksNames.BlockOrdersList);
   const BlockOrderDeliveriesSet = blocksSettings.find(el => el.name === blocksNames.BlockOrderDeliveries);
 

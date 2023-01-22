@@ -5,14 +5,14 @@ import { postsMessages as messages } from 'data';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { actionDeletePost, actionTogglePostVisibility, actionApprovePost, actionRejectPost, actionArchivePost } from 'redux/posts/postsActions';
-import { getAppPageSettings, getPosts } from 'redux/selectors';
+import { getAppPageSettings, getAllPosts } from 'redux/selectors';
 import { productsTableTitles } from 'data/productsTableTitles';
 import { prepeareProductData } from 'data/products';
 import { toast } from 'react-toastify';
 
 import s from './BlockProductsList.module.scss';
 const BlockProductsList = props => {
-  const { posts } = useSelector(getPosts);
+  const posts = useSelector(getAllPosts);
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -109,9 +109,6 @@ const BlockProductsList = props => {
 
   const blockSettings = {
     className: s[pageGrid],
-    tableData: posts,
-    tableTitles: productsTableTitles,
-    prepeareRowData: prepeareProductData,
     togglePostVisibility,
     deleteAction,
     approvePostAction,
@@ -119,9 +116,14 @@ const BlockProductsList = props => {
     archivePostAction,
     ...props,
   };
+  const tableSettings = {
+    tableData: posts,
+    tableTitles: productsTableTitles,
+    prepeareRowData: prepeareProductData,
+  };
   return (
     <Block {...blockSettings}>
-      <TableList />
+      <TableList {...tableSettings} />
     </Block>
   );
 };

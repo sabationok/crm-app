@@ -16,10 +16,10 @@ const BlockRefundsList = props => {
     // deleteAction,
     ...props,
   };
-
+  const tableSettings = {};
   return (
     <Block {...blockSettings}>
-      <TableList />
+      <TableList {...tableSettings} />
     </Block>
   );
 };

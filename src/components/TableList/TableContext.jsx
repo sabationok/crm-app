@@ -3,52 +3,21 @@ import { useContext, createContext, useRef } from 'react';
 // import { useSelector } from 'react-redux';
 // import { selectPosts } from 'redux/selectors';
 // import { applyFounder } from 'components/BlockWithList/BlockUtils/founder';
-import { useBlock } from 'components/Block/BlockContext';
+// import { useBlock } from 'components/Block/BlockContext';
 import ts from './TableList.module.scss';
 
 export const TableCNTXT = createContext();
 export const useTable = () => useContext(TableCNTXT);
 
 const TableContext = ({ children, value }) => {
-  const { tableTitles = [], tableData = [], prepeareRowData } = useBlock();
+  const { tableTitles = [], tableData = [], prepeareRowData, rowActions = true } = value;
   const prevRowRef = useRef();
 
   const rowGrid = {
     display: 'grid',
 
-    gridTemplateColumns: `min-content repeat(${tableTitles.length}, min-content)`,
+    gridTemplateColumns: rowActions ? `min-content repeat(${tableTitles.length}, min-content)` : `repeat(${tableTitles.length}, min-content)`,
   };
-
-  // function createRowGrid(tableTitles, print) {
-  //   const tableCollWidth = tableTitles.map(el => el.width);
-  //   const rowGrid = {
-  //     display: 'grid',
-  //     gridTemplateColumns: `min-content ${tableCollWidth.join(' ')}`,
-  //     // gridTemplateColumns: `min-content repeat(${tableTitles.length}, 1fr)}`,
-  //   };
-  //   return rowGrid;
-  // }
-
-  // const { searchQuery, searchParam } = useSelector(selectPosts);
-  // const [tableDataCloned, setTableDateCloned] = useState([]);
-  // const [foundedPosts, setFoundedPosts] = useState([]);
-
-  // useEffect(() => {
-  //   if (tableData.length !== 0) {
-  //     setTableDateCloned(cloneDeep(tableData));
-  //     return;
-  //   }
-  // }, [tableData]);
-
-  // useEffect(() => {
-  //   setFoundedPosts(
-  //     applyFounder({
-  //       searchParam: searchParam,
-  //       searchQuery: searchQuery,
-  //       data: tableDataCloned,
-  //     })
-  //   );
-  // }, [searchParam, searchQuery, tableDataCloned]);
 
   return (
     <TableCNTXT.Provider

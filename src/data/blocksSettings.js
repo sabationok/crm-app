@@ -60,6 +60,7 @@ const actionsBlockOrderDelivery = [
   { id: 22, name: 'delete', title: 'Видалити', iconId: 'delete' },
   ...actionsShare,
 ];
+
 export const blocksSettings = [
   { name: blocksNames.BlockProductsList, fullPageMode: true, title: 'Список продуктів', iconId: 'list', actions: actionsWithFilter },
   { name: blocksNames.BlockProductInfo, fullPageMode: true, title: 'Деталі продукту', iconId: 'info', actions: actionsBlockProductInfo },
@@ -88,3 +89,5 @@ export const blocksSettings = [
 
   { name: blocksNames.BlockCategories, fullPageMode: true, title: 'Управління категоріями', iconId: 'folder' },
 ];
+const getBlockSettings = blockName => blocksSettings.find(el => el.name === blockName);
+export default getBlockSettings;

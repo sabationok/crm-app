@@ -5,13 +5,14 @@ import CellCheckBoxHead from '../TebleCells/CellCheckBoxHead';
 import { useTable } from '../TableContext';
 import s from './TableRow.module.scss';
 const TableHeadRow = () => {
-  const { tableTitles = [], rowGrid } = useTable();
+  const { tableTitles = [], rowGrid, rowActions = true } = useTable();
 
   const styles = {
     ...rowGrid,
   };
 
   const CellsMap = {
+    title: CellTitle,
     string: CellTitle,
     actions: CellTitle,
     checkbox: CellCheckBoxHead,
@@ -20,20 +21,22 @@ const TableHeadRow = () => {
   let Cell = CellTitle;
   return (
     <div style={styles} className={s.thRow}>
-      <div className={s.rowStickyEl}>
-        <CellTitle title={{ name: 'Дії' }} />
+      {rowActions && (
+        <div className={s.rowStickyEl}>
+          <CellTitle title={{ title: 'Дії' }} />
 
-        <CellCheckBoxHead />
-      </div>
+          <CellCheckBoxHead />
+        </div>
+      )}
 
-      {tableTitles.map((title, idx) => {
-        if (CellsMap[title.action]) {
-          Cell = CellsMap[title.action];
+      {tableTitles.map((item, idx) => {
+        if (CellsMap[item.action]) {
+          Cell = CellsMap[item.action];
 
-          return <Cell key={title.name} title={title} idx={idx} />;
+          return <Cell key={item.title} title={item} idx={idx} />;
         }
-        Cell = CellsMap.string;
-        return <Cell key={title.name} title={title} idx={idx} />;
+        Cell = CellsMap.title;
+        return <Cell key={item.title} title={item} idx={idx} />;
       })}
     </div>
   );
