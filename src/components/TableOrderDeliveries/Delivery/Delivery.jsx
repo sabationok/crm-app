@@ -1,6 +1,6 @@
 import DeliveryBottom from './DeliveryBottom/DeliveryBottom';
 
-import AccordeonItem from './AccordeonItem/AccordeonItem';
+import AccordeonItem from '../../TableInfoComponents/AccordeonItem/AccordeonItem';
 
 import s from './Delivery.module.scss';
 

@@ -18,6 +18,10 @@
     background-color: rgba(103, 202, 255, 0.3);
   }
 }
+.rowContainer,
+.thRow {
+  min-width: 100%;
+}
 .thRow,
 .row {
   display: grid;

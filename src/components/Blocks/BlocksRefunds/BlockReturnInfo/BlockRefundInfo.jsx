@@ -1,6 +1,6 @@
 import React from 'react';
 import Block from 'components/Block/Block';
-import RefundInfo from 'components/TableRefundInfo/RefundInfo';
+import RefundInfo from 'components/TableRefundInfo/RefundItemInfo';
 import BlockEmpty from 'components/Blocks/BlockEmpty/BlockEmpty';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';

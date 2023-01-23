@@ -1,6 +1,6 @@
 import React from 'react';
-import CellImg from '../OrderCells/CellImg';
-import CellFlex from '../OrderCells/CellFlex';
+import CellImg from '../../TableInfoComponents/Cells/CellImg';
+import CellFlex from '../../TableInfoComponents/Cells/CellFlex';
 import ComplectTable from '../ComplectTable/ComplectTable';
 
 import s from './OrderListItem.module.scss';

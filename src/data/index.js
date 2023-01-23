@@ -22,6 +22,8 @@ import { refundsMessages } from './refundsMessages';
 
 import getBlockSettings from './blocksSettings';
 
+import { refundsTableTitles } from './refundsTableTitles';
+
 export {
   initialUserInfo,
   productsTableTitles,
@@ -33,6 +35,7 @@ export {
   ordersMessages,
   postsMessages,
   refundsMessages,
+  refundsTableTitles,
   blocksSettings,
   blocksNames,
   userRoles,

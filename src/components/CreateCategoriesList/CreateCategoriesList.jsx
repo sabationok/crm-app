@@ -16,8 +16,8 @@ const CreateCategoriesList = () => {
   const { categories } = useSelector(getAllCategories);
 
   const ctx = {
-    categoriesArr: categories.filter(el => !el.isSection),
     sectionsArr: categories.filter(el => el.isSection),
+    categoriesArr: categories.filter(el => !el.isSection),
   };
 
   useEffect(() => {

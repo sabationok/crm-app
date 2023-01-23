@@ -1,4 +1,4 @@
-import CellGrid from '../OrderCells/CellGrid';
+import CellGrid from '../../TableInfoComponents/Cells/CellGrid';
 // import DateInfo from 'components/TableInfoComponents/DateInfo/DateInfo';
 // import Status from 'components/TableInfoComponents/Status/Status';
 import { useSelector } from 'react-redux';

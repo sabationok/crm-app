@@ -1,10 +1,11 @@
 import React from 'react';
 import Block from 'components/Block/Block';
+import TableList from 'components/TableList/TableList';
+import { refundsTableTitles } from 'data';
 import { useSelector } from 'react-redux';
 import { getAppPageSettings } from 'redux/selectors';
 
 import s from './BlockRefundsList.module.scss';
-import TableList from 'components/TableList/TableList';
 
 const BlockRefundsList = props => {
   const { pageGrid = 'gridFirst' } = useSelector(getAppPageSettings);
@@ -16,7 +17,9 @@ const BlockRefundsList = props => {
     // deleteAction,
     ...props,
   };
-  const tableSettings = {};
+  const tableSettings = {
+    tableTitles: refundsTableTitles,
+  };
   return (
     <Block {...blockSettings}>
       <TableList {...tableSettings} />

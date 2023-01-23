@@ -11,7 +11,7 @@ const AccordeonItem = ({ children, title = 'інфромація' }) => {
   }
   return (
     <div className={isOpen ? s.isOpenItem : s.isCloseItem}>
-      <ButtonIcon iconId="select-arrow" className={s.btn} iconClassName={s.icon} onClick={handleToggleOpen}>
+      <ButtonIcon iconId="select-arrow" className={s.btn} iconClassName={s.icon} onClick={handleToggleOpen} disabled={!children && true}>
         {title}
       </ButtonIcon>
 
