@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
-import ModalContent from 'components/ModalCustom/ModalContent/ModalContent';
+import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 
 import s from './InputImg.module.scss';
 
-const InputImg = ({ id, onChange, selectedFile = null, disabled = false, onDelete, onEdit, ...props }) => {
+const InputImg = ({ id, selectedFile = null, disabled = false, onDelete, onEdit, onZoomImg, ...props }) => {
   const [preview, setPreview] = useState();
-  function handleChangeInput(ev) {
-    if (onChange) {
-      onChange(ev);
-    }
-  }
+
+  const modaLContent = (
+    <div className={s.bigModalImgBox}>
+      <img className={s.bigModalImg} src={preview} alt={selectedFile?.name} />
+    </div>
+  );
+
   useEffect(() => {
     let fileReader,
       isCancel = false;
+
     fileReader = new FileReader();
+
     if (selectedFile) {
       fileReader.onload = ev => {
         const { result } = ev.target;
@@ -22,6 +26,7 @@ const InputImg = ({ id, onChange, selectedFile = null, disabled = false, onDelet
           setPreview(result);
         }
       };
+
       fileReader.readAsDataURL(selectedFile);
     }
     return () => {
@@ -35,24 +40,29 @@ const InputImg = ({ id, onChange, selectedFile = null, disabled = false, onDelet
   return (
     <>
       <div className={disabled ? s.inputImgNotActive : s.inputImg}>
-        <input
-          className="visually-hidden"
-          type="file"
-          id={id}
-          accept=".png, .jpg, .jpeg, .webp"
-          disabled={disabled || selectedFile}
-          onChange={handleChangeInput}
-          {...props}
-        />
+        <input className="visually-hidden" type="file" id={id} accept=".png, .jpg, .jpeg, .webp" disabled={disabled || selectedFile} {...props} />
         <label htmlFor={id} className={s.inputLabel}>
           {!selectedFile && <SvgIcon iconId="plus" size="40px" />}
 
           {preview && (
-            <ModalContent trigger={props => <img className={s.labelInnerImg} src={preview} alt={selectedFile?.name} {...props} />}>
-              <div className={s.bigModalImgBox}>
-                <img className={s.bigModalImg} src={preview} alt={selectedFile?.name} />
+            <>
+              <img className={s.labelInnerImg} src={preview} alt={selectedFile?.name} />
+
+              <div className={s.previewActions}>
+                {onZoomImg && (
+                  <ButtonIcon
+                    iconId="zoomPlus"
+                    iconSize="60%"
+                    className={s.actionBtn}
+                    onClick={ev => {
+                      onZoomImg(modaLContent);
+                    }}
+                  />
+                )}
+                {onEdit && <ButtonIcon iconId="edit" iconSize="60%" className={s.actionBtn} onClick={onEdit} />}
+                {onDelete && <ButtonIcon iconId="delete" iconSize="60%" className={s.actionBtn} onClick={onDelete} />}
               </div>
-            </ModalContent>
+            </>
           )}
         </label>
       </div>

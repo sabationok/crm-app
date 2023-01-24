@@ -1,12 +1,12 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 
-import s from './PrimaryInput.module.scss';
+// import s from './PrimaryInput.module.scss';
 
 const PrimaryInput = ({ label = 'input', disabled = false, placeholder = null, ...props }) => {
   return (
     <>
-      <TextField classes={s.dark} label={label} disabled={disabled} placeholder={placeholder} {...props} variant="standard" />
+      <TextField label={label} disabled={disabled} placeholder={placeholder} {...props} variant="standard" />
     </>
   );
 };

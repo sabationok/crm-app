@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import InputImg from '../Inputs/InputImg/InputImg';
 import FormPrimary from '../FormPrimary/FormPrimary';
 import { toast } from 'react-toastify';
 import { useNotify } from 'components/Notify/NotifyProvider';
-
+import { useModal } from 'components/Modal/ModalComponent';
 import { useDispatch } from 'react-redux';
 import { addPostImgsThunk } from 'redux/posts/postsThunks';
 
 import s from './FormProductImgs.module.scss';
 
 const imageMimeType = /image\/(png|jpg|jpeg|webp)/i;
+const initialState = [];
 
-const FormProductImgs = ({ formTitle = 'Form title', blockSettings }) => {
+const FormProductImgs = ({ blockSettings }) => {
   const dispatch = useDispatch();
-  const initialState = [];
   const { appNotify } = useNotify();
   const [formData, setFormData] = useState(initialState);
-  const [selectedFiles, setSelectedFiles] = useState(initialState);
+  // const [selectedFiles, setSelectedFiles] = useState(initialState);
   const [filesCount, setFilesCount] = useState(5);
+  const { handleToggleModal } = useModal();
 
   function handleChangeInput(ev) {
     const { files } = ev.target;
@@ -40,13 +41,13 @@ const FormProductImgs = ({ formTitle = 'Form title', blockSettings }) => {
 
       return file;
     });
-    setSelectedFiles([...selectedFiles, ...checkedFiles]);
+
+    setFormData([...formData, ...checkedFiles]);
 
     setFilesCount(prevFilesCount => {
       return prevFilesCount - formData.length;
     });
   }
-
   function handleFormSubmit(ev) {
     ev.preventDefault();
     console.log(formData, `submit data`);
@@ -70,18 +71,24 @@ const FormProductImgs = ({ formTitle = 'Form title', blockSettings }) => {
   function onEdit(file, idx) {
     console.log(file, 'for edit file');
   }
-  function onDelete(file, idx) {
-    console.log(file, 'for delete file');
+  function onDelete(file) {
+    const newFilesArr = formData.filter(el => el.name !== file.name);
+
+    setFormData(newFilesArr);
+
+    toast.success(`File "${file.name}" deleted`);
+  }
+  function onZoomImg(content) {
+    handleToggleModal(null, content);
   }
 
-  useEffect(() => {
-    if (selectedFiles.length > 0) {
-      const filterdSelectedFiles = selectedFiles.filter(file => file ?? file);
-      console.log(filterdSelectedFiles);
+  // useEffect(() => {
+  //   if (selectedFiles.length > 0) {
+  //     const filterdSelectedFiles = selectedFiles.filter(file => file ?? file);
 
-      setFormData([...filterdSelectedFiles]);
-    }
-  }, [selectedFiles, selectedFiles.length]);
+  //     setFormData([...filterdSelectedFiles]);
+  //   }
+  // }, [selectedFiles, selectedFiles.length]);
 
   return (
     <FormPrimary
@@ -101,8 +108,9 @@ const FormProductImgs = ({ formTitle = 'Form title', blockSettings }) => {
               id={file.name}
               selectedFile={file}
               onChange={handleChangeInput}
-              onDelete={onDelete}
-              onEdit={onEdit}
+              onDelete={() => onDelete(file)}
+              onEdit={() => onEdit(file)}
+              onZoomImg={onZoomImg}
             />
           ))}
         {formData.length <= 4 && <InputImg name="img" id="img1" onChange={handleChangeInput} multiple />}
