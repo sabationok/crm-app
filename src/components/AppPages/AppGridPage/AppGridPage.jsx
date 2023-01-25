@@ -23,6 +23,7 @@ const AppGridPage = ({ path }) => {
       <div className={s[path] || s.pageGrid}>
         <Outlet />
       </div>
+
       <DesktopFooter />
       <MobileFooter path={path} />
     </>

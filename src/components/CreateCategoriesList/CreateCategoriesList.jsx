@@ -13,7 +13,7 @@ export const useSectionsList = () => useContext(SectionsListContext);
 const CreateCategoriesList = () => {
   const dispatch = useDispatch();
   const { isDarkTheme } = useSelector(getAppSettings);
-  const { categories } = useSelector(getAllCategories);
+  const categories = useSelector(getAllCategories);
 
   const ctx = {
     sectionsArr: categories.filter(el => el.isSection),

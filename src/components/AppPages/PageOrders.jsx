@@ -1,9 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import PageProvider from './PageProvider';
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 import { BlockOrdersList, BlockOrderInfo, BlockOrderTTN } from 'components/Blocks';
-import { blocksNames, blocksSettings } from 'data';
+import { blocksNames, getBlockSettings } from 'data';
 import { useDispatch } from 'react-redux';
 import { actionSetPageGridChange } from 'redux/page/pageActions';
 import { useSelector } from 'react-redux';
@@ -11,16 +11,14 @@ import { useParams } from 'react-router-dom';
 import { getOrderById } from 'redux/selectors';
 import { actionSetPageObjData } from 'redux/page/pageActions';
 import { toast } from 'react-toastify';
-import getBlockSettings from 'data/blocksSettings';
 
 const PageOrders = ({ path = 'orders' }) => {
+  const [BlockOrdersListSet] = useState(getBlockSettings(blocksNames.OrderInfo));
+  const [BlockOrderInfoSet] = useState(getBlockSettings(blocksNames.OrdersList));
+  const [BlockOrderDeliveriesSet] = useState(getBlockSettings(blocksNames.OrderDeliveries));
   const dispatch = useDispatch();
   const { id } = useParams();
   const order = useSelector(getOrderById(id));
-
-  const BlockOrderInfoSet = getBlockSettings(blocksNames.BlockOrderInfo);
-  const BlockOrdersListSet = blocksSettings.find(el => el.name === blocksNames.BlockOrdersList);
-  const BlockOrderDeliveriesSet = blocksSettings.find(el => el.name === blocksNames.BlockOrderDeliveries);
 
   const BlocksMap = {
     orders: <BlockOrdersList {...BlockOrdersListSet} />,
@@ -52,9 +50,9 @@ const PageOrders = ({ path = 'orders' }) => {
     <>
       <PageProvider {...ctx}>
         <MinTabletXl>
-          <BlockOrdersList {...BlockOrdersListSet} />
-          <BlockOrderInfo {...BlockOrderInfoSet} />
-          <BlockOrderTTN {...BlockOrderDeliveriesSet} />
+          {BlocksMap.orders}
+          {BlocksMap.order}
+          {BlocksMap.deliveries}
         </MinTabletXl>
         <MaxToTablet>{path ? BlocksMap[path] : BlocksMap.orders}</MaxToTablet>
       </PageProvider>

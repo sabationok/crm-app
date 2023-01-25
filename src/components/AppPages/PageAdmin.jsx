@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import PageProvider from './PageProvider';
 
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 import { BlockAdmin, BlockManagers, BlockVendors, BlockAdminRules, BlockAdminSettings, BlockUsers } from 'components/Blocks';
+import { blocksNames, getBlockSettings } from 'data';
 
 const PageAdmin = ({ path }) => {
-  const BlockAuthSet = { iconId: 'persons', title: 'Керування користувачами' };
+  const [BlockUsersSet] = useState(getBlockSettings(blocksNames.AdminUsers));
+  const [BlockRulesSet] = useState(getBlockSettings(blocksNames.AdminRules));
 
-  const blocksMap = {
+  const BlocksMap = {
+    users: <BlockUsers {...BlockUsersSet} />,
+    roles: <BlockAdminRules {...BlockRulesSet} />,
     admin: <BlockAdmin />,
     managers: <BlockManagers />,
     vendors: <BlockVendors />,
-    users: <BlockUsers {...BlockAuthSet} />,
-    roles: <BlockAdminRules />,
     settings: <BlockAdminSettings />,
   };
 
@@ -21,14 +23,14 @@ const PageAdmin = ({ path }) => {
     <>
       <PageProvider>
         <MinTabletXl>
-          <BlockAdminSettings />
-          <BlockAdmin />
-          <BlockManagers />
-          <BlockVendors />
-          <BlockAdminRules />
-          <BlockUsers {...BlockAuthSet} />
+          {BlocksMap.users}
+          {BlocksMap.roles}
+          {BlocksMap.admin}
+          {BlocksMap.managers}
+          {BlocksMap.vendors}
+          {BlocksMap.settings}
         </MinTabletXl>
-        <MaxToTablet>{path ? blocksMap[path] : blocksMap.admin}</MaxToTablet>
+        <MaxToTablet>{path ? BlocksMap[path] : BlocksMap.admin}</MaxToTablet>
       </PageProvider>
     </>
   );

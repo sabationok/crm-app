@@ -22,7 +22,7 @@ const RefundInspection = () => {
         </div>
       </AccordeonItem>
 
-      <AccordeonItem title="Оброблення запиту">{/* <div className={s.itemIncomeImgs}></div> */}</AccordeonItem>
+      <AccordeonItem title="Деталі запиту">{/* <div className={s.itemIncomeImgs}></div> */}</AccordeonItem>
 
       <AccordeonItem title="Прийняття рішення">
         <FormRefundInspection />

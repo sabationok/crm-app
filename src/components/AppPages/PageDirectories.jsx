@@ -1,14 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { MinTabletXl, MaxToTablet } from 'components/DeviceTypeInformer/DeviceTypeController';
 import { BlockMenageCategories } from 'components/Blocks';
-import { blocksNames, blocksSettings } from 'data';
+import { blocksNames, getBlockSettings } from 'data';
 import { useDispatch } from 'react-redux';
 import { actionSetPageGridChange } from 'redux/page/pageActions';
 
 const PageSettings = ({ path = 'categories' }) => {
   const dispatch = useDispatch();
-  const BlockCategoriesSet = blocksSettings.find(el => el.name === blocksNames.BlockCategories);
+  const [BlockCategoriesSet] = useState(getBlockSettings(blocksNames?.Categories));
 
   const BlocksMap = {
     categories: <BlockMenageCategories {...BlockCategoriesSet} />,
@@ -24,9 +24,7 @@ const PageSettings = ({ path = 'categories' }) => {
 
   return (
     <>
-      <MinTabletXl>
-        <BlockMenageCategories {...BlockCategoriesSet} />
-      </MinTabletXl>
+      <MinTabletXl>{BlocksMap.categories}</MinTabletXl>
       <MaxToTablet>{path ? BlocksMap[path] : BlocksMap.categories}</MaxToTablet>
     </>
   );

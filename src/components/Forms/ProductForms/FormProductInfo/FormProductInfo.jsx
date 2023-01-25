@@ -4,10 +4,10 @@ import { toast } from 'react-toastify';
 // import { getUserData } from 'redux/selectors';
 import { initialState } from '../../../../data/products';
 import { useModal } from 'components/ModalCustom/ModalCustom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addPostThunk, editPostThunk } from 'redux/posts/postsThunks';
 import { useParams } from 'react-router-dom';
-import { usePage } from 'components/AppPages/PageProvider';
+import { getPageObjData } from 'redux/selectors';
 import FormPrimary from '../../FormPrimary/FormPrimary';
 import PriceField from './PriceField/PriceField';
 import InputTextarea from 'components/Forms/Inputs/InputTextarea/InputTextarea';
@@ -19,7 +19,7 @@ import SelectCategory from './SelectCategory/SelectCategory';
 import s from './FormProductInfo.module.scss';
 
 const FormProductInfo = ({ edit = false, create = false, copy = false, blockSettings }) => {
-  const { post } = usePage();
+  const post = useSelector(getPageObjData);
   const { id } = useParams();
   const { prepareRowData, prepareSubmitData } = useBlock();
   const { handleToggleModal } = useModal();

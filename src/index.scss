@@ -125,7 +125,7 @@ button {
   }
   ::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 6px;
+    // border-radius: 6px;
   }
   ::-webkit-scrollbar-thumb:active {
     background-color: var(--brand_clr__1);
@@ -136,51 +136,4 @@ button {
   ::-webkit-scrollbar-corner {
     background-color: rgba(0, 0, 0, 0.3);
   }
-}
-
-.Dark {
-  color: #fff;
-  fill: #fff;
-
-  & .theme {
-    color: #fff;
-    fill: #fff;
-    background-color: var(--brand_clr__2);
-  }
-  & .listRow {
-    color: #fff;
-    fill: #fff;
-    background-color: var(--brand_clr__4);
-  }
-}
-.Light {
-  color: var(--brand_clr__2);
-  fill: var(--brand_clr__2);
-  background-color: #fff;
-  & .theme {
-    color: var(--brand_clr__2);
-    fill: var(--brand_clr__2);
-    background-color: var(--brand_clr__2_light);
-  }
-  & .listRow {
-    color: var(--brand_clr__2);
-    fill: var(--brand_clr__2);
-    background-color: #fff;
-  }
-  & .slick-prev:before,
-  & .slick-next:before {
-    color: var(--brand_clr__2);
-  }
-}
-
-// & .slick-prev:before,
-// & .slick-next:before {
-// }
-/* // bimp
-// --scrollbar-top-offset: 0px;
-// --scrollbar-bottom-offset: 0px;
-// --scrollbar-left-offset: 0px;
-// --scrollbar-right-offset: 0px; */
-.css-1ptx2yq-MuiInputBase-root-MuiInput-root:after {
-  border-bottom: 2px solid var(--brand_clr__1);
 }

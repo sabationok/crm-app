@@ -37,41 +37,39 @@
 
   position: relative;
 
-  min-height: 100px;
-  max-height: 120px;
-  min-width: 100px;
+  min-height: 120px;
+  max-height: 150px;
+  min-width: 120px;
   max-width: 120px;
   color: inherit;
 
   background-color: inherit;
 
   transition: all var(--timing-function__main);
+
+  &:hover {
+    & .previewActions {
+    }
+  }
 }
 
 .previewActions {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  grid-template-rows: 40px;
 
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
 
   width: 100%;
-  height: 100%;
-
-  // visibility: hidden;
-  opacity: 0;
-  // pointer-events: none;
+  height: 40px;
 
   z-index: 10;
-  &:hover {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: all;
 
-    background-color: rgba(0, 0, 0, 0.3);
-  }
+  // background-color: rgba(0, 0, 0, 0.3);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3494397759103641) 100%);
 }
 .actionBtn {
   fill: #fff;
@@ -96,13 +94,13 @@
 .labelInnerImg {
   display: block;
 
-  min-height: 70px;
-  width: 70px;
+  height: 100%;
+  width: 100%;
 }
 .bigModalImgBox {
   max-height: 100%;
   min-width: 250px;
-  width: 400px;
+  width: 600px;
   max-width: 100%;
 
   overflow: hidden;

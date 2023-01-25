@@ -1,5 +1,5 @@
 .background {
-  width: 100%;
+  min-width: 100%;
   background-color: rgba(222, 222, 222, 0.2);
 }
 .InspectionForm {
@@ -11,13 +11,16 @@
 
   padding: 8px;
   margin: 0 auto;
-  width: max-content;
 
+  min-width: 200px;
+  width: 100%;
+  max-width: 320px;
   & .inputs {
     display: flex;
     flex-direction: column;
-    width: 250px;
     gap: 8px;
+
+    width: 100%;
   }
 }
 .outImgs {
@@ -26,7 +29,7 @@
   justify-content: center;
   gap: 8px;
 
-  width: 250px;
+  width: 100%;
 }
 .buttons {
   display: flex;

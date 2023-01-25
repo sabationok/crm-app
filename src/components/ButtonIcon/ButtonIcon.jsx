@@ -9,7 +9,7 @@ const ButtonIcon = ({
   size = '',
   title = '',
   styles = {},
-  styleType = '',
+  styleType = 'Primary',
   className = '',
   iconId = '',
   iconSize = '18px',
@@ -19,7 +19,6 @@ const ButtonIcon = ({
   endIconSize = '18px',
   endIconStyles = {},
   endIconClassName = '',
-  // PrimaryBtn
   onClick,
   ...props
 }) => {
