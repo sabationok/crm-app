@@ -34,7 +34,7 @@ const AllUsersList = () => {
 
   return (
     <>
-      <BlockSimple className={s.usersListBlock}>
+      <BlockSimple className={s.usersListBlock} {...{ iconId: 'list', title: 'Список користувачів' }}>
         <TableList {...tableSettings} />
       </BlockSimple>
     </>
