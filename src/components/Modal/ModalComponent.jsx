@@ -42,8 +42,6 @@ const ModalComponent = ({ children, portal = 'modal' }) => {
   }
 
   useEffect(() => {
-    window.addEventListener('keydown', handleToggleModalByEsc);
-
     function handleToggleModalByEsc(evt) {
       let { code } = evt;
 
@@ -58,6 +56,7 @@ const ModalComponent = ({ children, portal = 'modal' }) => {
 
     if (modalContent) {
       document.querySelector('body').classList.add('NotScroll');
+      window.addEventListener('keydown', handleToggleModalByEsc);
     }
 
     return () => {
