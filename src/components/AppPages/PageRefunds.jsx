@@ -14,7 +14,7 @@ import { getRefundById } from 'redux/selectors';
 const PageRefunds = ({ path = 'refunds' }) => {
   const [BlockRefundInfoSet] = useState(getBlockSettings(blocksNames.RefundInfo));
   const [BlockRefundsListSet] = useState(getBlockSettings(blocksNames.RefundsList));
-  const [BlockRefundInspectionSet] = useState(blocksNames.RefundInspect);
+  const [BlockRefundInspectionSet] = useState(getBlockSettings(blocksNames.RefundInspect));
   const dispatch = useDispatch();
   const { id } = useParams();
   const refund = useSelector(getRefundById(id));

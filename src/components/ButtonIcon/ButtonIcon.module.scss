@@ -24,10 +24,10 @@
   transition: all var(--timing-function__main);
 
   &:hover {
-    background-color: var(--btn_bckgrnd-color-hover);
+    // background-color: var(--btn_bckgrnd-color-hover);
   }
   &:active {
-    background-color: var(--btn_bckgrnd-color-active);
+    // background-color: var(--btn_bckgrnd-color-active);
   }
 
   &:disabled {
@@ -97,6 +97,7 @@
   color: var(--clr-error);
   fill: var(--clr-error);
 
+  background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
   &:hover {

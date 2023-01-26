@@ -1,0 +1,14 @@
+.imgsIn {
+  padding: 8px;
+
+  min-width: 100%;
+}
+.imgsGrid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ImgBox {
+  width: 150px;
+}

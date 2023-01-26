@@ -4,8 +4,8 @@ import { registerUserThunk, registerUserByAdminThunk, logInUserThunk, logOutUser
 import { initialUserInfo } from 'data/users';
 
 const initialState = {
-  user: initialUserInfo,
-  token: '',
+  user: { ...initialUserInfo, status: 'ACTIVE', role: 'ADMIN' },
+  token: 'drtjfgh',
   isLoading: false,
   isLoggedIn: true,
   error: null,

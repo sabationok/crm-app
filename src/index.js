@@ -9,7 +9,6 @@ import AppNotifyProvider from 'components/Notify/NotifyProvider';
 import ModalComponent from './components/Modal/ModalComponent';
 
 import './index.scss';
-import './index.css';
 import 'react-toastify/dist/ReactToastify.css';
 import './iconFonts/iconFonts.css';
 import 'slick-carousel/slick/slick.css';
@@ -28,5 +27,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </BrowserRouter>
     </PersistGate>
   </Provider>
-  //  </React.StrictMode>
+  // </React.StrictMode>
 );

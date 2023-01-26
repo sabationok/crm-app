@@ -1,15 +1,20 @@
 import React from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
-import { statusName, statusIconId } from 'data/constants';
+import { statusData } from 'data';
+
 import s from './Status.module.scss';
-const Status = ({ status }) => {
-  const compStatus = statusName[status] && statusIconId[status] ? status : 'default';
-  const className = [s.statusBox, s[compStatus]].join(' ');
+const Status = ({ status, icon = true }) => {
+  const className = [s.statusBox, s[status] || s.default].join(' ');
 
   return (
     <div className={className}>
-      {statusIconId[status] && <SvgIcon iconId={statusIconId[compStatus]} size="18px" />}
-      <span>{statusName[compStatus]}</span>
+      {icon && (
+        <>
+          <SvgIcon iconId={statusData?.iconId[status] || 'info'} size="18px" />
+        </>
+      )}
+
+      <span>{statusData?.name[status] || 'default'}</span>
     </div>
   );
 };

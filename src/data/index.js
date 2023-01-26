@@ -2,7 +2,7 @@ import * as productsTableTitles from './productsTableTitles';
 
 import * as productData from './products';
 
-import * as stockData from './stockData';
+import * as stockData from './stock.data';
 
 import * as ordersData from './orders';
 
@@ -11,6 +11,7 @@ import { userRoles, userStatus } from './users';
 import { pagesRoutes, mobilePageRoutes } from './pagesRoutes';
 
 import { blocksSettings, blocksNames } from './blocksSettings';
+import getBlockSettings from './blocksSettings';
 
 import { ordersMessages } from './ordersMessages';
 
@@ -20,10 +21,11 @@ import { initialUserInfo } from './users';
 
 import { refundsMessages } from './refundsMessages';
 
-import getBlockSettings from './blocksSettings';
-
 import { refundsTableTitles } from './refundsTableTitles';
 
+import { statusData } from './status.data';
+
+import imgs from './photo';
 export {
   initialUserInfo,
   productsTableTitles,
@@ -40,5 +42,7 @@ export {
   blocksNames,
   userRoles,
   userStatus,
+  imgs,
+  statusData,
   getBlockSettings,
 };

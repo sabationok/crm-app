@@ -1,6 +1,6 @@
 import React from 'react';
 import SvgIcon from 'components/SvgIcon/SvgIcon';
-import { statusName, statusIconId } from 'data/constants';
+import { statusName, statusIconId } from 'data/status.data';
 
 import s from './Status.module.scss';
 const Status = ({ status }) => {
