@@ -12,7 +12,6 @@ import { getCurrentUserThunk } from 'redux/auth/auth.thunks';
 import { baseURL } from 'services/baseApi';
 
 import s from './App.module.scss';
-import { actionLogInUser } from 'redux/auth/auth.actions';
 
 export const App = () => {
   const dispatch = useDispatch();

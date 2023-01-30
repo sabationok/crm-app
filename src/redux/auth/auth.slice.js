@@ -12,7 +12,6 @@ export const authSlice = createSlice({
       state.isLoading = false;
       state.isLoggedIn = true;
       state = registeredUserAuthInfo;
-      console.log(state);
     },
     [actionLogOutUser]: (state, action) => {
       state.isLoading = false;
@@ -40,6 +39,35 @@ export const authSlice = createSlice({
     },
     [registerUserByAdminThunk.rejected]: (state, action) => {
       state.isLoading = false;
+      state.error = action.payload;
+    },
+    //* ВХІД
+    [logInUserThunk.fulfilled]: (state, { payload }) => {
+      state.isLoading = false;
+      state.isLoggedIn = true;
+      state.token = payload.access_token;
+    },
+    [logInUserThunk.pending]: (state, { payload }) => {
+      state.isLoading = true;
+    },
+    [logInUserThunk.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.isLoggedIn = false;
+      state.error = action.payload;
+    },
+
+    //* ВИХІД
+    [logOutUserThunk.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.isLoggedIn = false;
+      state.user = initialUserAuthInfo.user;
+      state.token = null;
+    },
+    [logOutUserThunk.pending]: (state, action) => {
+      state.isLoading = true;
+    },
+    [logOutUserThunk.rejected]: (state, action) => {
+      state.isLoading = true;
       state.error = action.payload;
     },
     //* ПОТОЧНИЙ ЮЗЕР

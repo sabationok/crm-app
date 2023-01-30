@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect } from 'react';
 import SectionItem from './SectionItem/SectionItem';
 import FormCreateSection from './FormCreateSection/FormCreateSection';
 import { useDispatch, useSelector } from 'react-redux';
-import { categoriesSelector, getAllCategories, getAppSettings } from 'redux/selectors';
+import { categoriesSelector, getAppSettings } from 'redux/selectors';
 import { getAllCategoriesThunk } from 'redux/categories/categories.thunks';
 
 import s from './CreateCategoriesList.module.scss';
