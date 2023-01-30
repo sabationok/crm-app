@@ -5,7 +5,7 @@ import {
   addCategoryThunk,
   deleteCategoryThunk,
   editCategoryThunk,
-} from 'redux/categories/categoriesThunks';
+} from 'redux/categories/categories.thunks';
 const initialState = {
   isLoading: false,
   error: null,
@@ -35,7 +35,7 @@ export const categoriesSlice = createSlice({
 
     [addCategoryThunk.fulfilled]: (state, action) => {
       state.isloading = false;
-      state.categories.push(action.payload.data);
+      state.categories.unshift(action.payload.data);
     },
     [addCategoryThunk.pending]: (state, action) => {
       state.isloading = true;
@@ -52,10 +52,9 @@ export const categoriesSlice = createSlice({
     [editCategoryThunk.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       const index = state.categories.findIndex(el => el._id === payload.data._id);
-
       state.categories[index] = { ...payload.data };
 
-      console.log(index, state.categories[index].isArchived);
+      // console.log(index, state.categories[index].isArchived);
     },
     [editCategoryThunk.pending]: (state, action) => {},
     [editCategoryThunk.rejected]: (state, action) => {},

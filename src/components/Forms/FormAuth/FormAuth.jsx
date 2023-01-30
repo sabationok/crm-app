@@ -1,7 +1,7 @@
 import PrimaryInput from 'components/Forms/Inputs/PrimaryInput/PrimaryInput';
 import FormPrimary from '../FormPrimary/FormPrimary';
 import { useDispatch } from 'react-redux';
-import { registerUserThunk, logInUserThunk, registerUserByAdminThunk } from 'redux/auth/authThunks';
+import { registerUserThunk, logInUserThunk, registerUserByAdminThunk } from 'redux/auth/auth.thunks';
 import { toast } from 'react-toastify';
 import { Button } from '@mui/material';
 import { useState } from 'react';

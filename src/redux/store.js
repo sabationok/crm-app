@@ -5,11 +5,11 @@ import { combineReducers } from '@reduxjs/toolkit';
 // import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 
 import { appPageSlice } from './page/pageSlice';
-import { authSlice } from './auth/authSlice';
+import { authSlice } from './auth/auth.slice';
 import { usersSlice } from './users/usersSlice';
 import { appSettingsSlice } from './appSettings/appSettingsSlice';
 import { appNotifySlice } from './notifications/notificationsSlice';
-import { categoriesSlice } from './categories/categoriesSlice';
+import { categoriesSlice } from './categories/categories.slice';
 import { refundsSlice } from './refunds/refundsSlice';
 import { ordersSlice } from './orders/ordersSlice';
 import { postsSlice } from './posts/postsSlice';

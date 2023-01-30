@@ -3,15 +3,16 @@ import Layout from './Layout/Layout';
 import AppLoader from './AppLoader/AppLoader';
 import AppRoutes from './AppRoutes/AppRoutes';
 import MyDevice from './DeviceTypeInformer/MyDevice';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAppSettings } from 'redux/selectors';
 import { useMediaQuery } from 'react-responsive';
 import { getUserData } from 'redux/selectors';
-import { getCurrentUserThunk } from 'redux/auth/authThunks';
+import { getCurrentUserThunk } from 'redux/auth/auth.thunks';
 import { baseURL } from 'services/baseApi';
 
 import s from './App.module.scss';
+import { actionLogInUser } from 'redux/auth/auth.actions';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -21,16 +22,20 @@ export const App = () => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   useEffect(() => {
-    if (auth.token && window.location.hostname !== 'localhost') {
-      dispatch(getCurrentUserThunk());
-    }
-
-    // if (auth.token) {
-    //   dispatch(getCurrentUserThunk());
-    // }
-
+    const payload = {
+      submitData: {},
+      onSuccess: _data => {},
+      onError: error => {
+        console.log(error);
+        toast.error(`${error?.message}`);
+      },
+    };
     if (window.location.hostname !== 'localhost') {
       baseURL.setRailWay();
+    }
+
+    if (auth.token && window.location.hostname !== 'localhost') {
+      dispatch(getCurrentUserThunk(payload));
     }
   }, [dispatch, isMobile, auth.token]);
 

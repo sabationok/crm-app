@@ -6,11 +6,13 @@ import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
 import { useModal } from 'components/ModalCustom/ModalCustom';
 import { useForm } from 'components/Forms/FormPrimary/FormPrimary';
 import { useDispatch } from 'react-redux';
-import { getAllCategoriesThunk } from 'redux/categories/categoriesThunks';
+import { getAllCategoriesThunk } from 'redux/categories/categories.thunks';
 import { useSelector } from 'react-redux';
-import { getAllCategories, getAppSettings } from 'redux/selectors';
+import { categoriesSelector } from 'redux/selectors';
 
 import s from './SectionsList.module.scss';
+import AppLoader from 'components/AppLoader/AppLoader';
+import { toast } from 'react-toastify';
 
 export const SectionsListContext = createContext();
 export const useSectionsList = () => useContext(SectionsListContext);
@@ -26,8 +28,7 @@ const initialState = {
 
 const SectionsList = () => {
   const dispatch = useDispatch();
-  const { isDarkTheme } = useSelector(getAppSettings);
-  const { categories } = useSelector(getAllCategories);
+  const { categories = [], error, isLoading } = useSelector(categoriesSelector);
   const { onFormStateChange } = useForm();
   const { handleToggleModal } = useModal();
   const [selectedCategory, setSelectedCategory] = useState(initialState);
@@ -55,11 +56,21 @@ const SectionsList = () => {
   };
 
   useEffect(() => {
-    dispatch(getAllCategoriesThunk());
+    const payload = {
+      submitData: {},
+      onSuccess: response => {
+        console.log(response);
+      },
+      onError: error => {
+        toast.error(`${error.message}`);
+      },
+    };
+    dispatch(getAllCategoriesThunk(payload));
   }, [dispatch]);
 
   return (
     <>
+      <AppLoader {...{ isLoading }} />
       <SectionsListContext.Provider value={{ ...ctx }}>
         <BlockSimple
           title="Оберіть категорію"
@@ -77,11 +88,19 @@ const SectionsList = () => {
             </div>
           }
         >
-          <ul className={[s.sectionsList, isDarkTheme ? s.Dark : s.Light].join(' ')}>
-            {sectionsArr.map(item => (
-              <SectionItem key={item?._id} {...{ item }} />
-            ))}
-          </ul>
+          {sectionsArr.length === 0 ? (
+            <div className={s.wrapper}>
+              <span className={error ? s.error : s.empty}>
+                <>{error ? error : `Секції та категорії відсутні`}</>
+              </span>
+            </div>
+          ) : (
+            <>
+              {sectionsArr.map(item => (
+                <SectionItem key={item?._id} {...{ item }} />
+              ))}
+            </>
+          )}
         </BlockSimple>
       </SectionsListContext.Provider>
     </>

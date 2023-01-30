@@ -18,6 +18,7 @@ import { ordersMessages } from './ordersMessages';
 import { postsMessages } from './postsMessages';
 
 import { initialUserInfo } from './users';
+import { initialUserAuthInfo, registeredUserAuthInfo } from './users.data';
 
 import { refundsMessages } from './refundsMessages';
 
@@ -28,6 +29,8 @@ import { statusData } from './status.data';
 import imgs from './photo';
 export {
   initialUserInfo,
+  initialUserAuthInfo,
+  registeredUserAuthInfo,
   productsTableTitles,
   pagesRoutes,
   mobilePageRoutes,
