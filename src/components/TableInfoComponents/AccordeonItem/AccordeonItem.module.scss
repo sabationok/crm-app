@@ -4,34 +4,39 @@
   grid-template-columns: 1fr;
   grid-template-rows: max-content 1fr;
 
-  border-top: 1px solid var(--tr-brdr-clr__primary);
+  min-height: 40px;
+  max-height: 40px;
+  overflow: hidden;
+  // overflow: auto;
 
-  max-height: 100%;
+  border-top: 1px solid var(--tr-brdr-clr__primary);
+  transition: all var(--timing-function__main);
   &:last-child {
     border-bottom: 1px solid var(--tr-brdr-clr__primary);
   }
 }
 .isOpenItem {
   overflow: visible;
+  max-height: 100%;
   & .btn {
     color: var(--brand_clr__2);
     fill: var(--brand_clr__2);
 
-    background-color: rgba(254, 254, 254, 0.9);
+    background-color: rgba(254, 254, 254, 0.6);
   }
   & .icon {
     transform: rotate(0deg);
   }
-  & .contentBox {
-    max-height: 100%;
-  }
+  // & .contentBox {
+  //   max-height: 100%;
+  // }
 }
 
 .isCloseItem {
 }
 .contentBox {
   position: relative;
-  max-height: 0px;
+  // max-height: 0px;
   overflow: hidden;
 
   transition: all var(--timing-function__main);
@@ -39,7 +44,7 @@
 .content {
   max-height: 100%;
   max-width: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .btn {

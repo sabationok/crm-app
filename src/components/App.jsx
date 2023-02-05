@@ -16,8 +16,8 @@ import s from './App.module.scss';
 export const App = () => {
   const dispatch = useDispatch();
   const auth = useSelector(getUserData);
-  const locationRef = useRef();
   const { isDarkTheme } = useSelector(getAppSettings);
+  const locationRef = useRef();
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
   useEffect(() => {

@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import ButtonIcon from 'components/ButtonIcon/ButtonIcon';
+// import { iconId } from 'data';
 
 import s from './AccordeonItem.module.scss';
 
-const AccordeonItem = ({ children, title = 'інфромація', toggled = true, open = false }) => {
+const AccordeonItem = ({ children, title = 'Інформація', toggled = true, open = false }) => {
   const [isOpen, setIsOpen] = useState(open);
 
   function handleToggleOpen() {
@@ -12,10 +13,10 @@ const AccordeonItem = ({ children, title = 'інфромація', toggled = tru
   return (
     <div className={isOpen ? s.isOpenItem : s.isCloseItem}>
       <ButtonIcon
-        iconId={toggled && 'select-arrow'}
+        iconId={toggled && ''}
         className={s.btn}
         iconClassName={s.icon}
-        onClick={toggled ? handleToggleOpen : () => {}}
+        onClick={toggled ? handleToggleOpen : null}
         disabled={!children && true}
       >
         {title}
