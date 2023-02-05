@@ -13,8 +13,8 @@ import { actionSetPageObjData } from 'redux/page/pageActions';
 import { toast } from 'react-toastify';
 
 const PageOrders = ({ path = 'orders' }) => {
-  const [BlockOrdersListSet] = useState(getBlockSettings(blocksNames.OrderInfo));
-  const [BlockOrderInfoSet] = useState(getBlockSettings(blocksNames.OrdersList));
+  const [BlockOrdersListSet] = useState(getBlockSettings(blocksNames.OrdersList));
+  const [BlockOrderInfoSet] = useState(getBlockSettings(blocksNames.OrderInfo));
   const [BlockOrderDeliveriesSet] = useState(getBlockSettings(blocksNames.OrderDeliveries));
   const dispatch = useDispatch();
   const { id } = useParams();

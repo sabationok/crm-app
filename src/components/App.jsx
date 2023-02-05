@@ -74,7 +74,7 @@ export const App = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark"
+        theme={isDarkTheme ? 'light' : 'dark'}
       />
     </div>
   );
