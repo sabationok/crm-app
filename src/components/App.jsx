@@ -5,9 +5,8 @@ import AppRoutes from './AppRoutes/AppRoutes';
 import MyDevice from './DeviceTypeInformer/MyDevice';
 import { toast, ToastContainer } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAppSettings } from 'redux/selectors';
+import { getAppSettings, getUserData } from 'redux/selectors';
 import { useMediaQuery } from 'react-responsive';
-import { getUserData } from 'redux/selectors';
 import { getCurrentUserThunk } from 'redux/auth/auth.thunks';
 import { baseURL } from 'services/baseApi';
 
@@ -23,18 +22,20 @@ export const App = () => {
   useEffect(() => {
     const payload = {
       submitData: {},
-      onSuccess: _data => {},
+      onSuccess: _data => {
+      },
       onError: error => {
         console.log(error);
         toast.error(`${error?.message}`);
       },
     };
-    if (window.location.hostname !== 'localhost') {
+    if (window.location.hostname !== '2localhost') {
       baseURL.setRailWay();
     }
 
-    if (auth.token && window.location.hostname !== 'localhost') {
+    if (auth.token && window.location.hostname === '2localhost') {
       dispatch(getCurrentUserThunk(payload));
+
     }
   }, [dispatch, isMobile, auth.token]);
 
@@ -49,7 +50,6 @@ export const App = () => {
     if (!isDarkTheme) {
       body.classList.remove('Dark');
       body.classList.add('Light');
-      return;
     }
   }, [isDarkTheme]);
 
@@ -64,7 +64,7 @@ export const App = () => {
       <MyDevice />
 
       <ToastContainer
-        position="bottom-left"
+        position='bottom-left'
         autoClose={2000}
         limit={7}
         hideProgressBar={false}

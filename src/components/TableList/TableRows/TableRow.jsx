@@ -12,7 +12,7 @@ import CellStatus from '../TebleCells/CellStatus';
 import CellCheckBox from '../TebleCells/CellCheckBox';
 import CellActions from '../TebleCells/CellActions';
 import Cell from '../TebleCells/Cell';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useTable } from '../TableContext';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -51,9 +51,11 @@ const TableRow = props => {
       navigate(`/${indexPage}/${rowData?._id}`);
     }
   }
+
   function handleToggleActions(ev) {
     setIsActionsOpen(!isActionsOpen);
   }
+
   function handleCloseActions(ev) {
     setIsActionsOpen(false);
   }
@@ -74,6 +76,7 @@ const TableRow = props => {
         window.removeEventListener('click', CloseRowActions);
       }
     }
+
     window.addEventListener('click', CloseRowActions);
     return () => {
       window.removeEventListener('click', CloseRowActions);
@@ -86,13 +89,13 @@ const TableRow = props => {
 
         <div style={styles} className={s.row}>
           {rowActions && (
-            <>
-              <div className={[s.rowStickyEl, 'listRow'].join(' ')}>
-                <CellActions />
 
-                <CellCheckBox />
-              </div>
-            </>
+            <div className={[s.rowStickyEl, 'listRow'].join(' ')}>
+              <CellActions />
+
+              <CellCheckBox />
+            </div>
+
           )}
 
           {tableTitles.map((item, idx) => {

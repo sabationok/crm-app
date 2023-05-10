@@ -42,6 +42,9 @@ export const registeredUserAuthInfo = {
     phone: '', // * string
     status: 'ACTIVE', // * string
     role: 'ADMIN', // * string
+    customRole:{
+      _id:'sd5fb6s5dgbfd5dg3b1f2dg1b3'
+    }
   },
   token:
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJfaWQiOiI2M2JhMzUwZDdlNWQ5NTQyNmUwZmIyYmUiLCJpYXQiOjE2NzMyNzM3Mzh9.OtAyuYn2O6V7Z1WlNkj0lwZGuyyor61Vz-HtGiu_8kU',
